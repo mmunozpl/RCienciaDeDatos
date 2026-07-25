@@ -23,7 +23,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -44,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3519e9152a6936f9aef93bb4ac1254f6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c51ee271f6426d8ddbbd81f2fce6c0c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,6 +126,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -218,42 +301,56 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Capítulo 16. Reproducibilidad, ingeniería, despliegue y ética</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Apéndices</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ap_algebra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Apéndice · Álgebra lineal esencial</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ap_probabilidad.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Apéndice · Probabilidad y estadística esencial</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ap_entorno.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Apéndice · Puesta a punto del entorno</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#de-la-pregunta-al-dato-el-ciclo-completo" id="toc-de-la-pregunta-al-dato-el-ciclo-completo" class="nav-link active" data-scroll-target="#de-la-pregunta-al-dato-el-ciclo-completo">De la pregunta al dato: el ciclo completo</a></li>
+  <li><a href="#datos-ordenados-una-estructura-para-pensar" id="toc-datos-ordenados-una-estructura-para-pensar" class="nav-link" data-scroll-target="#datos-ordenados-una-estructura-para-pensar">Datos ordenados: una estructura para pensar</a></li>
+  <li><a href="#validación-de-datos-del-if-suelto-al-contrato" id="toc-validación-de-datos-del-if-suelto-al-contrato" class="nav-link" data-scroll-target="#validación-de-datos-del-if-suelto-al-contrato">Validación de datos: del <code>if</code> suelto al contrato</a>
+  <ul class="collapse">
+  <li><a href="#perfilar-antes-de-contratar" id="toc-perfilar-antes-de-contratar" class="nav-link" data-scroll-target="#perfilar-antes-de-contratar">Perfilar antes de contratar</a></li>
+  <li><a href="#el-contrato-con-pointblank" id="toc-el-contrato-con-pointblank" class="nav-link" data-scroll-target="#el-contrato-con-pointblank">El contrato con pointblank</a></li>
+  <li><a href="#otras-dos-gramáticas-validate-y-assertr" id="toc-otras-dos-gramáticas-validate-y-assertr" class="nav-link" data-scroll-target="#otras-dos-gramáticas-validate-y-assertr">Otras dos gramáticas: validate y assertr</a></li>
+  <li><a href="#el-contrato-sobre-el-catálogo-entero" id="toc-el-contrato-sobre-el-catálogo-entero" class="nav-link" data-scroll-target="#el-contrato-sobre-el-catálogo-entero">El contrato sobre el catálogo entero</a></li>
+  </ul></li>
+  <li><a href="#datos-ausentes-por-qué-faltan-antes-que-cómo-rellenar" id="toc-datos-ausentes-por-qué-faltan-antes-que-cómo-rellenar" class="nav-link" data-scroll-target="#datos-ausentes-por-qué-faltan-antes-que-cómo-rellenar">Datos ausentes: por qué faltan antes que cómo rellenar</a>
+  <ul class="collapse">
+  <li><a href="#los-tres-mecanismos" id="toc-los-tres-mecanismos" class="nav-link" data-scroll-target="#los-tres-mecanismos">Los tres mecanismos</a></li>
+  <li><a href="#detectar-con-naniar" id="toc-detectar-con-naniar" class="nav-link" data-scroll-target="#detectar-con-naniar">Detectar con naniar</a></li>
+  <li><a href="#imputar-o-no-con-simputation" id="toc-imputar-o-no-con-simputation" class="nav-link" data-scroll-target="#imputar-o-no-con-simputation">Imputar, o no, con simputation</a></li>
+  </ul></li>
+  <li><a href="#los-otros-tres-frentes-duplicados-tipos-y-atípicos" id="toc-los-otros-tres-frentes-duplicados-tipos-y-atípicos" class="nav-link" data-scroll-target="#los-otros-tres-frentes-duplicados-tipos-y-atípicos">Los otros tres frentes: duplicados, tipos y atípicos</a>
+  <ul class="collapse">
+  <li><a href="#duplicados" id="toc-duplicados" class="nav-link" data-scroll-target="#duplicados">Duplicados</a></li>
+  <li><a href="#tipos-la-puerta-de-entrada" id="toc-tipos-la-puerta-de-entrada" class="nav-link" data-scroll-target="#tipos-la-puerta-de-entrada">Tipos: la puerta de entrada</a></li>
+  <li><a href="#valores-atípicos" id="toc-valores-atípicos" class="nav-link" data-scroll-target="#valores-atípicos">Valores atípicos</a></li>
+  <li><a href="#autopsia-de-un-fichero-sospechoso" id="toc-autopsia-de-un-fichero-sospechoso" class="nav-link" data-scroll-target="#autopsia-de-un-fichero-sospechoso">Autopsia de un fichero sospechoso</a></li>
+  </ul></li>
+  <li><a href="#transformación-y-creación-de-variables" id="toc-transformación-y-creación-de-variables" class="nav-link" data-scroll-target="#transformación-y-creación-de-variables">Transformación y creación de variables</a>
+  <ul class="collapse">
+  <li><a href="#recipes-transformar-sin-contaminar" id="toc-recipes-transformar-sin-contaminar" class="nav-link" data-scroll-target="#recipes-transformar-sin-contaminar">recipes: transformar sin contaminar</a></li>
+  <li><a href="#la-receta-como-objeto" id="toc-la-receta-como-objeto" class="nav-link" data-scroll-target="#la-receta-como-objeto">La receta como objeto</a></li>
+  <li><a href="#la-fuga-de-datos" id="toc-la-fuga-de-datos" class="nav-link" data-scroll-target="#la-fuga-de-datos">La fuga de datos</a></li>
+  <li><a href="#variables-con-el-dominio-dentro" id="toc-variables-con-el-dominio-dentro" class="nav-link" data-scroll-target="#variables-con-el-dominio-dentro">Variables con el dominio dentro</a></li>
+  </ul></li>
+  <li><a href="#el-contrato-en-el-tiempo-cuando-el-esquema-cambia" id="toc-el-contrato-en-el-tiempo-cuando-el-esquema-cambia" class="nav-link" data-scroll-target="#el-contrato-en-el-tiempo-cuando-el-esquema-cambia">El contrato en el tiempo: cuando el esquema cambia</a></li>
+  <li><a href="#un-recetario-de-limpieza" id="toc-un-recetario-de-limpieza" class="nav-link" data-scroll-target="#un-recetario-de-limpieza">Un recetario de limpieza</a></li>
+  <li><a href="#la-política-de-datos-medir-no-proclamar" id="toc-la-política-de-datos-medir-no-proclamar" class="nav-link" data-scroll-target="#la-política-de-datos-medir-no-proclamar">La política de datos: medir, no proclamar</a></li>
+  <li><a href="#un-ejemplo-integrador-del-fichero-sucio-al-dato-de-confianza" id="toc-un-ejemplo-integrador-del-fichero-sucio-al-dato-de-confianza" class="nav-link" data-scroll-target="#un-ejemplo-integrador-del-fichero-sucio-al-dato-de-confianza">Un ejemplo integrador: del fichero sucio al dato de confianza</a></li>
+  <li><a href="#la-limpieza-como-artefacto-reproducible" id="toc-la-limpieza-como-artefacto-reproducible" class="nav-link" data-scroll-target="#la-limpieza-como-artefacto-reproducible">La limpieza como artefacto reproducible</a></li>
+  <li><a href="#el-coste-de-no-hacerlo" id="toc-el-coste-de-no-hacerlo" class="nav-link" data-scroll-target="#el-coste-de-no-hacerlo">El coste de no hacerlo</a></li>
+  <li><a href="#síntesis-preparar-es-analizar" id="toc-síntesis-preparar-es-analizar" class="nav-link" data-scroll-target="#síntesis-preparar-es-analizar">Síntesis: preparar es analizar</a></li>
+  <li><a href="#errores-frecuentes-en-la-limpieza-de-datos" id="toc-errores-frecuentes-en-la-limpieza-de-datos" class="nav-link" data-scroll-target="#errores-frecuentes-en-la-limpieza-de-datos">Errores frecuentes en la limpieza de datos</a></li>
+  <li><a href="#lecturas-recomendadas" id="toc-lecturas-recomendadas" class="nav-link" data-scroll-target="#lecturas-recomendadas">Lecturas recomendadas</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -277,11 +374,646 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>Capítulo en preparación.</em> El contenido se redacta a partir del plan (<code>PLAN_R_para_la_Ciencia_de_Datos.md</code>) siguiendo la disciplina del volumen Python: teoría, ejercicios al final y código ejecutable en <code>src/cap10_tema.R</code>, con cada figura y cada cifra regeneradas en R.</p>
+<p><a href="https://mybinder.org/v2/gh/mmunozpl/RCienciaDeDatos/HEAD?urlpath=rstudio" class="btn btn-primary btn-sm" role="button">▶ Ejecutar este capítulo en Binder</a></p>
+<div class="callout callout-style-default callout-note callout-titled" title="El primer arranque tarda unos minutos">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>El primer arranque tarda unos minutos
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>La primera vez que se abre, Binder construye el entorno en la nube (unos 10-20 min); verás una pantalla de progreso. Después queda en caché y abre en segundos. Si parece que no responde, espera a que termine de construirse o vuelve a intentarlo.</p>
+</div>
+</div>
+</div>
+<p>Circula por la profesión una cifra redonda: el 80 % del tiempo de quien trabaja con datos se va en prepararlos. Vale la pena rastrear de dónde viene, porque su versión de pasillo esconde un matiz que importa. La fuente primera es el prefacio de <span class="citation" data-cites="dasu2003exploratory">Dasu y Johnson (<a href="#ref-dasu2003exploratory" role="doc-biblioref">2003</a>)</span>, y su afirmación es más fina que la del rumor: preparar y explorar no solo cuestan el grueso del esfuerzo, es que en ese esfuerzo se decide el grueso del <em>valor</em> —la limpieza no es un peaje que se paga para llegar al análisis, es donde el análisis triunfa o naufraga—. Una encuesta posterior recogida por Forbes <span class="citation" data-cites="press2016cleaning">(<a href="#ref-press2016cleaning" role="doc-biblioref">Press 2016</a>)</span> puso número al reparto: en torno a un 60 % limpiando y un 19 % recolectando, que suman casi ese 80 % legendario; mediciones más recientes lo sitúan más cerca del 40 %, probablemente porque el instrumental ha mejorado. La cifra exacta, pues, baila; lo que no baila es la conclusión de fondo: preparar los datos se lleva la mayor parte del tiempo y, sobre todo, determina la mayor parte del resultado.</p>
+<p>Esa conclusión es la tesis con la que arranca esta parte del libro: preparar los datos no es el paso aburrido que hay que despachar <em>antes</em> del trabajo interesante; es, de pleno derecho, trabajo interesante. Cuándo dos filas son la misma, qué representa un hueco y si se rellena, cuándo un valor es imposible y cuándo solo llamativo: resolver cada una de esas dudas mueve los resultados igual que la elección del modelo posterior —con el agravante de que el modelo figura en la sección de métodos, a la vista de todos, mientras estas resoluciones se quedan calladas en el fondo de un <em>script</em> que nadie relee—. Piénsese en lo que está en juego: una decisión de limpieza puede cambiar la conclusión de un estudio —incluir o no un grupo de valores extremos altera una media, un criterio de duplicados infla o desinfla un recuento— y, sin embargo, mientras el modelo se somete a revisión por pares, esas decisiones rara vez se cuentan. La consecuencia es incómoda: la parte del análisis que más puede torcer el resultado es también la que menos se audita. Este capítulo quiere invertir eso, tratando cada decisión de limpieza con el mismo rigor —declararla, justificarla, hacerla reproducible— que se le exige al método estadístico. Un modelo del montón sobre datos bien preparados todavía se puede salvar; un modelo deslumbrante sobre datos sucios o mal comprendidos es un espejismo que aparenta rigor y no lo tiene.</p>
+<p>La escena es familiar para cualquiera que haya trabajado con datos reales. Llega un fichero —un CSV exportado de otro sistema, una descarga de un portal, una hoja que alguien rellenó a mano— y a primera vista parece correcto: se abre, tiene columnas, tiene filas. El análisis avanza sin tropiezos hasta que un resultado imposible —una media negativa donde no puede haberla, un grupo con más miembros que la población— obliga a mirar atrás, y entonces aparecen los fantasmas: la coma que se leyó como punto, el «N/A» que entró como texto, la fila repetida que infló un recuento. Cada uno de esos fantasmas se sembró en la carga y se descubrió tres pasos después, cuando ya había contaminado todo lo intermedio. Este capítulo enseña a cazarlos donde entran —no donde afloran— y, más aún, a dejar constancia de la caza, para que el mismo fantasma no vuelva sin que nadie se entere. El cambio de mentalidad que propone es sencillo de enunciar y difícil de interiorizar: no confiar en los datos hasta haberlos interrogado, y no confiar en la propia limpieza hasta haberla verificado. Desconfianza metódica, no cinismo —los datos suelen estar en su mayoría bien—, pero sí la costumbre de comprobar antes de creer, que es lo que separa un resultado sólido de uno afortunado.</p>
+<p>Recogemos, además, un testigo. El cap.&nbsp;9 descansaba en un lujo que casi no se nota: un catálogo que llega impecable, con tipos correctos y ausentes honradamente marcados. Un dato de verdad casi nunca tiene esa buena educación —el mismo catálogo de Spotify <span class="citation" data-cites="spotifytracks">(<a href="#ref-spotifytracks" role="doc-biblioref"><span class="nocase">maharshipandya</span> 2022</a>)</span> arrastra rasgos escritos con coma decimal, nombres de género con erratas y lecturas de tempo que no pueden existir—, y devolverle la compostura, comprobando que la tiene, es una profesión aparte. A ella dedicamos el capítulo. El recorrido: primero el plano —el ciclo entero (§10.1) y la forma ordenada que lo vuelve manejable (§10.2)—; luego el instrumental —el contrato que valida sin que haya que acordarse (§10.3); el trato de los huecos, que arranca con la pregunta de por qué están (§10.4); la repetición, los tipos mal interpretados y los valores extremos (§10.5); y la transformación que amolda el dato a la pregunta sin filtrarle la respuesta (§10.6)—. Y al cierre, la política que este volumen aplica y aquí deja por escrito (§10.9) —medir en vez de proclamar— junto a un caso que degrada aposta una porción del catálogo para devolverla al orden con método (§10.10). Como en todo el libro, ninguna cifra se teclea sin haberla corrido antes en R.</p>
+<section id="de-la-pregunta-al-dato-el-ciclo-completo" class="level2">
+<h2 class="anchored" data-anchor-id="de-la-pregunta-al-dato-el-ciclo-completo">De la pregunta al dato: el ciclo completo</h2>
+<p>Conviene un mapa antes de bajar a cada técnica. El trabajo con datos no es una línea recta de la carga al informe, sino un ciclo (figura&nbsp;10.1): se importa, se valida contra lo que se espera, se limpia lo que no cumple, se transforma para la pregunta, se analiza, se comunica —y casi siempre se vuelve atrás, porque el análisis revela un defecto que la validación no anticipó, o la pregunta cambia y pide otra transformación—. Las herramientas de los capítulos anteriores cubren ya varios tramos: leer del disco (cap.&nbsp;5), la gramática de <code>dplyr</code> para transformar (cap.&nbsp;8), el motor para la escala (cap.&nbsp;9). Este capítulo llena el hueco entre importar y analizar —validar y limpiar—, el tramo que más tiempo consume y el que más silenciosamente decide el resultado.</p>
+<p>Cada etapa del ciclo tiene, además, su herramienta idiomática en R, y buena parte del capítulo consiste en presentarlas en su sitio: para validar, un contrato con <code>pointblank</code>, <code>validate</code> o <code>assertr</code>; para diagnosticar la ausencia, <code>naniar</code>; para tratarla, <code>simputation</code>; para transformar sin contaminar, <code>recipes</code>. No son bibliotecas sueltas que aprender de memoria, sino piezas que encajan en un mismo relato —el de convertir un fichero de procedencia dudosa en un dato que se puede defender—. Verlas como etapas de un ciclo, y no como una lista de paquetes, es la diferencia entre memorizar funciones y entender un oficio.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap10/fig_01.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;10.1.</strong> <strong>El ciclo del trabajo con datos.</strong> No es una tubería de un solo sentido: el análisis descubre defectos que obligan a volver a validar y limpiar, y una pregunta nueva pide otra transformación. Validar y limpiar (resaltado) es el tramo que este capítulo cubre —el que más tiempo consume y el que más calla sobre cómo condiciona lo que viene después—.</figcaption>
+</figure>
+</div>
+<p>Una idea gobierna el ciclo entero: cada etapa deja una <em>huella</em> declarada. La validación deja un informe de qué se comprobó; la limpieza, un registro de qué se reparó y con qué criterio; la transformación, una receta reproducible. Un flujo que no deja huella no es reproducible aunque funcione: el número final existe, pero nadie —ni su propio autor, meses después— sabe de dónde salió. Todo el capítulo empuja hacia esa disciplina, que la última sección eleva a política.</p>
+<p>Merece subrayarse un rasgo del ciclo que se pasa por alto: es <em>iterativo, no lineal</em>, y las flechas de vuelta no son un fallo del proceso, son el proceso. La primera validación se escribe con lo que uno <em>cree</em> saber del dato; el análisis descubre un patrón que delata un defecto que la validación no anticipaba —una unidad mal medida, un código que significaba otra cosa—, y eso obliga a volver atrás, refinar el contrato y limpiar de nuevo. Quien espera recorrer el ciclo una sola vez, de la carga al informe, subestima siempre el trabajo; quien lo diseña para iterar —dejando cada etapa reproducible, para poder rehacerla barata cuando la de más abajo enseña algo— lo recorre muchas veces sin sufrir. La reproducibilidad no es solo una virtud para el lector futuro: es lo que hace que el propio ciclo sea asumible, porque convierte cada vuelta atrás en volver a ejecutar un guion, no en rehacer a mano un trabajo perdido.</p>
+<p>El reparto del esfuerzo entre las etapas también sorprende a quien empieza. La intuición dice que el análisis y el modelo se llevan el grueso del tiempo; la experiencia, que se lo llevan la validación y la limpieza —el 80 % con el que abrimos—, y que el modelo, una vez los datos son de fiar, suele ser lo rápido. No porque modelar sea trivial, sino porque un modelo sobre datos limpios es un problema acotado, mientras que limpiar es un problema abierto: no hay un «terminado» evidente, cada defecto reparado puede destapar otro, y saber cuándo el dato está <em>suficientemente</em> limpio para la pregunta —ni menos, que contamina; ni más, que malgasta— es un juicio que solo da la práctica. Por eso este tramo del ciclo es el que más distingue al principiante del veterano: no en las herramientas, que son públicas, sino en el criterio de cuándo parar.</p>
+</section>
+<section id="datos-ordenados-una-estructura-para-pensar" class="level2">
+<h2 class="anchored" data-anchor-id="datos-ordenados-una-estructura-para-pensar">Datos ordenados: una estructura para pensar</h2>
+<p>Antes de validar o limpiar conviene fijar la forma que hace pensable cada etapa. El cap.&nbsp;8 presentó los <em>datos ordenados</em> (<em>tidy data</em>) como destino del remodelado; aquí los recuperamos como <em>doctrina</em>, porque son el sustrato de todo lo que sigue. La formulación canónica es de Wickham <span class="citation" data-cites="wickham2014tidy">(<a href="#ref-wickham2014tidy" role="doc-biblioref">Wickham 2014</a>)</span> y se resume en tres exigencias: a cada variable le corresponde una columna; a cada observación, una fila; y a cada clase de unidad observada, su propia tabla. Una tabla que las cumple es <em>tidy</em>; una que no, está <em>desordenada</em> (<em>messy</em>), y el mismo artículo cataloga las cinco formas más comunes de estarlo, que conviene reconocer porque cada una tiene su remedio: los encabezados que son valores y no nombres de variable (un año por columna, que se arregla con <code>pivot_longer</code>); varias variables apretadas en una columna (un <code>"pop/rock"</code> que se separa con <code>separate</code>); las variables repartidas entre filas y columnas a la vez; varios tipos de unidad mezclados en una tabla (pistas y artistas juntos, que piden dos tablas y una clave); y un mismo tipo de unidad esparcido por varias tablas (que se unen con los <em>joins</em> del cap.&nbsp;8). Reconocer cuál de las cinco tiene delante uno es la mitad de ordenar; la otra mitad es aplicar el verbo que la deshace. Casi todo el trabajo de ordenar, en la práctica, es una combinación de <code>pivot_longer</code>, <code>separate</code> y algún <em>join</em> —las herramientas del cap.&nbsp;8—, guiada por la pregunta de qué es aquí una variable y qué una observación. Esa pregunta no siempre tiene respuesta única: en una tabla de escuchas por mes, ¿es «mes» una variable o son doce variables? Depende del análisis. La forma ordenada correcta es la que pone en columnas las variables <em>de la pregunta que se va a hacer</em>, y por eso ordenar no es un paso mecánico previo, sino una decisión que ya mira hacia el análisis.</p>
+<p>La razón de que importe no es estética, es operativa, y conviene entenderla porque gobierna todo el capítulo. Cuando cada variable es una columna, validar es comprobar columnas, limpiar es operar sobre columnas y transformar es derivar columnas de columnas —las tres etapas hablan el mismo idioma, el de la gramática de <code>dplyr</code>—. La forma ordenada es, además, la que esperan todas las herramientas que vamos a usar: pointblank valida por columna, naniar resume la ausencia por columna, recipes transforma por columna. Una tabla desordenada no es que sea fea; es que deja a esas herramientas sin superficie sobre la que agarrar, y obliga a un remodelado previo antes de poder siquiera empezar. Hay en esto una economía de escala del conocimiento: aprender una vez la forma <em>tidy</em> y los dos verbos que llevan a ella (<code>pivot_longer</code>, <code>pivot_wider</code>) desbloquea todo un ecosistema de herramientas que la presuponen —el <em>tidyverse</em> entero, y buena parte de los paquetes de calidad y modelado—. Es la ventaja de una convención compartida: en vez de que cada herramienta invente su formato, todas acuerdan uno, y quien lo domina puede encadenarlas sin traducir entre pasos. El orden, en ese sentido, no es solo una propiedad de una tabla; es el idioma común que hace que las piezas encajen. En una tabla desordenada, en cambio, cada operación exige primero adivinar dónde vive la variable: repartida por varias columnas, escondida en los nombres, mezclada con otra. El orden no es un lujo previo; es lo que hace que las herramientas del capítulo —el contrato que valida por columna, la imputación que trabaja por columna, la receta que transforma por columna— tengan sobre qué operar. Por eso ordenar es la primera limpieza, y las demás la presuponen.</p>
+<p>Un ejemplo pequeño fija la idea. Supongamos que las escuchas de tres pistas llegan en la forma en que un humano las tabularía —un año por columna—, que es cómoda de leer pero desordenada: el año, que es una variable, está repartido por los nombres de las columnas. Para trabajar hay que enderezarla:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ancho    <span class="co"># pista  e2023  e2024      &lt;- desordenado: el ano vive en los nombres</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>tidy <span class="ot">&lt;-</span> ancho <span class="sc">|&gt;</span> <span class="fu">pivot_longer</span>(<span class="fu">starts_with</span>(<span class="st">"e"</span>), <span class="at">names_to =</span> <span class="st">"anio"</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">names_prefix =</span> <span class="st">"e"</span>, <span class="at">values_to =</span> <span class="st">"escuchas"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>tidy     <span class="co"># pista  anio  escuchas    &lt;- ordenado: cada variable, una columna</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La versión ancha tiene tantas columnas como años; la ordenada, siempre tres, crezca lo que crezca el histórico. Y sobre la ordenada, agrupar por año, filtrar por escuchas o validar el rango de <code>anio</code> es inmediato, porque cada cosa es una columna. La desordenada obligaría a nombrar columnas a mano en cada operación —y a reescribir el código cada vez que llega un año nuevo—. Esa fragilidad es el síntoma de que la estructura pelea contra la pregunta en vez de servirla.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>«Ordenado» no es sinónimo de «bueno para todo». La forma <em>tidy</em> —larga, una fila por observación— es óptima para transformar y analizar, pero no para almacenar ni para mostrar. Una serie de escuchas por mes cabe más compacta en forma ancha (un mes por columna), y una tabla de informe se lee mejor ancha. La regla práctica: <em>tidy</em> para trabajar, ancho para guardar y presentar, y <code>pivot_longer</code> / <code>pivot_wider</code> (cap.&nbsp;8) para ir de una forma a otra según la etapa. El orden es un estado de trabajo, no una virtud permanente del fichero.</p>
+</div>
+</div>
+</section>
+<section id="validación-de-datos-del-if-suelto-al-contrato" class="level2">
+<h2 class="anchored" data-anchor-id="validación-de-datos-del-if-suelto-al-contrato">Validación de datos: del <code>if</code> suelto al contrato</h2>
+<p>El cap.&nbsp;3 enseñó el arte de fallar a tiempo: que la excepción lleve encima su propio diagnóstico y pare la ejecución antes de que un fallo siga adelante haciéndose pasar por resultado. Y el integrador del cap.&nbsp;5 trajo una primera validación hecha a mano: una función con <code>stopifnot</code> que repasaba las pistas y se plantaba ante un género que no reconocía o un tempo que no podía ser. Sirvió, pero adolece de los males de cualquier <code>if</code> disperso. La regla vive sepultada en código imperativo, y para saber qué se le pide al dato hay que leerse el bucle entero. Depende de que alguien lo invoque, y se para en cuanto tropieza con el primer problema: bueno para cortar el paso, malo para diagnosticar. Y añadir una comprobación nueva es sumar otra rama que mantener.</p>
+<p>Lo que propone este capítulo es <em>describir</em> —en lugar de programar— las condiciones que el dato ha de satisfacer. La validación de esquema verifica, automática y a la vista, que cada columna trae el tipo, el rango y las restricciones que afirmamos que trae. Lo que resulta es un <strong>contrato de datos</strong> (<em>data contract</em>), y aventaja a las comprobaciones sueltas por partida doble (figura&nbsp;10.2). Por un lado documenta: el contrato es una especificación legible de lo esperado, un pacto que se puede cotejar con quien entrega los datos. Por otro, saca a la luz lo que pasaría inadvertido: el duplicado, la errata de género o el tempo imposible quedan atrapados según cruzan la puerta, y no tres etapas más adelante, cuando ya se ha perdido el rastro de la fila que los trajo. Esta segunda ventaja es la decisiva, y merece un nombre: <em>fallar pronto</em> (<em>fail fast</em>). Un error caza­do en la frontera cuesta un vistazo al informe; el mismo error propagándose por el análisis cuesta horas de rastrear hacia atrás desde un resultado imposible hasta la fila que lo causó, deshaciendo cada paso intermedio. La distancia entre donde el error entra y donde aflora es, literalmente, el coste de no validar; el contrato la reduce a cero, poniendo la comprobación exactamente donde el dato cruza al sistema.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap10/fig_02.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;10.2.</strong> <strong>El contrato como frontera.</strong> La validación se coloca en el límite por donde entran los datos: lo que cumple el contrato pasa como dato de confianza; lo que no, produce un informe de fallos —no un resultado extraño más adelante—. Cazar el error donde entra, y no donde aflora, es la diferencia entre un diagnóstico y un misterio.</figcaption>
+</figure>
+</div>
+<section id="perfilar-antes-de-contratar" class="level3">
+<h3 class="anchored" data-anchor-id="perfilar-antes-de-contratar">Perfilar antes de contratar</h3>
+<p>Un contrato se escribe sobre lo que se sabe del dato, y ante un fichero ajeno lo primero es <em>averiguarlo</em>. El perfilado (<em>data profiling</em>) recorre la tabla y devuelve un retrato: qué tipo tiene cada columna, en qué rango se mueve, cuántos huecos trae, cuántos valores distintos, cómo se distribuye. En R lo dan <code>skimr::skim()</code> —un resumen compacto por columna— y <code>pointblank::scan_data()</code> —un informe navegable con distribuciones y correlaciones—. El retrato no es el contrato, pero lo dicta: al ver que <code>popularity</code> va de 0 a 100 sin huecos, que <code>track_genre</code> tiene 6 valores y que la clave se repite, uno ya sabe qué reglas escribir. Saltarse el perfilado y contratar a ciegas produce el error clásico —una regla que exige lo que el dato nunca prometió, o que calla lo que de verdad importa—. El orden sano es siempre el mismo: perfilar para entender, contratar para exigir, validar para certificar.</p>
+</section>
+<section id="el-contrato-con-pointblank" class="level3">
+<h3 class="anchored" data-anchor-id="el-contrato-con-pointblank">El contrato con pointblank</h3>
+<p>La herramienta idiomática para validar tablas en R es <strong>pointblank</strong> <span class="citation" data-cites="pointblankdocs">(<a href="#ref-pointblankdocs" role="doc-biblioref">Iannone y Vargas 2025</a>)</span>. Su modelo es un <em>agente</em> al que se le encadenan las reglas del contrato —una por invariante— y que luego <em>interroga</em> a los datos y levanta un informe. Volvamos al catálogo y recortemos una porción cómoda de manejar: los seis estilos que reúne el vector <code>GENEROS</code> de abajo, depurados ya de claves naturales repetidas, 5 916 pistas en total. Su contrato cabe en unas líneas:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pointblank); <span class="fu">library</span>(dplyr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>GENEROS <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"classical"</span>, <span class="st">"hip-hop"</span>, <span class="st">"jazz"</span>, <span class="st">"pop"</span>, <span class="st">"reggaeton"</span>, <span class="st">"rock"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>agente <span class="ot">&lt;-</span> <span class="fu">create_agent</span>(<span class="at">tbl =</span> sucio,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">actions =</span> <span class="fu">action_levels</span>(<span class="at">warn_at =</span> <span class="dv">1</span>, <span class="at">stop_at =</span> <span class="fl">0.05</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">col_vals_between</span>(popularity, <span class="dv">0</span>, <span class="dv">100</span>) <span class="sc">|&gt;</span>       <span class="co"># dominio: 0 a 100</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">col_vals_gt</span>(tempo, <span class="dv">0</span>) <span class="sc">|&gt;</span>                       <span class="co"># tempo estrictamente positivo</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">col_vals_in_set</span>(track_genre, GENEROS) <span class="sc">|&gt;</span>       <span class="co"># genero en el conjunto valido</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rows_distinct</span>(<span class="fu">vars</span>(track_id, track_genre)) <span class="sc">|&gt;</span>  <span class="co"># la clave natural es unica</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">interrogate</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Cada <code>col_vals_*</code> declara una expectativa; <code>action_levels</code> fija cuándo avisar (<code>warn_at = 1</code>: un solo fallo ya avisa) y cuándo abortar (<code>stop_at = 0.05</code>: un 5 % de fallos detiene el <em>pipeline</em>). El <code>interrogate()</code> ejecuta el contrato y guarda el veredicto regla por regla. Interrogado sobre un fichero al que hemos sembrado defectos a propósito —lo construimos en el integrador—, el informe los caza todos:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># resumen del agente (n = filas comprobadas, fallos por regla)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   regla             columna                 n   fallos  aviso</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 col_vals_between  popularity           5941       12   TRUE</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 col_vals_gt       tempo                5941       19   TRUE</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 col_vals_in_set   track_genre          5941       40   TRUE</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 rows_distinct     track_id,track_genre 5941       50   TRUE</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El contrato no solo dice «hay errores»: dice <em>cuántos</em>, de <em>qué tipo</em> y en <em>qué columna</em>. Doce popularidades fuera de rango, diecinueve tempos imposibles, cuarenta géneros con errata de caja, cincuenta filas implicadas en duplicados. Ese informe es un diagnóstico accionable, y —esto es lo decisivo— es el mismo objeto que documenta lo que se espera de los datos: el contrato y su verificación son una sola cosa.</p>
+<p>pointblank tiene tres registros de uso, y conviene conocerlos. El del <em>agente</em> que acabamos de ver produce un informe visual (<code>get_agent_report()</code>) pensado para que lo lea una persona: una tabla con una fila por regla, en verde lo que pasa y en rojo lo que falla, ideal para un panel de calidad de datos que se revisa a diario. El segundo es la <em>interfaz funcional</em>: las mismas comprobaciones como funciones sueltas —<code>test_col_vals_between()</code> devuelve <code>TRUE</code>/<code>FALSE</code>, <code>expect_col_vals_between()</code> se integra en las pruebas de <code>testthat</code> (cap.&nbsp;3)—, para blindar los datos dentro de la batería de tests del proyecto. Y el tercero es el <em>perfilado</em>: <code>scan_data()</code> recorre una tabla nueva y genera un informe descriptivo —tipos, rangos, ausentes, distribuciones— que sirve para <em>descubrir</em> el esquema antes de escribirlo. El orden natural de trabajo con un fichero desconocido es: perfilar para entenderlo, escribir el contrato que lo describe, y dejarlo puesto como test que se ejecuta en cada carga.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># interfaz funcional: una comprobacion booleana, para condicionar un flujo</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test_col_vals_between</span>(musica, popularity, <span class="dv">0</span>, <span class="dv">100</span>)   <span class="co"># TRUE</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># integrada en testthat: falla la prueba si el contrato no se cumple</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_col_vals_in_set</span>(musica, track_genre, GENEROS)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Puestos así, los tres registros cubren el ciclo de vida entero de la calidad. El perfilado descubre el esquema una vez; el contrato lo fija; los tests lo vigilan en cada carga. En un flujo que corre sin supervisión —una descarga diaria, un <em>pipeline</em> de producción— pointblank puede además <em>avisar</em>: sus umbrales de acción tienen un tercer nivel, <code>notify_at</code>, que dispara una notificación (un correo, un mensaje) cuando la calidad cae por debajo de lo tolerable sin llegar a abortar. Así, la validación deja de ser un gesto puntual en el desarrollo y se vuelve un centinela permanente: el día que la fuente cambie —un proveedor que empieza a mandar la coma decimal, un sensor que se desajusta— el contrato lo detecta en la primera carga y avisa, en lugar de dejar que el defecto se filtre en silencio durante semanas hasta que un resultado imposible lo delate. Vigilar la calidad de forma continua es, a la larga, más barato que auditarla a mano de vez en cuando.</p>
+</section>
+<section id="otras-dos-gramáticas-validate-y-assertr" class="level3">
+<h3 class="anchored" data-anchor-id="otras-dos-gramáticas-validate-y-assertr">Otras dos gramáticas: validate y assertr</h3>
+<p>pointblank no está solo. <strong>validate</strong> <span class="citation" data-cites="validatedocs">(<a href="#ref-validatedocs" role="doc-biblioref">Loo y Jonge 2024</a>)</span> lleva la idea al extremo declarativo: las reglas son objetos que se guardan, se versionan y se aplican con <code>confront()</code>, separando por completo el <em>qué</em> se exige del <em>cómo</em> se comprueba.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(validate)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>reglas <span class="ot">&lt;-</span> <span class="fu">validator</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">pop_rango  =</span> <span class="fu">in_range</span>(popularity, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">100</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">tempo_pos  =</span> tempo <span class="sc">&gt;</span> <span class="dv">0</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">genero_dom =</span> track_genre <span class="sc">%in%</span> GENEROS,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">energy_01  =</span> <span class="fu">in_range</span>(energy, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">confront</span>(musica, reglas))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         name items passes fails nNA</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    pop_rango  5916   5916     0   0</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    tempo_pos  5916   5915     0   1    # 1 NA (el tempo cero, ya marcado)</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   genero_dom  5916   5916     0   0</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    energy_01  5916   5916     0   0</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El informe de <code>confront</code> separa con nitidez tres desenlaces por regla: lo que pasa, lo que falla y lo que es <code>NA</code> —una distinción que importa, porque un <code>NA</code> no es un fallo, es una ausencia que la regla no puede juzgar—. Que la clave sean objetos (<code>validator</code>) y no código significa que las reglas se guardan en un fichero aparte, se versionan con el proyecto y se comparten entre <em>scripts</em>: el contrato deja de vivir en un punto del <em>pipeline</em> y se vuelve un activo del proyecto, como los datos o el modelo.</p>
+<p><strong>assertr</strong> <span class="citation" data-cites="assertrdocs">(<a href="#ref-assertrdocs" role="doc-biblioref">Fischetti 2023</a>)</span>, en cambio, encaja la validación <em>dentro</em> de una tubería de <code>dplyr</code>, para fallar en el sitio y en el momento: <code>verify()</code> comprueba una condición sobre la tabla entera, <code>assert()</code> una sobre una columna, e <code>insist()</code> una regla estadística (como «ningún valor a más de <span class="math inline">\(n\)</span> desviaciones»). Si algo no se cumple, la tubería se detiene ahí, con el diagnóstico puesto.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(assertr)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>musica <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">verify</span>(<span class="fu">nrow</span>(musica) <span class="sc">==</span> <span class="dv">5916</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assert</span>(<span class="fu">within_bounds</span>(<span class="dv">0</span>, <span class="dv">100</span>), popularity) <span class="sc">|&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assert</span>(<span class="fu">in_set</span>(GENEROS), track_genre) <span class="sc">|&gt;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">analizar</span>()    <span class="co"># solo se ejecuta si las tres verificaciones pasan</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Los tres estilos comparten la filosofía y difieren en el énfasis (tabla&nbsp;10.1): pointblank brilla en el <em>informe</em> legible para un humano (ideal para un panel de calidad de datos); validate, en gestionar reglas como un activo versionado; assertr, en blindar una tubería concreta en producción. La elección es de contexto, no de corrección; lo que ninguno de los tres perdona es dejar la expectativa sin declarar.</p>
+<table class="caption-top table">
+<caption>Tres gramáticas de validación en R. No compiten: cada una encaja mejor en un punto del flujo, y muchos proyectos usan más de una.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Herramienta</th>
+<th style="text-align: left;">Modelo</th>
+<th style="text-align: left;">Brilla en</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">pointblank</td>
+<td style="text-align: left;">agente que interroga y levanta un informe</td>
+<td style="text-align: left;">paneles de calidad, informe visual, integración con testthat</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">validate</td>
+<td style="text-align: left;">reglas como objetos que se guardan y versionan</td>
+<td style="text-align: left;">el contrato como activo del proyecto, reutilizable entre <em>scripts</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">assertr</td>
+<td style="text-align: left;"><code>verify</code>/<code>assert</code>/<code>insist</code> dentro de la tubería</td>
+<td style="text-align: left;">blindar un <em>pipeline</em> concreto, fallar en el sitio</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="el-contrato-sobre-el-catálogo-entero" class="level3">
+<h3 class="anchored" data-anchor-id="el-contrato-sobre-el-catálogo-entero">El contrato sobre el catálogo entero</h3>
+<p>Hasta aquí hemos trabajado sobre la rebanada de seis géneros, cómoda para ilustrar. Pero el contrato vale precisamente porque escala: el mismo agente, apuntado al catálogo completo —113 999 pistas, 114 géneros—, lo audita de una pasada y revela lo que ninguna inspección a ojo vería a ese tamaño.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">create_agent</span>(catalogo, <span class="at">actions =</span> <span class="fu">action_levels</span>(<span class="at">warn_at =</span> <span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">col_vals_between</span>(popularity, <span class="dv">0</span>, <span class="dv">100</span>) <span class="sc">|&gt;</span> <span class="fu">col_vals_between</span>(energy, <span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">col_vals_gt</span>(tempo, <span class="dv">0</span>) <span class="sc">|&gt;</span> <span class="fu">rows_distinct</span>(<span class="fu">vars</span>(track_id, track_genre)) <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">interrogate</span>()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; popularity  0-100 :      0 fallos    # el fichero procesado ya la corrigio</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; energy      0-1   :      0 fallos</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tempo       &gt; 0   :    157 fallos    # imposibles, todo el catalogo</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; clave unica       :    894 fallos    # clave (id,genero) repetida</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El catálogo procesado del cap.&nbsp;5 ya tiene la popularidad y la energía en su dominio —esas reparaciones se hicieron aguas arriba—, pero arrastra todavía 157 tempos cero y 894 filas implicadas en claves duplicadas: los mismos defectos que descubrimos por casualidad en capítulos anteriores, ahora <em>cuantificados</em> por un contrato explícito en lugar de tropezados. Esa es la diferencia entre saber que «hay algún duplicado» y saber que hay exactamente 894 filas afectadas, en qué columna y bajo qué regla. Y como el contrato es el mismo objeto para la rebanada y para el catálogo, escribirlo una vez sirve para los dos: la validación no se rehace al cambiar de tamaño, se reaplica. A la escala del cap.&nbsp;9, donde el dato no cabe en memoria, la misma lógica se lleva al motor —pointblank valida también tablas de base de datos sin materializarlas—, de modo que un contrato puede vigilar un flujo de millones de filas con el mismo puñado de reglas.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un contrato es tan bueno como su severidad. Poner <code>stop_at</code> demasiado alto —«que no aborte hasta un 30 % de fallos»— convierte el cortafuegos en un adorno: los datos malos pasan y el problema reaparece corriente abajo. Ponerlo demasiado bajo —abortar al primer <code>NA</code> legítimo— vuelve el <em>pipeline</em> tan frágil que se acaba desactivando el contrato «para que funcione», que es peor que no tenerlo. El umbral se calibra con conocimiento del dominio: cuántos fallos son tolerables sin corromper el análisis, y a partir de cuántos hay que parar y avisar a quien produce los datos. Un contrato sin ese juicio detrás es teatro de calidad.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="datos-ausentes-por-qué-faltan-antes-que-cómo-rellenar" class="level2">
+<h2 class="anchored" data-anchor-id="datos-ausentes-por-qué-faltan-antes-que-cómo-rellenar">Datos ausentes: por qué faltan antes que cómo rellenar</h2>
+<p>R trata la ausencia como ciudadana de primera: el <code>NA</code> tipado del cap.&nbsp;2 (<code>NA_real_</code>, <code>NA_integer_</code>…) no es un valor centinela disfrazado, sino una marca propia que se propaga con honestidad por la aritmética. Esa base evita la primera trampa —confundir el hueco con un cero o con una cadena vacía—, pero no la más importante, que es conceptual: antes de decidir cómo rellenar un hueco hay que preguntarse <em>por qué</em> está.</p>
+<section id="los-tres-mecanismos" class="level3">
+<h3 class="anchored" data-anchor-id="los-tres-mecanismos">Los tres mecanismos</h3>
+<p>Que un valor esté ausente es, en sí mismo, un dato —y a veces uno muy informativo—. La estadística clásica <span class="citation" data-cites="rubin1976inference littlerubin2019missing">(<a href="#ref-rubin1976inference" role="doc-biblioref">Rubin 1976</a>; <a href="#ref-littlerubin2019missing" role="doc-biblioref">Little y Rubin 2019</a>)</span> distingue tres mecanismos de ausencia, y la distinción no es académica: decide qué tratamiento es legítimo (figura&nbsp;10.3). <strong>MCAR</strong> (<em>missing completely at random</em>): el hueco es independiente de todo, un sensor que falla al azar; se puede ignorar sin sesgo, aunque se pierda precisión. <strong>MAR</strong> (<em>missing at random</em>): el hueco depende de <em>otras</em> variables observadas —la energía falta más en la música clásica—; es imputable usando esas otras columnas. <strong>MNAR</strong> (<em>missing not at random</em>): el hueco depende del <em>propio</em> valor ausente —los ingresos altos se declaran menos—; ninguna imputación lo arregla sin un modelo del mecanismo, y a menudo la única honradez es informar del sesgo. La pregunta «¿por qué falta?» viene, pues, antes que «¿con qué lo relleno?»: el mecanismo manda sobre el método.</p>
+<p>La dificultad práctica es que los tres mecanismos <em>se ven iguales en la tabla</em> —un hueco es un hueco—, y distinguirlos exige razonar sobre <em>cómo se generaron</em> los datos, no solo sobre lo que muestran. Los datos delatan a veces el MAR —cuando la ausencia correlaciona con una columna observada, como veremos—, pero el MNAR es, por definición, indetectable desde dentro: si los sueldos altos se declaran menos, no hay en la tabla ninguna columna que lo revele, porque justamente los valores que lo probarían son los que faltan. Ahí la estadística toca su límite y empieza el conocimiento del dominio: solo saber cómo se recogieron los datos permite sospechar un MNAR. Por eso la ausencia es el frente de la limpieza donde más se paga la ignorancia del contexto y menos ayuda la técnica pura; una imputación impecablemente ejecutada sobre un mecanismo mal diagnosticado produce números peores que el hueco que rellenó.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap10/fig_03.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;10.3.</strong> <strong>Los tres mecanismos de ausencia.</strong> Qué causa el hueco decide qué tratamiento es legítimo. MCAR se puede ignorar; MAR se imputa usando las columnas de las que depende; MNAR no se arregla imputando —hace falta modelar el mecanismo o, al menos, declarar el sesgo—. El método correcto empieza por diagnosticar el mecanismo, no por elegir una función de relleno.</figcaption>
+</figure>
+</div>
+</section>
+<section id="detectar-con-naniar" class="level3">
+<h3 class="anchored" data-anchor-id="detectar-con-naniar">Detectar con naniar</h3>
+<p>El paquete <strong>naniar</strong> <span class="citation" data-cites="naniardocs">(<a href="#ref-naniardocs" role="doc-biblioref">Tierney y Cook 2023</a>)</span> da el instrumental para <em>mirar</em> la ausencia antes de tratarla —y «mirar» es literal: buena parte de naniar son visualizaciones—. <code>vis_miss()</code> pinta la tabla entera con las celdas ausentes resaltadas, de modo que un patrón —columnas que faltan juntas, filas enteras vacías— salta a la vista; <code>gg_miss_upset()</code> muestra qué combinaciones de columnas faltan a la vez, revelando si las ausencias se agrupan (síntoma de un fallo común) o son independientes. Antes de cualquier número, esas figuras orientan el diagnóstico: una mancha vertical delata una columna rota; una banda horizontal, filas que llegaron truncadas. Para el resumen cuantitativo, <code>miss_var_summary()</code> tabula cuánto falta por columna; <code>n_miss()</code> y <code>pct_miss()</code> dan el total. Sobre una copia de la rebanada a la que hemos quitado energía (más en la clásica) y bailabilidad (al azar):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">miss_var_summary</span>(d)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   variable     n_miss pct_miss</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   energy          412    6.96     # el grueso de los huecos</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   danceability     60    1.01</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   tempo             1    0.02</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">n_miss</span>(d)                            <span class="co"># 473 celdas ausentes en total (1.6 %)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Un vistazo al reparto de la ausencia por columna (figura&nbsp;10.4) orienta el trabajo: casi todo el hueco está en una variable, y conviene atacarlo ahí antes que dispersar el esfuerzo. Pero el número no dice el mecanismo; la estructura, sí. Cruzar la ausencia con otra columna delata el patrón: la energía no falta al azar, falta ocho veces más en la clásica que en el resto —un MAR de manual—.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap10/fig_04.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;10.4.</strong> <strong>Ausencia por variable</strong> (<code>miss_var_summary</code>). El 6,96 % de la energía falta —el grueso del problema—, frente a un 1 % de la bailabilidad y una sola celda de tempo. Concentrar el diagnóstico donde está el hueco, en vez de repartirlo, es el primer paso: no todas las columnas merecen el mismo esfuerzo de imputación.</figcaption>
+</figure>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">group_by</span>(track_genre) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">pct_NA =</span> <span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(<span class="fu">is.na</span>(energy)))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; classical 26.4  hip-hop 4.2  jazz 2.9  pop 2.9  reggaeton 2.6  rock 4.0</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>naniar formaliza esa intuición con la <em>matriz de sombra</em> (<code>bind_shadow()</code>), que añade por cada columna una gemela <code>_NA</code> que marca si el valor faltaba, de modo que la ausencia se puede analizar como un dato más. Y ahí aparece algo revelador: agrupar por esa sombra muestra que las pistas a las que <em>les falta</em> la energía tienen una popularidad media más baja (18,9 frente a 26,6) —no porque el hueco cause la baja popularidad, sino porque ambos comparten causa: la música clásica, que es donde más falta la energía y menos popularidad hay—.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_shadow</span>(d) <span class="sc">|&gt;</span> <span class="fu">group_by</span>(energy_NA) <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">pop =</span> <span class="fu">mean</span>(popularity), <span class="at">n =</span> <span class="fu">n</span>())</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   energy_NA  pop    n</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   !NA       26.6  5504     # donde SI hay energia, popularidad media 26.6</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   NA        18.9   412     # donde FALTA: la ausencia lleva info</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Que la ausencia <em>correlacione</em> con otras variables es la firma del MAR, y tiene una consecuencia práctica que se olvida: borrar las filas con huecos (<em>listwise deletion</em>) no es neutro. Se puede medir el sesgo que introduce:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>popularity)                      <span class="co"># 26.09  con toda la muestra</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>comp <span class="ot">&lt;-</span> d[<span class="fu">complete.cases</span>(d), ]          <span class="co"># la "muestra completa"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(comp<span class="sc">$</span>popularity)                   <span class="co"># 26.56  tras borrar las filas con NA</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>track_genre <span class="sc">==</span> <span class="st">"classical"</span>)               <span class="co"># 15.8 % de clasica antes</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(comp<span class="sc">$</span>track_genre <span class="sc">==</span> <span class="st">"classical"</span>)            <span class="co"># 12.5 %: se perdio clasica</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Borrar los huecos subió la popularidad media y bajó la proporción de clásica del 15,8 al 12,5 %, porque la energía —y con ella la fila entera— falta más en la clásica. La muestra «completa» ya no representa al catálogo: quedó sesgada hacia lo popular sin que nadie lo decidiera. El borrado por pares (<em>pairwise</em>) —usar cada par de columnas con los casos completos de <em>ese</em> par— conserva más datos pero puede producir una matriz de correlaciones incoherente. Ninguno es gratis: la decisión de descartar es tan analítica como la de imputar. El test de Little <span class="citation" data-cites="littlerubin2019missing">(<a href="#ref-littlerubin2019missing" role="doc-biblioref">Little y Rubin 2019</a>)</span>, <code>mcar_test()</code>, contrasta formalmente la hipótesis de que todo sea MCAR:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcar_test</span>(<span class="fu">select</span>(d, popularity, energy, tempo, danceability))<span class="sc">$</span>p.value</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt; 2e-16   -&gt; se rechaza MCAR: la ausencia tiene estructura (es MAR o MNAR)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Un <span class="math inline">\(p\)</span> minúsculo confirma lo que el cruce por género ya mostraba: estos huecos no son azar, y tratarlos como si lo fueran —borrar las filas, o rellenar con la media global— sesgaría el resultado. El test no dice <em>cuál</em> es el mecanismo, solo descarta el más inocente; el juicio sobre MAR frente a MNAR exige, siempre, conocer el dominio.</p>
+</section>
+<section id="imputar-o-no-con-simputation" class="level3">
+<h3 class="anchored" data-anchor-id="imputar-o-no-con-simputation">Imputar, o no, con simputation</h3>
+<p>Confirmado un MAR, la imputación es legítima —si se hace con cuidado—. <strong>simputation</strong> <span class="citation" data-cites="simputationdocs">(<a href="#ref-simputationdocs" role="doc-biblioref">Loo 2024</a>)</span> ofrece una gramática uniforme, <code>impute_método(datos, variable ~ predictores)</code>, para todos los métodos. Y aquí acecha la trampa más común: rellenar con la mediana global <em>encoge la varianza</em>, porque sustituye la variabilidad real por un único valor repetido.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(simputation)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">7</span>)                            <span class="co"># mas huecos que los de naniar:</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>energy[<span class="fu">sample</span>(<span class="fu">nrow</span>(d), <span class="dv">800</span>)] <span class="ot">&lt;-</span> <span class="cn">NA</span>   <span class="co"># 800 MCAR, para que el pico se vea claro</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(d<span class="sc">$</span>energy, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)                          <span class="co"># 0.2585  (varianza real)</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(<span class="fu">impute_median</span>(d, energy <span class="sc">~</span> <span class="dv">1</span>)<span class="sc">$</span>energy)             <span class="co"># 0.2408  encoge un 6.8 %</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(<span class="fu">impute_lm</span>(d, energy <span class="sc">~</span> danceability <span class="sc">+</span> loudness <span class="sc">+</span> tempo)<span class="sc">$</span>energy)  <span class="co"># 0.2556</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(<span class="fu">impute_median</span>(d, energy <span class="sc">~</span> track_genre)<span class="sc">$</span>energy)   <span class="co"># 0.2538  mediana por grupo</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La tabla&nbsp;10.2 ordena los métodos por lo que conservan. La mediana global es la peor de las tres: aplasta la varianza casi un 7 %, y con ella las correlaciones y los contrastes que vengan después. Imputar por un modelo (<code>impute_lm</code>, que usa las columnas de las que depende el hueco) o, como mínimo, por la mediana <em>de cada género</em> conserva mucho mejor la forma de la distribución, precisamente porque respeta el mecanismo MAR.</p>
+<table class="caption-top table">
+<caption>Efecto de tres métodos de imputación sobre la desviación típica de <code>energy</code> (original 0,2585), con 800 huecos MAR. Cuanto más cerca de la original, menos deforma la imputación la distribución.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Método</th>
+<th style="text-align: left;">sd resultante</th>
+<th style="text-align: left;">Veredicto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">mediana global</td>
+<td style="text-align: left;">0,2408 (<span class="math inline">\(-6{,}8\)</span> %)</td>
+<td style="text-align: left;">aplasta la varianza; evítese</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mediana por género</td>
+<td style="text-align: left;">0,2538 (<span class="math inline">\(-1{,}8\)</span> %)</td>
+<td style="text-align: left;">aceptable; respeta el grupo</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">modelo lineal (<code>impute_lm</code>)</td>
+<td style="text-align: left;">0,2556 (<span class="math inline">\(-1{,}1\)</span> %)</td>
+<td style="text-align: left;">el mejor; usa el mecanismo</td>
+</tr>
+</tbody>
+</table>
+<p>La lección se generaliza: una imputación buena reproduce la relación que causaba la ausencia; una mala inventa un pico artificial en el centro (figura&nbsp;10.5).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap10/fig_05.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;10.5.</strong> <strong>El pico artificial de la imputación por la mediana.</strong> Al rellenar 800 huecos con un único valor —la mediana, 0,59— el histograma de la energía desarrolla un pico en ese punto (el tramo 0,5–0,6 salta de 792 a 1 486 pistas) mientras el resto se hunde. La distribución imputada ya no es la real: por eso la mediana global encoge la varianza y contamina cualquier análisis posterior.</figcaption>
+</figure>
+</div>
+<p>—dejar el <code>NA</code> y usar métodos que lo respeten, o declarar que esa variable no es utilizable— porque un hueco honesto informa más que un relleno inventado.</p>
+<p>Conviene tener claros los casos en que <em>no</em> se debe imputar, porque la tentación de «tener la tabla completa» es fuerte. Si falta demasiado —más de un tercio de una columna—, cualquier relleno es más invención que dato, y suele ser mejor descartar la variable o tratarla como categórica «ausente/presente». Si el mecanismo es MNAR, imputar con lo observado sesga por definición, porque lo que falta es sistemáticamente distinto de lo que se ve. Y si la propia ausencia es <em>informativa</em> —como vimos, que falte la energía delata la música clásica—, borrarla tira una señal; a veces la mejor variable nueva es un indicador binario de «faltaba», que convierte el hueco en un dato explícito. La imputación es una herramienta, no un reflejo: rellenar por defecto, sin diagnóstico, es de los errores que más silenciosamente contaminan un análisis, porque produce una tabla de aspecto impecable sobre la que ya no se ve lo que se inventó.</p>
+<p>Un caso merece mención aparte porque tiene reglas propias: la ausencia en <em>series temporales</em>. Cuando falta un valor en una secuencia ordenada por tiempo —una escucha diaria que no se registró—, imputar por la media de toda la serie destruye la tendencia y la estacionalidad que precisamente interesan. Los métodos correctos usan la estructura temporal: arrastrar el último valor observado (<em>last observation carried forward</em>, prudente pero escalonado), interpolar linealmente entre los vecinos (suave, apropiado para magnitudes continuas), o modelar la estacionalidad y rellenar con lo que el patrón predice. La regla se generaliza más allá del tiempo: imputar bien es respetar la estructura que hace informativo al dato —el género en la energía, el orden en la serie—, y por eso no hay un método universal, sino uno adecuado a cada estructura.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La imputación simple —un valor por hueco— tiene un defecto que ningún método corrige: finge una certeza que no existe. El valor imputado se trata luego como si se hubiera medido, y los intervalos de confianza del análisis salen más estrechos de lo honesto. La <em>imputación múltiple</em> <span class="citation" data-cites="buuren2018flexible">(<a href="#ref-buuren2018flexible" role="doc-biblioref">Buuren 2018</a>)</span> lo resuelve generando varios conjuntos completos, con valores distintos según la incertidumbre, analizando cada uno y combinando los resultados con reglas que propagan esa incertidumbre al intervalo final. El paquete <code>mice</code> la implementa en R. Es más trabajo, pero es la diferencia entre rellenar un hueco y ser honesto sobre lo que no se sabe.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="los-otros-tres-frentes-duplicados-tipos-y-atípicos" class="level2">
+<h2 class="anchored" data-anchor-id="los-otros-tres-frentes-duplicados-tipos-y-atípicos">Los otros tres frentes: duplicados, tipos y atípicos</h2>
+<p>Con el contrato y los ausentes cubiertos, quedan tres suciedades cotidianas que todo fichero real arrastra. Comparten un rasgo: ninguna se ve a primera vista. Una tabla con duplicados se abre igual de bien que una sin ellos; una columna leída con el tipo equivocado imprime números de aspecto razonable; un atípico se esconde entre miles de valores normales. Por eso los tres frentes exigen <em>buscar</em> activamente lo que no salta a la vista —contar claves, inspeccionar tipos, mirar las colas— en vez de esperar a que un resultado imposible los delate tres pasos después.</p>
+<section id="duplicados" class="level3">
+<h3 class="anchored" data-anchor-id="duplicados">Duplicados</h3>
+<p>Un duplicado no siempre es una fila idéntica repetida. Los caps.&nbsp;5 y&nbsp;8 mostraron que el catálogo completo trae 444 pares con la misma clave natural (<code>track_id</code>, <code>track_genre</code>) —la misma pista listada dos veces—, y que 16 299 identificadores aparecen en más de un género —lo que <em>no</em> es un duplicado, sino una pista clasificada en varios estilos, que hay que preservar—. La distinción es la sutileza central: un duplicado es una repetición de la <em>misma</em> observación; dos filas con el mismo <code>track_id</code> pero distinto género son <em>observaciones distintas</em> de la misma pista. Confundirlos —deduplicar por <code>track_id</code> a secas— borraría información legítima. Por eso la clave natural es el par completo, y la deduplicación, <code>distinct(track_id, track_genre, .keep_all = TRUE)</code>, que conserva la primera aparición de cada <em>par</em>, no la fila entera:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>full <span class="sc">|&gt;</span> <span class="fu">count</span>(track_id, track_genre) <span class="sc">|&gt;</span> <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">nrow</span>()   <span class="co"># 444 pares</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>full <span class="sc">|&gt;</span> <span class="fu">distinct</span>(track_id) <span class="sc">|&gt;</span> <span class="fu">nrow</span>()                              <span class="co"># ids unicos</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>full <span class="sc">|&gt;</span> <span class="fu">distinct</span>(track_id, track_genre, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)   <span class="co"># dedup por la clave</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El matiz de <code>.keep_all</code> importa: sin él, <code>distinct</code> sobre las dos columnas clave devolvería solo esas dos, tirando el resto de la fila; con él, conserva la observación completa de la primera aparición.</p>
+<p>Y queda una decisión que <code>distinct</code> no toma por uno: <em>cuál</em> de las copias conservar. Por defecto, la primera en aparecer, pero eso rara vez es lo correcto cuando las copias difieren en algo —una tiene la popularidad más reciente, otra un dato ausente que la primera trae completo—. La deduplicación honrada, en esos casos, no es quedarse con una al azar, sino <em>decidir con criterio</em>: ordenar por la columna que marca cuál es la buena (la más reciente, la más completa) antes de <code>distinct</code>, o agregar las copias en una sola fila que combine lo mejor de cada una. Un <code>distinct</code> a ciegas sobre filas que no son idénticas es una elección disfrazada de trámite, y como toda elección de limpieza, merece hacerse a la vista y no por omisión. El duplicado <em>difuso</em> —la misma canción con el título escrito de dos maneras— es más traicionero y exige normalizar antes de comparar. La receta segura es canonizar el texto (minúsculas, espacios colapsados, acentos fuera) y comparar la forma normalizada, no la original:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>norm <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">tolower</span>(<span class="fu">trimws</span>(<span class="fu">gsub</span>(<span class="st">"[[:space:]]+"</span>, <span class="st">" "</span>, x)))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"Bohemian Rhapsody"</span>, <span class="st">"bohemian  rhapsody "</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>()   <span class="co"># 2</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"Bohemian Rhapsody"</span>, <span class="st">"bohemian  rhapsody "</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">norm</span>() <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>()   <span class="co"># 1</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dos títulos que un humano ve iguales, y <code>distinct</code> vería distintos, se funden tras normalizar. La cautela es no pasarse: una normalización agresiva —quitar todos los espacios, ignorar la puntuación— puede fundir pistas <em>distintas</em> («Live» y «Live at Wembley»), así que cada regla de canonización es una apuesta que hay que poder justificar. Para el trabajo serio con nombres, <code>janitor</code> da <code>clean_names()</code> —que estandariza los nombres de columna de un fichero ajeno, <code>"Track ID!"</code> <span class="math inline">\(\to\)</span> <code>track_id</code>— y <code>get_dupes()</code>, que tabula las filas duplicadas por las columnas que se le indiquen; y el emparejamiento por distancia de edición (paquete <code>stringdist</code>) resuelve las erratas de verdad, no solo las de formato. La cadena es la puerta a la que llamamos ahora con los tipos.</p>
+</section>
+<section id="tipos-la-puerta-de-entrada" class="level3">
+<h3 class="anchored" data-anchor-id="tipos-la-puerta-de-entrada">Tipos: la puerta de entrada</h3>
+<p>El tipo de una columna es la primera invariante que se rompe, y casi siempre en la lectura. El caso arquetípico es la coma decimal: un CSV europeo escribe <code>"45,0"</code>, y un lector que espera el punto no la entiende.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">parse_number</span>(<span class="st">"45,0"</span>)     <span class="co"># 450  -- ¡la lee como cuatrocientos cincuenta!</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">parse_number</span>(<span class="st">"45,0"</span>, <span class="at">locale =</span> readr<span class="sc">::</span><span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>))  <span class="co"># 45</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El primer resultado es el peligroso: no falla, <em>miente</em>: interpreta la coma como separador de millares y devuelve 450. Un tempo de 128 se vuelve 1280, una popularidad de 45 se vuelve 450, y el error cruza silencioso todo el análisis. La defensa es declarar la localización al leer (cap.&nbsp;5) y —de nuevo— validar el dominio después: una popularidad de 450 la caza en el acto el <code>col_vals_between</code> del contrato. Los tipos y el contrato se refuerzan: el tipo correcto evita el error, y la validación lo atrapa cuando el tipo falló.</p>
+<p>La coma decimal es solo el caso más frecuente de una familia entera. Las <em>fechas</em> llegan en mil formatos y una lectura ingenua las deja como texto —o, peor, las malinterpreta invirtiendo día y mes—; se leen declarando el formato con <code>lubridate</code> (cap.&nbsp;8). Los <em>booleanos</em> disfrazados de texto (<code>"sí"</code>/<code>"no"</code>, <code>"1"</code>/<code>"0"</code>, <code>"true"</code>/<code>"True"</code>) exigen un mapeo explícito, no una coerción automática que trate <code>"no"</code> como verdadero por no estar vacío. Y los <em>factores</em> que se leen como texto —o al revés, texto que se convierte en factor sin querer— reabren la trampa del cap.&nbsp;2 (<code>as.integer</code> de un factor devuelve los códigos, no las etiquetas). La regla común a todos: el tipo se declara al leer, no se adivina, y lo que la lectura no garantice lo verifica el contrato. Un <code>col_is_numeric</code>, un <code>col_is_date</code> o un <code>col_vals_in_set</code> sobre el booleano cierran el frente que la coerción dejó abierto.</p>
+<p>El peligro de fondo es que R <em>coacciona en silencio</em>. Sumar un carácter y un número falla ruidosamente, pero muchas operaciones convierten sin avisar, y el resultado es un tipo que no se esperaba propagándose por el análisis. Un vector con un solo valor de texto —un <code>"N/A"</code> en una columna numérica— vuelve <em>toda</em> la columna de tipo carácter al leerla, y a partir de ahí <code>mean()</code> falla o, peor, la coerción posterior mete <code>NA</code> donde había números. La defensa es la del cap.&nbsp;2: conocer las reglas de coerción, declarar los tipos esperados con <code>col_types</code> al leer, y usar <code>vapply</code> en vez de <code>sapply</code> para que el tipo de retorno sea un contrato y no una sorpresa. El tipo no es un detalle de implementación: es la primera invariante del dato, y la que, rota, corrompe todas las demás.</p>
+</section>
+<section id="valores-atípicos" class="level3">
+<h3 class="anchored" data-anchor-id="valores-atípicos">Valores atípicos</h3>
+<p>Un atípico (<em>outlier</em>) es un valor lejos del grueso de los datos, pero «lejos» no es «erróneo», y ahí está toda la sutileza. Conviene separar dos preguntas que se confunden. Una es física: ¿es el valor <em>posible</em>? Un tempo de 0 o negativo no es un atípico, es una imposibilidad —una canción no tiene tempo cero—, y se corrige o se marca <code>NA</code> sin discusión. La otra es estadística: dado que es posible, ¿es <em>raro</em>? Y esa se responde con cuidado, porque la media y la desviación típica, las herramientas ingenuas, las distorsionan los propios atípicos que buscan. Los métodos robustos del cap.&nbsp;7 —la mediana y la desviación absoluta mediana (MAD)— no tienen ese defecto:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> musica<span class="sc">$</span>tempo[musica<span class="sc">$</span>tempo <span class="sc">&gt;</span> <span class="dv">0</span>]          <span class="co"># solo los posibles</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">abs</span>(t <span class="sc">-</span> <span class="fu">median</span>(t)) <span class="sc">/</span> <span class="fu">mad</span>(t)             <span class="co"># z robusto (mediana y MAD)</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(z <span class="sc">&gt;</span> <span class="fl">3.5</span>)                                 <span class="co"># 0  -- ningun atipico estadistico</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># regla del rango intercuartilico (IQR), mas laxa:</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(t <span class="sc">&lt;</span> <span class="fu">quantile</span>(t,.<span class="dv">25</span>) <span class="sc">-</span> <span class="fl">1.5</span><span class="sc">*</span><span class="fu">IQR</span>(t) <span class="sc">|</span> t <span class="sc">&gt;</span> <span class="fu">quantile</span>(t,.<span class="dv">75</span>) <span class="sc">+</span> <span class="fl">1.5</span><span class="sc">*</span><span class="fu">IQR</span>(t))  <span class="co"># 33</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El contraste es la lección (figura&nbsp;10.6): el <span class="math inline">\(z\)</span> robusto no marca ningún tempo como atípico —la distribución es sana entre 36 y 214 pulsaciones—, mientras la regla del IQR señala 33 valores en las colas. Ninguna de las dos «tiene razón»: son umbrales distintos, y ambos son legítimos según lo que cueste un falso positivo. Lo que <em>no</em> es legítimo es borrar los 33 sin mirarlos, porque un tempo de 210 es una canción rapidísima real, no un error. La tentación de «limpiar las colas» automáticamente es fuerte —dan resultados más bonitos, modelos más dóciles— y por eso mismo peligrosa: un atípico posible casi siempre es la parte más informativa de los datos, el caso extremo del que más se aprende, y eliminarlo es tirar la señal para quedarse con el ruido cómodo del centro. El único atípico que se elimina sin dudar es el imposible —el tempo cero—, y ese lo detecta el contrato, no la estadística. Frente al atípico posible, la regla es investigar, no automatizar: casi siempre es un dato verdadero que el modelo tendrá que aprender a acomodar.</p>
+<p>Cuando un atípico posible sí conviene atenuar —porque un solo valor extremo domina una media o desestabiliza un modelo—, hay alternativas al borrado que no tiran el dato. La <em>winsorización</em> recorta los valores por encima de un percentil alto (y por debajo de uno bajo) hasta ese umbral, conservando la fila pero limitando su influencia; el <em>filtro de Hampel</em> sustituye por la mediana local los puntos a más de unas cuantas MAD, útil en series temporales. Ambas son decisiones que sesgan —comprimen la cola que podía ser real—, así que se declaran como cualquier otra reparación. La jerarquía de menos a más agresivo: dejarlo y que el modelo lo acomode; usar un método robusto que le dé menos peso; winsorizar; y solo en último extremo, con motivo físico, eliminar. Borrar es la opción que más información destruye, y por eso la que más justificación exige.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap10/fig_06.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;10.6.</strong> <strong>Atípico posible frente a imposible.</strong> La distribución de tempo de la rebanada (5 915 pistas con tempo positivo) es sana: el <span class="math inline">\(z\)</span> robusto no marca ningún atípico. La regla del IQR señala las colas (33 pistas), pero un tempo de 210 es una canción real, no un error. El único valor que se descarta sin dudar es el imposible —tempo cero, línea roja—, y ese lo caza el contrato, no la estadística.</figcaption>
+</figure>
+</div>
+</section>
+<section id="autopsia-de-un-fichero-sospechoso" class="level3">
+<h3 class="anchored" data-anchor-id="autopsia-de-un-fichero-sospechoso">Autopsia de un fichero sospechoso</h3>
+<p>Los tres frentes se combinan en la rutina que conviene tener automatizada para cualquier fichero que llega de fuera. Es una autopsia en cinco cortes, del más barato al más caro, y el orden importa porque cada uno condiciona el siguiente. <strong>Uno, la forma:</strong> <code>dim()</code>, <code>names()</code> y <code>str()</code> —¿cuántas filas y columnas, qué tipos leyó R?—; aquí se caza la columna numérica que entró como carácter por un <code>"N/A"</code> perdido. <strong>Dos, los tipos declarados frente a los reales:</strong> ¿la fecha es una fecha o un texto?, ¿el booleano es lógico o son las cadenas <code>"sí"</code>/<code>"no"</code>?; se corrige releyendo con la localización y los tipos explícitos. <strong>Tres, los ausentes:</strong> <code>miss_var_summary</code> para el reparto y el cruce por otra columna para el mecanismo, antes de decidir qué hacer con ellos. <strong>Cuatro, los duplicados:</strong> <code>get_dupes</code> sobre la clave natural, distinguiendo la repetición real de la observación múltiple legítima. <strong>Cinco, los rangos y las colas:</strong> un <code>summary()</code> y el <span class="math inline">\(z\)</span> robusto por columna numérica delatan lo imposible (tempo cero) y señalan lo raro (las colas) para inspección.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>autopsia <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"forma:"</span>, <span class="fu">nrow</span>(df), <span class="st">"x"</span>, <span class="fu">ncol</span>(df), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">sapply</span>(df, class))                    <span class="co"># tipos que ley R</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(naniar<span class="sc">::</span><span class="fu">miss_var_summary</span>(df))          <span class="co"># ausentes por columna</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(janitor<span class="sc">::</span><span class="fu">get_dupes</span>(df))                <span class="co"># duplicados por todas</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">summary</span>(df))                           <span class="co"># rangos y colas</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El valor de una rutina así no es que haga algo que no supiéramos hacer a mano, sino que lo hace <em>siempre</em>, en el mismo orden, sin depender de que uno se acuerde de mirar los duplicados el día que tiene prisa. La calidad de datos no se sostiene con diligencia heroica en cada fichero, sino con una rutina barata que se ejecuta por defecto. El resultado de la autopsia es lo que dicta el contrato de la sección anterior: se perfila para saber qué exigir, y se exige para que el próximo fichero no requiera perfilarse a mano de nuevo.</p>
+</section>
+</section>
+<section id="transformación-y-creación-de-variables" class="level2">
+<h2 class="anchored" data-anchor-id="transformación-y-creación-de-variables">Transformación y creación de variables</h2>
+<p>Validados y limpios, los datos aún no están listos para el análisis: hay que <em>adaptarlos a la pregunta</em>. Crear una variable derivada (la energía por minuto), recodificar en tramos, normalizar a media cero, convertir un género en columnas indicadoras: son transformaciones. La gramática de <code>dplyr</code> (cap.&nbsp;8) basta para las puntuales. Pero cuando la transformación va a alimentar un modelo, entra en escena un peligro que exige una herramienta con memoria: la fuga de datos.</p>
+<section id="recipes-transformar-sin-contaminar" class="level3">
+<h3 class="anchored" data-anchor-id="recipes-transformar-sin-contaminar">recipes: transformar sin contaminar</h3>
+<p>El paquete <strong>recipes</strong> <span class="citation" data-cites="recipesdocs kuhn2019feature">(<a href="#ref-recipesdocs" role="doc-biblioref">Kuhn y Wickham 2025</a>; <a href="#ref-kuhn2019feature" role="doc-biblioref">Kuhn y Johnson 2019</a>)</span> describe la transformación como una <em>receta</em>: una secuencia de pasos declarados sobre las columnas que primero se <em>prepara</em> (<code>prep</code>, que aprende los parámetros —la media, la desviación, las categorías—) y luego se <em>aplica</em> (<code>bake</code>, que los usa). Es exactamente el patrón <code>fit</code>/<code>transform</code> del transformador del cap.&nbsp;6, ahora como infraestructura:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(recipes)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(popularity <span class="sc">~</span> energy <span class="sc">+</span> danceability <span class="sc">+</span> loudness <span class="sc">+</span> tempo,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> train) <span class="sc">|&gt;</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_impute_median</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">|&gt;</span>   <span class="co"># rellena huecos</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric_predictors</span>())           <span class="co"># a media 0, sd 1</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>prep_rec <span class="ot">&lt;-</span> <span class="fu">prep</span>(rec, <span class="at">training =</span> train)   <span class="co"># APRENDE del TRAIN</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>train_x  <span class="ot">&lt;-</span> <span class="fu">bake</span>(prep_rec, <span class="at">new_data =</span> <span class="cn">NULL</span>)   <span class="co"># aplica al train</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>test_x   <span class="ot">&lt;-</span> <span class="fu">bake</span>(prep_rec, <span class="at">new_data =</span> test)   <span class="co"># aplica al test igual</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La clave está en <em>de dónde</em> salen los parámetros. <code>prep</code> los aprende <strong>solo del entrenamiento</strong>; <code>bake</code> los aplica tal cual al test. Se comprueba mirando las medias: tras normalizar, la energía del train tiene media cero exacta —es de donde se aprendió—, pero la del test no (<code>-0.0047</code>), porque se le aplicaron parámetros ajenos. Ese pequeño desajuste no es un error: es la <em>prueba</em> de que el test no contaminó la preparación.</p>
+</section>
+<section id="la-receta-como-objeto" class="level3">
+<h3 class="anchored" data-anchor-id="la-receta-como-objeto">La receta como objeto</h3>
+<p>Que la transformación sea un objeto y no una sucesión de líneas sueltas tiene consecuencias que van más allá de la comodidad. Una receta se <em>inspecciona</em> —<code>tidy(rec)</code> lista sus pasos y <code>summary()</code> los roles de cada columna—, se <em>guarda</em> con el modelo para que la preparación viaje con él, y se <em>reaplica</em> idéntica a cualquier dato nuevo. Los roles son la clave de su flexibilidad: cada columna tiene un papel —resultado, predictor, identificador— y los pasos operan sobre roles, no sobre nombres, de modo que <code>step_normalize(all_numeric_predictors())</code> normaliza los predictores numéricos sin tocar el resultado ni el identificador, aunque uno no sepa de antemano cuáles son. Se puede además declarar que una columna no es ni predictor ni resultado —un <code>track_id</code> que se quiere conservar para trazar, pero no meter en el modelo— con un rol propio (<code>update_role(track_id, new_role = "id")</code>). El contraste con transformar a mano en <code>dplyr</code> es instructivo: la tubería de <code>dplyr</code> <em>hace</em> la transformación, pero no la <em>recuerda</em>; la receta la recuerda, y ese recuerdo —los parámetros aprendidos, congelados— es justo lo que hace posible aplicarla al test, a producción y a cada pliegue de validación sin volver a aprender. La transformación puntual pide <code>dplyr</code>; la que alimenta un modelo pide una receta, precisamente porque necesita memoria.</p>
+<p>Esta distinción —transformar frente a recordar cómo se transformó— reaparecerá en los capítulos de modelado, donde la receta se convierte en la primera mitad de un <em>workflow</em>: la pareja receta + modelo que se ajusta, se valida y se despliega como una sola pieza. La ventaja de esa unión es que la preparación y el modelo nunca se separan —no puede ocurrir que el modelo llegue a producción con un preprocesado distinto del que se entrenó, la causa número uno de que un modelo «que funcionaba» falle al desplegarse—. Por eso recipes no es un rincón de la limpieza, sino la bisagra entre este capítulo y los que vienen: es donde la disciplina de preparar datos de confianza se acopla, sin costura, a la de construir modelos de confianza. La misma filosofía —hacer explícito, aprender solo de lo que toca, dejar huella— gobierna las dos mitades.</p>
+</section>
+<section id="la-fuga-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="la-fuga-de-datos">La fuga de datos</h3>
+<p>Por qué importa tanto ese detalle es la lección más valiosa del capítulo. La <strong>fuga de datos</strong> (<em>data leakage</em>) ocurre cuando información que no debería estar disponible al entrenar se cuela en la preparación —y el caso más común, y más silencioso, es normalizar o imputar usando estadísticas calculadas sobre <em>todo</em> el dato, test incluido—. El modelo aprende, sin que nadie lo note, algo del conjunto con el que se supone que se le va a evaluar, y su rendimiento medido sale optimistamente inflado: brilla en la prueba y fracasa en producción.</p>
+<p>Cuánto duele depende del desajuste entre entrenamiento y prueba, y con un ejemplo se ve (figura&nbsp;10.7). Partamos el catálogo de forma <em>desplazada</em> —train con la música tranquila (clásica y jazz, energía media 0,28), test con la enérgica (reggaetón, 0,74)— y normalicemos un punto del test de energía 0,56:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># correcto: media y sd del train (clasica+jazz)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>(<span class="fl">0.56</span> <span class="sc">-</span> <span class="fu">mean</span>(train<span class="sc">$</span>energy)) <span class="sc">/</span> <span class="fu">sd</span>(train<span class="sc">$</span>energy)     <span class="co">#  1.42  -- alto, y lo es</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fuga: media y sd de TODA la rebanada (los seis generos juntos)</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>(<span class="fl">0.56</span> <span class="sc">-</span> <span class="fu">mean</span>(todo<span class="sc">$</span>energy)) <span class="sc">/</span> <span class="fu">sd</span>(todo<span class="sc">$</span>energy)     <span class="co">#  0.05  -- "del monton"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El mismo punto se convierte en 1,42 (correcto: para el mundo del train, 0,56 es energía alta) o en 0,05 (con fuga: parece del montón), según de dónde salgan la media y la desviación. La diferencia —de un valor «alto» a uno «del montón»— cambiaría por completo lo que el modelo aprende de esa pista, y todo por una decisión invisible sobre qué datos entraron en el cálculo de dos números. Un modelo entrenado con la versión fugada ve valores que en producción nunca recibirá, porque en producción no tendrá el test para calcular la media. La gracia de recipes es que hace la fuga <em>estructuralmente imposible</em> en este frente: como <code>prep</code> solo mira el entrenamiento, es literalmente incapaz de usar el test para aprender un parámetro. La disciplina que en el cap.&nbsp;6 era un patrón que había que recordar —la barrera entre <code>fit</code> y <code>transform</code>— aquí es una garantía de la herramienta.</p>
+<p>La fuga tiene una variante más sutil, y más frecuente, que asoma en la validación cruzada. Al partir los datos en varios pliegues para estimar el rendimiento, la tentación es normalizar o imputar <em>una vez, al principio</em>, sobre todo el conjunto, y luego repartir en pliegues. Parece inocente, pero es fuga: cada pliegue de validación ya contribuyó a la media y la desviación con las que se le va a transformar, así que la estimación de rendimiento sale optimista. La forma correcta es meter la receta <em>dentro</em> del bucle de validación cruzada —preparar con el pliegue de entrenamiento, aplicar al de validación, en cada repetición—, que es exactamente lo que un <em>workflow</em> de <code>tidymodels</code> hace por construcción cuando se le pasa la receta junto al modelo. Por eso recipes no es solo comodidad: es lo que hace que la disciplina anti-fuga se cumpla <em>en cada pliegue</em> sin que nadie tenga que acordarse. La diferencia entre un rendimiento honesto y uno inflado no está en el modelo; está en si la preparación respetó la frontera, siempre, en cada partición de los datos.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La fuga más difícil de ver no es la del preprocesado, sino la de la <em>variable</em>: un predictor que codifica, sin querer, información del futuro o del propio objetivo. Predecir la popularidad de una pista usando su número de reproducciones del mes siguiente; estimar el riesgo de impago con una columna que solo se rellena <em>después</em> de que el impago ocurra. Ninguna herramienta la impide, porque el dato está ahí y parece legítimo; solo la detecta pensar en la línea temporal —¿estará este valor disponible en el momento en que tenga que predecir?—. Un modelo con fuga de variable acierta asombrosamente en la prueba y fracasa por completo en producción, y el diagnóstico casi siempre llega tarde. La pregunta «¿de dónde sale cada columna y cuándo?» es tan parte de la limpieza como detectar un tempo imposible.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap10/fig_07.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;10.7.</strong> <strong>recipes y la barrera anti-fuga.</strong> <code>prep</code> aprende los parámetros <em>solo</em> del entrenamiento; <code>bake</code> los aplica al test sin volver a aprender. La flecha roja tachada es la fuga que la herramienta impide por construcción: el test nunca alimenta el aprendizaje, así que la media y la desviación no pueden contaminarse con datos que en producción no existirán.</figcaption>
+</figure>
+</div>
+</section>
+<section id="variables-con-el-dominio-dentro" class="level3">
+<h3 class="anchored" data-anchor-id="variables-con-el-dominio-dentro">Variables con el dominio dentro</h3>
+<p>No toda transformación es estadística; la mejor suele traer conocimiento del dominio. El repertorio de recipes cubre los pasos habituales, cada uno un <code>step_</code> declarado que <code>prep</code> aprende y <code>bake</code> aplica:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(popularity <span class="sc">~</span> ., <span class="at">data =</span> train) <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_zv</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">|&gt;</span>            <span class="co"># quita varianza cero</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_YeoJohnson</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">|&gt;</span>     <span class="co"># corrige asimetria</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">|&gt;</span>      <span class="co"># media 0, sd 1</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_corr</span>(<span class="fu">all_numeric_predictors</span>(), <span class="at">threshold =</span> <span class="fl">0.9</span>) <span class="sc">|&gt;</span>  <span class="co"># quita colineales</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_other</span>(track_genre, <span class="at">threshold =</span> <span class="fl">0.05</span>) <span class="sc">|&gt;</span>     <span class="co"># agrupa raros en "other"</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(track_genre)                           <span class="co"># categorias -&gt; indicadoras</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>step_zv</code> descarta lo que no informa (una columna constante); <code>step_YeoJohnson</code> endereza una distribución sesgada sin exigir que sea positiva (a diferencia del logaritmo); <code>step_corr</code> elimina predictores casi redundantes antes de que confundan al modelo; <code>step_other</code> agrupa las categorías raras en un cajón «other» para que no generen columnas casi vacías; y <code>step_dummy</code> convierte un género en columnas indicadoras (una por categoría menos la de referencia). Todos comparten la misma virtud: sus parámetros —qué columna tiene varianza cero, qué transformación de Yeo-Johnson, qué categorías son «raras»— se aprenden del entrenamiento y se congelan, de modo que el test recibe exactamente el mismo tratamiento aunque, por ejemplo, no contenga todos los géneros. La receta es, además, un objeto: se guarda, se inspecciona (<code>tidy(rec)</code>) y se reutiliza, y encaja como una pieza en un <em>workflow</em> de <code>tidymodels</code> que empareja la receta con el modelo, garantizando que la misma preparación viaja con él a producción. Pero la variable que más vale suele ser la que codifica una idea: no la energía y la acústica por separado, sino su contraste; no el tempo bruto, sino su tramo perceptual (lento, medio, rápido). Un ejemplo lo aterriza. La energía y la acústica son dos columnas medidas; su <em>contraste</em> (<code>energy - acousticness</code>) es una variable de dominio que separa lo eléctrico de lo orgánico en una sola dimensión, y a menudo predice mejor que las dos por separado, porque codifica la idea que de verdad distingue los géneros. Del mismo modo, el tempo bruto importa menos que su tramo perceptual —lento, medio, rápido—, que es como el oído lo agrupa. Ese salto —de la columna medida a la variable que captura lo que importa para la pregunta— es donde el conocimiento del dominio convierte datos limpios en datos <em>útiles</em>, y ninguna receta automática lo sustituye. La herramienta transforma; el criterio decide qué transformar. Y hay una asimetría que conviene tener presente: una variable de dominio bien pensada puede valer más que un modelo más sofisticado sobre las columnas crudas —el esfuerzo rinde más en entender el problema que en refinar el algoritmo—.</p>
+<p>Un ejemplo cerrado ata las piezas. Queremos preparar el catálogo para modelar la popularidad: rellenar huecos, derivar una variable de dominio (el contraste entre energía y acústica, que separa lo eléctrico de lo orgánico), normalizar y codificar el género. Todo en una receta, aprendida del entrenamiento:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(popularity <span class="sc">~</span> energy <span class="sc">+</span> acousticness <span class="sc">+</span> tempo <span class="sc">+</span> track_genre,</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> train) <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_impute_median</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_mutate</span>(<span class="at">contraste =</span> energy <span class="sc">-</span> acousticness) <span class="sc">|&gt;</span>   <span class="co"># variable de dominio</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(track_genre)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>horneada <span class="ot">&lt;-</span> <span class="fu">prep</span>(rec, <span class="at">training =</span> train) <span class="sc">|&gt;</span> <span class="fu">bake</span>(<span class="at">new_data =</span> test)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(horneada)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; energy acousticness tempo popularity contraste track_genre_hip.hop</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; track_genre_jazz track_genre_pop track_genre_reggaeton track_genre_rock</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El test sale con las mismas columnas que el train —cinco indicadoras de género (seis géneros menos la referencia), la variable <code>contraste</code> y los predictores numéricos normalizados—, todas con los parámetros aprendidos del entrenamiento. Si el test no tuviera, digamos, reggaetón, la columna <code>track_genre_reggaeton</code> seguiría existiendo (a cero), porque las categorías se fijaron al preparar: el modelo recibe siempre la misma forma, requisito para que la predicción no falle en producción por una columna que aparece o desaparece según la muestra. Esa <em>estabilidad de esquema entre entrenamiento y predicción</em> es, en silencio, una de las cosas más valiosas que aporta recipes, y una de las que más quebraderos ahorra frente a transformar a mano con <code>dplyr</code>.</p>
+</section>
+</section>
+<section id="el-contrato-en-el-tiempo-cuando-el-esquema-cambia" class="level2">
+<h2 class="anchored" data-anchor-id="el-contrato-en-el-tiempo-cuando-el-esquema-cambia">El contrato en el tiempo: cuando el esquema cambia</h2>
+<p>Un contrato de datos no es un documento que se firma una vez y se olvida; vive tanto como el flujo que protege, y los flujos que importan duran años. Con el tiempo, la fuente cambia: se añade una columna, se renombra otra, un rango que era 0–100 pasa a 0–1000 porque la escala de medición se amplió. Cada uno de esos cambios pone a prueba el contrato, y ahí está su virtud: un cambio que rompe una expectativa <em>no declarada</em> pasa inadvertido y corrompe el análisis; uno que rompe una regla del contrato salta en la primera carga, con nombre y columna. El contrato convierte el cambio silencioso de la fuente en una alarma temprana.</p>
+<p>Pero eso obliga a distinguir dos situaciones que se confunden. Una es el <em>error</em>: la fuente empezó a mandar basura, y el contrato hace bien en abortar. La otra es la <em>evolución legítima</em>: la fuente cambió a propósito, y el contrato está desactualizado. Tratar la segunda como la primera —abortar cada vez que la realidad cambia— vuelve el <em>pipeline</em> un estorbo que alguien acabará desactivando. La disciplina sana es versionar el contrato junto al código (por eso <code>validate</code> guarda las reglas como objetos) y tratar cada cambio como lo que es: un <em>commit</em> deliberado, revisado, que registra qué se esperaba antes y qué ahora, y por qué. Un contrato bajo control de versiones cuenta, además, la historia de cómo el dato ha ido cambiando —una bitácora de la fuente que no existiría si las expectativas vivieran en la cabeza de alguien—.</p>
+<p>Hay una asimetría útil al diseñar las reglas de cara al futuro. Las reglas <em>demasiado estrictas</em> —«exactamente estas seis columnas, en este orden»— se rompen con cualquier cambio inocuo y generan ruido; las reglas <em>sobre lo que de verdad importa</em> —«la clave es única, la popularidad está en su rango, el género pertenece al conjunto conocido»— sobreviven a los cambios cosméticos y solo saltan cuando algo sustantivo se tuerce. Un buen contrato valida el <em>significado</em> del dato, no su forma accidental, y por eso envejece bien: separa lo que no puede cambiar sin romper el análisis de lo que puede cambiar sin consecuencias.</p>
+</section>
+<section id="un-recetario-de-limpieza" class="level2">
+<h2 class="anchored" data-anchor-id="un-recetario-de-limpieza">Un recetario de limpieza</h2>
+<p>Los frentes anteriores se combinan, en la práctica, en un puñado de gestos que conviene tener en los dedos. Todos comparten la misma disciplina —declarar lo que se hace y verificarlo— y todos operan por columna sobre datos ordenados.</p>
+<ol type="1">
+<li><p><strong>Perfilar antes de tocar.</strong> Ante un fichero desconocido, <code>scan_data</code> de pointblank o un <code>skimr::skim()</code> dan tipos, rangos y ausentes de un vistazo. Se entiende el dato antes de escribir la primera regla.</p></li>
+<li><p><strong>Estandarizar los nombres.</strong> <code>janitor::clean_names()</code> convierte los nombres de columna caóticos de un fichero ajeno en identificadores limpios y consistentes, la base de todo lo demás.</p></li>
+<li><p><strong>Declarar tipos al leer.</strong> La localización (coma decimal), el formato de fecha y el mapeo de booleanos se fijan en la lectura, no se dejan a la coerción.</p></li>
+<li><p><strong>Escribir el contrato.</strong> Cinco o seis reglas —dominio, positividad, conjunto, unicidad— que capturan lo que el dato debe cumplir, e interrogarlo.</p></li>
+<li><p><strong>Diagnosticar la ausencia.</strong> <code>miss_var_summary</code> para el cuánto, el cruce por otra columna y <code>mcar_test</code> para el mecanismo, antes de decidir nada.</p></li>
+<li><p><strong>Separar imposible de raro.</strong> El valor imposible se marca <code>NA</code>; el atípico posible se investiga, no se borra. Mediana y MAD para detectar, nunca media y desviación.</p></li>
+<li><p><strong>Deduplicar por la clave correcta.</strong> <code>distinct</code> sobre la clave natural con <code>.keep_all</code>, previa normalización del texto para los duplicados difusos.</p></li>
+<li><p><strong>Imputar respetando el mecanismo.</strong> Nunca la media global; modelo o grupo, y comprobar que la varianza no se ha desplomado.</p></li>
+<li><p><strong>Transformar con receta.</strong> <code>recipes</code> para todo lo que alimente un modelo, para que la preparación no filtre información del test.</p></li>
+<li><p><strong>Volver a validar.</strong> El mismo contrato, después de limpiar, para certificar —no para esperar— que el dato es de confianza.</p></li>
+</ol>
+<p>No es una lista para seguir a ciegas, sino un orden por defecto: cada paso supone el anterior, y saltarse uno se paga más tarde. La secuencia entera cabe en una frase —entender, estandarizar, tipar, contratar, diagnosticar, reparar, transformar, certificar— y esa frase es, en el fondo, todo el capítulo. Con la práctica, el recetario deja de recorrerse conscientemente y se vuelve un reflejo: ante un fichero nuevo, la mano va sola al perfilado, luego al contrato, luego al diagnóstico de ausencia, sin tener que recordar la lista. Ese automatismo es la señal de que la calidad de datos ha pasado de ser una tarea que se hace a ser un hábito que se tiene —y es entonces cuando deja de consumir el 80 % del tiempo de forma dolorosa y empieza a hacerlo de forma eficiente, porque cada gesto está engrasado—.</p>
+</section>
+<section id="la-política-de-datos-medir-no-proclamar" class="level2">
+<h2 class="anchored" data-anchor-id="la-política-de-datos-medir-no-proclamar">La política de datos: medir, no proclamar</h2>
+<p>Todo lo anterior —el contrato que valida, la limpieza que repara, la receta que transforma sin contaminar— tiene un propósito final: producir números en los que se pueda confiar. Falta la última pieza, ya no técnica sino metodológica: qué hace falta para <em>sostener</em> un número delante de un lector. La respuesta se resume en una exigencia: <strong>todo número que se afirme lleva detrás una procedencia sabida y dicha</strong>. Ante cualquier cantidad —en un informe, al pie de una figura, en un comentario del código— el que lee tiene que poder averiguar de dónde salió y cómo se regeneraría. Una cifra sin origen conocido no es un dato, es una consigna. De ahí el lema —medir antes que proclamar— y la práctica que lo hace real: cada número cae en una de tres categorías, y la categoría se declara (tabla&nbsp;10.3).</p>
+<p>La política no es una formalidad académica; resuelve un problema concreto y cotidiano. Cuando un informe afirma «el 15 % de las pistas son de música clásica», el lector necesita saber si esa cifra sale de contar el catálogo (y entonces es reproducible y se puede cotejar), de un dato inventado para el ejemplo (y entonces no sostiene ninguna conclusión sobre la realidad) o de una fuente externa (y entonces vale lo que valga la fuente). Las tres frases suenan idénticas; su valor probatorio es radicalmente distinto, y la única forma de que el lector lo distinga es que el autor lo declare. Un documento donde las tres clases se mezclan sin etiqueta no es que sea impreciso: es que no se puede auditar, y un número que no se puede auditar no es evidencia, es retórica.</p>
+<table class="caption-top table">
+<caption>Las tres clases de dato, con su tratamiento y un ejemplo de este volumen. La clase califica la afirmación, no el fichero: «el fichero sucio trae 25 duplicados» es una medición reproducible (clase 1) sobre un artefacto sintético declarado (clase 2).</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Clase</th>
+<th style="text-align: left;">Qué es y cómo se declara</th>
+<th style="text-align: left;">Ejemplo en este volumen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1. Medida</td>
+<td style="text-align: left;">la calculó nuestro código con semilla fija; registro único, nunca a mano</td>
+<td style="text-align: left;">las 5 916 pistas de la rebanada; los 12/19/40/50 fallos del contrato</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">. Sintética</td>
+<td style="text-align: left;">fabricada para ilustrar un mecanismo; marcada como tal en código y prosa</td>
+<td style="text-align: left;">el fichero sucio de este capítulo (semilla 42)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">. Citada</td>
+<td style="text-align: left;">tomada de la literatura o de fuera; cita en prosa o procedencia al pie</td>
+<td style="text-align: left;">versiones y fechas de arrow, DuckDB (cap.&nbsp;9)</td>
+</tr>
+</tbody>
+</table>
+<section id="clase-1-la-medida-local-reproducible." class="level5">
+<h5 class="anchored" data-anchor-id="clase-1-la-medida-local-reproducible.">Clase 1: la medida local reproducible.</h5>
+<p>La cifra que salió de nuestro propio código: datos que cualquiera puede obtener, semilla clavada, resultado que no varía de una ejecución a otra. Las cantidades de música de este volumen —las 5 916 pistas de la rebanada, los cuatro recuentos de fallos del contrato— nunca se escribieron a dedo: cada una brota de correr un guion con semilla fija, y todas residen en un único sitio, el de §10.10. Lo relevante es la garantía que eso da: la cifra del texto, la de la figura y la del código coinciden <em>porque nacen del mismo cálculo</em>, no porque alguien las vigile.</p>
+</section>
+<section id="clase-2-el-sintético-confesado." class="level5">
+<h5 class="anchored" data-anchor-id="clase-2-el-sintético-confesado.">Clase 2: el sintético confesado.</h5>
+<p>El dato fabricado a conciencia, para cuando enseñar algo exige controlar la entrada. El fichero sucio de este capítulo es el ejemplo de libro: sobre el catálogo verdadero sembramos con semilla 42 unos defectos —doce popularidades fuera de rango, dieciocho tempos imposibles, cuarenta erratas de género, veinticinco duplicados— cuya identidad teníamos apuntada de antemano. Fabricar un dato es lícito mientras se confiesa, porque su función es ilustrar un mecanismo: como sabíamos qué habíamos plantado, pudimos verificar que el contrato lo hallaba <em>entero</em>, no «en buena parte». Deja de ser lícito en cuanto pretende pasar por medición.</p>
+</section>
+<section id="clase-3-el-tomado-de-la-literatura." class="level5">
+<h5 class="anchored" data-anchor-id="clase-3-el-tomado-de-la-literatura.">Clase 3: el tomado de la literatura.</h5>
+<p>El hecho que no cabe —o no conviene— establecer midiendo uno mismo: cuándo un proyecto ingresó en una fundación, qué versión retiró cierto parámetro, el resultado de una prueba de rendimiento ajena. Cada uno viaja con su cita en el texto, o con su origen al pie si es tabla o figura. Su norma es tajante y prohibitiva: una cantidad tomada de fuera <strong>no se anota nunca en el registro de mediciones</strong>, reservado a lo que nuestro código regeneró. Barajar sin distintivo lo citado y lo medido es la peor infracción de esta política, porque no salta a la vista como error: levanta un documento que engaña con cifras que son ciertas.</p>
+</section>
+<section id="el-deslinde-cuando-lo-propio-y-lo-publicado-no-cuadran." class="level5">
+<h5 class="anchored" data-anchor-id="el-deslinde-cuando-lo-propio-y-lo-publicado-no-cuadran.">El deslinde: cuando lo propio y lo publicado no cuadran.</h5>
+<p>Antes o después, una medida nuestra no encajará con lo que dice la literatura, y aparece la tentación de silenciar el dato que estorba —el local que no reproduce, o el de la fuente que lo contradice—. Para ese trance hay un procedimiento, el <em>deslinde</em>, y son tres pasos que van juntos. Uno: el dato propio, presentado como propio, remitiendo a su registro. Dos: la causa exacta del desacuerdo —el régimen, la escala, la variable de confusión, con su nombre; «a mí me da otra cosa» no explica nada—. Tres: el dato de la fuente, etiquetado como clase 3. Que estén los tres importa más que su orden: dejar fuera cualquiera de ellos es la manera más cortés de faltar a la verdad. Y una cautela que suaviza el conflicto: la mayoría de las divergencias no son contradicciones, sino diferencias de régimen —«en esta rebanada de seis géneros, la energía y la popularidad correlacionan a 0,18; a escala del catálogo entero, o en otra fuente, el número será otro, porque la mezcla de géneros es distinta»—. Nombrar el régimen desactiva la falsa alarma y, de paso, enseña más que cualquiera de los dos números por separado.</p>
+</section>
+</section>
+<section id="un-ejemplo-integrador-del-fichero-sucio-al-dato-de-confianza" class="level2">
+<h2 class="anchored" data-anchor-id="un-ejemplo-integrador-del-fichero-sucio-al-dato-de-confianza">Un ejemplo integrador: del fichero sucio al dato de confianza</h2>
+<p>Reunamos las piezas en un flujo completo. Sobre la rebanada limpia (clase 1) fabricamos un fichero sucio declarado (clase 2), lo validamos con el contrato, reparamos cada defecto con su método y volvemos a validar para certificar que el dato es de confianza.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. SEMBRAR defectos conocidos (semilla fija: sabemos que sembramos)</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>sucio <span class="ot">&lt;-</span> musica <span class="sc">|&gt;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(track_id, track_name, track_genre, popularity, tempo, energy)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(sucio), <span class="dv">40</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>sucio<span class="sc">$</span>track_genre[i] <span class="ot">&lt;-</span> <span class="fu">toupper</span>(sucio<span class="sc">$</span>track_genre[i])</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>sucio<span class="sc">$</span>tempo[<span class="fu">sample</span>(<span class="fu">nrow</span>(sucio), <span class="dv">18</span>)] <span class="ot">&lt;-</span> <span class="dv">0</span>            <span class="co"># 18 tempos imposibles</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>sucio<span class="sc">$</span>popularity[<span class="fu">sample</span>(<span class="fu">nrow</span>(sucio), <span class="dv">12</span>)] <span class="ot">&lt;-</span> <span class="dv">999</span>     <span class="co"># 12 fuera de rango</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>sucio <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(sucio, sucio[<span class="fu">sample</span>(<span class="fu">nrow</span>(sucio), <span class="dv">25</span>), ])   <span class="co"># 25 duplicados</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(sucio)          <span class="co"># 5941  (5916 + 25)</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. VALIDAR: el contrato caza los cuatro defectos (12, 19, 40, 50)</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>agente <span class="ot">&lt;-</span> <span class="fu">create_agent</span>(sucio, <span class="at">actions =</span> <span class="fu">action_levels</span>(<span class="at">warn_at =</span> <span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">col_vals_between</span>(popularity, <span class="dv">0</span>, <span class="dv">100</span>) <span class="sc">|&gt;</span> <span class="fu">col_vals_gt</span>(tempo, <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">col_vals_in_set</span>(track_genre, GENEROS) <span class="sc">|&gt;</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rows_distinct</span>(<span class="fu">vars</span>(track_id, track_genre)) <span class="sc">|&gt;</span> <span class="fu">interrogate</span>()</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. REPARAR cada defecto con su metodo</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>limpio <span class="ot">&lt;-</span> sucio <span class="sc">|&gt;</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">track_genre =</span> <span class="fu">tolower</span>(track_genre)) <span class="sc">|&gt;</span>             <span class="co"># erratas de caja</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tempo =</span> <span class="fu">if_else</span>(tempo <span class="sc">&lt;=</span> <span class="dv">0</span>, <span class="cn">NA_real_</span>, tempo)) <span class="sc">|&gt;</span>   <span class="co"># imposibles -&gt; NA</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">popularity =</span> <span class="fu">if_else</span>(popularity <span class="sc">&gt;</span> <span class="dv">100</span>, <span class="cn">NA_real_</span>, popularity)) <span class="sc">|&gt;</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(track_id, track_genre, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)          <span class="co"># duplicados</span></span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="co"># estado tras reparar: los defectos se han vuelto NA honrados o han desaparecido</span></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(limpio)                     <span class="co"># 5916  (colapsados los 25 duplicados)</span></span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(limpio<span class="sc">$</span>tempo))         <span class="co"># 19    (los imposibles, ahora NA)</span></span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(limpio<span class="sc">$</span>popularity))    <span class="co"># 12    (los 999, ahora NA)</span></span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">n_distinct</span>(limpio<span class="sc">$</span>track_genre)  <span class="co"># 6  (las erratas de caja, normalizadas)</span></span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. RE-VALIDAR: el mismo contrato ahora pasa (los NA no violan el dominio)</span></span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a><span class="fu">create_agent</span>(limpio, <span class="at">actions =</span> <span class="fu">action_levels</span>(<span class="at">warn_at =</span> <span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">col_vals_in_set</span>(track_genre, GENEROS) <span class="sc">|&gt;</span></span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rows_distinct</span>(<span class="fu">vars</span>(track_id, track_genre)) <span class="sc">|&gt;</span> <span class="fu">interrogate</span>()</span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; todas las reglas: 0 fallos  -&gt; dato de confianza (5916 filas)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Los números de la reparación cierran el círculo con los del diagnóstico: los 25 duplicados desaparecieron (de 5 941 a 5 916 filas), los 19 tempos imposibles y las 12 popularidades fuera de rango se volvieron <code>NA</code> honrados, y los 6 géneros quedaron limpios de erratas de caja. Nótese que la re-validación usa <code>col_vals_in_set</code> y <code>rows_distinct</code> pero <em>no</em> <code>col_vals_gt(tempo, 0)</code>: un <code>NA</code> no es un tempo positivo, así que esa regla ahora «fallaría» sobre los huecos que nosotros mismos creamos a propósito. Es un detalle fino pero importante —una regla de dominio no debe confundir «ausente» con «inválido»—: los contratos maduros o bien admiten <code>NA</code> explícitamente (<code>na_pass = TRUE</code>) o bien separan la regla de completitud («¿cuántos huecos hay?») de la de dominio («de los presentes, ¿cuántos son válidos?»). El hueco que la limpieza introduce a conciencia no es un fallo, y el contrato debe saberlo.</p>
+<p>El flujo cuenta la moraleja del capítulo en cuatro pasos. Sembramos con semilla fija, para <em>saber</em> qué buscamos. Validamos, y el contrato reportó los defectos sembrados y uno de propina —el hueco de tempo que la rebanada ya traía, y que la regla cuenta como fallo—: dieciocho ceros más un ausente heredado suman los diecinueve del informe, y cuadrar esa aritmética es como se comprueba que un cortafuegos funciona. Reparamos con criterio: las erratas de caja se normalizan, pero los tempos imposibles y las popularidades fuera de rango no se «adivinan», se marcan <code>NA</code> —porque inventar un valor sería peor que admitir que no lo tenemos—, y los duplicados se colapsan a su clave. Y volvimos a validar, porque una limpieza sin una segunda validación es una esperanza, no una certeza. El resultado son 5 916 pistas que <em>han pasado un contrato explícito</em>: no «datos limpios» como acto de fe, sino datos de confianza como hecho verificado.</p>
+<p>Nótese la estructura del flujo, porque es reutilizable para cualquier fichero: sembrar solo existe en el ejemplo didáctico —en la vida real, los defectos ya vienen puestos—, pero los otros tres pasos, <em>validar <span class="math inline">\(\to\)</span> reparar <span class="math inline">\(\to\)</span> revalidar</em>, son el patrón universal. El primer contrato diagnostica; la reparación aplica el criterio; el segundo contrato certifica. Y entre los dos contratos hay un mismo objeto —las mismas reglas— usado con dos propósitos: antes, para encontrar; después, para garantizar. Esa simetría es lo que hace el flujo fiable: no se «cree» que la limpieza funcionó, se <em>comprueba</em> con la misma vara con la que se midió el problema. Un pipeline de calidad de datos maduro no es más que este bucle, puesto a correr en cada carga y dejando su informe como huella.</p>
+<p>Conviene detenerse en la decisión de reparación, porque es la más delicada y la que más se hace mal. Ante cada defecto hay tres respuestas posibles —corregir, marcar <code>NA</code> o descartar la fila— y elegir bien exige saber <em>por qué</em> el valor está mal. La errata de caja se corrige, porque conocemos el valor verdadero (el género existe, solo está mal escrito). El tempo imposible se marca <code>NA</code>, porque sabemos que está mal pero <em>no</em> sabemos cuál era el correcto —y fabricar uno introduciría un dato falso disfrazado de medido, justo lo que la política de la sección anterior prohíbe—. La fila duplicada se descarta, porque su información ya está en la copia que conservamos. La regla general: corregir solo cuando se conoce el valor cierto; ante la duda, marcar el hueco y dejar que las herramientas de ausencia decidan; descartar solo lo redundante o lo irreparable. Reparar no es «hacer que los datos pasen el contrato» —eso se consigue también mintiendo—; es hacer que lo digan la verdad, y a veces la verdad es un <code>NA</code> honrado.</p>
+<p>Y un último paso que el guion incluye y conviene destacar: generar el informe de calidad (<code>get_agent_report</code>) antes y después, y guardarlo junto al dato limpio. Ese informe es la <em>prueba</em> de la limpieza —qué se comprobó, qué falló, qué quedó—, y acompaña al fichero de confianza como su certificado de origen. Un dato limpio sin su informe es una afirmación; con él, un hecho verificable.</p>
+<p>Conviene también señalar lo que el integrador <em>no</em> hace, porque las omisiones enseñan tanto como los pasos. No borra las filas con tempo imposible ni las de popularidad fuera de rango: las marca <code>NA</code>, dejando la decisión de qué hacer con esos huecos para la etapa de ausentes, que sabe diagnosticarlos. No intenta «adivinar» el género correcto de las erratas más allá de la caja —una errata de tecleo de verdad (<code>"jaz"</code> por <code>"jazz"</code>) exigiría un emparejamiento por distancia que aquí no procede automatizar—. Y no toca los 16 299 identificadores que aparecen en varios géneros, porque no son duplicados. Cada una de esas contenciones es una decisión de <em>no</em> hacer, tan deliberada como las de hacer: limpiar de más —borrar lo dudoso, imputar lo incierto, fundir lo que solo se parece— destruye tanta información como no limpiar. La templanza —tocar lo justo, declararlo todo, y dejar para la etapa adecuada lo que no toca aquí— es una virtud tan de la limpieza como el celo.</p>
+</section>
+<section id="la-limpieza-como-artefacto-reproducible" class="level2">
+<h2 class="anchored" data-anchor-id="la-limpieza-como-artefacto-reproducible">La limpieza como artefacto reproducible</h2>
+<p>Queda un frente que no es una técnica sino un hábito, y es el que separa un trabajo que resiste el tiempo de uno que se descompone al primer cambio. Toda la limpieza de este capítulo —el contrato, las reparaciones, las imputaciones, las recetas— debe vivir en un <em>guion versionado</em>, no en la memoria de una sesión interactiva. El motivo es doble. Primero, la trazabilidad: cuando dentro de seis meses alguien —quizá uno mismo— pregunte «¿por qué esta pista tiene la energía a 0,5?», la respuesta debe estar en el código («se imputó por la mediana de su género, aquí»), no perdida. Segundo, la repetibilidad del propio ciclo (§10.1): cuando llegue un fichero nuevo, o el análisis descubra un defecto que obligue a refinar el contrato, rehacer la limpieza debe ser volver a ejecutar un guion, no reconstruir a mano una cadena de gestos que nadie apuntó.</p>
+<p>La forma madura de ese guion es un <em>pipeline</em> declarado —con <code>targets</code> (cap.&nbsp;1), por ejemplo— donde cada etapa es un objetivo con sus dependencias: el dato crudo, el contrato, el dato validado, el limpio, la receta preparada. El grafo recuerda qué depende de qué, así que cambiar una regla del contrato recalcula solo lo que esa regla afecta, no todo. Y como cada objetivo se guarda, el informe de calidad, el número de filas descartadas y los parámetros de la receta quedan registrados junto al dato —la huella declarada de la que hablábamos al abrir el capítulo—. La diferencia entre una limpieza reproducible y una improvisada no se nota el primer día, cuando ambas producen el mismo fichero; se nota el día que hay que rehacerla, defenderla o entender por qué cambió, y entonces es la diferencia entre abrir un guion y empezar de cero. Un dato de confianza no es solo un dato correcto: es un dato cuyo camino desde el crudo se puede recorrer entero, paso a paso, sin actos de fe.</p>
+</section>
+<section id="el-coste-de-no-hacerlo" class="level2">
+<h2 class="anchored" data-anchor-id="el-coste-de-no-hacerlo">El coste de no hacerlo</h2>
+<p>Vale la pena, antes de cerrar, mirar el reverso: qué pasa cuando esta disciplina falta. Los fallos por datos sucios comparten una firma —son <em>silenciosos</em>— y por eso son caros. Un programa que se cae avisa; un análisis alimentado con datos malos no se cae: produce un número, y el número parece razonable. Ahí está el peligro. La coma decimal leída como separador de millares no lanza ninguna excepción: multiplica por diez una columna y deja que el error viaje hasta una conclusión. El duplicado no protesta: infla un recuento y sesga una media. El atípico imposible no se distingue del raro legítimo hasta que alguien pregunta por qué la velocidad media da un valor absurdo.</p>
+<p>Los modos de fallo se repiten, y conocerlos es media defensa. El más común es el <em>error que se propaga</em>: un defecto en la carga que contamina todo lo que sigue, y que cuesta horas de rastrear hacia atrás porque el síntoma aparece lejos de la causa. El más insidioso es el <em>sesgo silencioso</em>: un borrado o una imputación que inclina la muestra sin romper nada, de modo que el análisis funciona y solo está mal. Y el más embarazoso es el <em>resultado irreproducible</em>: el número que salió una vez y que nadie —ni su autor— logra regenerar, porque la limpieza vivió en gestos manuales que no quedaron escritos. Los tres se previenen con lo mismo que este capítulo ha predicado: validar en la frontera para cortar la propagación, diagnosticar el mecanismo para evitar el sesgo, y dejar huella para garantizar la reproducibilidad.</p>
+<p>La moraleja económica es contraintuitiva pero firme: la limpieza cuidadosa parece cara —consume ese 80 % del tiempo— y es, en realidad, la barata. Lo caro es lo otro: el estudio que hay que retractar, la decisión tomada sobre un número torcido, las semanas de depuración tras un resultado imposible, la confianza perdida cuando alguien descubre que las cifras no se sostienen. Frente a eso, las horas dedicadas a un contrato, un diagnóstico de ausencia y un guion reproducible son una ganga. No se limpia por pulcritud; se limpia porque es, con diferencia, lo más rentable que se puede hacer con los datos antes de analizarlos.</p>
+</section>
+<section id="síntesis-preparar-es-analizar" class="level2">
+<h2 class="anchored" data-anchor-id="síntesis-preparar-es-analizar">Síntesis: preparar es analizar</h2>
+<p>El capítulo defendió una tesis y la ejecutó. La tesis: preparar los datos no es el trámite previo al análisis, es análisis, porque cada decisión —qué es un duplicado, por qué falta un valor, qué es imposible— condiciona el resultado tanto como el modelo, y además lo hace en la sombra. La ejecución: un ciclo con huella declarada, unos datos ordenados que hacen pensable cada etapa, un contrato que caza los errores donde entran, un tratamiento de los ausentes que empieza por el mecanismo y no por el relleno, una limpieza de duplicados, tipos y atípicos que distingue lo imposible de lo raro, y una transformación con recipes que impide la fuga por construcción.</p>
+<p>Bajo la variedad de herramientas late una sola idea: <strong>hacer explícito lo implícito</strong>. La expectativa sobre los datos, enterrada en un <code>if</code>, se vuelve un contrato legible. El criterio de limpieza, escondido en un <em>script</em>, se vuelve un paso declarado y reproducible. La procedencia de cada número, difusa, se vuelve una de tres clases visibles. Esa es, en el fondo, la diferencia entre un análisis que se puede defender y uno que solo se puede creer: no que esté libre de decisiones —ninguno lo está—, sino que sus decisiones estén a la vista. Medir, no proclamar; y dejar que cualquiera vea cómo se midió.</p>
+<p>Conviene, para terminar, resistir dos malentendidos simétricos sobre la limpieza. El primero, el del perezoso: «los datos vienen bien, esto es perder el tiempo». Ningún dato real viene bien; el que lo parece es el que aún no se ha mirado con cuidado, y el precio de esa confianza se paga tarde, cuando el error ya contaminó el resultado y es caro de rastrear. El segundo, el del obsesivo: «hay que limpiarlo todo hasta la perfección». No existe el dato perfecto, y perseguirlo es malgastar el esfuerzo que el análisis necesita; el objetivo no es un dato impecable, sino uno <em>suficientemente</em> de fiar para la pregunta concreta, con sus limitaciones declaradas. Entre esos dos extremos —la negligencia que no mira y el perfeccionismo que no termina— está el oficio: mirar lo justo, reparar lo que importa, declarar lo que queda, y saber cuándo el dato ya sostiene la conclusión que se le va a pedir. Ese juicio —cuándo está listo— es lo último que se aprende y lo primero que distingue el trabajo maduro.</p>
+</section>
+<section id="errores-frecuentes-en-la-limpieza-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="errores-frecuentes-en-la-limpieza-de-datos">Errores frecuentes en la limpieza de datos</h2>
+<ol type="1">
+<li><p><strong>Limpiar sin declarar.</strong> Reparar un dato en un <em>script</em> sin dejar registro de qué se cambió y por qué hace irreproducible el resultado. Cada reparación es una decisión analítica y merece quedar escrita.</p></li>
+<li><p><strong>Rellenar antes de preguntar por qué falta.</strong> Imputar un MNAR con la media introduce un sesgo peor que el hueco. El mecanismo (MCAR/MAR/MNAR) decide el método; diagnosticar va antes que rellenar.</p></li>
+<li><p><strong>Imputar con la media o mediana global.</strong> Encoge la varianza y aplasta las correlaciones. Si se imputa, hágase con un modelo o por grupo, respetando la estructura que causaba la ausencia.</p></li>
+<li><p><strong>Confundir imposible con atípico.</strong> Un tempo de 0 es un error físico (se marca <code>NA</code>); un tempo de 210 es una canción real (se conserva). Borrar las colas «porque son atípicas» destruye datos verdaderos.</p></li>
+<li><p><strong>Detectar atípicos con media y desviación.</strong> Ambas las distorsionan los propios atípicos. Usar mediana y MAD (robustas), y aun así investigar antes de borrar.</p></li>
+<li><p><strong>La coma decimal silenciosa.</strong> <code>parse_number("45,0")</code> devuelve 450 sin avisar. Declarar la localización al leer y validar el dominio después.</p></li>
+<li><p><strong>Fuga de datos al normalizar o imputar.</strong> Calcular la media o la desviación sobre todo el dato, test incluido, infla el rendimiento medido. Aprender los parámetros solo del entrenamiento —lo que recipes garantiza—.</p></li>
+<li><p><strong>Deduplicar la fila entera cuando la clave es parcial.</strong> <code>distinct()</code> sin <code>.keep_all</code> sobre la clave natural puede no ser lo que se quiere; conviene decidir qué columna define la identidad.</p></li>
+<li><p><strong>Un contrato sin severidad calibrada.</strong> <code>stop_at</code> demasiado alto vuelve el contrato un adorno; demasiado bajo, un estorbo que se acaba desactivando. El umbral se elige con conocimiento del dominio.</p></li>
+<li><p><strong>No volver a validar tras limpiar.</strong> Una limpieza sin segunda validación es una esperanza. El contrato se pasa dos veces: para diagnosticar y para certificar.</p></li>
+<li><p><strong>Fuga de variable.</strong> Un predictor que codifica el futuro o el propio objetivo infla el rendimiento y fracasa en producción. Ninguna herramienta la detecta; solo preguntarse si cada columna estará disponible en el momento de predecir.</p></li>
+<li><p><strong>Imputar «para tener la tabla completa».</strong> Rellenar por reflejo, sin diagnosticar el mecanismo, produce una tabla impecable sobre la que ya no se ve lo inventado. La ausencia informada es preferible al relleno silencioso.</p></li>
+<li><p><strong>Reparar para pasar el contrato.</strong> Ajustar los datos hasta que la validación no proteste —en vez de hasta que digan la verdad— es hacer trampa al propio cortafuegos. El objetivo es un dato veraz, no un informe en verde.</p></li>
+</ol>
+</section>
+<section id="lecturas-recomendadas" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="lecturas-recomendadas">Lecturas recomendadas</h2>
+<p>La tesis de que preparar es donde se gana o se pierde el análisis está en el prefacio de <span class="citation" data-cites="dasu2003exploratory">Dasu y Johnson (<a href="#ref-dasu2003exploratory" role="doc-biblioref">2003</a>)</span>, todavía la mejor entrada al tema; el dato del 80 % y su matización empírica, en la recopilación de <span class="citation" data-cites="press2016cleaning">Press (<a href="#ref-press2016cleaning" role="doc-biblioref">2016</a>)</span>. Ambos merecen leerse no como estadística curiosa, sino como argumento: si la mayor parte del valor se decide preparando, la limpieza no es la antesala del trabajo serio, es buena parte de él. Para los datos ordenados, el artículo fundacional de <span class="citation" data-cites="wickham2014tidy">Wickham (<a href="#ref-wickham2014tidy" role="doc-biblioref">2014</a>)</span> es breve, claro y define un vocabulario que ha organizado una década de trabajo con datos en R; conviene leerlo entero al menos una vez. La validación como contrato se documenta en pointblank <span class="citation" data-cites="pointblankdocs">(<a href="#ref-pointblankdocs" role="doc-biblioref">Iannone y Vargas 2025</a>)</span> —cuya guía de <em>agentes</em> e informes merece un recorrido antes de montar un panel de calidad—, en validate <span class="citation" data-cites="validatedocs">(<a href="#ref-validatedocs" role="doc-biblioref">Loo y Jonge 2024</a>)</span> y en assertr <span class="citation" data-cites="assertrdocs">(<a href="#ref-assertrdocs" role="doc-biblioref">Fischetti 2023</a>)</span>, cada uno con su filosofía; leer los tres aclara qué estilo pide cada proyecto. La idea del contrato de esquema —declarado, verificable, versionado— no es patrimonio de ninguna herramienta: es una buena práctica que ha cuajado en todos los ecosistemas de datos modernos, y pointblank es su encarnación más completa en R. Sobre los ausentes, la referencia teórica es <span class="citation" data-cites="littlerubin2019missing">Little y Rubin (<a href="#ref-littlerubin2019missing" role="doc-biblioref">2019</a>)</span>, y la práctica en R, la viñeta de naniar <span class="citation" data-cites="naniardocs">(<a href="#ref-naniardocs" role="doc-biblioref">Tierney y Cook 2023</a>)</span> para explorarlos y la imputación múltiple de <span class="citation" data-cites="buuren2018flexible">Buuren (<a href="#ref-buuren2018flexible" role="doc-biblioref">2018</a>)</span> para tratarlos con honradez estadística; <code>simputation</code> <span class="citation" data-cites="simputationdocs">(<a href="#ref-simputationdocs" role="doc-biblioref">Loo 2024</a>)</span> cubre los métodos simples con una gramática uniforme. El libro de van Buuren merece una nota aparte: es a la vez la referencia teórica de la imputación múltiple y el manual del paquete <code>mice</code>, y su insistencia en que imputar es un acto de <em>inferencia</em> —no de relleno— reordena la forma de pensar el problema; quien vaya a tratar ausencia en serio, y no solo a tapar huecos, debe leerlo. Para la transformación y la fuga de datos, recipes <span class="citation" data-cites="recipesdocs">(<a href="#ref-recipesdocs" role="doc-biblioref">Kuhn y Wickham 2025</a>)</span> y el libro de ingeniería de variables de <span class="citation" data-cites="kuhn2019feature">Kuhn y Johnson (<a href="#ref-kuhn2019feature" role="doc-biblioref">2019</a>)</span> explican por qué la barrera entre aprender y aplicar no es un tecnicismo sino la frontera entre un modelo honesto y uno engañado. Y la política de datos —medir, no proclamar— es la práctica de las diez reglas de <span class="citation" data-cites="sandve2013ten">Sandve et&nbsp;al. (<a href="#ref-sandve2013ten" role="doc-biblioref">2013</a>)</span> y del consejo de <span class="citation" data-cites="wilson2017good">Wilson et&nbsp;al. (<a href="#ref-wilson2017good" role="doc-biblioref">2017</a>)</span> llevada a su conclusión: que cada número lleve encima, siempre, la prueba de dónde vino.</p>
+<p>Dos lecturas más completan el mapa. Sobre la ingeniería de variables —el arte de transformar datos limpios en datos que un modelo aprovecha—, el libro de <span class="citation" data-cites="kuhn2019feature">Kuhn y Johnson (<a href="#ref-kuhn2019feature" role="doc-biblioref">2019</a>)</span> es la referencia, y su insistencia en la disciplina anti-fuga recorre todo el capítulo; conviene leerlo a la par que la documentación de recipes <span class="citation" data-cites="recipesdocs">(<a href="#ref-recipesdocs" role="doc-biblioref">Kuhn y Wickham 2025</a>)</span>, que lo lleva a la práctica en R. Y para quien quiera profundizar en la reproducibilidad como columna vertebral —no un añadido sino el sustrato sobre el que se apoya todo lo demás—, las diez reglas simples de <span class="citation" data-cites="sandve2013ten">Sandve et&nbsp;al. (<a href="#ref-sandve2013ten" role="doc-biblioref">2013</a>)</span> siguen siendo la mejor página y media que se puede leer sobre el tema: cada una es un hábito que este capítulo ha ejercido sin nombrarlo. La suma de todas ellas es la tesis que abrió estas páginas, vista desde el otro extremo: si preparar los datos es análisis, entonces merece —exige— el mismo rigor de método, la misma trazabilidad y la misma honradez que exigimos al modelo que viene después. No hay una parte «seria» del trabajo y otra de fontanería; hay un solo oficio, y empieza en el byte crudo.</p>
+<p>Una última recomendación, más de actitud que de bibliografía. Conviene, al menos una vez, ensuciarse las manos con un conjunto de datos verdaderamente hostil —un volcado exportado de un sistema antiguo, una hoja de cálculo rellenada por decenas de personas sin criterio común, un portal público con años de formatos cambiantes—, porque ningún manual transmite lo que se aprende peleando con datos reales lo que enseña media tarde perdida rastreando por qué una columna que debía ser numérica trae la palabra «desconocido» en la fila 40 000. Esa experiencia —frustrante, imprescindible— es la que convierte las técnicas de este capítulo de una lista que se estudia en un instinto que se tiene. Los datos limpios de los ejemplos didácticos, este catálogo incluido, son un andamio para aprender; el edificio se construye con los sucios. Y quien haya sufrido de verdad un fichero hostil no volverá a saltarse la validación: no por disciplina impuesta, sino por memoria del dolor evitado.</p>
+<p>El paso siguiente en el arco del libro presupone todo esto resuelto. La estadística que viene —describir, cuantificar la incertidumbre, contrastar hipótesis— opera sobre los datos como si fueran de fiar, porque la tarea de hacerlos de fiar es la que acabamos de completar. Un contraste de hipótesis sobre datos sucios es una ceremonia vacía: da un <span class="math inline">\(p\)</span>-valor con toda la parafernalia del rigor sobre una base que no lo tiene. Por eso este capítulo va antes: no se puede inferir con honestidad de lo que no se ha validado con honestidad. La confianza que construimos aquí es la moneda con la que se paga todo lo que sigue.</p>
+<p>Vale la pena, para cerrar, situar el capítulo en el arco del libro. Los capítulos previos enseñaron a leer datos (cap.&nbsp;5), a estructurarlos (cap.&nbsp;8) y a procesarlos a cualquier escala (cap.&nbsp;9); todos suponían, calladamente, que el dato era de fiar. Este capítulo retira ese supuesto y lo convierte en trabajo: la confianza no se presupone, se construye —con un contrato que la verifica, una limpieza que la repara, una política que la sostiene—. Es un cambio de actitud más que de técnica. El principiante trata la limpieza como un peaje molesto antes del análisis «de verdad»; el profesional sabe que es ahí donde se decide si el análisis significará algo, y le dedica el cuidado —y el tiempo— que esa importancia merece. La destreza técnica de los capítulos anteriores sin esta disciplina produce análisis rápidos y frágiles; con ella, análisis que resisten el escrutinio. Y resistir el escrutinio —que otro pueda seguir cada número hasta su origen y rehacerlo— es, al final, lo único que distingue un resultado de una opinión bien presentada.</p>
+<p>Con los datos ya validados, limpios y transformados sin contaminarlos, el material está por fin listo para lo que sigue: describirlos con rigor, cuantificar su incertidumbre y poner a prueba lo que parecen decir. El próximo capítulo entra en la estadística —el terreno para el que R fue diseñado— con la tranquilidad de quien sabe que sus datos ya son de confianza.</p>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-buuren2018flexible" class="csl-entry" role="listitem">
+Buuren, Stef van. 2018. <em>Flexible Imputation of Missing Data</em>. 2.ª ed. Chapman; Hall/CRC.
+</div>
+<div id="ref-dasu2003exploratory" class="csl-entry" role="listitem">
+Dasu, Tamraparni, y Theodore Johnson. 2003. <em>Exploratory Data Mining and Data Cleaning</em>. Wiley. <a href="https://doi.org/10.1002/0471448354">https://doi.org/10.1002/0471448354</a>.
+</div>
+<div id="ref-assertrdocs" class="csl-entry" role="listitem">
+Fischetti, Tony. 2023. <em><span>assertr</span>: Assertive Programming for <span>R</span> Analysis Pipelines</em>. <a href="https://docs.ropensci.org/assertr/" class="uri">Https://docs.ropensci.org/assertr/</a>.
+</div>
+<div id="ref-pointblankdocs" class="csl-entry" role="listitem">
+Iannone, Richard, y Mauricio Vargas. 2025. <em><span>pointblank</span>: Data Validation and Organization of Metadata for Local and Remote Tables</em>. <a href="https://rstudio.github.io/pointblank/" class="uri">Https://rstudio.github.io/pointblank/</a>.
+</div>
+<div id="ref-kuhn2019feature" class="csl-entry" role="listitem">
+Kuhn, Max, y Kjell Johnson. 2019. <em>Feature Engineering and Selection: A Practical Approach for Predictive Models</em>. Chapman &amp; Hall/CRC. <a href="https://www.feat.engineering/">https://www.feat.engineering/</a>.
+</div>
+<div id="ref-recipesdocs" class="csl-entry" role="listitem">
+Kuhn, Max, y Hadley Wickham. 2025. <em><span>recipes</span>: Preprocessing and Feature Engineering Steps for Modeling</em>. <a href="https://recipes.tidymodels.org/" class="uri">Https://recipes.tidymodels.org/</a>.
+</div>
+<div id="ref-littlerubin2019missing" class="csl-entry" role="listitem">
+Little, Roderick J. A., y Donald B. Rubin. 2019. <em>Statistical Analysis with Missing Data</em>. 3.ª ed. Wiley. <a href="https://doi.org/10.1002/9781119482260">https://doi.org/10.1002/9781119482260</a>.
+</div>
+<div id="ref-simputationdocs" class="csl-entry" role="listitem">
+Loo, Mark van der. 2024. <em><span>simputation</span>: Simple Imputation</em>. <a href="https://github.com/markvanderloo/simputation" class="uri">Https://github.com/markvanderloo/simputation</a>.
+</div>
+<div id="ref-validatedocs" class="csl-entry" role="listitem">
+Loo, Mark van der, y Edwin de Jonge. 2024. <em><span>validate</span>: Data Validation Infrastructure</em>. <a href="https://github.com/data-cleaning/validate" class="uri">Https://github.com/data-cleaning/validate</a>.
+</div>
+<div id="ref-spotifytracks" class="csl-entry" role="listitem">
+<span class="nocase">maharshipandya</span>. 2022. <span>«Spotify Tracks Dataset»</span>. <a href="https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset">https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset</a>.
+</div>
+<div id="ref-press2016cleaning" class="csl-entry" role="listitem">
+Press, Gil. 2016. <span>«Cleaning Big Data: Most Time-Consuming, Least Enjoyable Data Science Task, Survey Says»</span>. Forbes, marzo 23. <a href="https://www.forbes.com/sites/gilpress/2016/03/23/data-preparation-most-time-consuming-least-enjoyable-data-science-task-survey-says/">https://www.forbes.com/sites/gilpress/2016/03/23/data-preparation-most-time-consuming-least-enjoyable-data-science-task-survey-says/</a>.
+</div>
+<div id="ref-rubin1976inference" class="csl-entry" role="listitem">
+Rubin, Donald B. 1976. <span>«Inference and Missing Data»</span>. <em>Biometrika</em> 63 (3): 581-92. <a href="https://doi.org/10.1093/biomet/63.3.581">https://doi.org/10.1093/biomet/63.3.581</a>.
+</div>
+<div id="ref-sandve2013ten" class="csl-entry" role="listitem">
+Sandve, Geir Kjetil, Anton Nekrutenko, James Taylor, y Eivind Hovig. 2013. <span>«Ten Simple Rules for Reproducible Computational Research»</span>. <em>PLoS Computational Biology</em> 9 (10): e1003285. <a href="https://doi.org/10.1371/journal.pcbi.1003285">https://doi.org/10.1371/journal.pcbi.1003285</a>.
+</div>
+<div id="ref-naniardocs" class="csl-entry" role="listitem">
+Tierney, Nicholas, y Dianne Cook. 2023. <em><span>naniar</span>: Data Structures, Summaries, and Visualisations for Missing Data</em>. <a href="https://naniar.njtierney.com/" class="uri">Https://naniar.njtierney.com/</a>.
+</div>
+<div id="ref-wickham2014tidy" class="csl-entry" role="listitem">
+Wickham, Hadley. 2014. <span>«Tidy Data»</span>. <em>Journal of Statistical Software</em> 59 (10): 1-23. <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>.
+</div>
+<div id="ref-wilson2017good" class="csl-entry" role="listitem">
+Wilson, Greg, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, y Tracy K. Teal. 2017. <span>«Good enough practices in scientific computing»</span>. <em>PLoS Computational Biology</em> 13 (6): e1005510. <a href="https://doi.org/10.1371/journal.pcbi.1005510">https://doi.org/10.1371/journal.pcbi.1005510</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -695,6 +1427,19 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2026 Manuel Muñoz Plá · Edición web bajo licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es">CC BY-NC-ND 4.0</a> (uso académico con atribución; sin uso comercial ni obras derivadas) · El código va aparte bajo licencia MIT</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

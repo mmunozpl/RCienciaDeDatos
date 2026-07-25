@@ -23,7 +23,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -44,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3519e9152a6936f9aef93bb4ac1254f6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c51ee271f6426d8ddbbd81f2fce6c0c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,6 +126,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -218,42 +301,65 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Capítulo 16. Reproducibilidad, ingeniería, despliegue y ética</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Apéndices</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ap_algebra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Apéndice · Álgebra lineal esencial</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ap_probabilidad.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Apéndice · Probabilidad y estadística esencial</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ap_entorno.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Apéndice · Puesta a punto del entorno</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#la-formulación-del-aprendizaje-supervisado" id="toc-la-formulación-del-aprendizaje-supervisado" class="nav-link active" data-scroll-target="#la-formulación-del-aprendizaje-supervisado">La formulación del aprendizaje supervisado</a>
+  <ul class="collapse">
+  <li><a href="#la-generalización-y-la-partición" id="toc-la-generalización-y-la-partición" class="nav-link" data-scroll-target="#la-generalización-y-la-partición">La generalización y la partición</a></li>
+  <li><a href="#el-dataset-del-capítulo-la-música-con-señal-real" id="toc-el-dataset-del-capítulo-la-música-con-señal-real" class="nav-link" data-scroll-target="#el-dataset-del-capítulo-la-música-con-señal-real">El dataset del capítulo: la música con señal real</a></li>
+  </ul></li>
+  <li><a href="#regresión-lineal-desde-cero-y-con-lm" id="toc-regresión-lineal-desde-cero-y-con-lm" class="nav-link" data-scroll-target="#regresión-lineal-desde-cero-y-con-lm">Regresión lineal: desde cero y con <code>lm</code></a>
+  <ul class="collapse">
+  <li><a href="#la-ecuación-normal" id="toc-la-ecuación-normal" class="nav-link" data-scroll-target="#la-ecuación-normal">La ecuación normal</a></li>
+  <li><a href="#con-lm-la-interfaz-de-fórmula" id="toc-con-lm-la-interfaz-de-fórmula" class="nav-link" data-scroll-target="#con-lm-la-interfaz-de-fórmula">Con <code>lm</code>: la interfaz de fórmula</a></li>
+  <li><a href="#interpretabilidad-qué-dice-el-modelo" id="toc-interpretabilidad-qué-dice-el-modelo" class="nav-link" data-scroll-target="#interpretabilidad-qué-dice-el-modelo">Interpretabilidad: qué dice el modelo</a></li>
+  </ul></li>
+  <li><a href="#clasificación-predecir-una-categoría-medir-el-acierto" id="toc-clasificación-predecir-una-categoría-medir-el-acierto" class="nav-link" data-scroll-target="#clasificación-predecir-una-categoría-medir-el-acierto">Clasificación: predecir una categoría, medir el acierto</a>
+  <ul class="collapse">
+  <li><a href="#por-qué-la-exactitud-no-basta" id="toc-por-qué-la-exactitud-no-basta" class="nav-link" data-scroll-target="#por-qué-la-exactitud-no-basta">Por qué la exactitud no basta</a></li>
+  <li><a href="#la-curva-roc-y-el-auc" id="toc-la-curva-roc-y-el-auc" class="nav-link" data-scroll-target="#la-curva-roc-y-el-auc">La curva ROC y el AUC</a></li>
+  <li><a href="#más-de-dos-clases-la-logística-multinomial" id="toc-más-de-dos-clases-la-logística-multinomial" class="nav-link" data-scroll-target="#más-de-dos-clases-la-logística-multinomial">Más de dos clases: la logística multinomial</a></li>
+  </ul></li>
+  <li><a href="#sobreajuste-sesgo-y-varianza" id="toc-sobreajuste-sesgo-y-varianza" class="nav-link" data-scroll-target="#sobreajuste-sesgo-y-varianza">Sobreajuste, sesgo y varianza</a>
+  <ul class="collapse">
+  <li><a href="#la-brecha-entre-entrenamiento-y-test" id="toc-la-brecha-entre-entrenamiento-y-test" class="nav-link" data-scroll-target="#la-brecha-entre-entrenamiento-y-test">La brecha entre entrenamiento y test</a></li>
+  <li><a href="#sesgo-y-varianza" id="toc-sesgo-y-varianza" class="nav-link" data-scroll-target="#sesgo-y-varianza">Sesgo y varianza</a></li>
+  <li><a href="#regularización-penalizar-la-complejidad" id="toc-regularización-penalizar-la-complejidad" class="nav-link" data-scroll-target="#regularización-penalizar-la-complejidad">Regularización: penalizar la complejidad</a></li>
+  <li><a href="#la-validación-cruzada" id="toc-la-validación-cruzada" class="nav-link" data-scroll-target="#la-validación-cruzada">La validación cruzada</a></li>
+  </ul></li>
+  <li><a href="#el-descenso-de-gradiente-el-motor-del-aprendizaje" id="toc-el-descenso-de-gradiente-el-motor-del-aprendizaje" class="nav-link" data-scroll-target="#el-descenso-de-gradiente-el-motor-del-aprendizaje">El descenso de gradiente: el motor del aprendizaje</a>
+  <ul class="collapse">
+  <li><a href="#la-idea" id="toc-la-idea" class="nav-link" data-scroll-target="#la-idea">La idea</a></li>
+  <li><a href="#la-tasa-de-aprendizaje-y-las-variantes" id="toc-la-tasa-de-aprendizaje-y-las-variantes" class="nav-link" data-scroll-target="#la-tasa-de-aprendizaje-y-las-variantes">La tasa de aprendizaje y las variantes</a></li>
+  <li><a href="#la-diferenciación-automática" id="toc-la-diferenciación-automática" class="nav-link" data-scroll-target="#la-diferenciación-automática">La diferenciación automática</a></li>
+  </ul></li>
+  <li><a href="#redes-neuronales-de-la-regresión-a-las-capas" id="toc-redes-neuronales-de-la-regresión-a-las-capas" class="nav-link" data-scroll-target="#redes-neuronales-de-la-regresión-a-las-capas">Redes neuronales: de la regresión a las capas</a>
+  <ul class="collapse">
+  <li><a href="#la-retropropagación-a-mano" id="toc-la-retropropagación-a-mano" class="nav-link" data-scroll-target="#la-retropropagación-a-mano">La retropropagación, a mano</a></li>
+  <li><a href="#por-qué-funcionan-aproximación-y-activaciones" id="toc-por-qué-funcionan-aproximación-y-activaciones" class="nav-link" data-scroll-target="#por-qué-funcionan-aproximación-y-activaciones">Por qué funcionan: aproximación y activaciones</a></li>
+  </ul></li>
+  <li><a href="#torch-aprendizaje-profundo-de-verdad" id="toc-torch-aprendizaje-profundo-de-verdad" class="nav-link" data-scroll-target="#torch-aprendizaje-profundo-de-verdad"><code>torch</code>: aprendizaje profundo de verdad</a></li>
+  <li><a href="#cuándo-el-aprendizaje-profundo-y-cuándo-no" id="toc-cuándo-el-aprendizaje-profundo-y-cuándo-no" class="nav-link" data-scroll-target="#cuándo-el-aprendizaje-profundo-y-cuándo-no">Cuándo el aprendizaje profundo, y cuándo no</a>
+  <ul class="collapse">
+  <li><a href="#el-panorama-de-2026" id="toc-el-panorama-de-2026" class="nav-link" data-scroll-target="#el-panorama-de-2026">El panorama de 2026</a></li>
+  <li><a href="#la-ingeniería-de-características" id="toc-la-ingeniería-de-características" class="nav-link" data-scroll-target="#la-ingeniería-de-características">La ingeniería de características</a></li>
+  </ul></li>
+  <li><a href="#un-ejemplo-integrador-adivinar-el-género" id="toc-un-ejemplo-integrador-adivinar-el-género" class="nav-link" data-scroll-target="#un-ejemplo-integrador-adivinar-el-género">Un ejemplo integrador: adivinar el género</a></li>
+  <li><a href="#del-modelo-suelto-al-proyecto-de-aprendizaje" id="toc-del-modelo-suelto-al-proyecto-de-aprendizaje" class="nav-link" data-scroll-target="#del-modelo-suelto-al-proyecto-de-aprendizaje">Del modelo suelto al proyecto de aprendizaje</a></li>
+  <li><a href="#qué-modelo-elegir" id="toc-qué-modelo-elegir" class="nav-link" data-scroll-target="#qué-modelo-elegir">Qué modelo elegir</a></li>
+  <li><a href="#síntesis-lo-que-de-verdad-importa" id="toc-síntesis-lo-que-de-verdad-importa" class="nav-link" data-scroll-target="#síntesis-lo-que-de-verdad-importa">Síntesis: lo que de verdad importa</a></li>
+  <li><a href="#errores-frecuentes-en-el-modelado" id="toc-errores-frecuentes-en-el-modelado" class="nav-link" data-scroll-target="#errores-frecuentes-en-el-modelado">Errores frecuentes en el modelado</a></li>
+  <li><a href="#lecturas-recomendadas" id="toc-lecturas-recomendadas" class="nav-link" data-scroll-target="#lecturas-recomendadas">Lecturas recomendadas</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -277,11 +383,714 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>Capítulo en preparación.</em> El contenido se redacta a partir del plan (<code>PLAN_R_para_la_Ciencia_de_Datos.md</code>) siguiendo la disciplina del volumen Python: teoría, ejercicios al final y código ejecutable en <code>src/cap13_tema.R</code>, con cada figura y cada cifra regeneradas en R.</p>
+<p><a href="https://mybinder.org/v2/gh/mmunozpl/RCienciaDeDatos/HEAD?urlpath=rstudio" class="btn btn-primary btn-sm" role="button">▶ Ejecutar este capítulo en Binder</a></p>
+<div class="callout callout-style-default callout-note callout-titled" title="El primer arranque tarda unos minutos">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>El primer arranque tarda unos minutos
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>La primera vez que se abre, Binder construye el entorno en la nube (unos 10-20 min); verás una pantalla de progreso. Después queda en caché y abre en segundos. Si parece que no responde, espera a que termine de construirse o vuelve a intentarlo.</p>
+</div>
+</div>
+</div>
+<p>El libro ha recorrido un arco: preparar el entorno, dominar el lenguaje, estructurar los datos, llevarlos a escala, limpiarlos, describirlos, inferir sobre ellos y dibujarlos. Todo ese trabajo tenía un horizonte, y aquí llegamos a él. Describir contesta a «¿qué hay en los datos?»; inferir, a «¿qué población los generó?»; <em>modelar</em> contesta a una pregunta distinta y más ambiciosa: «¿qué puedo predecir sobre los datos que <em>aún no he visto</em>?». Un modelo es una función aprendida de los ejemplos del pasado para acertar en los del futuro, y construir esa función —medirla con honradez, entender cuándo funciona y cuándo se engaña— es el oficio del <strong>aprendizaje automático</strong> (<em>machine learning</em>).</p>
+<p>R no es un invitado en esta sala: es de la casa. El lenguaje lo diseñaron dos estadísticos (cap.&nbsp;1), la modelización estadística está en su núcleo desde el primer día, y la <em>interfaz de fórmula</em> —<code>y ~ x1 + x2</code>, que ya asomó en el cap.&nbsp;6— es la lengua materna con la que R habla de modelos. Sobre esa base, un ecosistema moderno —<code>tidymodels</code>, con <code>parsnip</code>, <code>recipes</code>, <code>rsample</code> y <code>yardstick</code>— ofrece una gramática del modelado tan coherente como la de <code>ggplot2</code> lo era para los gráficos. Este capítulo pone los cimientos; el cap.&nbsp;14 construye sobre ellos el flujo de trabajo completo.</p>
+<p>Conviene deshacer de entrada un malentendido, porque contamina la manera de acercarse al campo. El aprendizaje automático suele llegar envuelto en una promesa exagerada —máquinas que «aprenden solas», inteligencia que emerge de los datos— y esa retórica esconde lo que de verdad es: una rama de la estadística aplicada, disciplinada y a menudo modesta, donde los avances vienen de medir con cuidado y desconfiar de los resultados demasiado buenos. No hay magia. Un modelo es una función que minimiza un error sobre unos datos; su «inteligencia» es la de la geometría y el cálculo que este libro ya ha puesto, y su fiabilidad depende por completo de una higiene —partir los datos, medir en lo no visto, vigilar el sobreajuste— que no tiene nada de espectacular y todo de decisivo. Quien se acerca al aprendizaje automático esperando hechizos se decepciona o, peor, se engaña con sus propios resultados; quien lo entiende como estadística rigurosa sobre datos abundantes saca de él todo su considerable poder sin caer en sus trampas.</p>
+<p>El plan es deliberado. Construiremos los modelos <strong>dos veces</strong>: primero a mano, con el álgebra del cap.&nbsp;7, para ver qué hay dentro; luego con las herramientas que los resuelven en una línea, para usarlos de verdad. Empezaremos por la regresión lineal —el modelo más simple y más instructivo—, seguiremos por la clasificación y sus métricas, nos enfrentaremos al enemigo central de todo el campo —el sobreajuste—, destaparemos el motor que entrena casi todo modelo moderno —el descenso de gradiente—, construiremos una red neuronal desde cero y la reharemos con <code>torch</code>, y cerraremos con la lección más importante y menos glamurosa del aprendizaje automático en 2026: sobre datos tabulares, lo simple casi siempre gana. Todo, sobre el mismo catálogo de música que nos ha acompañado, con cifras reales regeneradas en R.</p>
+<section id="la-formulación-del-aprendizaje-supervisado" class="level2">
+<h2 class="anchored" data-anchor-id="la-formulación-del-aprendizaje-supervisado">La formulación del aprendizaje supervisado</h2>
+<p>El <strong>aprendizaje supervisado</strong> (<em>supervised learning</em>) arranca de un material muy concreto: ejemplos ya resueltos. De cada observación conocemos tanto sus atributos de entrada como el resultado que le corresponde, y la tarea es destilar de ese historial una regla que anticipe el resultado de casos futuros. Formalizado, el material es una matriz de <strong>características</strong> (<em>features</em>) <span class="math inline">\(\mathbf{X}\)</span> con forma <span class="math inline">\((n, d)\)</span> —las <span class="math inline">\(n\)</span> observaciones ocupan las filas y las <span class="math inline">\(d\)</span> variables las columnas— acompañada de un vector de respuestas <span class="math inline">\(\mathbf{y}\)</span> con <span class="math inline">\(n\)</span> componentes. Se busca una función <span class="math inline">\(f\)</span> que cumpla <span class="math inline">\(f(\mathbf{x}) \approx y\)</span>, pero con una exigencia que lo cambia todo: que acierte en observaciones <em>futuras</em>, no en las ya conocidas, donde acertar es trivial. Ese matiz —entre reproducir lo visto y anticipar lo no visto— es la médula del capítulo.</p>
+<p>La naturaleza de la respuesta bautiza el problema. Cuando <span class="math inline">\(y\)</span> es una cantidad continua —el volumen de una pista, medido en decibelios— estamos ante una <strong>regresión</strong>. Cuando <span class="math inline">\(y\)</span> es una etiqueta de un catálogo finito —a qué género pertenece la pista— ante una <strong>clasificación</strong>. Bajo esa diferencia de superficie late una misma maquinaria —unos datos, una función que ajustar, una vara para medir el fallo—, y por eso el capítulo aborda ambos casi de la mano: los conceptos que se ganan en uno se trasladan casi sin cambio al otro.</p>
+<p>El apellido «supervisado» distingue este marco de otros dos que conviene situar, aunque queden fuera del capítulo. En el aprendizaje <strong>no supervisado</strong> no hay respuesta <span class="math inline">\(y\)</span>: solo la matriz <span class="math inline">\(\mathbf{X}\)</span>, y el objetivo es descubrir estructura —agrupar observaciones parecidas (<em>clustering</em>), reducir la dimensión (como el análisis de componentes principales que ya asomó en el cap.&nbsp;7)— sin nadie que diga qué es correcto. En el aprendizaje <strong>por refuerzo</strong>, un agente aprende a actuar en un entorno maximizando una recompensa que llega con retraso, el marco de los sistemas que juegan al ajedrez o conducen. El supervisado —aprender de ejemplos etiquetados— es, con diferencia, el más usado y el mejor entendido, y por eso es el corazón de este capítulo y del siguiente; los otros dos son territorios propios que este libro solo señala en el mapa. Que exista una respuesta conocida contra la que medirse es, precisamente, lo que hace del supervisado el terreno donde las ideas de generalización, error y validación se ven con más nitidez. Para la teoría estadística completa detrás de cada modelo, el tratamiento moderno y asequible es <span class="citation" data-cites="james2023islp">James et&nbsp;al. (<a href="#ref-james2023islp" role="doc-biblioref">2023</a>)</span>, y el clásico exhaustivo, <span class="citation" data-cites="hastie2009elements">Hastie et&nbsp;al. (<a href="#ref-hastie2009elements" role="doc-biblioref">2009</a>)</span>.</p>
+<p>Conviene, antes de tocar un solo modelo, un armazón mental que ordena todo el campo. Cualquier modelo de aprendizaje supervisado —la regresión, la logística, la red neuronal, el <em>boosting</em>— se descompone en <strong>tres ingredientes</strong>, y elegir un modelo es elegir los tres. El primero es la <em>familia de funciones</em>: qué forma puede tener <span class="math inline">\(f\)</span> —una recta, un polinomio, una composición de capas, un conjunto de árboles—, es decir, cuánta flexibilidad se le concede. El segundo es la <em>función de pérdida</em> (<em>loss</em>): cómo se mide el error de una predicción —el error cuadrático para la regresión, la entropía cruzada para la clasificación—, que traduce «acertar» en un número que se pueda minimizar. Y el tercero es el <em>algoritmo de optimización</em>: cómo se busca, dentro de la familia, la función que minimiza esa pérdida —una fórmula cerrada cuando la hay, el descenso de gradiente cuando no—. Casi todo lo que este capítulo enseña encaja en una de estas tres casillas, y tenerlas presentes evita el error del principiante, que confunde el modelo (la familia) con su entrenamiento (la optimización) o con su evaluación (que no es ninguno de los tres, sino el juicio externo sobre el resultado). Modelo, pérdida, optimización: tres piezas, y el resto son combinaciones.</p>
+<section id="la-generalización-y-la-partición" class="level3">
+<h3 class="anchored" data-anchor-id="la-generalización-y-la-partición">La generalización y la partición</h3>
+<p>Lo que separa el modelado de la simple descripción tiene nombre: <strong>generalización</strong> (<em>generalization</em>). Un modelo que repita al pie de la letra los datos disponibles no aporta nada —para eso sobra con archivarlos y consultarlos—; lo que se le pide es acertar donde aún no ha mirado. Reproducir el pasado con fidelidad y tropezar con el futuro no es aprender, es calcar. De ahí se sigue una consecuencia incómoda: evaluar un modelo con los mismos ejemplos que usó para ajustarse no informa de nada, porque confunde recordar con comprender.</p>
+<p>Por eso la primera operación de todo proyecto es cortar los datos en dos bloques. El primero, el de <strong>entrenamiento</strong> (<em>train</em>), es el único territorio que el modelo pisa: de él extrae sus parámetros. El segundo, el de <strong>prueba</strong> o <em>test</em>, se guarda bajo llave hasta el desenlace; hace las veces de porvenir —observaciones que todavía no han ocurrido— y su papel es exclusivamente el de juez. Es la misma frontera que el cap.&nbsp;10 levantó al tratar la fuga de datos: dejar que el test influya en cualquier decisión —qué modelo, qué umbral, qué parámetro— lo convierte en cómplice del entrenamiento, y esa contaminación es la fuga más traicionera de todas, porque hincha las cifras en silencio, sin disparar ninguna alarma. De ahí una norma sin excepciones: al test no se le mira hasta que ya no queda ninguna decisión pendiente.</p>
+<p>En R, con <code>rsample</code> (una pieza de <code>tidymodels</code>), el corte cabe en una instrucción. Lo aplicamos al conjunto que vertebra el capítulo —seis géneros en proporciones parejas, presentado en la §13.1.2—:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rsample); <span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>generos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"pop"</span>, <span class="st">"rock"</span>, <span class="st">"classical"</span>, <span class="st">"hip-hop"</span>, <span class="st">"jazz"</span>, <span class="st">"reggaeton"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>sub <span class="ot">&lt;-</span> musica <span class="sc">|&gt;</span> <span class="fu">filter</span>(track_genre <span class="sc">%in%</span> generos) <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">track_genre =</span> <span class="fu">factor</span>(track_genre, <span class="at">levels =</span> generos))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>division <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(sub, <span class="at">prop =</span> <span class="fl">0.8</span>, <span class="at">strata =</span> track_genre)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>entrena  <span class="ot">&lt;-</span> <span class="fu">training</span>(division)   <span class="co"># el modelo aprende SOLO aqui</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>prueba   <span class="ot">&lt;-</span> <span class="fu">testing</span>(division)    <span class="co"># el "futuro": no se toca hasta evaluar</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">train =</span> <span class="fu">nrow</span>(entrena), <span class="at">test =</span> <span class="fu">nrow</span>(prueba))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; train  test</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4731  1185</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Apartamos el 20 % —1 185 pistas— para el test y dejamos las 4 731 restantes para aprender. Al estratificar por género (<code>strata = track_genre</code>) cada uno mantiene su peso a ambos lados de la raya; y la semilla fija (<code>set.seed(2026)</code>) vuelve el corte repetible, requisito para que las cifras del capítulo salgan idénticas en la máquina del lector —con la salvedad del cap.&nbsp;7: ese reparto es el del generador <em>de R</em>, y no viaja a otros lenguajes—. La figura&nbsp;13.1 sintetiza el pacto: el ajuste ocurre íntegramente en el bloque de entrenamiento y el veredicto, una única vez, en el de test.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap13/fig_01.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;13.1.</strong> <strong>La partición honesta.</strong> Los datos se dividen en dos bloques; <span class="math inline">\(f\)</span> aprende únicamente del de entrenamiento, mientras el de test —que hace de porvenir— queda apartado para juzgarlo una vez y solo una. Dejar que el test asome durante el ajuste es una fuga de datos (cap.&nbsp;10) que abulta la cifra sin avisar.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Avanzado — El reparto al azar da por hecha la independencia.</strong> Que <code>initial_split</code> baraje las filas solo es legítimo si las observaciones son intercambiables —si saber de unas no da pistas sobre otras—, y eso es una suposición, no una certeza. Un catálogo musical la incumple con frecuencia: dos pistas del mismo disco, o de la misma firma, arrastran idéntica producción, mezcla y sello, así que separarlas entre los dos bloques filtra información de contrabando —el modelo acaba identificando al intérprete en lugar del género— y de nuevo abulta el marcador, otra fuga disimulada. Lo correcto entonces es repartir por grupos —con <code>group_initial_split</code>, el disco o el artista entero cae de un solo lado— para que el test evalúe de verdad la generalización a música inédita. Aquí damos por independiente cada pista para no perder el hilo de la mecánica; en un sistema real, esa comodidad se paga.</p>
+</div>
+</div>
+</section>
+<section id="el-dataset-del-capítulo-la-música-con-señal-real" class="level3">
+<h3 class="anchored" data-anchor-id="el-dataset-del-capítulo-la-música-con-señal-real">El dataset del capítulo: la música con señal real</h3>
+<p>Cabe aquí una nota de transparencia, coherente con la política de datos del cap.&nbsp;10. Usamos una porción balanceada de seis géneros del catálogo de Spotify —mil pistas por género, descontados los duplicados por clave natural, <strong>5 916</strong> al final—, con sus rasgos de audio auténticos: energía, bailabilidad, volumen, acústica, positividad, tempo y demás. La señal es <em>genuina pero débil</em>: los géneros se solapan mucho en el espacio de rasgos —hay pop enérgico y rock tranquilo, jazz bailable y reggaetón acústico—, así que ningún modelo va a rozar el acierto perfecto, y eso es exactamente lo que queremos. Un problema demasiado fácil (donde todo acierta al 99 %) no enseña nada sobre modelado; uno con señal parcial —donde el azar acierta uno de cada seis y un buen modelo llega al setenta por ciento— obliga a medir con cuidado, a distinguir el modelo que generaliza del que memoriza, y a entender por qué unos rasgos predicen y otros no. La música, aquí, es un banco de pruebas honrado: real, imperfecto y suficientemente difícil para que las lecciones del capítulo se vean.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Avanzado — El ruido de las etiquetas.</strong> Todo el marco supervisado descansa en una hipótesis que rara vez se examina: que las etiquetas <span class="math inline">\(y\)</span> son <em>correctas</em>. En la práctica no siempre lo son. Los géneros del catálogo los asignó alguien —un editor, un algoritmo, el propio artista— con criterios discutibles: ¿es «pop-rock» pop o rock?, ¿el jazz-funk es jazz? Esas etiquetas ambiguas o erróneas son <strong>ruido de etiqueta</strong>, y ponen un techo al acierto que ningún modelo puede superar: si el 15 % de las pistas están mal etiquetadas, ni el clasificador perfecto pasaría del 85 %, porque la «verdad» contra la que se le mide está equivocada en esa fracción. Es una cara del ruido irreducible que suele olvidarse —se piensa en el ruido de las <em>características</em>, no en el de las <em>respuestas</em>—, y explica parte del techo obstinado que encontraremos. La moraleja para el oficio: antes de culpar al modelo de no pasar de cierto acierto, conviene preguntarse cuánto de ese límite lo pone la calidad de las etiquetas, porque a veces el modelo ya es tan bueno como la verdad que le dieron.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="regresión-lineal-desde-cero-y-con-lm" class="level2">
+<h2 class="anchored" data-anchor-id="regresión-lineal-desde-cero-y-con-lm">Regresión lineal: desde cero y con <code>lm</code></h2>
+<p>Empezamos por el modelo más sencillo y, a la vez, el más instructivo. La regresión lineal estima la respuesta sumando las características de cada observación, cada una con su peso: <span class="math display">\[\hat{y} = \mathbf{x}^\top\mathbf{\beta} + b,\]</span> donde <span class="math inline">\(\mathbf{x}\in\mathbb{R}^{d}\)</span> agrupa los <span class="math inline">\(d\)</span> rasgos de una observación, <span class="math inline">\(\mathbf{\beta}\in\mathbb{R}^{d}\)</span> los pesos (uno por rasgo) y <span class="math inline">\(b\)</span> desplaza el conjunto (el término independiente). <em>Entrenar</em> es dar con la pareja <span class="math inline">\(\mathbf{\beta}\)</span>, <span class="math inline">\(b\)</span> que deja lo más pequeño posible el error cuadrático medio (ECM) sobre el entrenamiento, <span class="math display">\[\mathrm{ECM}(\mathbf{\beta}, b) = \frac{1}{n}\sum_{i=1}^{n}\bigl(y_i - \hat{y}_i\bigr)^2,\]</span> la media de los residuos <span class="math inline">\(y_i-\hat{y}_i\)</span> elevados al cuadrado. Nada de misterio: ajustar una regresión lineal es un problema de optimización con receta conocida, y lo resolveremos a mano antes de encargárselo a R. Ponemos por objetivo el volumen de la pista (<code>loudness</code>, en decibelios) y lo estimamos con cuatro rasgos —energía, acústica, bailabilidad y positividad—.</p>
+<section id="la-ecuación-normal" class="level3">
+<h3 class="anchored" data-anchor-id="la-ecuación-normal">La ecuación normal</h3>
+<p>Minimizar el ECM sale especialmente barato: como es una función cuadrática y convexa de <span class="math inline">\(\mathbf{\beta}\)</span>, basta anular su gradiente para dar con el mínimo, y ese requisito se traduce en un sistema lineal con solución explícita, la <em>ecuación normal</em>. Colocando cada observación de entrenamiento en una fila de la matriz <span class="math inline">\(\mathbf{X}\)</span> —con una columna de unos que se traga el término independiente— y los objetivos en <span class="math inline">\(\mathbf{y}\)</span>, el <span class="math inline">\(\mathbf{\beta}\)</span> que buscamos satisface <span class="math display">\[(\mathbf{X}^\top\mathbf{X})\,\mathbf{\beta} = \mathbf{X}^\top\mathbf{y}.\]</span> Aquí recogemos el hilo del cap.&nbsp;7: aquel producto matricial <span class="math inline">\(\mathbf{X}^\top\mathbf{X}\)</span> es el <code>crossprod</code> que vimos allí, y resolver el sistema no exige invertir la matriz —más lento y menos estable—: <code>solve(A, b)</code> lo hace directamente. Dos funciones resumen el modelo: <code>ajustar_lineal</code> (aprende <span class="math inline">\(\mathbf{\beta}\)</span>) y <code>predecir_lineal</code> (lo aplica).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>feats <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"energy"</span>, <span class="st">"acousticness"</span>, <span class="st">"danceability"</span>, <span class="st">"valence"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Xtr <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(entrena[feats]); ytr <span class="ot">&lt;-</span> entrena<span class="sc">$</span>loudness</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>ajustar_lineal <span class="ot">&lt;-</span> <span class="cf">function</span>(X, y) {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  Xb <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, X)                        <span class="co"># columna de unos para el termino b</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">solve</span>(<span class="fu">crossprod</span>(Xb), <span class="fu">crossprod</span>(Xb, y))   <span class="co"># resuelve (X'X) beta = X'y</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>predecir_lineal <span class="ot">&lt;-</span> <span class="cf">function</span>(X, beta) <span class="fu">cbind</span>(<span class="dv">1</span>, X) <span class="sc">%*%</span> beta</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">ajustar_lineal</span>(Xtr, ytr)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(beta, <span class="dv">2</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] -22.02  18.89  -0.46   5.90  -1.67</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#      b     energy  acoust.  dance.  valence</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Con una decena de líneas ha quedado entrenado un modelo real: <code>solve</code> entrega los cinco valores —el desplazamiento y los cuatro pesos— que minimizan el ECM del volumen. Esos cinco valores <em>constituyen</em> el modelo entero; predecir se reduce a multiplicarlos por los rasgos y sumar.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Avanzado — La geometría de los mínimos cuadrados.</strong> La ecuación normal no es un truco algebraico: tiene una lectura geométrica que ilumina qué hace la regresión, y recoge el hilo del álgebra del cap.&nbsp;7. El vector de objetivos <span class="math inline">\(\mathbf{y}\)</span> vive en un espacio de <span class="math inline">\(n\)</span> dimensiones (una por observación). Las combinaciones lineales de las columnas de <span class="math inline">\(\mathbf{X}\)</span> —todas las predicciones posibles del modelo— forman un <em>subespacio</em> de ese espacio, de dimensión igual al número de características. Ajustar por mínimos cuadrados es encontrar, dentro de ese subespacio, el punto más cercano a <span class="math inline">\(\mathbf{y}\)</span>, y ese punto es su <strong>proyección ortogonal</strong>. La ecuación normal <span class="math inline">\(\mathbf{X}^\top(\mathbf{X}\mathbf{\beta}-\mathbf{y})=\mathbf{0}\)</span> dice exactamente eso: que el vector de residuos <span class="math inline">\(\mathbf{y}-\hat{\mathbf{y}}\)</span> es <em>perpendicular</em> a todas las columnas de <span class="math inline">\(\mathbf{X}\)</span> —el modelo ha exprimido de las características toda la información lineal sobre <span class="math inline">\(\mathbf{y}\)</span>, y lo que queda en el residuo es, por construcción, lo que ninguna combinación lineal de los rasgos podía explicar—. Que «entrenar» sea «proyectar» explica de paso por qué la solución es única y por qué <span class="math inline">\(R^2\)</span> mide la fracción de <span class="math inline">\(\mathbf{y}\)</span> que cae dentro del subespacio: pura trigonometría en <span class="math inline">\(n\)</span> dimensiones.</p>
+</div>
+</div>
+</section>
+<section id="con-lm-la-interfaz-de-fórmula" class="level3">
+<h3 class="anchored" data-anchor-id="con-lm-la-interfaz-de-fórmula">Con <code>lm</code>: la interfaz de fórmula</h3>
+<p>Escribir la ecuación normal a mano es didáctico, pero en la práctica no reinventamos la rueda. R trae la regresión lineal desde su primer día en la función <code>lm</code>, y con ella la <strong>interfaz de fórmula</strong> que anunciamos: el modelo se declara como <code>loudness ~ energy + acousticness + …</code>, leyendo la tilde como «se explica por». Esta interfaz —nativa de R, envidiada y copiada por otros lenguajes— es una de las razones de que el modelado en R fluya, y la compartirán todos los modelos del capítulo: cambiar de modelo apenas cambia una palabra, no el resto del código.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(yardstick)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ajuste <span class="ot">&lt;-</span> <span class="fu">lm</span>(loudness <span class="sc">~</span> energy <span class="sc">+</span> acousticness <span class="sc">+</span> danceability <span class="sc">+</span> valence,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> entrena)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># los coeficientes coinciden EXACTAMENTE con la ecuacion normal:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(<span class="fu">unname</span>(<span class="fu">coef</span>(ajuste)), <span class="fu">as.numeric</span>(beta))   <span class="co">#&gt; TRUE</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># evaluar en el test: predecir y medir con yardstick</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>prueba<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(ajuste, prueba)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>metricas <span class="ot">&lt;-</span> <span class="fu">metric_set</span>(mae, rmse, rsq)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">metricas</span>(prueba, <span class="at">truth =</span> loudness, <span class="at">estimate =</span> pred)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; mae   2.38     rmse  3.29     rsq  0.740</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>all.equal</code> devuelve <code>TRUE</code>: nuestra ecuación normal y <code>lm</code> llegan al mismo sitio, porque resuelven el mismo problema. Y <code>yardstick</code> —el paquete de métricas de <code>tidymodels</code>— resume el ajuste sobre el test en tres cifras: un error absoluto medio (MAE) de <strong>2,38 dB</strong>, una raíz del error cuadrático (RMSE) de 3,29 dB, y un coeficiente de determinación <span class="math inline">\(R^2\)</span> de <strong>0,740</strong>, es decir, el modelo explica el 74 % de la varianza del volumen. Que el MAE de test (2,38) sea prácticamente igual al de entrenamiento (2,38 también) es una buena señal —el modelo no memoriza, generaliza—, y es lo que esperamos de un modelo tan rígido; en la sección de sobreajuste veremos qué pasa cuando el modelo tiene demasiada libertad.</p>
+<p>Las tres métricas no son intercambiables, y elegir entre ellas es una decisión, no un detalle. El <strong>MAE</strong> promedia los errores en valor absoluto: es robusto, fácil de interpretar —«nos equivocamos 2,38 dB de media»— y trata todos los errores por igual. El <strong>RMSE</strong> promedia sus cuadrados y saca la raíz: penaliza mucho más los errores grandes, así que un puñado de predicciones muy malas lo disparan, y por eso el RMSE (3,29) es mayor que el MAE (2,38) —la diferencia entre ambos es, de hecho, una pista de cuánta cola tienen los errores—. ¿Cuál usar? El RMSE si un error grande es desproporcionadamente peor que varios pequeños (predecir mal la carga de un puente); el MAE si todos los errores cuestan en proporción a su tamaño. El <strong><span class="math inline">\(R^2\)</span></strong>, por su parte, no está en unidades del objetivo sino en fracción de varianza explicada, y sirve para comparar entre problemas de escalas distintas, aunque engaña si se olvida que un <span class="math inline">\(R^2\)</span> alto no garantiza predicciones útiles ni relación causal. Informar de una sola métrica es dar media imagen; las tres juntas cuentan cuánto, cómo de disperso y en qué proporción se acierta.</p>
+</section>
+<section id="interpretabilidad-qué-dice-el-modelo" class="level3">
+<h3 class="anchored" data-anchor-id="interpretabilidad-qué-dice-el-modelo">Interpretabilidad: qué dice el modelo</h3>
+<p>Un modelo lineal no solo predice: <em>explica</em>, y esa es su mayor virtud frente a los modelos más potentes que vendrán. Cada coeficiente es la variación esperada del objetivo por cada unidad de la característica, manteniendo las demás fijas. Pero los coeficientes en bruto engañan al comparar, porque cada rasgo tiene su propia escala: la energía y la positividad van de 0 a 1, el tempo llega a 200. Para comparar la <em>importancia</em> de los rasgos se estandarizan —se multiplica cada coeficiente por la desviación típica de su rasgo—, obteniendo el efecto en decibelios de un cambio de una desviación típica:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sdx <span class="ot">&lt;-</span> <span class="fu">apply</span>(Xtr, <span class="dv">2</span>, sd)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(beta[<span class="sc">-</span><span class="dv">1</span>] <span class="sc">*</span> sdx, <span class="dv">2</span>)      <span class="co"># efecto de +1 desviacion tipica, en dB</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; energy  acousticness  danceability  valence</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4.89      -0.16          1.08       -0.41</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ahora la lectura es directa y honesta: la <strong>energía</strong> domina —subir una desviación típica de energía sube casi 5 dB el volumen previsto—, la bailabilidad ayuda algo (+1,08), y la acústica y la positividad apenas mueven la aguja. Tiene sentido físico: las pistas enérgicas <em>son</em> las que suenan fuerte. Esta capacidad de mirar dentro y entender qué pesa es lo que hace del modelo lineal el primer recurso del analista, y lo que se pierde —o se recupera con esfuerzo, cap.&nbsp;14— al subir a modelos más opacos. La regla de oficio: empieza por el modelo que puedes explicar, y sube de complejidad solo cuando el dato demuestre que hace falta.</p>
+<p>Un modelo lineal, además, no se juzga solo por su error: se <em>diagnostica</em>. R lo hereda de su tradición estadística, y <code>plot(ajuste)</code> sobre un objeto <code>lm</code> produce cuatro gráficos de residuos que el cap.&nbsp;12 enseñó a leer. El más importante enfrenta los residuos a los valores previstos: si el modelo es adecuado, deben esparcirse sin patrón alrededor de cero; una curva sugiere que la relación no era lineal (falta un término cuadrático, o una transformación), y un embudo que se abre delata que la varianza crece con la magnitud —incumpliendo una hipótesis del método—. Mirar los residuos antes de creerse el <span class="math inline">\(R^2\)</span> es la contrapartida, en el modelado, del «dibuja antes de resumir» del cap.&nbsp;12: un buen ajuste numérico con residuos con forma es un modelo que miente en algún tramo, y solo el gráfico lo delata. Este hábito —diagnosticar, no solo medir— es lo que distingue el uso estadístico de R de la aplicación mecánica de un algoritmo.</p>
+</section>
+</section>
+<section id="clasificación-predecir-una-categoría-medir-el-acierto" class="level2">
+<h2 class="anchored" data-anchor-id="clasificación-predecir-una-categoría-medir-el-acierto">Clasificación: predecir una categoría, medir el acierto</h2>
+<p>Cambiamos de problema: en vez de un número, predecimos una <em>categoría</em>. ¿Es esta pista pop o rock? El modelo de referencia para la clasificación binaria es la <strong>regresión logística</strong>, que no es una regresión sino un clasificador con un nombre heredado. La idea: en vez de predecir directamente la clase, predice la <em>probabilidad</em> de una de ellas, pasando la combinación lineal de siempre por la función <em>sigmoide</em> <span class="math inline">\(\sigma(z) = 1/(1+e^{-z})\)</span>, que aplasta cualquier número real al intervalo <span class="math inline">\((0,1)\)</span>. Se decide «pop» si esa probabilidad supera un umbral (0,5 por defecto). En R es <code>glm</code> con <code>family = binomial</code>, otra vez la interfaz de fórmula.</p>
+<p>Que la logística prediga probabilidades y no clases directamente no es un capricho, y conecta con los tres ingredientes de la §13.1. Su <em>pérdida</em> —lo que minimiza al entrenar— no es la exactitud, sino la <strong>entropía cruzada</strong> (<em>log loss</em>), que penaliza no solo acertar o fallar, sino la <em>confianza</em> con que se falla: equivocarse diciendo «90 % pop» cuesta muchísimo más que dudando «55 % pop». Hay una razón para no usar la exactitud como pérdida: es una función escalonada —cambia a saltos cuando una predicción cruza el umbral— y por tanto tiene gradiente cero casi en todas partes, inservible para el descenso de gradiente que veremos en la §13.5. La entropía cruzada, en cambio, es suave y derivable, y premia acercar las probabilidades a la verdad. Es un patrón general del campo: se optimiza una pérdida suave (entropía cruzada, error cuadrático) que sirve de sustituto entrenable de la métrica que de verdad importa (exactitud, F1), y esa distinción entre <em>pérdida</em> que se minimiza y <em>métrica</em> que se evalúa es una de las que más confunden al principiante.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dos <span class="ot">&lt;-</span> sub <span class="sc">|&gt;</span> <span class="fu">filter</span>(track_genre <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"pop"</span>, <span class="st">"rock"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">clase =</span> <span class="fu">factor</span>(track_genre, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"rock"</span>, <span class="st">"pop"</span>)))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>div <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(dos, <span class="at">prop =</span> <span class="fl">0.8</span>, <span class="at">strata =</span> clase)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>tr <span class="ot">&lt;-</span> <span class="fu">training</span>(div); te <span class="ot">&lt;-</span> <span class="fu">testing</span>(div)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>ajuste <span class="ot">&lt;-</span> <span class="fu">glm</span>(clase <span class="sc">~</span> danceability <span class="sc">+</span> energy <span class="sc">+</span> loudness <span class="sc">+</span> speechiness <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                acousticness <span class="sc">+</span> valence <span class="sc">+</span> tempo, <span class="at">data =</span> tr, <span class="at">family =</span> <span class="fu">binomial</span>())</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>te<span class="sc">$</span>prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(ajuste, te, <span class="at">type =</span> <span class="st">"response"</span>)          <span class="co"># P(pop)</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>te<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(te<span class="sc">$</span>prob <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">"pop"</span>, <span class="st">"rock"</span>),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"rock"</span>, <span class="st">"pop"</span>))</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">accuracy</span>(te, <span class="at">truth =</span> clase, <span class="at">estimate =</span> pred)   <span class="co">#&gt; 0.664</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El modelo acierta el <strong>66,4 %</strong> de las 399 pistas de test. Suena modesto, y lo es —pop y rock comparten mucho territorio sonoro—, pero conviene compararlo con lo que acertaría el azar sensato: como las dos clases están equilibradas, apostar siempre por la mayoritaria daría 50,2 %. El modelo, pues, saca 16 puntos a la moneda: ha aprendido algo real, aunque no mucho.</p>
+<p>Como el modelo lineal, la logística también <em>se explica</em>, aunque su lectura es menos directa. Sus coeficientes no están en unidades de probabilidad —que no crece de forma lineal— sino de <em>log-momios</em> (<em>log-odds</em>): un coeficiente positivo empuja la probabilidad hacia arriba, uno negativo hacia abajo, y su exponencial es la <strong>razón de momios</strong>, cuánto multiplica las apuestas a favor de pop un aumento de una unidad en ese rasgo. Un coeficiente de <code>energy</code> positivo, por ejemplo, diría que a más energía más probabilidad de que el modelo cante «pop». No hay que memorizar la mecánica —<code>coef(ajuste)</code> los da y <code>broom::tidy</code> los ordena con sus intervalos—, pero sí retener la idea: la logística conserva la interpretabilidad del modelo lineal, solo que en la escala de los momios, y por eso sigue siendo la primera parada en clasificación cuando hace falta <em>entender</em>, no solo acertar.</p>
+<p>Hay una imagen geométrica que aclara qué hace un clasificador y por qué unos ganan a otros: la <strong>frontera de decisión</strong>. Piensa en las pistas como puntos en el espacio de sus rasgos —cada pista, una posición según su energía, su acústica, etcétera— coloreados por su género. Clasificar es trazar fronteras en ese espacio que separen los colores, y predecir es mirar a qué lado de la frontera cae un punto nuevo. La regresión logística solo puede trazar fronteras <em>rectas</em> (hiperplanos): si los géneros se separan por una línea, acierta; si la frontera real serpentea, no puede seguirla, por muchos datos que reciba —ese es su límite, y la razón de su modesto 66 %—. Una red neuronal o un árbol trazan fronteras <em>curvas</em>, arbitrariamente retorcidas, y por eso capturan relaciones que la logística no alcanza. Toda la jerarquía de modelos del capítulo se puede leer así: como una escalera de fronteras cada vez más flexibles, de la recta de la logística a las curvas de la red, con el precio —más flexibilidad, más riesgo de sobreajustar— que ya conocemos. Elegir modelo es, en el fondo, elegir cuánta libertad darle a esa frontera (figura&nbsp;13.2).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap13/fig_02.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;13.2.</strong> <strong>La frontera de decisión: recta frente a curva.</strong> Pop (naranja) y rock (azul) en el plano de dos rasgos, energía y acústica; el color de fondo es la clase que cada modelo predice en cada punto, y la línea gris, su frontera. La regresión logística (izquierda) solo puede trazar una <em>recta</em>: separa el plano en dos mitades, y donde los géneros se entrelazan, falla. El bosque aleatorio (derecha) traza una frontera <em>escalonada y curva</em> que rodea bolsas de cada clase, capturando estructura que la recta no puede —a cambio de un mayor riesgo de ajustar el ruido—. La escalera de modelos del capítulo es, en el fondo, una escalera de fronteras cada vez más flexibles.</figcaption>
+</figure>
+</div>
+<section id="por-qué-la-exactitud-no-basta" class="level3">
+<h3 class="anchored" data-anchor-id="por-qué-la-exactitud-no-basta">Por qué la exactitud no basta</h3>
+<p>La <strong>exactitud</strong> (<em>accuracy</em>) —la fracción de aciertos— es la métrica obvia, y a menudo la equivocada. Su trampa se ve en cuanto las clases se desequilibran. Imagina un detector de una enfermedad rara que afecta al 1 % de la población: un modelo que diga «sano» a todo el mundo acierta el 99 % de las veces —exactitud altísima— y es inútil, porque no detecta ni un solo enfermo. La exactitud premia al que no se moja. Para juzgar de verdad un clasificador hay que mirar <em>qué tipo</em> de errores comete, y para eso está la <strong>matriz de confusión</strong>: una tabla que cruza lo que era con lo que el modelo predijo (figura&nbsp;13.3 para el caso de seis géneros).</p>
+<p>El desequilibrio de clases no es solo un problema de <em>medición</em> —qué métrica usar— sino también de <em>entrenamiento</em>: un modelo que ve mil casos de una clase y diez de otra tenderá a ignorar la rara, porque acertar la común ya minimiza casi toda la pérdida. Hay remedios, y conviene conocerlos aunque nuestro problema esté equilibrado. Se puede <em>remuestrear</em>: replicar ejemplos de la clase rara (<em>oversampling</em>, con métodos como SMOTE que sintetizan casos plausibles) o descartar de la común (<em>undersampling</em>). Se pueden <em>ponderar</em> las clases, diciéndole al modelo que un error en la rara cuesta más —la mayoría de las funciones de R aceptan pesos de clase—. O se puede mover el umbral, como veremos. Ninguno es magia: si la clase rara tiene de verdad poca señal, ningún truco la inventa. Pero ignorar el desequilibrio —entrenar y medir como si las clases importaran por igual cuando no es así— es uno de los errores más caros en problemas reales, donde lo interesante (el fraude, la enfermedad, la avería) suele ser justo lo raro.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">conf_mat</span>(te, <span class="at">truth =</span> clase, <span class="at">estimate =</span> pred)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Truth</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Prediction rock pop</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       rock  141  75</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       pop    59 124</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La diagonal son los aciertos (141 rocks y 124 pops bien clasificados); fuera de ella, los dos tipos de error: 75 pops que el modelo llamó rock (<em>falsos negativos</em> si «pop» es la clase positiva) y 59 rocks que llamó pop (<em>falsos positivos</em>). De esta tabla salen las métricas que sí importan. La <strong>precisión</strong> (<em>precision</em>) responde a «de lo que el modelo llamó pop, ¿cuánto era pop de verdad?»: <span class="math inline">\(124/(124+59) = 0{,}678\)</span>. La <strong>sensibilidad</strong> (<em>recall</em>) responde a «de todos los pops reales, ¿cuántos pilló?»: <span class="math inline">\(124/(124+75) = 0{,}623\)</span>. Y el <strong>F1</strong> las combina en su media armónica, <span class="math inline">\(0{,}649\)</span>, un único número que castiga desequilibrar una a costa de la otra.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">precision</span>(te, clase, pred, <span class="at">event_level =</span> <span class="st">"second"</span>)  <span class="co">#&gt; 0.678</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">recall</span>(te,    clase, pred, <span class="at">event_level =</span> <span class="st">"second"</span>)  <span class="co">#&gt; 0.623</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">f_meas</span>(te,    clase, pred, <span class="at">event_level =</span> <span class="st">"second"</span>)  <span class="co">#&gt; 0.649</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Precisión y sensibilidad están en tensión: bajar el umbral de 0,5 hace al modelo más generoso declarando pop —sube la sensibilidad (pilla más pops) pero baja la precisión (mete más rocks por error)—, y subirlo hace lo contrario. Qué preferir depende del coste de cada error: un filtro de correo no deseado prioriza la precisión (mejor dejar pasar spam que bloquear un correo bueno); un cribado médico prioriza la sensibilidad (mejor una falsa alarma que un enfermo sin detectar). La métrica correcta es la que refleja ese coste, no la que sale más alta.</p>
+<p>El umbral, de hecho, no tiene por qué ser 0,5, y verlo separa al que entiende la clasificación del que la aplica a ciegas. El modelo no decide una clase: produce una <em>probabilidad</em>, y el umbral es una decisión aparte, de negocio, no de estadística. Si cada falso negativo cuesta diez veces más que un falso positivo —un tumor no detectado frente a una biopsia de más—, el umbral óptimo baja muy por debajo de 0,5, para pillar más positivos aun a costa de más falsas alarmas. La curva ROC de la §13.3.2 es precisamente el mapa de todos los umbrales posibles, y elegir el punto de trabajo sobre ella —no aceptar el 0,5 por defecto— es donde el análisis se encuentra con el mundo real y sus costes asimétricos. Un modelo entrega probabilidades; convertirlas en decisiones es un acto que exige saber qué cuesta cada error, y esa información no está en los datos, sino en el problema.</p>
+</section>
+<section id="la-curva-roc-y-el-auc" class="level3">
+<h3 class="anchored" data-anchor-id="la-curva-roc-y-el-auc">La curva ROC y el AUC</h3>
+<p>Fijar el umbral en 0,5 es una decisión arbitraria. La <strong>curva ROC</strong> (<em>receiver operating characteristic</em>) evita comprometerse: barre <em>todos</em> los umbrales posibles y, para cada uno, dibuja la tasa de verdaderos positivos (sensibilidad) frente a la de falsos positivos (figura&nbsp;13.3). Un clasificador perfecto pasaría por la esquina superior izquierda (todo acierto, ningún falso positivo); uno que apuesta al azar caería sobre la diagonal. El área bajo la curva, el <strong>AUC</strong>, resume la calidad en un número entre 0,5 (azar) y 1 (perfecto), e interpreta como la probabilidad de que el modelo dé mayor puntuación a un pop tomado al azar que a un rock tomado al azar.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roc_auc</span>(te, <span class="at">truth =</span> clase, prob, <span class="at">event_level =</span> <span class="st">"second"</span>)   <span class="co">#&gt; 0.748</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap13/fig_03.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;13.3.</strong> <strong>Medir un clasificador.</strong> A la izquierda, la curva ROC de pop-frente-a-rock: barre todos los umbrales y se despega de la diagonal (el azar); su área, AUC = 0,748, mide la calidad con independencia del umbral. A la derecha, la matriz de confusión de los seis géneros con un bosque aleatorio (§13.8): la diagonal son los aciertos, y fuera de ella se lee <em>con qué</em> se confunde cada género —el pop con el hip-hop y el reggaetón, el hip-hop con el reggaetón— , una información que la exactitud, un solo número, esconde.</figcaption>
+</figure>
+</div>
+<p>El AUC de <strong>0,748</strong> confirma lo que ya sabíamos: el modelo distingue pop de rock bastante mejor que el azar, pero lejos de la perfección. Su gran virtud es que no depende del umbral, así que compara modelos de forma limpia: entre dos clasificadores, el de mayor AUC ordena mejor los casos, decidas luego el umbral que decidas. Para más de dos clases —los seis géneros— la exactitud sigue valiendo, y la matriz de confusión se vuelve una rejilla (figura&nbsp;13.3) que revela no solo cuánto acierta el modelo, sino <em>qué confunde con qué</em>: una lectura diagnóstica que orienta dónde el problema es realmente difícil.</p>
+</section>
+<section id="más-de-dos-clases-la-logística-multinomial" class="level3">
+<h3 class="anchored" data-anchor-id="más-de-dos-clases-la-logística-multinomial">Más de dos clases: la logística multinomial</h3>
+<p>Distinguir seis géneros no es un problema binario, y la logística se generaliza a él con naturalidad. La <strong>regresión logística multinomial</strong> aprende un vector de puntuaciones —una por clase— y las convierte en probabilidades que suman uno con la función <strong>softmax</strong>, la hermana multiclase de la sigmoide: exponencia cada puntuación y la normaliza por la suma de todas. La clase predicha es la de mayor probabilidad. En R está en <code>nnet::multinom</code>, con la misma interfaz de fórmula:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nnet)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mult <span class="ot">&lt;-</span> <span class="fu">multinom</span>(track_genre <span class="sc">~</span> danceability <span class="sc">+</span> energy <span class="sc">+</span> loudness <span class="sc">+</span> speechiness <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                   acousticness <span class="sc">+</span> instrumentalness <span class="sc">+</span> liveness <span class="sc">+</span> valence <span class="sc">+</span> tempo,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> entrena, <span class="at">trace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(mult, prueba)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">accuracy</span>(<span class="fu">tibble</span>(<span class="at">v =</span> prueba<span class="sc">$</span>track_genre, <span class="at">p =</span> pred),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">truth =</span> v, <span class="at">estimate =</span> p)   <span class="co">#&gt; 0.564</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La logística multinomial acierta el <strong>56,4 %</strong> de los seis géneros, muy por encima del 16,7 % del azar (uno de cada seis) pero lejos del techo: la frontera lineal que traza no basta para separar géneros que se solapan tanto. La matriz de confusión de los seis géneros (figura&nbsp;13.3) recompensa la mirada, porque sus errores no son ruido sino <em>estructura</em>: los géneros que el modelo confunde son justamente los que un oído humano también confundiría. La música <em>clásica</em>, sonora y acústicamente distinta de todo lo demás, casi no se confunde con nada —su fila es la más limpia—; en el otro extremo, el <em>pop</em> se enreda con el <em>hip-hop</em> y el <em>reggaetón</em>, porque comparten rangos de energía y producción, y el <em>hip-hop</em> y el reggaetón se confunden mutuamente. Que los errores del modelo tracen el mismo mapa de parecidos que trazaría un aficionado a la música es una señal de que ha aprendido algo real sobre el sonido, no un patrón espurio; y leer ese mapa —no solo la cifra global— es lo que convierte una evaluación en un diagnóstico, que dice <em>dónde</em> y <em>por qué</em> el problema es difícil, no solo cuánto se acierta. Su matriz de confusión (figura&nbsp;13.3, dibujada para el bosque que la mejora) es aquí especialmente útil, porque los errores tienen sentido musical —el pop se confunde con el reggaetón, el rock con el hip-hop— y ese patrón, más que la cifra global, dice dónde está la dificultad real. Cuando importa no solo la clase sino su <em>probabilidad</em> —«¿cuán seguro está el modelo?»—, <code>predict(…, type = "prob")</code> devuelve las seis, y esa confianza es materia del cap.&nbsp;14 (calibración) y del cap.&nbsp;15 (donde la confianza en la clase real es la señal de un ataque de pertenencia).</p>
+</section>
+</section>
+<section id="sobreajuste-sesgo-y-varianza" class="level2">
+<h2 class="anchored" data-anchor-id="sobreajuste-sesgo-y-varianza">Sobreajuste, sesgo y varianza</h2>
+<p>Llegamos al concepto central de todo el aprendizaje automático, el que separa a quien entiende el campo de quien solo ejecuta recetas. Un modelo con suficiente libertad puede ajustar <em>cualquier</em> conjunto de entrenamiento a la perfección —basta darle bastantes parámetros para que pase por todos los puntos— y, sin embargo, fracasar estrepitosamente en datos nuevos. Eso es el <strong>sobreajuste</strong> (<em>overfitting</em>): en vez de quedarse con el patrón que se repite fuera de la muestra, el modelo se aprende de memoria hasta las casualidades del entrenamiento. Su opuesto es el <strong>subajuste</strong> (<em>underfitting</em>): un modelo tan rígido que ni siquiera captura la señal presente. Entre ambos extremos vive el modelo justo, y encontrarlo es el arte.</p>
+<section id="la-brecha-entre-entrenamiento-y-test" class="level3">
+<h3 class="anchored" data-anchor-id="la-brecha-entre-entrenamiento-y-test">La brecha entre entrenamiento y test</h3>
+<p>Veámoslo con un experimento. Predecimos el volumen a partir de un solo rasgo (la energía) con un polinomio de grado creciente —grado 1 es una recta, grado 15 una curva que serpentea—, y para que el sobreajuste se manifieste entrenamos con <em>pocos</em> datos: solo 40 pistas. Medimos el error en el propio entrenamiento y en el test, y observamos la brecha (figura&nbsp;13.4):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>); peq <span class="ot">&lt;-</span> entrena[<span class="fu">sample</span>(<span class="fu">nrow</span>(entrena), <span class="dv">40</span>), ]  <span class="co"># solo 40 pistas</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (g <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">15</span>)) {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  aj <span class="ot">&lt;-</span> <span class="fu">lm</span>(loudness <span class="sc">~</span> <span class="fu">poly</span>(energy, g), <span class="at">data =</span> peq)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  e_tr <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">abs</span>(peq<span class="sc">$</span>loudness <span class="sc">-</span> <span class="fu">predict</span>(aj)))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  e_te <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">abs</span>(prueba<span class="sc">$</span>loudness <span class="sc">-</span> <span class="fu">predict</span>(aj, prueba)))</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"grado %2d | MAE train %.3f | MAE test %.3f</span><span class="sc">\n</span><span class="st">"</span>, g, e_tr, e_te))</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; grado  1 | MAE train 2.440 | MAE test   2.443</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; grado  3 | MAE train 1.900 | MAE test   1.797</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; grado  5 | MAE train 1.834 | MAE test   1.923</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; grado  9 | MAE train 1.663 | MAE test   2.276</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; grado 15 | MAE train 1.218 | MAE test 127.566</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El patrón es la lección entera del capítulo condensada en cinco filas. El error de <em>entrenamiento</em> baja sin parar: cuanta más libertad, mejor se ajusta a las 40 pistas que ve. Pero el error de <em>test</em> dibuja una U: mejora del grado 1 al 3 —el modelo captura la relación real, creciente— y a partir de ahí empeora, primero despacio y luego en catástrofe: el grado 15 memoriza tan a fondo las 40 pistas que entre ellas la curva se dispara, y en el test el error absoluto sube a <strong>127 dB</strong>, un disparate. La figura&nbsp;13.4 lo hace visible: la recta (grado 1) es demasiado rígida, el grado 3 acierta la tendencia, y el grado 15 serpentea para tocar cada punto de entrenamiento, prediciendo cualquier cosa entre ellos.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap13/fig_04.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;13.4.</strong> <strong>El sobreajuste, en dos vistas.</strong> A la izquierda, la brecha: al ganar complejidad el modelo, el error de entrenamiento (azul) no deja de bajar, mientras el de test (naranja) traza una U —mejora, toca fondo hacia el grado 3, y luego se dispara fuera de la escala (grado 15: 127 dB)—. A la derecha, por qué: sobre 40 pistas, la recta (grado 1) subajusta, el grado 3 captura la tendencia, y el grado 15 serpentea para tocar cada punto de entrenamiento, con lo que entre ellos predice cualquier cosa. El mínimo de la U es el modelo justo.</figcaption>
+</figure>
+</div>
+</section>
+<section id="sesgo-y-varianza" class="level3">
+<h3 class="anchored" data-anchor-id="sesgo-y-varianza">Sesgo y varianza</h3>
+<p>Detrás de la U hay una descomposición célebre. El error esperado de un modelo en datos nuevos se reparte en tres sumandos: el <strong>sesgo</strong> (<em>bias</em>), el error por suposiciones demasiado rígidas —la recta que no puede curvarse aunque los datos lo pidan—; la <strong>varianza</strong> (<em>variance</em>), la sensibilidad del modelo a los datos concretos con que se entrenó —el grado 15, que cambia por completo si le quitas dos puntos—; y un <strong>ruido</strong> irreducible, la parte del objetivo que ninguna característica explica. Subir la complejidad baja el sesgo pero sube la varianza, y bajarla hace lo contrario: es un <em>compromiso</em> (<em>trade-off</em>), no un problema con solución única. El subajuste es exceso de sesgo; el sobreajuste, exceso de varianza; el modelo justo, el que equilibra ambos —el fondo de la U—. Toda la ingeniería del aprendizaje —más datos, regularización, validación— son formas de gestionar este compromiso.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Avanzado — La descomposición, en fórmula.</strong> La intuición de la U tiene respaldo matemático exacto. Para un punto <span class="math inline">\(x\)</span>, si el objetivo verdadero es <span class="math inline">\(f(x)\)</span> más un ruido de varianza <span class="math inline">\(\sigma^2\)</span>, el error cuadrático esperado de la predicción <span class="math inline">\(\hat{f}(x)\)</span> —promediado sobre todos los conjuntos de entrenamiento posibles— se descompone en tres términos que se suman: <span class="math display">\[\mathbb{E}\bigl[(y-\hat{f}(x))^2\bigr]
+   = \underbrace{\bigl(f(x)-\mathbb{E}[\hat{f}(x)]\bigr)^2}_{\text{sesgo}^2}
+   + \underbrace{\mathrm{Var}[\hat{f}(x)]}_{\text{varianza}}
+   + \underbrace{\sigma^2}_{\text{irreducible}}.\]</span> El primer término mide cuánto se desvía, en promedio, la predicción de la verdad (el error de un modelo demasiado rígido); el segundo, cuánto varía la predicción según el conjunto concreto con que se entrenó (el de un modelo demasiado flexible); el tercero es el ruido que ninguna característica explica y que ningún modelo puede batir —el techo del que hablamos—. Subir la complejidad no puede tocar el tercero, baja el primero y sube el segundo: minimizar la suma es, literalmente, encontrar el fondo de la U. Que el error se <em>sume</em> de esta forma tan limpia es lo que convierte una intuición en una guía de diseño, y explica por qué «más datos» (que baja la varianza sin tocar el sesgo) es un remedio tan universal.</p>
+</div>
+</div>
+<p>Y aquí se ve por qué los 40 datos importaban: con las 4 731 pistas completas, el grado 15 <em>no</em> se dispara, porque hay demasiados puntos para serpentear entre ellos —la varianza baja con el tamaño de la muestra—. Más datos es el remedio más fiable contra el sobreajuste, y también el más caro. Cuando no se pueden conseguir más, se recurre a la segunda defensa.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Avanzado — El doble descenso.</strong> La U de sesgo-varianza es la teoría clásica, y es correcta en el régimen de este experimento. Pero en la última década se observó un fenómeno que la complica en las redes muy grandes: el <strong>doble descenso</strong> (<em>double descent</em>). Al aumentar la complejidad más allá del punto en que el modelo <em>interpola</em> —acierta perfectamente el entrenamiento— el error de test, tras el ascenso que predice la U, vuelve a <em>bajar</em>, a veces por debajo del mínimo clásico. Es parte de por qué las redes con más parámetros que datos, que la teoría clásica condenaría al sobreajuste seguro, generalizan tan bien. La explicación exacta sigue siendo materia de investigación, pero el aviso práctico es útil: la U es una guía fiable en el régimen habitual —modelos más pequeños que los datos—, no una ley universal, y el sobreparametrizado extremo de las redes modernas juega con reglas que aún se están escribiendo.</p>
+</div>
+</div>
+</section>
+<section id="regularización-penalizar-la-complejidad" class="level3">
+<h3 class="anchored" data-anchor-id="regularización-penalizar-la-complejidad">Regularización: penalizar la complejidad</h3>
+<p>La <strong>regularización</strong> controla la varianza sin quitar libertad al modelo: le deja muchos parámetros, pero le <em>cobra</em> por usarlos, añadiendo al error un término que penaliza los coeficientes grandes. Hay dos variantes clásicas, las dos en <code>glmnet</code> <span class="citation" data-cites="friedman2010glmnet">(<a href="#ref-friedman2010glmnet" role="doc-biblioref">Friedman et&nbsp;al. 2010</a>)</span>. La <strong>ridge</strong> (norma <span class="math inline">\(L_2\)</span>) suma como castigo los coeficientes al cuadrado, y así los arrima a cero sin llegar a apagarlos. La <strong>lasso</strong> (norma <span class="math inline">\(L_1\)</span>, <span class="citation" data-cites="tibshirani1996lasso">(<a href="#ref-tibshirani1996lasso" role="doc-biblioref">Tibshirani 1996</a>)</span>) castiga en cambio la suma de sus valores absolutos, y añade un regalo: empuja algunos coeficientes hasta el cero <em>exacto</em>, de modo que <em>escoge</em> qué características sobreviven —funciona a la vez de modelo y de criba—. La fuerza de la penalización es un hiperparámetro, <span class="math inline">\(\lambda\)</span>, que se elige por validación cruzada (<code>cv.glmnet</code> la hace sola):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>preds <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"danceability"</span>, <span class="st">"energy"</span>, <span class="st">"speechiness"</span>, <span class="st">"acousticness"</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">"instrumentalness"</span>, <span class="st">"liveness"</span>, <span class="st">"valence"</span>, <span class="st">"tempo"</span>)  <span class="co"># sin loudness</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">scale</span>(<span class="fu">as.matrix</span>(entrena[preds]))   <span class="co"># glmnet pide matriz; estandarizar</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>ridge <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(X, entrena<span class="sc">$</span>loudness, <span class="at">alpha =</span> <span class="dv">0</span>)   <span class="co"># alpha=0: ridge</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>lasso <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(X, entrena<span class="sc">$</span>loudness, <span class="at">alpha =</span> <span class="dv">1</span>)   <span class="co"># alpha=1: lasso</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">ridge =</span> ridge<span class="sc">$</span>lambda.min, <span class="at">lasso =</span> lasso<span class="sc">$</span>lambda.min)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ridge 0.5433   lasso 0.0074</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Sobre este problema —ocho rasgos informativos y casi cinco mil observaciones— la regularización apenas mejora el ajuste (el MAE de test baja de forma marginal) y la lasso conserva los ocho coeficientes: no hay redundancia que podar ni sobreajuste que domar, porque hay datos de sobra. Es un resultado honesto y vale como aviso: la regularización no es magia que mejore todo modelo, sino la herramienta <em>específica</em> contra la varianza. Brilla cuando las características son muchas y los datos pocos —decenas de miles de genes y cientos de pacientes, miles de palabras y pocos documentos—, el régimen donde el modelo sin frenar memoriza. Aquí no hace falta; saber reconocer cuándo sí es parte del criterio que este capítulo quiere formar.</p>
+</section>
+<section id="la-validación-cruzada" class="level3">
+<h3 class="anchored" data-anchor-id="la-validación-cruzada">La validación cruzada</h3>
+<p>Elegir <span class="math inline">\(\lambda\)</span>, el grado del polinomio o cualquier otro <em>hiperparámetro</em> plantea un dilema. No podemos usar el test para decidirlo —mirarlo sería fuga—, pero tampoco el entrenamiento —elegiría siempre el modelo más complejo, que es el que mejor lo memoriza—. La salida es partir el <em>entrenamiento</em> otra vez, en un trozo para ajustar y otro para juzgar el hiperparámetro, dejando el test intacto. Y para no depender de un reparto afortunado, la <strong>validación cruzada</strong> (<em>cross-validation</em>) lo hace <span class="math inline">\(k\)</span> veces: divide el entrenamiento en <span class="math inline">\(k\)</span> <em>pliegues</em> (<em>folds</em>), entrena con <span class="math inline">\(k-1\)</span> y evalúa en el que queda, rotando, y promedia los <span class="math inline">\(k\)</span> resultados. Con <code>rsample</code> es una función, <code>vfold_cv</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pliegues <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(entrena, <span class="at">v =</span> <span class="dv">5</span>, <span class="at">strata =</span> track_genre)   <span class="co"># 5 pliegues</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>maes <span class="ot">&lt;-</span> <span class="fu">sapply</span>(pliegues<span class="sc">$</span>splits, <span class="cf">function</span>(s) {</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  aj <span class="ot">&lt;-</span> <span class="fu">lm</span>(loudness <span class="sc">~</span> energy <span class="sc">+</span> acousticness <span class="sc">+</span> danceability <span class="sc">+</span> valence,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">data =</span> <span class="fu">analysis</span>(s))                <span class="co"># entrena con 4 pliegues</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(<span class="fu">abs</span>(<span class="fu">assessment</span>(s)<span class="sc">$</span>loudness <span class="sc">-</span> <span class="fu">predict</span>(aj, <span class="fu">assessment</span>(s))))  <span class="co"># 5o pliegue</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">c</span>(<span class="at">media =</span> <span class="fu">mean</span>(maes), <span class="at">sd =</span> <span class="fu">sd</span>(maes)), <span class="dv">3</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; media    sd</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2.384 0.084</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La validación cruzada estima el MAE en <strong>2,384 <span class="math inline">\(\pm\)</span> 0,084 dB</strong>, y esa estimación tiene dos virtudes sobre una única partición. Primera, usa cada observación del entrenamiento para juzgar alguna vez, así que aprovecha mejor los datos escasos. Segunda, y más importante, la desviación entre pliegues (<span class="math inline">\(\pm\)</span><!-- -->0,084) <em>cuantifica la incertidumbre</em> de la estimación: dice no solo cuánto se espera errar, sino cuánto puede variar esa cifra según el reparto, un intervalo que una sola división esconde. Que el MAE de validación cruzada (2,384) coincida casi con el de test (2,38) confirma que el modelo lineal es estable, sin sorpresas. La validación cruzada es la herramienta con la que se eligen <em>todos</em> los hiperparámetros sin tocar el test, y el cap.&nbsp;14 la convierte en el motor de la búsqueda automática de la mejor configuración; aquí basta con quedarse con la idea, que es una de las más importantes de todo el campo: para decidir sin fuga, se valida dentro del entrenamiento.</p>
+</section>
+</section>
+<section id="el-descenso-de-gradiente-el-motor-del-aprendizaje" class="level2">
+<h2 class="anchored" data-anchor-id="el-descenso-de-gradiente-el-motor-del-aprendizaje">El descenso de gradiente: el motor del aprendizaje</h2>
+<p>La regresión lineal tuvo la suerte de una solución cerrada: la ecuación normal la resuelve de un tirón. Pero es la excepción. La inmensa mayoría de los modelos —la regresión logística, las redes neuronales, casi todo el aprendizaje profundo— no tienen fórmula para su óptimo: hay que <em>buscarlo</em>. Y el método que lo busca, el mismo desde la logística hasta los modelos de lenguaje con miles de millones de parámetros, es el <strong>descenso de gradiente</strong> (<em>gradient descent</em>). Entenderlo es entender cómo aprende, literalmente, casi toda la inteligencia artificial moderna.</p>
+<section id="la-idea" class="level3">
+<h3 class="anchored" data-anchor-id="la-idea">La idea</h3>
+<p>Imagina la función de error como un paisaje: cada punto es una elección de parámetros, y su altura, el error que esos parámetros producen. Entrenar es bajar hasta el valle. El descenso de gradiente lo hace por el procedimiento más natural: desde donde estás, calcula la <strong>pendiente</strong> —el gradiente, el vector de derivadas parciales del error respecto a cada parámetro, que apunta en la dirección de máxima subida— y da un paso en la dirección <em>contraria</em>, cuesta abajo. Repite. La regla de actualización es una línea: <span class="math display">\[\mathbf{\beta} \leftarrow \mathbf{\beta} - \eta\,\nabla \mathrm{ECM}(\mathbf{\beta}),\]</span> donde <span class="math inline">\(\eta\)</span> (<em>eta</em>) es la <strong>tasa de aprendizaje</strong> (<em>learning rate</em>), el tamaño del paso. Para el ECM lineal, el gradiente tiene forma cerrada —<span class="math inline">\(\tfrac{2}{n}\mathbf{X}^\top(\mathbf{X}\mathbf{\beta}-\mathbf{y})\)</span>— y todo el algoritmo cabe en un bucle sobre vectores nativos de R:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">scale</span>(<span class="fu">as.matrix</span>(entrena[feats])); y <span class="ot">&lt;-</span> entrena<span class="sc">$</span>loudness</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>Xb <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, X); n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(Xb)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">ncol</span>(Xb)); eta <span class="ot">&lt;-</span> <span class="fl">0.1</span>          <span class="co"># arrancar en cero</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (it <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2000</span>) {</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  error <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(Xb <span class="sc">%*%</span> beta) <span class="sc">-</span> y         <span class="co"># residuos</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  grad  <span class="ot">&lt;-</span> <span class="fu">crossprod</span>(Xb, error) <span class="sc">/</span> n            <span class="co"># el gradiente del ECM</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  beta  <span class="ot">&lt;-</span> beta <span class="sc">-</span> eta <span class="sc">*</span> grad                   <span class="co"># un paso cuesta abajo</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># converge a la MISMA solucion que la ecuacion normal:</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(<span class="fu">as.numeric</span>(beta),</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>          <span class="fu">as.numeric</span>(<span class="fu">solve</span>(<span class="fu">crossprod</span>(Xb), <span class="fu">crossprod</span>(Xb, y))), <span class="at">tolerance =</span> <span class="fl">1e-3</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; TRUE</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Arrancando de cero y bajando dos mil pasos, el descenso llega exactamente al mismo <span class="math inline">\(\mathbf{\beta}\)</span> que la ecuación normal —lo verificamos con <code>all.equal</code>—. Aquí es un rodeo, porque había fórmula; pero cuando no la hay, este bucle es la única salida, y la belleza es que <em>el mismo</em> bucle, cambiando solo cómo se calcula el gradiente, entrena cualquier modelo derivable.</p>
+<p>Conviene detenerse en la magnitud de lo que este bucle representa, porque es fácil subestimarlo por lo corto. Este mismo procedimiento —calcular el gradiente, dar un paso cuesta abajo, repetir— es, sin exagerar, el que entrena <em>toda</em> la inteligencia artificial moderna: la regresión logística de cinco parámetros que acabamos de ver y el modelo de lenguaje de cientos de miles de millones de parámetros se entrenan con el idéntico esqueleto, cambiando solo la escala, la forma del gradiente (que allí calcula el autograd) y los refinamientos del paso. Que un algoritmo tan simple —bajar por la pendiente— escale desde un juguete de cinco números hasta los sistemas más grandes jamás construidos es uno de los hechos más notables de la computación, y explica por qué merece la pena entenderlo a fondo en el caso pequeño: lo que aquí se ve en diez líneas es, literalmente, el motor de todo lo demás.</p>
+</section>
+<section id="la-tasa-de-aprendizaje-y-las-variantes" class="level3">
+<h3 class="anchored" data-anchor-id="la-tasa-de-aprendizaje-y-las-variantes">La tasa de aprendizaje y las variantes</h3>
+<p>El único ajuste delicado es <span class="math inline">\(\eta\)</span> (figura&nbsp;13.5). Demasiado pequeña, y el descenso avanza a paso de tortuga: tras cientos de iteraciones sigue lejos del valle. Demasiado grande, y el paso se pasa de largo el mínimo una y otra vez, oscilando o incluso divergiendo hacia arriba. En medio hay una franja que baja rápido y estable. No hay fórmula para la <span class="math inline">\(\eta\)</span> ideal —se tantea, se observa la curva de error, se ajusta—, y de esa artesanía viven buena parte de los trucos del oficio. Una refinación habitual es el <em>planificador</em> (<em>scheduler</em>): empezar con una tasa grande, que baja rápido cuando se está lejos del valle, y reducirla a medida que se acerca, para afinar sin pasarse —como quien camina a zancadas hacia una puerta y acorta el paso al llegar—. Es uno de esos ajustes que, bien puestos, marcan la diferencia entre una red que converge en horas y una que no converge, y que <code>torch</code> y <code>luz</code> ofrecen ya hechos.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap13/fig_05.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;13.5.</strong> <strong>El descenso de gradiente y la tasa de aprendizaje.</strong> El mismo problema, tres tasas. Con <span class="math inline">\(\eta = 0{,}01\)</span> (verde) el descenso es tan tímido que a las 200 iteraciones aún no ha bajado del todo; con <span class="math inline">\(\eta = 0{,}5\)</span> (naranja) baja de golpe; con <span class="math inline">\(\eta = 0{,}1\)</span> (azul), rápido y estable. Ajustar <span class="math inline">\(\eta\)</span> es el arte central del entrenamiento: ni tan corto que no avance, ni tan largo que se pase de largo el valle.</figcaption>
+</figure>
+</div>
+<p>Sobre datos grandes hay una variante indispensable. Calcular el gradiente con <em>todas</em> las observaciones en cada paso —el descenso «por lotes» (<em>batch</em>)— es caro cuando hay millones de filas. El <strong>descenso estocástico</strong> (<em>stochastic gradient descent</em>, SGD; <span class="citation" data-cites="robbins1951stochastic">(<a href="#ref-robbins1951stochastic" role="doc-biblioref">Robbins y Monro 1951</a>)</span>) estima el gradiente con una sola observación, o un puñado (un <em>minilote</em>), en cada paso: cada estimación es ruidosa, pero se dan muchísimos más pasos por el mismo coste, y el ruido incluso ayuda a escapar de valles malos. El tamaño del minilote es en sí mismo un ajuste con consecuencias: lotes pequeños dan pasos ruidosos y frecuentes —más exploración, a veces mejor generalización— y lotes grandes, pasos precisos y raros que aprovechan mejor la GPU pero pueden quedarse en valles peores. Y una <em>época</em> (<em>epoch</em>), el término que apareció al entrenar la red, es una pasada completa por todos los datos; un entrenamiento son muchas épocas, y en cada una el modelo ve cada ejemplo una vez, en minilotes. Casi todo el aprendizaje profundo se entrena así, y las variantes modernas —<em>momentum</em>, que acumula inercia para atravesar mesetas; <em>Adam</em>, que adapta la tasa a cada parámetro— son refinamientos de esta misma idea de bajar por la pendiente. Toda esta familia de trucos —minilotes, momento, tasas adaptativas, planificadores— comparte un único propósito: hacer que el descenso de gradiente, tan simple en su idea, funcione de forma fiable en los paisajes enormes y accidentados de las redes profundas.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Avanzado — Convexidad y mínimos locales.</strong> El descenso de gradiente encontró el óptimo <em>exacto</em> de la regresión porque su error es <strong>convexo</strong>: un paisaje con un único valle, del que no hay forma de bajar y quedarse atrapado en un sitio equivocado. Toda la clase de los modelos lineales generalizados —regresión, logística— comparte esa comodidad. Las redes neuronales, en cambio, tienen un error <em>no</em> convexo: un paisaje con muchos valles, mesetas y puntos de silla, donde el descenso puede detenerse en un mínimo <em>local</em> peor que el global. Durante décadas se temió que eso condenara el entrenamiento; la sorpresa empírica de la última década es que, en redes grandes, los mínimos locales suelen ser casi tan buenos como el global —el paisaje de alta dimensión tiene muchos valles de fondo parecido—, y el problema real no son los mínimos malos sino los puntos de silla y las mesetas, que el <em>momentum</em> y las tasas adaptativas ayudan a atravesar. Que un método tan simple funcione tan bien en un paisaje tan feo sigue siendo, en parte, un misterio teórico productivo.</p>
+</div>
+</div>
+</section>
+<section id="la-diferenciación-automática" class="level3">
+<h3 class="anchored" data-anchor-id="la-diferenciación-automática">La diferenciación automática</h3>
+<p>Queda una pieza. Para dar el paso hace falta el gradiente, y calcularlo a mano —derivar el error respecto a cada uno de, quizá, millones de parámetros— es inviable para un modelo complejo. La solución que hizo posible el aprendizaje profundo es la <strong>diferenciación automática</strong> (<em>autograd</em>): el programa <em>registra</em> cada operación que hace al calcular el error y, por la regla de la cadena, deriva ese registro hacia atrás, obteniendo el gradiente exacto sin que nadie escriba una sola derivada. Es lo que hace <code>torch</code> en R: uno describe el cálculo del error hacia delante, y la máquina calcula el gradiente hacia atrás sola. Ese automatismo —no la potencia bruta— es lo que liberó a las redes neuronales de la aritmética manual y desató la última década de avances. Lo veremos en acción enseguida; antes, construyamos una red a mano para entender qué es lo que <code>torch</code> deriva por nosotros.</p>
+</section>
+</section>
+<section id="redes-neuronales-de-la-regresión-a-las-capas" class="level2">
+<h2 class="anchored" data-anchor-id="redes-neuronales-de-la-regresión-a-las-capas">Redes neuronales: de la regresión a las capas</h2>
+<p>Una regresión logística es una red neuronal de una sola capa: combina linealmente las entradas y pasa el resultado por una función no lineal. Su límite es que solo puede trazar fronteras <em>lineales</em> entre clases; si la frontera real es curva, la logística no la alcanza, por muchos datos que le des. La idea de las <strong>redes neuronales</strong> es apilar varias de esas capas, con una no linealidad entre cada dos, de modo que la composición pueda representar fronteras arbitrariamente complejas. Entre la entrada y la salida se intercalan <strong>capas ocultas</strong> de <em>neuronas</em>, cada una una combinación lineal seguida de una función de activación —hoy casi siempre la <strong>ReLU</strong>, <span class="math inline">\(\max(0, z)\)</span>, por su simplicidad y su gradiente estable— (figura&nbsp;13.6).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap13/fig_06.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;13.6.</strong> <strong>Un perceptrón multicapa.</strong> Las entradas (los rasgos de audio) se conectan a una capa oculta de neuronas, cada una una combinación lineal seguida de una ReLU; la salida las combina y una sigmoide da la probabilidad de la clase. Cada arista es un parámetro que se aprende. Apilar capas con no linealidades entre ellas es lo que permite a la red trazar fronteras curvas que una sola capa —la logística— no puede.</figcaption>
+</figure>
+</div>
+<section id="la-retropropagación-a-mano" class="level3">
+<h3 class="anchored" data-anchor-id="la-retropropagación-a-mano">La retropropagación, a mano</h3>
+<p>Entrenar la red es lo mismo de siempre —descenso de gradiente—, pero el gradiente ahora atraviesa las capas por la regla de la cadena, un procedimiento que tiene nombre propio: <strong>retropropagación</strong> (<em>backpropagation</em>, <span class="citation" data-cites="rumelhart1986learning">(<a href="#ref-rumelhart1986learning" role="doc-biblioref">Rumelhart et&nbsp;al. 1986</a>)</span>). Se calcula la predicción hacia delante (<em>forward</em>), se mide el error, y se propaga ese error hacia atrás capa por capa (<em>backward</em>), repartiendo la «culpa» entre los parámetros. Con el álgebra matricial del cap.&nbsp;7 cabe entero en R base, sin ninguna biblioteca —una red con una capa oculta de ocho neuronas para separar pop de rock—:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>f7  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"danceability"</span>, <span class="st">"energy"</span>, <span class="st">"loudness"</span>, <span class="st">"speechiness"</span>,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>         <span class="st">"acousticness"</span>, <span class="st">"valence"</span>, <span class="st">"tempo"</span>)     <span class="co"># 7 rasgos pop/rock</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>Xtr <span class="ot">&lt;-</span> <span class="fu">scale</span>(<span class="fu">as.matrix</span>(tr[f7]))                   <span class="co"># escalados (solo train)</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>ytr <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(tr<span class="sc">$</span>clase <span class="sc">==</span> <span class="st">"pop"</span>)              <span class="co"># 1 = pop, 0 = rock</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>y_pop <span class="ot">&lt;-</span> ytr</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>relu <span class="ot">&lt;-</span> <span class="cf">function</span>(z) <span class="fu">pmax</span>(z, <span class="dv">0</span>);  sigm <span class="ot">&lt;-</span> <span class="cf">function</span>(z) <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="sc">-</span>z))</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>); H <span class="ot">&lt;-</span> <span class="dv">8</span>; d <span class="ot">&lt;-</span> <span class="fu">ncol</span>(Xtr)                 <span class="co"># 7 -&gt; 8 -&gt; 1</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>W1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(d<span class="sc">*</span>H, <span class="at">sd =</span> <span class="fl">0.3</span>), d, H); b1 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, H)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>W2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(H,   <span class="at">sd =</span> <span class="fl">0.3</span>), H, <span class="dv">1</span>); b2 <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>eta <span class="ot">&lt;-</span> <span class="fl">0.05</span>; n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(Xtr)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (ep <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">400</span>) {</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- hacia delante ---</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  Z1 <span class="ot">&lt;-</span> <span class="fu">sweep</span>(Xtr <span class="sc">%*%</span> W1, <span class="dv">2</span>, b1, <span class="st">"+"</span>); A1 <span class="ot">&lt;-</span> <span class="fu">relu</span>(Z1)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  A2 <span class="ot">&lt;-</span> <span class="fu">sigm</span>(<span class="fu">as.numeric</span>(A1 <span class="sc">%*%</span> W2) <span class="sc">+</span> b2)             <span class="co"># probabilidad de pop</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- hacia atras (retropropagacion) ---</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  dZ2 <span class="ot">&lt;-</span> (A2 <span class="sc">-</span> ytr) <span class="sc">/</span> n                              <span class="co"># error en la salida</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  dW2 <span class="ot">&lt;-</span> <span class="fu">crossprod</span>(A1, dZ2); db2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(dZ2)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  dZ1 <span class="ot">&lt;-</span> <span class="fu">outer</span>(dZ2, <span class="fu">as.numeric</span>(W2)) <span class="sc">*</span> (Z1 <span class="sc">&gt;</span> <span class="dv">0</span>)       <span class="co"># la culpa, capa a capa</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  dW1 <span class="ot">&lt;-</span> <span class="fu">crossprod</span>(Xtr, dZ1); db1 <span class="ot">&lt;-</span> <span class="fu">colSums</span>(dZ1)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- un paso de descenso ---</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  W2 <span class="ot">&lt;-</span> W2 <span class="sc">-</span> eta<span class="sc">*</span>dW2; b2 <span class="ot">&lt;-</span> b2 <span class="sc">-</span> eta<span class="sc">*</span>db2</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  W1 <span class="ot">&lt;-</span> W1 <span class="sc">-</span> eta<span class="sc">*</span>dW1; b1 <span class="ot">&lt;-</span> b1 <span class="sc">-</span> eta<span class="sc">*</span>db1</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; epoca   1  perdida=0.7263</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; epoca 400  perdida=0.5602</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; exactitud test (red desde cero): 0.652</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Un detalle del código merece atención, porque es una de esas sutilezas que deciden si una red aprende o no: los pesos se <em>inicializan al azar</em> (<code>rnorm</code>), nunca a cero. Si todas las neuronas de una capa arrancaran idénticas, recibirían el mismo gradiente y evolucionarían igual para siempre —serían una sola neurona multiplicada, y la red no ganaría nada por tener muchas—. El azar de la inicialización <em>rompe esa simetría</em> y deja que cada neurona se especialice. Y la <em>escala</em> de ese azar importa: demasiado grande satura las activaciones, demasiado pequeña apaga el gradiente, y de ahí que existan esquemas cuidados (Xavier, He) que la calibran según el tamaño de cada capa. Es otra pieza que <code>torch</code> pone por defecto y que aquí, al construir a mano, hemos tenido que elegir —un recordatorio de cuánta ingeniería acumulada esconde una llamada de una línea—.</p>
+<p>En medio centenar de líneas hemos entrenado una red neuronal de verdad, con su retropropagación escrita a mano: la pérdida (entropía cruzada) baja de 0,726 a 0,560 época a época (figura&nbsp;13.7), y la red acierta el <strong>65,2 %</strong> de las pistas de test. Ese resultado es revelador y honesto: la red <em>no</em> bate a la regresión logística (66,4 %) en este problema. No es un fallo: es que la frontera entre pop y rock en estos rasgos es casi lineal, y donde la señal es lineal, una red flexible no tiene nada que la logística no capture ya —solo más parámetros que ajustar y más riesgo de sobreajustar—. La red se gana su sitio cuando la relación es <em>no</em> lineal, y este dato no lo es mucho. ¿Cuándo, entonces, ganaría? Si la frontera entre pop y rock dependiera de <em>combinaciones</em> de rasgos —«es pop si la energía es alta <em>y</em> la positividad también, <em>o</em> si el tempo es muy bajo»— en vez de un umbral por rasgo, la logística (que suma efectos independientes) se quedaría corta y la red, con su capa oculta capaz de construir esas combinaciones, despuntaría. En este dato musical esas interacciones existen pero son débiles, y de ahí el empate; en un problema donde dominen —el reconocimiento de una cara, donde ningún píxel aislado significa nada y todo está en sus combinaciones— la brecha a favor de la red sería enorme. Que aquí no gane no desmiente su poder: lo sitúa. La red es la herramienta de las relaciones complejas entre muchas variables, y aplicarla a una relación casi lineal es usar un martinete para clavar una chincheta.</p>
+</section>
+<section id="por-qué-funcionan-aproximación-y-activaciones" class="level3">
+<h3 class="anchored" data-anchor-id="por-qué-funcionan-aproximación-y-activaciones">Por qué funcionan: aproximación y activaciones</h3>
+<p>Que apilar capas lineales con una no linealidad entre ellas baste para representar casi cualquier función no es evidente, y sin embargo es un teorema: el de <strong>aproximación universal</strong>. Afirma que, dándole neuronas de sobra, una red de una única capa oculta puede acercarse tanto como se quiera a cualquier función continua. La no linealidad es la clave: sin ella, componer capas lineales daría otra vez una función lineal —dos rectas encadenadas son una recta—, y no se ganaría nada; es la ReLU, doblando el espacio en cada capa, la que permite construir fronteras curvas pegando tramos rectos, como un polígono aproxima una curva. El teorema, eso sí, promete que la red <em>puede</em> representar la función, no que el descenso de gradiente vaya a <em>encontrarla</em> ni que generalice: la existencia no es la búsqueda, y de ahí que entrenar bien una red sea un oficio y no un trámite.</p>
+<p>La <strong>función de activación</strong> —la no linealidad— tiene su propia historia. Las primeras redes usaban la sigmoide o la tangente hiperbólica, curvas suaves que aplastan a un rango acotado; el problema es que en sus extremos la pendiente se aplana casi a cero, y al retropropagar por muchas capas ese gradiente diminuto se multiplica consigo mismo hasta desvanecerse —el célebre problema del <em>gradiente que se desvanece</em>, que durante años impidió entrenar redes profundas—. La <strong>ReLU</strong> (<span class="math inline">\(\max(0,z)\)</span>), pese a su brutal simplicidad, lo resolvió: su pendiente es 1 para todo valor positivo, así que el gradiente atraviesa muchas capas sin apagarse, y de paso es baratísima de calcular. Ese cambio de activación —no un algoritmo nuevo, solo una función más simple— fue uno de los desbloqueos que hicieron posible el aprendizaje profundo moderno, y hoy la ReLU y sus variantes son la elección por defecto. La lección, transversal al libro, se repite: a veces el avance no viene de más complejidad, sino de encontrar la pieza simple correcta.</p>
+<p>Queda una elección de diseño: ¿más neuronas en una capa (<em>anchura</em>) o más capas (<em>profundidad</em>)? El teorema de aproximación universal usa una sola capa ancha, pero en la práctica las redes <em>profundas</em> —muchas capas— aprenden con muchísimos menos parámetros, porque componen la función por niveles de abstracción: en una red de imágenes, las primeras capas detectan bordes, las siguientes formas, las últimas objetos, cada una construyendo sobre la anterior. Esa jerarquía es la esencia del término «profundo» y la razón de su potencia en datos con estructura; en datos tabulares, donde no hay tal jerarquía natural, la profundidad rinde mucho menos, lo que anticipa la lección de la §13.8.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap13/fig_07.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;13.7.</strong> <strong>La red aprende.</strong> La pérdida de entrenamiento (entropía cruzada) de la red construida desde cero, época a época. La bajada suave y monótona —de 0,73 a 0,56 en 400 pasadas— es la firma de un descenso de gradiente sano: cada época, la retropropagación afina un poco los pesos y la red predice algo mejor. Una curva que no baja, o que oscila, avisaría de una tasa de aprendizaje mal elegida.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="torch-aprendizaje-profundo-de-verdad" class="level2">
+<h2 class="anchored" data-anchor-id="torch-aprendizaje-profundo-de-verdad"><code>torch</code>: aprendizaje profundo de verdad</h2>
+<p>Escribir la retropropagación a mano es insustituible para entenderla, pero no se hace en producción: en cuanto la red crece, derivar cada capa a mano es inviable y propenso a errores. La herramienta real es <code>torch</code> para R <span class="citation" data-cites="torchdocs">(<a href="#ref-torchdocs" role="doc-biblioref">Falbel y Luraschi 2023</a>)</span>, el puerto nativo de LibTorch —el mismo motor C++ que hay bajo PyTorch— <em>sin pasar por Python</em>: se instala con <code>install_torch()</code> y corre sobre CPU o GPU. Con él, la red anterior se escribe declarando solo el paso hacia delante; el <em>autograd</em> calcula el gradiente por nosotros.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(torch); <span class="fu">torch_manual_seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>xtr <span class="ot">&lt;-</span> <span class="fu">torch_tensor</span>(Xtr, <span class="at">dtype =</span> <span class="fu">torch_float</span>())        <span class="co"># datos como tensores</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ytr <span class="ot">&lt;-</span> <span class="fu">torch_tensor</span>(y_pop, <span class="at">dtype =</span> <span class="fu">torch_float</span>())<span class="sc">$</span><span class="fu">unsqueeze</span>(<span class="dv">2</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>red <span class="ot">&lt;-</span> <span class="fu">nn_sequential</span>(                                  <span class="co"># misma idea, mas ancha</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nn_linear</span>(<span class="dv">7</span>, <span class="dv">16</span>), <span class="fu">nn_relu</span>(), <span class="fu">nn_linear</span>(<span class="dv">16</span>, <span class="dv">1</span>))       <span class="co"># 7 -&gt; 16 -&gt; 1</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>opt   <span class="ot">&lt;-</span> <span class="fu">optim_adam</span>(red<span class="sc">$</span>parameters, <span class="at">lr =</span> <span class="fl">0.01</span>)         <span class="co"># optimizador (SGD+)</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>lossf <span class="ot">&lt;-</span> <span class="fu">nn_bce_with_logits_loss</span>()                     <span class="co"># perdida de clasif.</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (epoca <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>) {</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  opt<span class="sc">$</span><span class="fu">zero_grad</span>()                 <span class="co"># borrar gradientes del paso anterior</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  perdida <span class="ot">&lt;-</span> <span class="fu">lossf</span>(<span class="fu">red</span>(xtr), ytr) <span class="co"># hacia delante: predecir y medir</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  perdida<span class="sc">$</span><span class="fu">backward</span>()              <span class="co"># autograd: gradiente hacia atras, SOLO</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  opt<span class="sc">$</span><span class="fu">step</span>()                      <span class="co"># un paso de descenso</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; epoca   1  perdida=0.7059</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; epoca 200  perdida=0.4382</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; exactitud test (torch MLP): 0.739</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La estructura del bucle es idéntica a la que escribimos a mano —predecir, medir, gradiente, paso— pero <code>perdida$backward()</code> sustituye toda la retropropagación manual: torch recorrió el registro de operaciones y calculó el gradiente exacto solo. Entrenada más tiempo y con el optimizador Adam, esta red llega al <strong>73,9 %</strong> de acierto, algo por encima de la logística: con más pasos y mejor optimización, la pequeña no linealidad que hay en el dato empieza a rendir. Cuatro observaciones cierran la sección. Primero: <code>nn_sequential</code> apila capas como quien suma capas de <code>ggplot2</code>, y cambiar la arquitectura es cambiar esa lista. Segundo: los <em>tensores</em> de torch son como las matrices de R pero viven donde haga falta —en la GPU, moviéndolos con <code>$cuda()</code>—, y ahí el mismo código corre decenas de veces más rápido, lo que hace viable entrenar redes enormes. Esa aceleración no es un lujo: es la razón física de que el aprendizaje profundo despegara cuando lo hizo. Una GPU —diseñada para pintar millones de píxeles en paralelo— resulta ser justo la máquina que necesita el álgebra matricial de una red, miles de multiplicaciones independientes a la vez, y ese encaje afortunado entre el hardware de los videojuegos y las matemáticas de las redes multiplicó por cien la escala entrenable en pocos años. Sin GPU, los modelos que hoy asombran habrían tardado décadas en entrenarse; con ellas, la misma idea de siempre —bajar por la pendiente— opera sobre miles de millones de parámetros. Que <code>torch</code> en R hable con la GPU con una llamada significa que un usuario de R no queda al margen de esa escala. Tercero: para visión, texto o audio —donde el aprendizaje profundo reina— esta es la herramienta, y el ecosistema <code>luz</code>/<code>torch</code> la envuelve en un flujo de entrenamiento cómodo. Y cuarto, el más importante, que desarrolla la sección siguiente: que <em>podamos</em> usar una red no significa que <em>debamos</em>.</p>
+<p>Vale la pena situar <code>torch</code> en su ecosistema, porque desmonta un mito persistente: el de que «el aprendizaje profundo es cosa de Python». No lo es. <code>torch</code> para R no envuelve a Python —no hay un intérprete de Python escondido, como sí lo hay en el paquete <code>keras</code> clásico, que llama a TensorFlow a través de <code>reticulate</code>—, sino que enlaza directamente con LibTorch, la biblioteca C++ que es el verdadero motor de PyTorch. Eso significa una instalación limpia (sin gestionar dos lenguajes), tensores que viven en R y se mueven a la GPU con una llamada, y el mismo rendimiento que en Python porque el cálculo ocurre en el mismo C++. Alrededor, el paquete <code>luz</code> ofrece un <em>bucle de entrenamiento de alto nivel</em> —al estilo de Keras: <code>fit</code>, <code>validation</code>, <em>callbacks</em>— para no escribir el bucle a mano cada vez, y <code>torchvision</code> o <code>torchaudio</code> traen conjuntos y arquitecturas listas para imágenes y sonido. Un usuario de R puede, por tanto, entrenar una red convolucional o afinar un modelo preentrenado sin salir de su lenguaje y sin tocar Python; la elección entre uno y otro es de preferencia y de ecosistema del equipo, no de capacidad. Dicho esto, para el grueso del trabajo de datos —lo tabular— la sección siguiente explica por qué esta artillería rara vez es la respuesta.</p>
+<p>Una red, por su enorme flexibilidad, es la candidata perfecta al sobreajuste, y merece conocer sus defensas específicas, que son variantes de la regularización de la §13.4.3 adaptadas al descenso de gradiente. La <strong>parada temprana</strong> (<em>early stopping</em>) es la más simple y eficaz: se vigila el error en un conjunto de validación mientras se entrena y se detiene el entrenamiento cuando ese error deja de bajar, aunque el de entrenamiento siga cayendo —justo en el fondo de la U, antes de que empiece a memorizar—. El <strong>dropout</strong> apaga al azar una fracción de las neuronas en cada paso de entrenamiento, forzando a la red a no depender de ninguna en particular y a repartir el conocimiento, un efecto parecido al del bosque aleatorio. Y la <strong>decaída de pesos</strong> (<em>weight decay</em>) es, literalmente, la penalización ridge de antes aplicada a los pesos de la red. En <code>torch</code> las tres son un argumento o una capa más —<code>nn_dropout(0.3)</code>, <code>weight_decay</code> en el optimizador, un <em>callback</em> de parada temprana en <code>luz</code>—, y usarlas bien es buena parte de lo que distingue una red que generaliza de una que memoriza. La lección de fondo no cambia: más capacidad exige más disciplina para no sobreajustar, y esa disciplina tiene los mismos nombres —validar, penalizar, parar a tiempo— en la red que en la regresión.</p>
+<p>Un detalle recurrente en todo el capítulo merece explicación explícita: por qué unos modelos exigen <strong>estandarizar</strong> los rasgos y otros no. La red y la regularización <code>glmnet</code> trabajaron sobre datos escalados (<code>scale</code>), mientras que <code>lm</code> y los árboles no lo necesitaron. La razón está en cómo cada modelo trata las escalas. El descenso de gradiente sufre si un rasgo va de 0 a 1 y otro de 0 a 200: el paisaje del error se deforma en un valle alargado por el que el descenso zigzaguea, y estandarizar lo redondea para que baje recto. La regularización penaliza los coeficientes por su tamaño, y ese tamaño depende de la escala del rasgo, así que sin estandarizar castigaría injustamente más a unos que a otros. Los árboles, en cambio, solo comparan valores dentro de cada rasgo —«¿energía &gt; 0,7?»— y son <em>indiferentes</em> a la escala: estandarizar no les cambia nada. Y <code>lm</code> tiene solución cerrada que absorbe la escala en los coeficientes. La regla práctica: estandariza para todo lo que use distancias o gradientes (redes, <em>k</em>-vecinos, regularización, PCA), no hace falta para árboles y sus derivados. Y —esto es lo esencial— el centro y la escala se calculan <em>solo</em> sobre el entrenamiento y se aplican al test, o vuelve la fuga de la §13.1.1.</p>
+</section>
+<section id="cuándo-el-aprendizaje-profundo-y-cuándo-no" class="level2">
+<h2 class="anchored" data-anchor-id="cuándo-el-aprendizaje-profundo-y-cuándo-no">Cuándo el aprendizaje profundo, y cuándo no</h2>
+<p>Aquí está la lección más importante del capítulo, y la que más se ignora. Tras el bombo del aprendizaje profundo, es fácil creer que una red neuronal es siempre la respuesta. No lo es. Sobre datos <strong>tabulares</strong> —filas y columnas, como casi todos los datos de una empresa, un hospital o un gobierno— las redes neuronales rara vez ganan, y a menudo pierden, frente a una familia mucho más humilde: los <strong>árboles potenciados</strong> (<em>gradient boosting</em>) y los <strong>bosques aleatorios</strong>. Comprobémoslo sobre nuestro problema de seis géneros, comparando la logística, un bosque aleatorio (<code>ranger</code>, <span class="citation" data-cites="wright2017ranger">(<a href="#ref-wright2017ranger" role="doc-biblioref">Wright y Ziegler 2017</a>)</span>) y un <em>gradient boosting</em> (<code>xgboost</code>, <span class="citation" data-cites="chen2016xgboost">(<a href="#ref-chen2016xgboost" role="doc-biblioref">Chen y Guestrin 2016</a>)</span>), figura&nbsp;13.8:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ranger); <span class="fu">library</span>(xgboost)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>feats9 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"danceability"</span>, <span class="st">"energy"</span>, <span class="st">"loudness"</span>, <span class="st">"speechiness"</span>, <span class="st">"acousticness"</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">"instrumentalness"</span>, <span class="st">"liveness"</span>, <span class="st">"valence"</span>, <span class="st">"tempo"</span>)   <span class="co"># los 9 rasgos</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>acc <span class="ot">&lt;-</span> <span class="cf">function</span>(p, v) <span class="fu">mean</span>(p <span class="sc">==</span> v)                 <span class="co"># exactitud: aciertos / total</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># bosque aleatorio: cientos de arboles sobre muestras y rasgos al azar</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>bosque <span class="ot">&lt;-</span> <span class="fu">ranger</span>(track_genre <span class="sc">~</span> ., <span class="at">data =</span> entrena[<span class="fu">c</span>(<span class="st">"track_genre"</span>, feats9)],</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">num.trees =</span> <span class="dv">400</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">acc</span>(<span class="fu">predict</span>(bosque, prueba)<span class="sc">$</span>predictions, prueba<span class="sc">$</span>track_genre)      <span class="co">#&gt; 0.696</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># gradient boosting: arboles que corrigen, uno a uno, el error del anterior</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>dtr <span class="ot">&lt;-</span> <span class="fu">xgb.DMatrix</span>(<span class="fu">as.matrix</span>(entrena[feats9]),</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">label =</span> <span class="fu">as.integer</span>(entrena<span class="sc">$</span>track_genre) <span class="sc">-</span> <span class="dv">1</span>L)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>boost <span class="ot">&lt;-</span> <span class="fu">xgb.train</span>(<span class="fu">list</span>(<span class="at">objective =</span> <span class="st">"multi:softmax"</span>, <span class="at">num_class =</span> <span class="dv">6</span>,</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>                        <span class="at">eta =</span> <span class="fl">0.3</span>, <span class="at">max_depth =</span> <span class="dv">6</span>), dtr, <span class="at">nrounds =</span> <span class="dv">120</span>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; logistica  0.564</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; boosting   0.686</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; bosque     0.696</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Los números hablan claro: el bosque (69,6 %) y el boosting (68,6 %) sacan trece puntos a la regresión logística (56,4 %) sobre el mismo problema —y, muy probablemente, a la red neuronal, que en datos tabulares como este no supera a los árboles—. La razón es de fondo, no de ajuste: los árboles capturan <em>interacciones</em> y <em>no linealidades</em> entre rasgos —«si la energía es alta <em>y</em> la acústica baja, entonces…»— sin que haya que diseñarlas, y son indiferentes a la escala de cada variable, mientras que la red las tiene que aprender desde cero, con más datos y más tanteo. El resultado está bien establecido en la literatura <span class="citation" data-cites="grinsztajn2022tree">(<a href="#ref-grinsztajn2022tree" role="doc-biblioref">Grinsztajn et&nbsp;al. 2022</a>)</span>: en lo tabular, el <em>gradient boosting</em> es, a fecha de hoy, el estado del arte, y una red solo lo alcanza con mucho esfuerzo.</p>
+<p>Merece detenerse en <em>por qué</em> funcionan tan bien estos dos métodos, porque comparten el ladrillo —el árbol de decisión— y difieren en cómo lo combinan. Un <strong>árbol</strong> solo parte los datos con preguntas sucesivas («¿energía &gt; 0,7?», «¿acústica &lt; 0,2?») hasta hojas casi puras; es interpretable pero inestable —cambia mucho con pocos datos distintos, alta varianza—. El <strong>bosque aleatorio</strong> <span class="citation" data-cites="breiman2001random">(<a href="#ref-breiman2001random" role="doc-biblioref">Breiman 2001</a>)</span> doma esa varianza por promedio: entrena cientos de árboles, cada uno sobre una muestra distinta de filas y un subconjunto distinto de rasgos, y vota; la diversidad de los árboles hace que sus errores se cancelen. El <strong>gradient boosting</strong>, en cambio, no promedia árboles independientes sino que los encadena: cada árbol nuevo se entrena para corregir el <em>error</em> que dejó la suma de los anteriores —es descenso de gradiente, pero dando cada paso en el espacio de los árboles en vez del de los pesos—. Uno reduce la varianza, el otro reduce el sesgo, y ambos convierten un modelo débil e interpretable en uno fuerte y opaco.</p>
+<p>Esa opacidad tiene remedio parcial, y conviene conocerlo porque el cap.&nbsp;14 lo desarrolla: la <strong>importancia por permutación</strong>. Para medir cuánto pesa un rasgo, se baraja al azar su columna en el test —destruyendo su información pero no la de los demás— y se mide cuánto empeora el acierto; cuanto más cae, más importaba ese rasgo. Sobre nuestro bosque de seis géneros:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>rf <span class="ot">&lt;-</span> <span class="fu">ranger</span>(track_genre <span class="sc">~</span> ., <span class="at">data =</span> entrena[<span class="fu">c</span>(<span class="st">"track_genre"</span>, feats9)],</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">num.trees =</span> <span class="dv">400</span>, <span class="at">importance =</span> <span class="st">"permutation"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">importance</span>(rf), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; acousticness  danceability  loudness  energy</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    0.193         0.158        0.146     0.137</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La <strong>acústica</strong> encabeza la lista, seguida de bailabilidad, volumen y energía: son los rasgos que, al barajarlos, más estropean la clasificación, y por tanto los que más separan los géneros —tiene sentido, pues distinguen lo clásico (acústico, tranquilo) de lo urbano (bailable, potente)—. Esta lectura devuelve al modelo opaco una parte de la interpretabilidad que perdió frente al lineal: no dice <em>cómo</em> usa cada rasgo, pero sí <em>cuánto</em> depende de él, y a menudo con eso basta para confiar en él o para sospechar de una fuga.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap13/fig_08.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;13.8.</strong> <strong>La lección tabular.</strong> Exactitud en la clasificación de los seis géneros. El bosque aleatorio (0,696) y el <em>gradient boosting</em> (0,686) baten con holgura a la regresión logística (0,564), y todos superan de largo al azar (0,167). En datos de filas y columnas, los árboles —que capturan interacciones y no linealidades sin diseñarlas— son el estado del arte; la red neuronal, la herramienta de otro tipo de datos.</figcaption>
+</figure>
+</div>
+<p>¿Dónde reina, entonces, el aprendizaje profundo? Donde los datos <em>no</em> son tabulares y tienen estructura que explotar: las <strong>imágenes</strong> (píxeles con vecindad espacial), el <strong>texto</strong> y el <strong>audio</strong> (secuencias con orden), donde las redes especializadas —convolucionales, transformadores— aprenden representaciones que ningún árbol alcanza, y donde los modelos fundacionales de hoy nacieron. La regla práctica que se deriva es la columna vertebral del oficio, y vale idéntica en R que en cualquier lenguaje: <strong>empieza siempre por lo simple</strong>. Una regresión o un <em>boosting</em> bien ajustados son la línea base honesta contra la que todo lo demás debe justificarse; si un modelo profundo, diez veces más costoso de entrenar y de mantener, no la supera con claridad, no vale la pena. Subir a lo profundo es una decisión que el dato tiene que <em>ganar</em>, no un acto reflejo ante un problema nuevo.</p>
+<section id="el-panorama-de-2026" class="level3">
+<h3 class="anchored" data-anchor-id="el-panorama-de-2026">El panorama de 2026</h3>
+<p>Dos novedades matizan —sin derogar— lo anterior, y conviene situarlas para no quedar desfasado. La primera son los <strong>modelos fundacionales</strong> (<em>foundation models</em>): redes enormes preentrenadas sobre cantidades ingentes de datos genéricos —texto, imágenes— que luego se <em>afinan</em> (<em>fine-tuning</em>) o se usan tal cual para tareas concretas. Han cambiado por completo el trabajo con texto, imagen y audio: hoy, para clasificar sentimientos o describir una foto, casi nadie entrena desde cero, sino que parte de un modelo preentrenado. Es la excepción más importante al «empieza por lo simple» —en esos dominios, empezar por un modelo grande preentrenado suele ser más simple <em>y</em> mejor que construir uno propio—, y en R el ecosistema <code>torch</code>/<code>luz</code> y los puentes a <em>Hugging Face</em> lo hacen accesible.</p>
+<p>La segunda toca justo a lo tabular, y hay que verla con lupa. Empiezan a aparecer modelos fundacionales <em>para tablas</em> —TabPFN y similares— que prometen buen acierto sin entrenamiento, y en conjuntos pequeños ya compiten con el <em>boosting</em>. Es un frente activo y prometedor, pero a fecha de hoy el <em>gradient boosting</em> sigue siendo la elección segura para la mayoría de los problemas tabulares: más maduro, más rápido, más interpretable y sin las restricciones de tamaño de los modelos nuevos. La lección para el lector no es correr detrás de cada novedad, sino la contraria y más duradera: conocer la línea base sólida —<em>boosting</em> en lo tabular, preentrenados en lo perceptual— y exigir a cualquier alternativa, por moderna que suene, que la supere en una evaluación honesta antes de adoptarla.</p>
+<p>Y una última pieza del panorama, la más fácil de olvidar en un capítulo sobre modelos: a veces la respuesta correcta es <strong>no usar aprendizaje automático</strong>. Si una regla simple escrita a mano resuelve el problema, si no hay datos suficientes para entrenar nada fiable, si el coste de un error del modelo es inaceptable y no se puede auditar, o si una consulta a una tabla basta, meter un modelo solo añade complejidad, opacidad y puntos de fallo. El aprendizaje automático es una herramienta poderosa para un tipo concreto de problema —predecir a partir de patrones en muchos datos— y usarla donde no toca es tan error como no usarla donde brilla. Saber cuándo <em>no</em> modelar es parte del mismo criterio que este capítulo ha querido formar.</p>
+</section>
+<section id="la-ingeniería-de-características" class="level3">
+<h3 class="anchored" data-anchor-id="la-ingeniería-de-características">La ingeniería de características</h3>
+<p>Hay una palanca que a menudo rinde más que cambiar de modelo, y que este capítulo ha dado por sentada: las propias <strong>características</strong>. La <em>ingeniería de características</em> (<em>feature engineering</em>) —crear, transformar o combinar variables para exponer mejor la señal— es, en muchos problemas reales, donde se gana o se pierde. Un modelo lineal no puede aprender que el efecto de una variable cambia según otra, pero si uno le da explícitamente su <em>producto</em> como columna nueva, sí; una relación multiplicativa se vuelve lineal tras un logaritmo (cap.&nbsp;12); una fecha cruda no dice nada, pero el día de la semana o la hora que se extraen de ella sí. Los árboles y las redes descubren parte de estas combinaciones solos —esa es buena parte de su ventaja—, pero incluso ellos mejoran con rasgos bien pensados, y el modelo lineal depende por completo de que se los den. La lección de oficio: antes de buscar un modelo más potente, pregúntate si tus características exponen la señal o la esconden. En R, el paquete <code>recipes</code> (cap.&nbsp;10 y cap.&nbsp;14) es el lugar donde esa ingeniería se declara como una receta reproducible que —y esto es lo imprescindible— aprende solo del entrenamiento, cerrando la puerta a la fuga. Un buen rasgo vale por diez capas de red.</p>
+</section>
+</section>
+<section id="un-ejemplo-integrador-adivinar-el-género" class="level2">
+<h2 class="anchored" data-anchor-id="un-ejemplo-integrador-adivinar-el-género">Un ejemplo integrador: adivinar el género</h2>
+<p>Reunamos el capítulo en un flujo honesto de principio a fin: partir, entrenar varios modelos con la <em>misma</em> interfaz, evaluarlos una sola vez en el test y elegir con criterio. La coherencia de <code>tidymodels</code> —misma fórmula, mismo <code>fit</code>/<code>predict</code>, mismas métricas de <code>yardstick</code>— hace que comparar modelos sea cambiar una línea, no reescribir el análisis; es la promesa del polimorfismo del cap.&nbsp;6 llevada al modelado, y el cap.&nbsp;14 la convierte en un flujo de trabajo completo con validación cruzada y ajuste de hiperparámetros.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># la partición estratificada de siempre, y tres modelos sobre los 9 rasgos</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>); div <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(sub, <span class="at">prop =</span> <span class="fl">0.8</span>, <span class="at">strata =</span> track_genre)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>tr <span class="ot">&lt;-</span> <span class="fu">training</span>(div); te <span class="ot">&lt;-</span> <span class="fu">testing</span>(div)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>predict_generico <span class="ot">&lt;-</span> <span class="cf">function</span>(m, d)                 <span class="co"># cada motor a su modo</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">inherits</span>(m, <span class="st">"ranger"</span>)) <span class="fu">predict</span>(m, d)<span class="sc">$</span>predictions <span class="cf">else</span> <span class="fu">predict</span>(m, d)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>modelos <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">logistica =</span> nnet<span class="sc">::</span><span class="fu">multinom</span>(track_genre <span class="sc">~</span> ., tr[<span class="fu">c</span>(<span class="st">"track_genre"</span>, feats9)]),</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">bosque    =</span> <span class="fu">ranger</span>(track_genre <span class="sc">~</span> ., tr[<span class="fu">c</span>(<span class="st">"track_genre"</span>, feats9)],</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">num.trees =</span> <span class="dv">400</span>))</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (nm <span class="cf">in</span> <span class="fu">names</span>(modelos)) {</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  pred <span class="ot">&lt;-</span> <span class="fu">predict_generico</span>(modelos[[nm]], te)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(nm, <span class="st">":"</span>, <span class="fu">round</span>(<span class="fu">mean</span>(pred <span class="sc">==</span> te<span class="sc">$</span>track_genre), <span class="dv">3</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; logistica : 0.564</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; bosque    : 0.696</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El veredicto del capítulo cabe en una tabla (tabla&nbsp;13.1): partiendo del 16,7 % que acierta el azar, la regresión logística —interpretable, rápida, la primera parada— sube al 56,4 %; el bosque aleatorio, sin más esfuerzo que cambiar una línea, al 69,6 %.</p>
+<table class="caption-top table">
+<caption><strong>Los modelos del capítulo, frente al mismo problema.</strong> Clasificar seis géneros con nueve rasgos de audio, evaluado en el mismo test. La exactitud sube con la flexibilidad del modelo, pero también baja la interpretabilidad: el compromiso central de toda elección de modelo.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Modelo</strong></th>
+<th style="text-align: center;"><strong>Exactitud</strong></th>
+<th style="text-align: center;"><strong>Interpretable</strong></th>
+<th style="text-align: left;"><strong>Cuándo elegirlo</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Azar (línea base)</td>
+<td style="text-align: center;">0,167</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: left;">nunca; solo como referencia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Logística multinomial</td>
+<td style="text-align: center;">0,564</td>
+<td style="text-align: center;">alta</td>
+<td style="text-align: left;">si hay que explicar cada decisión</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><em>Gradient boosting</em></td>
+<td style="text-align: center;">0,686</td>
+<td style="text-align: center;">media</td>
+<td style="text-align: left;">tabular, cuando importa el acierto</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bosque aleatorio</td>
+<td style="text-align: center;">0,696</td>
+<td style="text-align: center;">media</td>
+<td style="text-align: left;">tabular, robusto y sin apenas ajuste</td>
+</tr>
+</tbody>
+</table>
+<p>¿Cuál elegir? Depende de qué se valore: si hace falta <em>explicar</em> cada decisión (a un regulador, a un músico), la logística con sus coeficientes gana pese a acertar menos; si solo importa acertar y el modelo es una pieza interna, el bosque. Esa elección —acierto contra interpretabilidad, potencia contra coste— no la resuelve la técnica, sino el juicio, y formar ese juicio ha sido el propósito del capítulo.</p>
+<p>Una cautela final sobre comparar modelos, que enlaza con el cap.&nbsp;11. El bosque (69,6 %) supera a la logística (56,4 %) por un margen tan amplio —trece puntos sobre 1 185 pistas de test— que la diferencia es sin duda real, no fruto del azar del reparto. Pero cuando dos modelos quedan cerca —pongamos 68,6 % y 69,6 %— la pregunta honesta es si esa diferencia de un punto <em>significa</em> algo o es ruido de una única partición: con otro reparto podría invertirse. Comparar modelos con rigor es, por eso, un problema estadístico, no aritmético: se repite la evaluación en varios pliegues de validación cruzada (§13.4.4), se obtiene una <em>distribución</em> de la diferencia y se juzga si el cero cae dentro de su intervalo, exactamente el razonamiento del cap.&nbsp;11. Quedarse con el modelo de mayor exactitud en una sola partición, sin preguntarse si la ventaja es estable, es el mismo error de leer una cifra sin su incertidumbre que se combatió al hablar de inferencia. El cap.&nbsp;14, con <code>tune</code> y <code>yardstick</code>, hace esa comparación con distribución y todo de forma rutinaria; aquí basta con desconfiar de las diferencias pequeñas medidas una sola vez. Que ninguno pase del setenta por ciento no es un fracaso: es la señal real del problema, y un modelo honrado admite su techo en vez de fingir una certeza que los datos no dan.</p>
+<p>Vale la pena leer ese techo con cuidado, porque encierra una lección sobre qué se le puede pedir a un modelo. El 69,6 % del bosque no significa que el modelo sea flojo: significa que los rasgos de audio <em>no contienen</em> información suficiente para separar perfectamente seis géneros que, de hecho, se solapan —hay pop que suena a rock, jazz que suena a clásico, y ninguna combinación de energía y acústica los distingue porque la diferencia está en cosas que estos números no capturan (la letra, la instrumentación, el contexto cultural)—. Ese techo es una propiedad de los <em>datos</em>, no del <em>modelo</em>, y ningún algoritmo, por potente que sea, lo superará sin rasgos mejores: es el <em>ruido irreducible</em> de la descomposición sesgo-varianza hecho carne. Reconocerlo es madurez analítica: cuando varios modelos muy distintos convergen a un techo parecido, la señal es que el límite está en los datos, y la energía debe ir a conseguir mejores características —o a aceptar el techo con honradez— en vez de a torturar un modelo más complejo para que finja una precisión que la información disponible no permite. Un buen científico de datos sabe distinguir el problema del modelo del problema del dato, y este ejemplo, con su techo obstinado en el setenta por ciento, es un recordatorio de que a menudo el cuello de botella no está donde da la fama —el algoritmo— sino donde da el trabajo callado: los datos.</p>
+</section>
+<section id="del-modelo-suelto-al-proyecto-de-aprendizaje" class="level2">
+<h2 class="anchored" data-anchor-id="del-modelo-suelto-al-proyecto-de-aprendizaje">Del modelo suelto al proyecto de aprendizaje</h2>
+<p>Este capítulo ha tratado modelos como piezas sueltas —ajusta, evalúa, compara— para entenderlos, pero un proyecto real de aprendizaje automático es un <em>proceso</em>, y conviene verlo entero antes de que el cap.&nbsp;14 lo formalice con herramientas. El proceso tiene una forma estable, y casi todos sus pasos son cosas que este libro ya ha enseñado en otros contextos.</p>
+<p>Empieza mucho antes del modelo: en <em>definir el problema</em> —¿qué se predice, para qué decisión, con qué coste cada error?— porque una métrica elegida sin esa conversación mide lo que no importa. Sigue con los <em>datos</em>: obtenerlos (cap.&nbsp;5), limpiarlos y validarlos (cap.&nbsp;10), explorarlos con gráficos (cap.&nbsp;12) antes de modelar nada —porque un atípico o una fuga que no se ven en la exploración envenenan el modelo en silencio—. Solo entonces llega el <em>reparto</em> honesto (train/test), la <em>ingeniería de características</em> y el <em>entrenamiento</em> de una línea base simple, que fija el listón. Viene después la <em>iteración</em>: probar modelos y configuraciones, comparándolos <em>siempre</em> por validación cruzada y nunca por el test, subiendo de complejidad solo cuando la validación lo premia. Y cierra la <em>evaluación final</em> —una sola mirada al test, cuando ya no queda nada que decidir— y, si el modelo pasa, su <em>despliegue</em> y <em>vigilancia</em>, porque un modelo en producción se degrada cuando el mundo que lo generó cambia (cap.&nbsp;16).</p>
+<p>Dos hilos recorren todo el proceso y merecen nombrarse. El primero es la <strong>disciplina anti-fuga</strong>: cada paso que aprende de los datos —imputar, escalar, seleccionar rasgos, elegir un umbral— debe aprender solo del entrenamiento, y el test permanecer intacto hasta el final; la mayoría de los resultados demasiado buenos para ser ciertos son fugas encubiertas. El segundo es la <strong>reproducibilidad</strong>: semilla fija, código versionado, cada cifra regenerable —la misma exigencia que el cap.&nbsp;1 puso para todo el libro, aquí especialmente crítica porque un modelo es una cadena larga de decisiones y una sola no reproducible la rompe entera—. El cap.&nbsp;14 convierte este proceso en un objeto de código —el <em>workflow</em> de <code>tidymodels</code>— que encadena receta, modelo y validación en una pieza que se ajusta, se valida y se despliega sin resquicios por donde se cuele una fuga. Aquí basta con tener el mapa; allí se recorre con vehículo.</p>
+</section>
+<section id="qué-modelo-elegir" class="level2">
+<h2 class="anchored" data-anchor-id="qué-modelo-elegir">Qué modelo elegir</h2>
+<p>El capítulo ha desfilado varios modelos, y conviene una brújula para el trabajo real. La pregunta no es «¿cuál es el mejor modelo?» —no existe, un teorema lo garantiza: el de <em>no hay comida gratis</em> (<em>no free lunch</em>), según el cual ningún modelo gana en todos los problemas— sino «¿cuál conviene a <em>este</em> problema, con <em>estos</em> datos y <em>estas</em> exigencias?». A modo de guía:</p>
+<ul>
+<li><p><strong>Predecir un número</strong> (regresión) <span class="math inline">\(\to\)</span> empieza por <code>lm</code>; si la relación es no lineal o hay muchas variables, sube a <em>boosting</em> (<code>xgboost</code>) o bosque (<code>ranger</code>).</p></li>
+<li><p><strong>Predecir una categoría</strong> (clasificación) <span class="math inline">\(\to\)</span> regresión logística (<code>glm</code>/<code>multinom</code>) como línea base; boosting o bosque si hace falta más acierto.</p></li>
+<li><p><strong>Necesitas explicar cada decisión</strong> (a un regulador, a un cliente, a ti mismo) <span class="math inline">\(\to\)</span> modelo lineal o logístico, cuyos coeficientes se leen; si necesitas potencia <em>y</em> explicación, un árbol o boosting con importancia por permutación y PDP (cap.&nbsp;14).</p></li>
+<li><p><strong>Datos tabulares</strong> (filas y columnas) <span class="math inline">\(\to\)</span> <em>gradient boosting</em>, casi siempre la mejor relación esfuerzo/acierto; la red neuronal rara vez compensa.</p></li>
+<li><p><strong>Imágenes, texto o audio</strong> <span class="math inline">\(\to\)</span> aprendizaje profundo (<code>torch</code>), el único que aprovecha su estructura; para muchas tareas, un modelo preentrenado que se afina.</p></li>
+<li><p><strong>Pocos datos, muchas variables</strong> <span class="math inline">\(\to\)</span> modelo simple y regularizado (<code>glmnet</code> lasso/ridge); la complejidad memoriza cuando los ejemplos escasean.</p></li>
+</ul>
+<p>La lógica de fondo es siempre la misma, y resume el capítulo: identifica el tipo de respuesta, la naturaleza de los datos y la exigencia de interpretabilidad, empieza por lo más simple que pueda funcionar, y sube de complejidad solo cuando la validación —nunca el test— demuestre que merece la pena. Enamorarse de un modelo de moda y forzar los datos en él es el error simétrico al del principiante en visualización: la pregunta manda sobre la herramienta, aquí igual que allí.</p>
+</section>
+<section id="síntesis-lo-que-de-verdad-importa" class="level2">
+<h2 class="anchored" data-anchor-id="síntesis-lo-que-de-verdad-importa">Síntesis: lo que de verdad importa</h2>
+<p>Este capítulo ha construido modelos —lineales, logísticos, redes, árboles— pero su tesis no es ninguno de ellos, sino lo que los rodea. Un modelo es fácil de ajustar; lo difícil es saber si ha aprendido o solo ha memorizado, y esa pregunta —la de la generalización— vertebra todo. De ella salen la partición honesta, la métrica que refleja el coste real de cada error, la vigilancia constante del sobreajuste y la humildad de reservar el test para una sola mirada. Quien interioriza eso tiene lo esencial, aunque olvide la sintaxis de cada modelo; quien lo ignora puede recitar diez algoritmos y seguir engañándose con cada uno.</p>
+<p>Bajo la técnica late un mensaje sobre el oficio, y es doble. El primero: <em>empieza por lo simple</em>. La regresión y el <em>boosting</em> son la línea base contra la que todo lo demás se justifica, y sobre datos tabulares —la inmensa mayoría— rara vez hace falta más. El segundo: <em>mide con honradez</em>. La exactitud alta es sospechosa hasta que se comprueba contra la tasa base y se desglosa en la matriz de confusión; el modelo que brilla en entrenamiento no vale nada hasta que brilla en test; la certeza que un modelo proyecta no es la que los datos respaldan. R, hecho por estadísticos y para la estadística, trae ese escepticismo en los huesos —la interfaz de fórmula, <code>tidymodels</code>, las métricas de <code>yardstick</code>—, y usarlo bien es menos cuestión de conocer modelos que de razonar sobre la incertidumbre. Con los fundamentos puestos, el cap.&nbsp;14 los organiza en un flujo de trabajo profesional; y el resto del libro —privacidad, reproducibilidad, ética— se ocupa de que ese poder de predecir se ejerza con responsabilidad.</p>
+<p>Si hubiera que comprimir el capítulo en un decálogo del modelado honesto, sería este. <strong>Uno:</strong> parte los datos antes de mirar nada, y no toques el test hasta el final. <strong>Dos:</strong> mide contra una línea base —el azar, un modelo trivial— o no sabrás si has aprendido algo. <strong>Tres:</strong> elige la métrica por el coste real de cada error, no por la que sale más alta. <strong>Cuatro:</strong> vigila la brecha entre train y test; si el train brilla y el test no, es sobreajuste. <strong>Cinco:</strong> para decidir hiperparámetros, valida dentro del entrenamiento, nunca en el test. <strong>Seis:</strong> todo paso que aprende de los datos aprende solo del train, o es fuga. <strong>Siete:</strong> empieza por el modelo más simple que pueda funcionar, y sube solo cuando la validación lo premie. <strong>Ocho:</strong> en datos tabulares, el <em>boosting</em> es la apuesta por defecto; la red, para imágenes, texto y audio. <strong>Nueve:</strong> interpreta solo modelos que generalizan, y distingue predecir de causar. <strong>Diez:</strong> fija la semilla y versiona el código, porque un resultado que no se reproduce no existe. Quien respete estos diez puntos evitará la inmensa mayoría de los desastres del modelado, que casi nunca son de álgebra y casi siempre de disciplina.</p>
+<p>Vale la pena subrayar esa última idea, porque resume el espíritu del capítulo y desmiente su fama. Los fracasos del aprendizaje automático en el mundo real —el modelo que brillaba en el laboratorio y falla en producción, la métrica inflada que no se sostiene, el sistema que discrimina sin que nadie lo pretendiera— casi nunca se deben a haber elegido el algoritmo equivocado o a un error de cálculo. Se deben a fallos de <em>método</em>: una fuga que nadie vio, un test contaminado por haberlo mirado de más, una métrica que medía lo que no importaba, unos datos de entrenamiento que no representaban el mundo donde el modelo iba a operar. Por eso el álgebra de este capítulo —la ecuación normal, el gradiente, la retropropagación— importa menos, para el profesional, que su disciplina —partir, validar, medir con honradez, desconfiar—. La primera se delega en una biblioteca; la segunda no se puede delegar en nadie, y es lo que distingue a quien usa el aprendizaje automático con provecho de quien se hace daño con él. Formar esa disciplina, más que enseñar modelos, ha sido la ambición de estas páginas.</p>
+<table class="caption-top table">
+<caption><strong>El vocabulario mínimo del capítulo.</strong> Los términos que se repiten en todo el aprendizaje automático, con su significado y su lugar en R.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Término</strong></th>
+<th style="text-align: left;"><strong>Qué es</strong></th>
+<th style="text-align: left;"><strong>En R</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Característica (<em>feature</em>)</td>
+<td style="text-align: left;">variable de entrada, columna de <span class="math inline">\(\mathbf{X}\)</span></td>
+<td style="text-align: left;">columna del data frame</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Objetivo (<em>target</em>)</td>
+<td style="text-align: left;">lo que se predice, <span class="math inline">\(\mathbf{y}\)</span></td>
+<td style="text-align: left;">columna respuesta</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Entrenamiento / test</td>
+<td style="text-align: left;">datos para aprender / para juzgar</td>
+<td style="text-align: left;"><code>initial_split</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Generalización</td>
+<td style="text-align: left;">acertar en datos no vistos</td>
+<td style="text-align: left;">error de test</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sobreajuste</td>
+<td style="text-align: left;">memorizar el ruido del train</td>
+<td style="text-align: left;">brecha train–test</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sesgo / varianza</td>
+<td style="text-align: left;">error por rigidez / por sensibilidad</td>
+<td style="text-align: left;">el compromiso de la U</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Regularización</td>
+<td style="text-align: left;">penalizar la complejidad</td>
+<td style="text-align: left;"><code>glmnet</code> (ridge/lasso)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hiperparámetro</td>
+<td style="text-align: left;">ajuste no aprendido (<span class="math inline">\(\lambda\)</span>, grado)</td>
+<td style="text-align: left;">elegido por validación</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Validación cruzada</td>
+<td style="text-align: left;">validar rotando pliegues</td>
+<td style="text-align: left;"><code>vfold_cv</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Descenso de gradiente</td>
+<td style="text-align: left;">bajar por la pendiente del error</td>
+<td style="text-align: left;">bucle / <code>optim_*</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pérdida (<em>loss</em>)</td>
+<td style="text-align: left;">lo que se minimiza al entrenar</td>
+<td style="text-align: left;">ECM, entropía cruzada</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Métrica</td>
+<td style="text-align: left;">lo que se evalúa al juzgar</td>
+<td style="text-align: left;"><code>yardstick</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="errores-frecuentes-en-el-modelado" class="level2">
+<h2 class="anchored" data-anchor-id="errores-frecuentes-en-el-modelado">Errores frecuentes en el modelado</h2>
+<ol type="1">
+<li><p><strong>Evaluar sobre el entrenamiento.</strong> El error en los datos con que se entrenó mide la memoria, no el aprendizaje, y siempre es optimista. La única cifra honesta es la del test, que no se toca hasta el final.</p></li>
+<li><p><strong>Mirar el test para decidir.</strong> Elegir modelo, umbral o hiperparámetro fijándose en el test lo contamina: deja de ser el «futuro» y pasa a ser parte del entrenamiento, con lo que vuelve a inflar el resultado. Para decidir está la validación (cap.&nbsp;14).</p></li>
+<li><p><strong>Fiarse solo de la exactitud.</strong> Con clases desequilibradas, un modelo que siempre dice la mayoritaria acierta mucho y no sirve de nada. Hay que mirar precisión, sensibilidad, F1 o AUC según el coste de cada error.</p></li>
+<li><p><strong>Confundir correlación con causa en los coeficientes.</strong> Un coeficiente grande dice que la variable <em>predice</em>, no que <em>cause</em>. La energía predice el volumen; no lo provoca en el sentido causal (cap.&nbsp;11).</p></li>
+<li><p><strong>Escalar antes de partir.</strong> Estandarizar (o imputar, o cualquier paso que aprenda de los datos) usando todo el conjunto <em>antes</em> de separar el test filtra información del futuro: es fuga (cap.&nbsp;10). El centro y la escala se aprenden solo del entrenamiento y se aplican al test.</p></li>
+<li><p><strong>Buscar el modelo más complejo primero.</strong> Empezar por una red profunda ante un problema tabular es gastar diez veces más para, casi siempre, acertar menos que un <em>boosting</em>. La línea base simple va primero, siempre.</p></li>
+<li><p><strong>Tasa de aprendizaje al tuntún.</strong> Demasiado grande, el descenso diverge; demasiado pequeña, no llega. Hay que mirar la curva de pérdida y ajustarla, no dejarla por defecto y rezar.</p></li>
+<li><p><strong>No fijar la semilla.</strong> Sin <code>set.seed</code>, la partición y el entrenamiento cambian en cada ejecución, y los números no se pueden reproducir ni comparar. La reproducibilidad empieza por la semilla.</p></li>
+<li><p><strong>Interpretar un modelo que no generaliza.</strong> Los coeficientes de un modelo sobreajustado no cuentan nada verdadero: describen el ruido del entrenamiento. Solo tiene sentido interpretar lo que primero acierta en test.</p></li>
+<li><p><strong>Olvidar la línea base.</strong> Un 70 % de acierto puede ser excelente o penoso según lo que acierte el azar. Sin comparar contra la tasa base —o contra un modelo trivial— no se sabe si el modelo ha aprendido algo.</p></li>
+</ol>
+</section>
+<section id="lecturas-recomendadas" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="lecturas-recomendadas">Lecturas recomendadas</h2>
+<p>La referencia moderna y asequible del aprendizaje estadístico, con la teoría de cada modelo de este capítulo y ejercicios, es <span class="citation" data-cites="james2023islp">James et&nbsp;al. (<a href="#ref-james2023islp" role="doc-biblioref">2023</a>)</span> —hay versión con laboratorios en R, ideal para seguir aquí—; su hermano mayor, exhaustivo y matemático, es <span class="citation" data-cites="hastie2009elements">Hastie et&nbsp;al. (<a href="#ref-hastie2009elements" role="doc-biblioref">2009</a>)</span>, el clásico de referencia. Para el flujo de trabajo del modelado en R —<code>tidymodels</code>, <code>recipes</code>, <code>rsample</code>, <code>yardstick</code> y el ajuste de hiperparámetros que el cap.&nbsp;14 desarrolla— el libro de <span class="citation" data-cites="kuhn2022tidymodels">Kuhn y Silge (<a href="#ref-kuhn2022tidymodels" role="doc-biblioref">2022</a>)</span> es la guía oficial, escrita por los autores del ecosistema y gratuita en la web. Sobre el aprendizaje profundo, el tratado canónico es <span class="citation" data-cites="goodfellow2016deep">Goodfellow et&nbsp;al. (<a href="#ref-goodfellow2016deep" role="doc-biblioref">2016</a>)</span>, y una entrada más reciente y visual, <span class="citation" data-cites="bishop2024deep">Bishop y Bishop (<a href="#ref-bishop2024deep" role="doc-biblioref">2024</a>)</span>; la retropropagación se remonta a <span class="citation" data-cites="rumelhart1986learning">Rumelhart et&nbsp;al. (<a href="#ref-rumelhart1986learning" role="doc-biblioref">1986</a>)</span>, y el <em>gradient boosting</em> que reina en lo tabular, a <span class="citation" data-cites="chen2016xgboost">Chen y Guestrin (<a href="#ref-chen2016xgboost" role="doc-biblioref">2016</a>)</span>, con la evidencia de su superioridad sobre las redes en datos de filas y columnas recogida por <span class="citation" data-cites="grinsztajn2022tree">Grinsztajn et&nbsp;al. (<a href="#ref-grinsztajn2022tree" role="doc-biblioref">2022</a>)</span>. Quien recorra estas lecturas descubrirá que el aprendizaje automático tiene menos de receta y más de criterio de lo que su fama sugiere: la parte difícil, y la que estos libros enseñan, no es ajustar el modelo, sino saber si se puede confiar en él.</p>
+<p>Una recomendación de práctica cierra el capítulo, en la línea de las anteriores. Aprende modelando problemas reales, no de juguete, y midiendo con honradez desde el primer día. Toma un conjunto que te importe —no la música si no te dice nada: tus gastos, un deporte que sigas, datos abiertos de tu ciudad—, plantéate una pregunta predictiva concreta, y recorre el flujo entero: parte, entrena una línea base tonta, mídela contra el azar, sube de complejidad y observa si la validación lo premia. Equivócate: sobreajusta a propósito para ver la brecha, mira el test antes de tiempo para sentir cómo engaña, elige la métrica errónea y comprueba qué esconde. Esos errores, cometidos en un problema propio y de bajo riesgo, enseñan más que cualquier tutorial, porque graban en la intuición lo que este capítulo solo pudo contar. El aprendizaje automático, como todo en este libro, se aprende con las manos; y su lección más valiosa —desconfiar de los resultados demasiado buenos— solo se interioriza después de haberse dejado engañar por unos cuantos.</p>
+<p>Con los fundamentos del modelado puestos —la formulación, la medida honesta, el sobreajuste, el motor del gradiente, la escalera de modelos y la lección tabular—, el libro entra en su tramo final. El cap.&nbsp;14 organiza todo esto en un flujo de trabajo profesional con <code>tidymodels</code>: recetas que preprocesan sin fuga, <em>workflows</em> que encadenan las piezas, validación cruzada y ajuste automático de hiperparámetros, e interpretabilidad para los modelos opacos. Y los capítulos que lo siguen —privacidad y confidencialidad, reproducibilidad, ingeniería, despliegue y ética— se ocupan de la otra mitad del oficio, la que estos fundamentos hacen urgente: que el poder de predecir a partir de datos ajenos se ejerza de forma responsable, auditable y justa. Saber construir un modelo es la mitad del trabajo; saber cuándo confiar en él, cómo mantenerlo y qué derechos de las personas que lo generaron hay que proteger es la otra, y a ella se dedica lo que queda de libro.</p>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-bishop2024deep" class="csl-entry" role="listitem">
+Bishop, Christopher M., y Hugh Bishop. 2024. <em>Deep Learning: Foundations and Concepts</em>. Springer. <a href="https://doi.org/10.1007/978-3-031-45468-4">https://doi.org/10.1007/978-3-031-45468-4</a>.
+</div>
+<div id="ref-breiman2001random" class="csl-entry" role="listitem">
+Breiman, Leo. 2001. <span>«Random Forests»</span>. <em>Machine Learning</em> 45 (1): 5-32. <a href="https://doi.org/10.1023/A:1010933404324">https://doi.org/10.1023/A:1010933404324</a>.
+</div>
+<div id="ref-chen2016xgboost" class="csl-entry" role="listitem">
+Chen, Tianqi, y Carlos Guestrin. 2016. <span>«<span>XGBoost</span>: A Scalable Tree Boosting System»</span>. <em>Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD ’16)</em>, 785-94. <a href="https://doi.org/10.1145/2939672.2939785">https://doi.org/10.1145/2939672.2939785</a>.
+</div>
+<div id="ref-torchdocs" class="csl-entry" role="listitem">
+Falbel, Daniel, y Javier Luraschi. 2023. <em>torch for <span>R</span>: Tensors and Neural Networks with <span>GPU</span> Acceleration</em>. <a href="https://torch.mlverse.org/" class="uri">Https://torch.mlverse.org/</a>.
+</div>
+<div id="ref-friedman2010glmnet" class="csl-entry" role="listitem">
+Friedman, Jerome, Trevor Hastie, y Robert Tibshirani. 2010. <span>«Regularization Paths for Generalized Linear Models via Coordinate Descent»</span>. <em>Journal of Statistical Software</em> 33 (1): 1-22.
+</div>
+<div id="ref-goodfellow2016deep" class="csl-entry" role="listitem">
+Goodfellow, Ian, Yoshua Bengio, y Aaron Courville. 2016. <em>Deep Learning</em>. MIT Press. <a href="https://www.deeplearningbook.org/">https://www.deeplearningbook.org/</a>.
+</div>
+<div id="ref-grinsztajn2022tree" class="csl-entry" role="listitem">
+Grinsztajn, Léo, Edouard Oyallon, y Gaël Varoquaux. 2022. <span>«Why Do Tree-based Models Still Outperform Deep Learning on Typical Tabular Data?»</span> <em>Advances in Neural Information Processing Systems 35 (NeurIPS 2022) Datasets and Benchmarks Track</em>.
+</div>
+<div id="ref-hastie2009elements" class="csl-entry" role="listitem">
+Hastie, Trevor, Robert Tibshirani, y Jerome Friedman. 2009. <em>The Elements of Statistical Learning</em>. 2.ª ed. Springer. <a href="https://doi.org/10.1007/978-0-387-84858-7">https://doi.org/10.1007/978-0-387-84858-7</a>.
+</div>
+<div id="ref-james2023islp" class="csl-entry" role="listitem">
+James, Gareth, Daniela Witten, Trevor Hastie, Robert Tibshirani, y Jonathan Taylor. 2023. <em>An Introduction to Statistical Learning with Applications in <span>Python</span></em>. Springer. <a href="https://doi.org/10.1007/978-3-031-38747-0">https://doi.org/10.1007/978-3-031-38747-0</a>.
+</div>
+<div id="ref-kuhn2022tidymodels" class="csl-entry" role="listitem">
+Kuhn, Max, y Julia Silge. 2022. <em>Tidy Modeling with R</em>. O’Reilly Media.
+</div>
+<div id="ref-robbins1951stochastic" class="csl-entry" role="listitem">
+Robbins, Herbert, y Sutton Monro. 1951. <span>«A Stochastic Approximation Method»</span>. <em>The Annals of Mathematical Statistics</em> 22 (3): 400-407.
+</div>
+<div id="ref-rumelhart1986learning" class="csl-entry" role="listitem">
+Rumelhart, David E., Geoffrey E. Hinton, y Ronald J. Williams. 1986. <span>«Learning Representations by Back-propagating Errors»</span>. <em>Nature</em> 323 (6088): 533-36. <a href="https://doi.org/10.1038/323533a0">https://doi.org/10.1038/323533a0</a>.
+</div>
+<div id="ref-tibshirani1996lasso" class="csl-entry" role="listitem">
+Tibshirani, Robert. 1996. <span>«Regression Shrinkage and Selection via the Lasso»</span>. <em>Journal of the Royal Statistical Society: Series B</em> 58 (1): 267-88.
+</div>
+<div id="ref-wright2017ranger" class="csl-entry" role="listitem">
+Wright, Marvin N., y Andreas Ziegler. 2017. <span>«ranger: A Fast Implementation of Random Forests for High Dimensional Data in <span>C++</span> and <span>R</span>»</span>. <em>Journal of Statistical Software</em> 77 (1): 1-17.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -695,6 +1504,19 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2026 Manuel Muñoz Plá · Edición web bajo licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es">CC BY-NC-ND 4.0</a> (uso académico con atribución; sin uso comercial ni obras derivadas) · El código va aparte bajo licencia MIT</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

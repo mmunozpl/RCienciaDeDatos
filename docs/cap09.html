@@ -23,7 +23,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -44,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3519e9152a6936f9aef93bb4ac1254f6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c51ee271f6426d8ddbbd81f2fce6c0c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,6 +126,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -218,42 +301,67 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Capítulo 16. Reproducibilidad, ingeniería, despliegue y ética</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Apéndices</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ap_algebra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Apéndice · Álgebra lineal esencial</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ap_probabilidad.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Apéndice · Probabilidad y estadística esencial</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ap_entorno.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Apéndice · Puesta a punto del entorno</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#del-vector-a-la-columna-arrow-el-sustrato-común" id="toc-del-vector-a-la-columna-arrow-el-sustrato-común" class="nav-link active" data-scroll-target="#del-vector-a-la-columna-arrow-el-sustrato-común">Del vector a la columna: Arrow, el sustrato común</a>
+  <ul class="collapse">
+  <li><a href="#por-qué-columnar" id="toc-por-qué-columnar" class="nav-link" data-scroll-target="#por-qué-columnar">Por qué columnar</a></li>
+  <li><a href="#el-formato-arrow" id="toc-el-formato-arrow" class="nav-link" data-scroll-target="#el-formato-arrow">El formato Arrow</a></li>
+  <li><a href="#puentes-los-mismos-bytes-sin-copia" id="toc-puentes-los-mismos-bytes-sin-copia" class="nav-link" data-scroll-target="#puentes-los-mismos-bytes-sin-copia">Puentes: los mismos bytes, sin copia</a></li>
+  </ul></li>
+  <li><a href="#arrow-consultar-ficheros-sin-cargarlos" id="toc-arrow-consultar-ficheros-sin-cargarlos" class="nav-link" data-scroll-target="#arrow-consultar-ficheros-sin-cargarlos">arrow: consultar ficheros sin cargarlos</a>
+  <ul class="collapse">
+  <li><a href="#proyección-y-predicado-empujar-el-trabajo-al-fichero" id="toc-proyección-y-predicado-empujar-el-trabajo-al-fichero" class="nav-link" data-scroll-target="#proyección-y-predicado-empujar-el-trabajo-al-fichero">Proyección y predicado: empujar el trabajo al fichero</a></li>
+  <li><a href="#cuando-los-ficheros-no-encajan-unificar-el-esquema" id="toc-cuando-los-ficheros-no-encajan-unificar-el-esquema" class="nav-link" data-scroll-target="#cuando-los-ficheros-no-encajan-unificar-el-esquema">Cuando los ficheros no encajan: unificar el esquema</a></li>
+  <li><a href="#procesar-por-lotes-lo-que-no-cabe-entero" id="toc-procesar-por-lotes-lo-que-no-cabe-entero" class="nav-link" data-scroll-target="#procesar-por-lotes-lo-que-no-cabe-entero">Procesar por lotes lo que no cabe entero</a></li>
+  </ul></li>
+  <li><a href="#duckdb-sql-analítico-directamente-sobre-parquet" id="toc-duckdb-sql-analítico-directamente-sobre-parquet" class="nav-link" data-scroll-target="#duckdb-sql-analítico-directamente-sobre-parquet">DuckDB: SQL analítico directamente sobre Parquet</a>
+  <ul class="collapse">
+  <li><a href="#una-lección-escondida-en-los-datos" id="toc-una-lección-escondida-en-los-datos" class="nav-link" data-scroll-target="#una-lección-escondida-en-los-datos">Una lección escondida en los datos</a></li>
+  <li><a href="#el-motor-en-flujo" id="toc-el-motor-en-flujo" class="nav-link" data-scroll-target="#el-motor-en-flujo">El motor en flujo</a></li>
+  <li><a href="#el-vocabulario-analítico-ventanas-uniones-y-cte" id="toc-el-vocabulario-analítico-ventanas-uniones-y-cte" class="nav-link" data-scroll-target="#el-vocabulario-analítico-ventanas-uniones-y-cte">El vocabulario analítico: ventanas, uniones y CTE</a></li>
+  <li><a href="#duckdb-habla-con-todos" id="toc-duckdb-habla-con-todos" class="nav-link" data-scroll-target="#duckdb-habla-con-todos">DuckDB habla con todos</a></li>
+  </ul></li>
+  <li><a href="#duckplyr-la-gramática-de-dplyr-con-el-motor-de-duckdb" id="toc-duckplyr-la-gramática-de-dplyr-con-el-motor-de-duckdb" class="nav-link" data-scroll-target="#duckplyr-la-gramática-de-dplyr-con-el-motor-de-duckdb">duckplyr: la gramática de dplyr con el motor de DuckDB</a>
+  <ul class="collapse">
+  <li><a href="#el-optimizador-a-la-vista" id="toc-el-optimizador-a-la-vista" class="nav-link" data-scroll-target="#el-optimizador-a-la-vista">El optimizador a la vista</a></li>
+  <li><a href="#prudencia-cuándo-recae-en-dplyr" id="toc-prudencia-cuándo-recae-en-dplyr" class="nav-link" data-scroll-target="#prudencia-cuándo-recae-en-dplyr">Prudencia: cuándo recae en dplyr</a></li>
+  <li><a href="#uniones-materialización-parcial-y-modo-transparente" id="toc-uniones-materialización-parcial-y-modo-transparente" class="nav-link" data-scroll-target="#uniones-materialización-parcial-y-modo-transparente">Uniones, materialización parcial y modo transparente</a></li>
+  </ul></li>
+  <li><a href="#una-gramática-cuatro-motores" id="toc-una-gramática-cuatro-motores" class="nav-link" data-scroll-target="#una-gramática-cuatro-motores">Una gramática, cuatro motores</a></li>
+  <li><a href="#particionar-y-podar" id="toc-particionar-y-podar" class="nav-link" data-scroll-target="#particionar-y-podar">Particionar y podar</a></li>
+  <li><a href="#la-nube-como-disco" id="toc-la-nube-como-disco" class="nav-link" data-scroll-target="#la-nube-como-disco">La nube como disco</a></li>
+  <li><a href="#una-medición-a-escala-real-los-taxis-de-nueva-york" id="toc-una-medición-a-escala-real-los-taxis-de-nueva-york" class="nav-link" data-scroll-target="#una-medición-a-escala-real-los-taxis-de-nueva-york">Una medición a escala real: los taxis de Nueva York</a>
+  <ul class="collapse">
+  <li><a href="#una-pregunta-que-solo-la-escala-responde" id="toc-una-pregunta-que-solo-la-escala-responde" class="nav-link" data-scroll-target="#una-pregunta-que-solo-la-escala-responde">Una pregunta que solo la escala responde</a></li>
+  </ul></li>
+  <li><a href="#el-criterio-qué-herramienta-y-cuándo" id="toc-el-criterio-qué-herramienta-y-cuándo" class="nav-link" data-scroll-target="#el-criterio-qué-herramienta-y-cuándo">El criterio: qué herramienta y cuándo</a>
+  <ul class="collapse">
+  <li><a href="#cuándo-bajar-a-sql-directo" id="toc-cuándo-bajar-a-sql-directo" class="nav-link" data-scroll-target="#cuándo-bajar-a-sql-directo">Cuándo bajar a SQL directo</a></li>
+  </ul></li>
+  <li><a href="#un-recetario-de-gran-escala" id="toc-un-recetario-de-gran-escala" class="nav-link" data-scroll-target="#un-recetario-de-gran-escala">Un recetario de gran escala</a></li>
+  <li><a href="#un-integrador-de-principio-a-fin" id="toc-un-integrador-de-principio-a-fin" class="nav-link" data-scroll-target="#un-integrador-de-principio-a-fin">Un integrador de principio a fin</a></li>
+  <li><a href="#del-prototipo-a-la-producción" id="toc-del-prototipo-a-la-producción" class="nav-link" data-scroll-target="#del-prototipo-a-la-producción">Del prototipo a la producción</a>
+  <ul class="collapse">
+  <li><a href="#anatomía-de-un-flujo-que-revienta-la-memoria" id="toc-anatomía-de-un-flujo-que-revienta-la-memoria" class="nav-link" data-scroll-target="#anatomía-de-un-flujo-que-revienta-la-memoria">Anatomía de un flujo que revienta la memoria</a></li>
+  </ul></li>
+  <li><a href="#síntesis-la-gramática-no-cambia-el-motor-sí" id="toc-síntesis-la-gramática-no-cambia-el-motor-sí" class="nav-link" data-scroll-target="#síntesis-la-gramática-no-cambia-el-motor-sí">Síntesis: la gramática no cambia, el motor sí</a></li>
+  <li><a href="#diez-preguntas-antes-de-escalar" id="toc-diez-preguntas-antes-de-escalar" class="nav-link" data-scroll-target="#diez-preguntas-antes-de-escalar">Diez preguntas antes de escalar</a></li>
+  <li><a href="#errores-frecuentes-con-datos-a-gran-escala" id="toc-errores-frecuentes-con-datos-a-gran-escala" class="nav-link" data-scroll-target="#errores-frecuentes-con-datos-a-gran-escala">Errores frecuentes con datos a gran escala</a></li>
+  <li><a href="#lecturas-recomendadas" id="toc-lecturas-recomendadas" class="nav-link" data-scroll-target="#lecturas-recomendadas">Lecturas recomendadas</a>
+  <ul class="collapse">
+  <li><a href="#un-perfil-del-año-en-cuatro-preguntas" id="toc-un-perfil-del-año-en-cuatro-preguntas" class="nav-link" data-scroll-target="#un-perfil-del-año-en-cuatro-preguntas">Un perfil del año en cuatro preguntas</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -277,11 +385,945 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>Capítulo en preparación.</em> El contenido se redacta a partir del plan (<code>PLAN_R_para_la_Ciencia_de_Datos.md</code>) siguiendo la disciplina del volumen Python: teoría, ejercicios al final y código ejecutable en <code>src/cap09_tema.R</code>, con cada figura y cada cifra regeneradas en R.</p>
+<p><a href="https://mybinder.org/v2/gh/mmunozpl/RCienciaDeDatos/HEAD?urlpath=rstudio" class="btn btn-primary btn-sm" role="button">▶ Ejecutar este capítulo en Binder</a></p>
+<div class="callout callout-style-default callout-note callout-titled" title="El primer arranque tarda unos minutos">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>El primer arranque tarda unos minutos
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>La primera vez que se abre, Binder construye el entorno en la nube (unos 10-20 min); verás una pantalla de progreso. Después queda en caché y abre en segundos. Si parece que no responde, espera a que termine de construirse o vuelve a intentarlo.</p>
+</div>
+</div>
+</div>
+<p>El capítulo anterior enseñó una gramática para manipular tablas. Funcionaba porque la tabla cabía en memoria: <code>dplyr</code> carga el <em>data frame</em> entero y opera sobre él. Pero la ciencia de datos tropieza tarde o temprano con tablas que no caben —o que caben con calzador, dejando la máquina de rodillas—, y entonces la pregunta cambia. Ya no es «¿qué verbo aplico?», sino «¿dónde viven los datos mientras los proceso?». Este capítulo responde esa pregunta sin abandonar la gramática que ya sabemos: los mismos verbos, pero con un motor distinto debajo que nunca llega a cargar la tabla completa.</p>
+<p>El dato de trabajo cambia de escala. Junto al catálogo musical —113 999 pistas que caben holgadas en la RAM— traemos un conjunto que no: los viajes en taxi amarillo de Nueva York de 2024, doce ficheros Parquet, 756&nbsp;MB en disco y <strong>41 169 720</strong> filas <span class="citation" data-cites="nyctlc">(<a href="#ref-nyctlc" role="doc-biblioref">New York City Taxi and Limousine Commission 2024</a>)</span>. Materializado como tabla de <code>double</code> ocuparía unos 6,3&nbsp;GB; multiplíquese por los años que quiera y se sale de cualquier portátil. Ese es el régimen del capítulo, y en él tres piezas del ecosistema de R se reparten el trabajo. <strong>arrow</strong> lleva el formato columnar del cap.&nbsp;5 del disco al procesador y consulta ficheros sin cargarlos. <strong>DuckDB</strong> es una base de datos analítica incrustada —un motor SQL dentro del proceso de R— capaz de recorrer esos Parquet en flujo. Y <strong>duckplyr</strong> es la bisagra: <code>dplyr</code> con el motor de DuckDB debajo, ejecución perezosa, <code>explain()</code> del plan y recaída al <code>dplyr</code> de siempre donde DuckDB no llega.</p>
+<p>El hilo conductor —la idea que conviene tener presente desde la primera página— es que ninguna de estas herramientas te pide reaprender a analizar datos. Lo que aprendiste en el capítulo anterior —los cinco verbos, la tubería, dividir-aplicar- combinar— sigue siendo exactamente el mismo idioma. Lo que cambia es el motor que lo ejecuta y, con él, la escala a la que puedes trabajar. Es una promesa poco común en programación: subir de escala sin subir de complejidad conceptual. Por eso el capítulo no es un catálogo de tres bibliotecas nuevas, sino una sola idea vista desde tres ángulos —la ejecución perezosa sobre un formato columnar común— y el criterio para saber cuándo hace falta.</p>
+<p>El recorrido: primero el sustrato común —por qué columnar y qué es Arrow, con el puente que deja viajar una tabla entre bibliotecas sin copiarla (§9.1)—; después arrow para consultar ficheros en disco (§9.2), DuckDB y su SQL analítico sobre Parquet (§9.3), y duckplyr con su modelo perezoso y su plan a la vista (§9.4). Veremos cómo la misma gramática se traduce a otros motores (§9.5), cómo particionar y podar (§9.6), una medición a escala real con los taxis (§9.8) y un criterio honesto para elegir herramienta (§9.9), antes de un integrador de principio a fin. Nota de versiones: esta edición se ha verificado con arrow&nbsp;25.0.0, duckdb&nbsp;1.5.4 y duckplyr&nbsp;1.2.1 sobre R&nbsp;4.6.1.</p>
+<section id="del-vector-a-la-columna-arrow-el-sustrato-común" class="level2">
+<h2 class="anchored" data-anchor-id="del-vector-a-la-columna-arrow-el-sustrato-común">Del vector a la columna: Arrow, el sustrato común</h2>
+<p>Las tres herramientas del capítulo —arrow, DuckDB y el <code>dplyr</code> moderno— descansan sobre una misma pieza, y conocerla explica de golpe por qué son rápidas y por qué se entienden entre sí. La sección retoma la idea columnar del cap.&nbsp;5 y la lleva un paso más allá, del disco al procesador (§9.1.1); presenta el formato Arrow (§9.1.2); y demuestra, reloj en mano, que dos motores pueden trabajar sobre los mismos bytes sin duplicarlos (§9.1.3).</p>
+<section id="por-qué-columnar" class="level3">
+<h3 class="anchored" data-anchor-id="por-qué-columnar">Por qué columnar</h3>
+<p>El cap.&nbsp;5 dio dos razones para guardar los datos por columnas en disco: que una consulta se lleva del fichero únicamente los campos que menciona, y que apilar valores del mismo tipo se comprime mucho mejor. Aquello era un argumento de entrada/salida; existe otro, igual de decisivo, del lado del procesador. Al estar los valores de una columna pegados en memoria, recorrerlos va al compás de la caché: cada línea de 64&nbsp;bytes que asciende llega repleta de datos útiles —una fila de <code>float32</code> consecutivos—, la circuitería adivina cuál pedir después, y las instrucciones que tratan muchos valores de una tacada —las que ya movían la vectorización del cap.&nbsp;7— trabajan en bloque. Guardado por filas, en cambio, entre un valor de la columna y el siguiente se interponen todos los demás campos del registro, y la caché acarrea un montón de bytes que la consulta ni mirará.</p>
+<p>El efecto es concreto y grande. Imagine promediar la tarifa de 41&nbsp;millones de viajes, donde cada fila tiene diecinueve campos. En disposición por columnas, las tarifas —ocho bytes cada una— están una detrás de otra: cada línea de caché de 64&nbsp;bytes trae ocho tarifas listas para sumar, y el prebúsqueda del procesador va cargando las siguientes mientras suma las actuales. En disposición por filas, cada tarifa está separada de la siguiente por los otros dieciocho campos del viaje —más de cien bytes—, así que cada línea de caché trae una tarifa útil y noventa y tantos bytes de lastre. La misma suma toca diez o veinte veces más memoria, y la memoria, no la aritmética, es el cuello de botella de la analítica moderna. Por eso el formato no es un detalle de almacenamiento: es lo que decide si el procesador trabaja o espera.</p>
+<p>A esta conclusión llegaron primero las bases de datos. El proyecto MonetDB/X100 demostró que evaluar una consulta registro a registro, al modo clásico, deja el procesador de brazos cruzados, y propuso procesar cada operador por lotes de valores del tamaño justo para la caché <span class="citation" data-cites="boncz2005monetdb">(<a href="#ref-boncz2005monetdb" role="doc-biblioref">Boncz et&nbsp;al. 2005</a>)</span>; de esa línea salió el modelo columnar analítico que recoge <span class="citation" data-cites="abadi2013column">(<a href="#ref-abadi2013column" role="doc-biblioref">Abadi et&nbsp;al. 2013</a>)</span>, del que arrow y DuckDB descienden en línea directa. Conviene la vieja distinción entre dos regímenes de carga <span class="citation" data-cites="kleppmann2017ddia">(<a href="#ref-kleppmann2017ddia" role="doc-biblioref">Kleppmann 2017</a>)</span>. Los sistemas transaccionales manosean muchas veces por segundo unas pocas filas completas —registrar un viaje, rectificar un cobro— y con ellos casa la disposición por filas; los analíticos barren millones de filas mirando apenas un par de columnas para resumirlas, y piden la columnar. El análisis de datos habita casi siempre el segundo régimen, y por eso el capítulo entero se mueve en columnas.</p>
+</section>
+<section id="el-formato-arrow" class="level3">
+<h3 class="anchored" data-anchor-id="el-formato-arrow">El formato Arrow</h3>
+<p>Apache Arrow no es una biblioteca, sino un acuerdo: una especificación —columnar y neutral respecto al lenguaje— de cómo colocar una tabla en memoria, con implementaciones para C++, Rust, Java o R, y proyecto insignia de la Fundación Apache desde 2016 <span class="citation" data-cites="arrowdocs">(<a href="#ref-arrowdocs" role="doc-biblioref">Apache Software Foundation 2026a</a>)</span>. En el cap.&nbsp;5 lo describimos como el gemelo en memoria de Parquet, y entre los dos se reparten un mismo oficio en dos tiempos: Parquet aprieta y empaqueta en bloques aquello que ha de perdurar almacenado <span class="citation" data-cites="parquetdocs">(<a href="#ref-parquetdocs" role="doc-biblioref">Apache Software Foundation 2026b</a>)</span>, mientras Arrow guarda esos valores ya desempaquetados, seguidos y alineados para que el procesador los ataque sin más trámite. Ir de uno al otro es, ni más ni menos, (de)serializar. Cada columna se representa con una sencillez buscada (figura&nbsp;9.1): un <em>búfer</em> corrido con los valores, un mapa de bits en paralelo que señala cuáles valen —un bit por celda, uno si hay dato, cero si falta— y, cuando la columna es categórica, un diccionario que anota cada categoría una única vez y deja la columna reducida a índices enteros. Es la misma idea del factor del cap.&nbsp;2, ahora como formato de intercambio.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap09/fig_01.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;9.1.</strong> <strong>Anatomía de una columna Arrow.</strong> Los valores viven en un búfer contiguo; un mapa de bits paralelo marca cuáles son válidos (los nulos guardan un hueco para no desalinear); y las columnas categóricas añaden un diccionario que almacena cada categoría una vez y deja la columna como índices enteros. Tres arreglos simples y planos: por eso una columna se recorre a la velocidad de la caché y se comparte sin traducción.</figcaption>
+</figure>
+</div>
+<p>Abramos con arrow la tabla de música pidiendo que <em>no</em> se convierta en un <em>data frame</em> de R: se queda como una <code>Table</code> de Arrow, es decir, como esos búferes columnares en memoria, sin pasar por el modelo de datos de R.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="st">"data/processed/musica.parquet"</span>, <span class="at">as_data_frame =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tab)          <span class="co"># "Table"  (arrow, no un data.frame)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>tab<span class="sc">$</span>num_rows        <span class="co"># 113999</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>col <span class="ot">&lt;-</span> tab<span class="sc">$</span>popularity</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(col)          <span class="co"># "ChunkedArray"  -- una columna Arrow</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>col<span class="sc">$</span>type<span class="sc">$</span><span class="fu">ToString</span>() <span class="co"># "int64"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La columna es un <code>ChunkedArray</code>: uno o varios búferes contiguos del tipo declarado (<code>int64</code>), no un vector de R. Que sea <em>chunked</em> —por trozos— importa: una <code>Table</code> de Arrow puede estar formada por varios <code>RecordBatch</code>, lotes de filas que se procesan de uno en uno, y esa es la unidad con la que fluye el dato cuando no cabe entero. El objeto guarda su <code>schema</code> —el catálogo de nombres y tipos— por separado de los valores, de modo que se puede consultar la forma de la tabla sin tocar los datos:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tab<span class="sc">$</span>schema<span class="sc">$</span>names[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]   <span class="co"># "track_id" "artists" "album_name" ...</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tab<span class="sc">$</span>num_columns         <span class="co"># 20</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Todavía no hemos copiado nada al modelo de datos de R; los bytes son los de Arrow. Y como Parquet es la versión en disco de esa misma disposición, elegir su compresión es un compromiso entre tamaño y velocidad. El mismo catálogo, escrito con tres códecs distintos, ilustra el abanico:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (cod <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"uncompressed"</span>, <span class="st">"snappy"</span>, <span class="st">"zstd"</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_parquet</span>(df, <span class="fu">paste0</span>(<span class="st">"m_"</span>, cod, <span class="st">".parquet"</span>), <span class="at">compression =</span> cod)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  uncompressed  10.6 MB   -- sin comprimir, lectura maxima</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  snappy         8.6 MB   -- rapido de (des)comprimir, el defecto</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  zstd           7.1 MB   -- mas pequeno, algo mas de CPU</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>snappy</code> —el códec por defecto— prioriza la velocidad de descompresión; <code>zstd</code> aprieta un tercio más a cambio de algo de CPU. En un <em>dataset</em> que se lee mil veces y se escribe una, <code>zstd</code> suele ganar; en uno que se reescribe constantemente, <code>snappy</code>. Ese detalle es la clave de lo que viene: el formato en disco y el formato en memoria son primos, y el motor pasa de uno a otro sin fricción.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hay un tercer formato que conviene conocer: <em>Feather</em>, o Arrow IPC, que guarda en disco la disposición de Arrow <em>tal cual</em>, sin la codificación por bloques de Parquet. Para durar y compartir, Parquet gana —comprime más y es un estándar de almacenamiento—. Pero para un fichero intermedio de un flujo, que se escribe en un paso y se lee en el siguiente, Feather es más rápido porque no hay que (de)serializar: los bytes en disco son casi los mismos que en memoria. La regla: Parquet para lo que se guarda, Feather (<code>write_feather()</code>) para lo que solo cruza de un paso a otro del mismo cálculo.</p>
+</div>
+</div>
+</section>
+<section id="puentes-los-mismos-bytes-sin-copia" class="level3">
+<h3 class="anchored" data-anchor-id="puentes-los-mismos-bytes-sin-copia">Puentes: los mismos bytes, sin copia</h3>
+<p>Que arrow, DuckDB y <code>dplyr</code> compartan el formato Arrow tiene una consecuencia práctica enorme: una tabla puede pasar de una biblioteca a otra <strong>sin copiarse</strong>. Los búferes ya están en la disposición que las tres entienden; basta con pasar el puntero. Registremos la <code>Table</code> de arrow dentro de DuckDB y consultémosla con SQL, sin que los datos abandonen su sitio (figura&nbsp;9.2):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI); <span class="fu">library</span>(duckdb)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="fu">duckdb</span>())</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">duckdb_register_arrow</span>(con, <span class="st">"m"</span>, tab)   <span class="co"># registra la Table SIN copiarla</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT count(*) n, round(avg(popularity),2) p FROM m"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        n     p</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 113999 33.24</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(con, <span class="at">shutdown =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>DuckDB ha recorrido 113 999 filas y calculado la media de popularidad (33,24) leyendo directamente los búferes de Arrow que creó arrow. No hubo serialización ni una segunda copia en memoria: el mismo dato, dos motores. Ese puente —<em>zero-copy</em>, cero copias— es lo que permite encadenar herramientas sin pagar el peaje de convertir entre formatos en cada frontera, el peaje que dominaba los flujos de datos antes de que existiera un formato común. Para hacerse una idea de lo que esto ahorra, piénsese en cómo era antes: cada biblioteca tenía su propia representación en memoria, así que pasar una tabla de una a otra significaba recorrerla entera, campo por campo, construyendo una copia en el formato de destino —tiempo y memoria proporcionales al tamaño del dato, pagados en cada frontera entre herramientas—. Con un formato común, esa frontera desaparece: los mismos bytes valen para todas. Es una de esas mejoras de infraestructura que no se ven pero que lo cambian todo, como que dos países adopten el mismo ancho de vía y los trenes dejen de tener que descargar y recargar en la frontera. Arrow es ese ancho de vía común, y buena parte de la interoperabilidad del ecosistema moderno de datos descansa sobre él.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap09/fig_02.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;9.2.</strong> <strong>El puente sin copia.</strong> Como los tres hablan Arrow, los mismos búferes en memoria sirven a arrow, a DuckDB y —al materializar con <code>collect()</code>— al <em>data frame</em> de R. Pasar una tabla de un motor a otro es pasar un puntero, no duplicar gigabytes. El formato común es lo que convierte a estas herramientas en piezas encajables en lugar de islas.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="arrow-consultar-ficheros-sin-cargarlos" class="level2">
+<h2 class="anchored" data-anchor-id="arrow-consultar-ficheros-sin-cargarlos">arrow: consultar ficheros sin cargarlos</h2>
+<p>El salto de escala llega con <code>open_dataset()</code>. En vez de leer un fichero a memoria, abre una <em>vista</em> sobre uno o muchos Parquet: lee los metadatos —esquema y número de filas— y no toca los datos hasta que una consulta los pide. Apuntémoslo a los doce ficheros mensuales de taxis:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ficheros <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"data/nyc_taxi"</span>, <span class="at">pattern =</span> <span class="st">"yellow.*parquet$"</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(ficheros)     <span class="co"># instantaneo: solo metadatos</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(ds)                         <span class="co"># 41169720</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(ds)                         <span class="co"># 19</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Abrir el <em>dataset</em> de 41&nbsp;millones de filas cuesta 0,02&nbsp;segundos, porque no ha leído ni una fila: el recuento sale de los metadatos del Parquet. El objeto <code>ds</code> no es una tabla, es la <em>promesa</em> de una. Sobre él se escriben los mismos verbos de <code>dplyr</code> del capítulo anterior, pero no se ejecutan: se acumulan en un plan. La ejecución solo ocurre al llamar a <code>collect()</code>, que trae a R el resultado —pequeño— en lugar del dato —enorme—.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ds <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(trip_distance <span class="sc">&gt;</span> <span class="dv">0</span>, fare_amount <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">tarifa =</span> <span class="fu">mean</span>(fare_amount), <span class="at">.by =</span> payment_type) <span class="sc">|&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">|&gt;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   payment_type        n tarifa</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1            1 30188290  19.73</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2            2  5282508  19.61</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3            0  3693817  20.53</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4            4   385877  22.28</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5            3   156160  21.89</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Treinta millones de viajes se pagaron con tarjeta (tipo&nbsp;1) y cinco millones en efectivo (tipo&nbsp;2), con tarifas medias casi idénticas. La consulta ha recorrido los doce ficheros, pero a R solo han llegado cinco filas. Nunca hubo 41 millones de filas en la RAM. Conviene detenerse en lo que <em>no</em> ha pasado: no ha habido un <code>read_parquet()</code> que trajera la tabla, ni un objeto de gigabytes en el entorno, ni un momento en que la máquina se quedara sin memoria. La tubería se parece exactamente a la del cap.&nbsp;8 —los mismos verbos, el mismo <code>|&gt;</code>—, pero su ejecución ocurre en otro sitio. Esa es la abstracción que hace posible todo lo demás: el código dice qué se quiere, y <em>dónde</em> se calcula queda para el motor. Aprender a confiar en esa separación —a no llamar a <code>collect()</code> por la ansiedad de «ver» el dato— es el primer hábito de trabajar a escala.</p>
+<section id="proyección-y-predicado-empujar-el-trabajo-al-fichero" class="level3">
+<h3 class="anchored" data-anchor-id="proyección-y-predicado-empujar-el-trabajo-al-fichero">Proyección y predicado: empujar el trabajo al fichero</h3>
+<p>La razón de que esto sea viable —y rápido— es que arrow <strong>empuja</strong> el trabajo hacia el escaneo del Parquet, en lugar de leerlo todo y filtrar después. Dos empujones (figura&nbsp;9.3). El de <em>proyección</em>: si la consulta solo nombra tres columnas, solo se leen del disco esas tres —el resto ni se toca, que para eso el formato es columnar—. Y el de <em>predicado</em>: el <code>filter()</code> viaja hasta el lector, que descarta bloques enteros mirando las estadísticas de cada grupo de filas sin descomprimirlos. Medámoslo leyendo dos columnas de las diecinueve:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(ds <span class="sc">|&gt;</span> <span class="fu">select</span>(trip_distance, fare_amount) <span class="sc">|&gt;</span> <span class="fu">collect</span>())</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  usuario   sistema transcurrido</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ...        ...       0.13</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Traer dos columnas de 41&nbsp;millones de filas cuesta una fracción de segundo, no porque la máquina sea prodigiosa, sino porque las otras diecisiete columnas nunca se leyeron. Si esa misma tabla se hubiera cargado entera —<code>collect()</code> sin <code>select()</code>— habrían sido los 6&nbsp;GB completos. El <code>select()</code> y el <code>filter()</code> colocados temprano en la tubería no son solo estilo: son la diferencia entre leer megabytes y leer gigabytes.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El empujón de predicado funciona gracias a la estructura interna del Parquet. Un fichero no es una tabla monolítica: se divide en <em>grupos de filas</em> (<em>row groups</em>) de decenas de miles de filas, y cada grupo guarda, para cada columna, un resumen —mínimo, máximo, número de nulos—. Cuando el filtro es <code>fare_amount &gt; 50</code>, el lector mira el máximo de <code>fare_amount</code> de cada grupo y, si es menor que 50, se salta el grupo entero sin descomprimirlo. Por eso un filtro selectivo sobre un dato <em>ordenado</em> por esa columna es rapidísimo —descarta casi todos los grupos—, mientras que el mismo filtro sobre un dato desordenado apenas poda: los valores buscados están repartidos por todos los grupos. Ordenar el dato por la columna sobre la que más se filtra, al escribirlo, es una optimización tan barata como eficaz.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap09/fig_03.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;9.3.</strong> <strong>Empujar el trabajo al fichero.</strong> La <em>proyección</em> hace que solo se lean del disco las columnas que la consulta nombra (marcadas); el <em>predicado</em> descarta grupos de filas enteros mirando sus estadísticas antes de descomprimirlos. El lector devuelve un resultado pequeño habiendo tocado una fracción del fichero. Colocar <code>select()</code> y <code>filter()</code> pronto en la tubería activa ambos empujones.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No todas las funciones de R viajan al motor de arrow. El conjunto de operaciones que arrow sabe traducir a su motor C++ es amplio pero finito: la aritmética, las comparaciones, la mayoría de <code>stringr</code> y <code>lubridate</code>, los agregados habituales. Si una tubería usa una función que arrow no reconoce, al llamar a <code>collect()</code> recibirá un aviso y arrow <em>materializará</em> lo que pueda y hará el resto en R —o fallará, si la operación precede a un paso que debía empujarse—. La regla práctica: mantenga las funciones exóticas para <em>después</em> del <code>collect()</code>, cuando el dato ya es pequeño y está en R.</p>
+</div>
+</div>
+</section>
+<section id="cuando-los-ficheros-no-encajan-unificar-el-esquema" class="level3">
+<h3 class="anchored" data-anchor-id="cuando-los-ficheros-no-encajan-unificar-el-esquema">Cuando los ficheros no encajan: unificar el esquema</h3>
+<p>Un <em>dataset</em> de muchos ficheros supone que todos comparten esquema. La realidad —sobre todo con datos que llegan mes a mes de una fuente pública— es más áspera: un mes guardó una columna como <code>string</code> y otro como <code>large_string</code>, o un tipo entero cambió de anchura entre versiones. Al abrirlos juntos, arrow se planta:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">open_dataset</span>(carpeta_mezclada)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: Type error: Unable to merge: Field store_and_fwd_flag has</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   incompatible types: large_string vs string</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>No es un fallo caprichoso: arrow avisa de que no puede tratar como una sola tabla lo que tiene columnas de tipos distintos. Hay dos salidas. La primera, declarar un esquema común y pedirle a arrow que amolde cada fichero a él con <code>unify_schemas</code> o pasando un <code>schema</code> explícito. La segunda, más robusta cuando el origen es un desastre, reescribir los ficheros con <code>write_dataset()</code> imponiendo un esquema uniforme, y consultar a partir de esa copia limpia. Es la lección del cap.&nbsp;5 a otra escala: el formato promete tipos, pero solo la disciplina de escritura los garantiza. A gran escala, donde nadie inspecciona los ficheros uno a uno, un tipo que baila entre meses puede tumbar un flujo entero, y conviene detectarlo al abrir, no al agregar.</p>
+</section>
+<section id="procesar-por-lotes-lo-que-no-cabe-entero" class="level3">
+<h3 class="anchored" data-anchor-id="procesar-por-lotes-lo-que-no-cabe-entero">Procesar por lotes lo que no cabe entero</h3>
+<p><code>collect()</code> trae el resultado a R, pero a veces el resultado <em>es</em> el dato transformado, y sigue siendo enorme. Para esos casos arrow ofrece recorrer el <em>dataset</em> por lotes —los <code>RecordBatch</code>— aplicando a cada uno una función, sin materializar la tabla completa. <code>map_batches()</code> entrega cada lote como un <em>data frame</em> pequeño; el patrón permite, por ejemplo, acumular un resultado o escribir por partes:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># recorrer en lotes contando filas sin cargar la tabla entera</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>total <span class="ot">&lt;-</span> <span class="dv">0</span>L</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>ds <span class="sc">|&gt;</span> <span class="fu">select</span>(fare_amount) <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_batches</span>(<span class="cf">function</span>(lote) { total <span class="ot">&lt;&lt;-</span> total <span class="sc">+</span> <span class="fu">nrow</span>(lote); lote })</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Es la misma idea del flujo que veremos en DuckDB, pero controlada desde R: el dato pasa por la función lote a lote y se descarta. Rara vez hace falta bajar a este nivel —los verbos perezosos cubren casi todo—, pero cuando la transformación no es expresable en la gramática y el dato no cabe, procesar por lotes es la única salida que no revienta la memoria.</p>
+</section>
+</section>
+<section id="duckdb-sql-analítico-directamente-sobre-parquet" class="level2">
+<h2 class="anchored" data-anchor-id="duckdb-sql-analítico-directamente-sobre-parquet">DuckDB: SQL analítico directamente sobre Parquet</h2>
+<p>arrow consulta ficheros con la gramática de <code>dplyr</code>. DuckDB hace lo mismo con el otro gran lenguaje de datos: SQL. Es una base de datos analítica <em>incrustada</em> —corre dentro del proceso de R, sin servidor que instalar ni puerto que abrir, como SQLite pero orientada a columnas y a consultas analíticas <span class="citation" data-cites="duckdb2019 duckdbdocs">(<a href="#ref-duckdb2019" role="doc-biblioref">Raasveldt y Mühleisen 2019</a>; <a href="#ref-duckdbdocs" role="doc-biblioref">DuckDB Foundation 2026</a>)</span>—. Esa palabra, <em>incrustada</em>, marca la diferencia con la imagen tradicional de una base de datos. No hay un proceso servidor al que conectarse por red, ni credenciales, ni administrador: DuckDB es una biblioteca que se carga en el mismo R, comparte su memoria y desaparece al cerrar la sesión —o persiste en un fichero, si se le pide—. Para el trabajo analítico de una persona o un equipo pequeño, esa simplicidad es una ventaja enorme: toda la potencia de un motor SQL columnar sin ninguna de las cargas de operar una base de datos de verdad. Su gracia para nosotros: sabe leer Parquet como si fueran tablas, sin importarlos primero. La función <code>read_parquet()</code> dentro del SQL abre el fichero al vuelo.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI); <span class="fu">library</span>(duckdb)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="fu">duckdb</span>())</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>glob <span class="ot">&lt;-</span> <span class="st">"data/nyc_taxi/yellow_tripdata_2024-*.parquet"</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(con, <span class="fu">sprintf</span>(<span class="st">"SELECT count(*) AS n FROM read_parquet('%s')"</span>, glob))</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          n</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 41169720</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El recuento de 41&nbsp;millones de filas es instantáneo: DuckDB lo lee de los metadatos, igual que arrow. Ahora una agregación de verdad —viajes, distancia y tarifa medias por mes— escrita en SQL analítico, con <code>GROUP BY</code> y <code>date_trunc</code> sobre la marca de tiempo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT date_trunc('month', tpep_pickup_datetime) AS mes,</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="st">         count(*) AS viajes,</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="st">         round(avg(trip_distance), 3) AS dist,</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="st">         round(avg(fare_amount), 2) AS tarifa</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM read_parquet('%s')</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="st">  WHERE trip_distance &gt; 0 AND fare_amount &gt; 0</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="st">    AND tpep_pickup_datetime &gt;= '2024-01-01'</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="st">    AND tpep_pickup_datetime &lt;  '2025-01-01'</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="st">  GROUP BY mes ORDER BY mes"</span>, glob)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(con, q) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="dv">4</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          mes  viajes  dist tarifa</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2024-01-01 2869707 3.733  18.50</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2024-02-01 2901481 3.960  18.42</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2024-03-01 3440048 4.623  19.16</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 2024-04-01 3414215 5.241  19.46</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Toda la consulta —recorrer 41&nbsp;millones de filas, filtrar, agrupar por mes y promediar— tarda en torno a un cuarto de segundo, y R nunca ve más que las doce filas del resultado. El <code>WHERE</code> sobre la fecha, de paso, hace de filtro de calidad: el conjunto trae unas pocas decenas de viajes con marcas de tiempo imposibles —2002, 2009, 2025—, ruido que a esta escala conviene acotar antes de promediar.</p>
+<section id="una-lección-escondida-en-los-datos" class="level3">
+<h3 class="anchored" data-anchor-id="una-lección-escondida-en-los-datos">Una lección escondida en los datos</h3>
+<p>SQL invita a preguntar, y preguntar a datos reales casi siempre descubre algo. Agrupemos por tipo de pago y miremos la propina media:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(con, <span class="fu">sprintf</span>(<span class="st">"</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT payment_type, count(*) AS n, round(avg(tip_amount),3) AS propina</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM read_parquet('%s') GROUP BY payment_type ORDER BY n DESC"</span>, glob))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   payment_type        n propina</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1            1 30452159   4.368</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2            2  5540088   0.003</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3            0  4091232   0.758</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4            4   794494   0.050</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5            3   291743   0.023</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6            5        4     ...   &lt;- residual: 4 viajes con codigo 5</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Los viajes con tarjeta (tipo&nbsp;1) promedian 4,37&nbsp;dólares de propina; los de efectivo (tipo&nbsp;2), tres milésimas. ¿Los neoyorquinos no dejan propina en efectivo? No: es que la propina en efectivo <strong>no se registra</strong> —el taxímetro solo anota lo que pasa por la tarjeta—. Un análisis ingenuo de «propina media por tipo de pago» concluiría una falsedad rotunda. Es el recordatorio del cap.&nbsp;8, a otra escala: un cero puede significar «cero» o «no observado», y solo el contexto —no el dato— distingue. La escala amplifica la trampa, porque a 41&nbsp;millones de filas nadie mira los casos uno a uno.</p>
+<p>Y el ruido no acaba en los ceros. Agrupar por mes <em>sin</em> filtrar la fecha destapa la basura que todo conjunto grande arrastra:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(con, <span class="fu">sprintf</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"SELECT date_trunc('month', tpep_pickup_datetime) AS mes,</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="st">  count(*) AS n FROM read_parquet('%s') GROUP BY mes ORDER BY n LIMIT 5"</span>, glob))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          mes  n</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 2025-02-01  1     -- un viaje "de 2025" en datos de 2024</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2026-06-01  2     -- y hasta de 2026</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 2025-01-01  2</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 2008-12-01 10     -- marcas de 2008...</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 2023-12-01 10</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Unas decenas de viajes con marcas de tiempo imposibles —de 2008, de 2025, de 2026— sobre 41&nbsp;millones. Diluidos, no distorsionan una media; pero un <code>GROUP BY</code> por mes los convierte en categorías espurias que ensucian cualquier tabla o gráfico. A gran escala la limpieza no es opcional ni se hace «a ojo»: se codifica como un filtro explícito de plausibilidad —fechas dentro del rango, importes positivos, distancias razonables— que se aplica <em>antes</em> de agregar, en el motor. Nadie va a revisar 41&nbsp;millones de filas; el filtro es la única inspección que escala.</p>
+</section>
+<section id="el-motor-en-flujo" class="level3">
+<h3 class="anchored" data-anchor-id="el-motor-en-flujo">El motor en flujo</h3>
+<p>¿Cómo agrega DuckDB 41&nbsp;millones de filas sin cargarlas? En flujo (<em>streaming</em>, figura&nbsp;9.4): lee el Parquet por lotes de unos miles de filas, pasa cada lote por los operadores —filtrar, actualizar los acumuladores del <code>GROUP BY</code>— y lo descarta antes de leer el siguiente. En memoria solo conviven un lote y la tabla de agregación, no el dato entero. Por eso una consulta que <em>resume</em> escala a datos mayores que la RAM aunque el resultado —o el estado intermedio— quepa de sobra. Se le puede incluso poner techo de memoria y decirle cuántos núcleos usar:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(con, <span class="st">"SET memory_limit = '2GB'"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(con, <span class="st">"SET threads = 4"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># la misma agregacion corre dentro de 2 GB, en paralelo sobre 4 nucleos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Poner techo de memoria no ralentiza una agregación —su estado ya era minúsculo— pero es la red de seguridad para las operaciones que sí lo necesitan: si un <em>join</em> o un <code>ORDER BY</code> amenazan con desbordar los 2&nbsp;GB, DuckDB vuelca la parte que no cabe a ficheros temporales en disco y sigue, más despacio pero sin morir. Es la diferencia entre un proceso que se ralentiza y uno que se mata con un error de memoria. Y el número de hilos importa a esta escala porque el motor paraleliza el escaneo y la agregación por defecto: los lotes de distintos grupos de filas se procesan a la vez en varios núcleos, y solo al final se combinan los acumuladores parciales. Ese paralelismo gratuito —no hay que escribir código concurrente, el motor lo hace— es buena parte de por qué DuckDB supera al «cargar y calcular» de un solo hilo que veíamos con <code>dplyr</code> en memoria.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap09/fig_04.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;9.4.</strong> <strong>Ejecución en flujo.</strong> DuckDB lee el Parquet por lotes, pasa cada uno por los operadores y lo descarta; solo persisten los acumuladores del <code>GROUP BY</code>. En memoria nunca está el dato entero, así que una agregación escala a tablas mayores que la RAM. Un <code>JOIN</code> o un <code>ORDER BY</code> sobre toda la tabla necesitan más estado y vuelcan a disco si no caben, pero el principio es el mismo: procesar sin materializar.</figcaption>
+</figure>
+</div>
+</section>
+<section id="el-vocabulario-analítico-ventanas-uniones-y-cte" class="level3">
+<h3 class="anchored" data-anchor-id="el-vocabulario-analítico-ventanas-uniones-y-cte">El vocabulario analítico: ventanas, uniones y CTE</h3>
+<p>SQL no es solo <code>SELECT</code> y <code>GROUP BY</code>. Su repertorio analítico —el que justifica usarlo a esta escala— incluye las <em>funciones de ventana</em> (<em>window functions</em>), que calculan sobre un grupo sin colapsarlo, igual que el <code>mutate</code> agrupado del cap.&nbsp;8 pero en el motor. La pregunta «¿a qué hora pica más cada forma de pago?» se responde rankeando dentro de cada <code>payment_type</code> con <code>row_number() OVER (PARTITION BY …)</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(con, <span class="fu">sprintf</span>(<span class="st">"</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT payment_type, hora, viajes FROM (</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT payment_type, extract(hour FROM tpep_pickup_datetime) AS hora,</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="st">           count(*) AS viajes,</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="st">           row_number() OVER (PARTITION BY payment_type</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="st">                              ORDER BY count(*) DESC) AS rk</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM read_parquet('%s') GROUP BY payment_type, hora)</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="st">  WHERE rk = 1 ORDER BY viajes DESC LIMIT 3"</span>, glob))</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   payment_type hora  viajes</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1            1   18 2219848   -- la tarjeta pica a las 18 h</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2            2   14  397653   -- el efectivo, a las 14 h</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3            0   18  303387</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Los pagos con tarjeta se concentran a las seis de la tarde, la hora punta del regreso a casa. Y las <em>expresiones de tabla comunes</em> (CTE, la cláusula <code>WITH</code>) encadenan consultas legibles sin anidarlas, como una tubería de <code>dplyr</code> escrita en SQL. Con ellas y las uniones —<code>JOIN</code> entre dos Parquet, o entre un Parquet y una tabla de R— el motor cubre todo el vocabulario tabular del capítulo anterior, ahora sobre datos que no caben.</p>
+</section>
+<section id="duckdb-habla-con-todos" class="level3">
+<h3 class="anchored" data-anchor-id="duckdb-habla-con-todos">DuckDB habla con todos</h3>
+<p>La lectura directa no se limita a Parquet. <code>read_csv_auto()</code> abre un CSV —infiriendo tipos, en flujo, sin cargarlo— y <code>read_json_auto()</code> un JSON; la misma consulta puede cruzar un Parquet con un CSV en un <code>JOIN</code>, que es justo lo que un almacén de datos hace. Es el heredero natural del lector por trozos del cap.&nbsp;5: allí, <code>read_csv_chunked()</code> recorría un CSV grande por lotes para no cargarlo; aquí, DuckDB hace lo mismo pero además consulta directamente, sin pasar por R. Sobre un CSV de casi un millón de filas, la diferencia se nota:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 17 MB, ~912 000 filas</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"grande.csv"</span>))                       <span class="co"># ~0.20 s a RAM</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">dbGetQuery</span>(con,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"SELECT avg(popularity) FROM read_csv_auto('grande.csv')"</span>))</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ~0.09 s -- la mitad, y sin materializar el CSV en R</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>DuckDB tarda la mitad y, sobre todo, nunca trae el CSV a memoria: agrega en flujo y devuelve el número. Con Parquet la ventaja sería aún mayor, pero incluso sobre el formato menos favorable —texto sin comprimir ni tipar— el motor gana. Más útil todavía en un flujo de R: se puede registrar un <em>data frame</em> de R como si fuera una tabla del motor con <code>duckdb_register()</code>, y unirlo con el fichero gigante. Aquí, una minitabla de R que pone nombre a los códigos de pago, unida a los 41&nbsp;millones de viajes:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>etiquetas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">payment_type =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">nombre =</span> <span class="fu">c</span>(<span class="st">"sin codigo"</span>, <span class="st">"tarjeta"</span>, <span class="st">"efectivo"</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>             <span class="st">"gratis"</span>, <span class="st">"disputa"</span>, <span class="st">"desconocida"</span>))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">duckdb_register</span>(con, <span class="st">"et"</span>, etiquetas)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(con, <span class="fu">sprintf</span>(<span class="st">"</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT e.nombre, count(*) AS n</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM read_parquet('%s') t JOIN et e ON t.payment_type = e.payment_type</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="st">  GROUP BY e.nombre ORDER BY n DESC LIMIT 3"</span>, glob))</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        nombre        n</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     tarjeta 30452159</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    efectivo  5540088</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 desconocido  4091232</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El dato grande se queda en disco; la dimensión pequeña vive en R; el <code>JOIN</code> ocurre en el motor. Es el patrón <em>hecho-dimensión</em> del cap.&nbsp;8 a escala: una tabla de hechos enorme, muchas tablas de dimensión diminutas que la etiquetan.</p>
+<p>Y cuando el análisis merece persistir —no recalcular cada sesión—, DuckDB puede ser un fichero de base de datos en disco, no solo memoria efímera:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>con2 <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="fu">duckdb</span>(<span class="at">dbdir =</span> <span class="st">"analisis.duckdb"</span>))   <span class="co"># persiste en disco</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(con2, <span class="fu">sprintf</span>(<span class="st">"CREATE TABLE resumen AS</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT payment_type, count(*) n</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM read_parquet('%s') GROUP BY payment_type"</span>, glob))</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 'resumen' queda guardada; en otra sesion se reabre y se consulta al instante</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(con2, <span class="st">"COPY resumen TO 'resumen.parquet' (FORMAT parquet)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>CREATE TABLE AS</code> materializa un resultado dentro del fichero para reusarlo; <code>COPY …TO</code> exporta cualquier consulta a Parquet o CSV. Con eso, DuckDB deja de ser solo un motor de consulta y se vuelve el pegamento de un flujo: lee muchos formatos, cruza fuentes, calcula en flujo y escribe el resultado donde el siguiente paso lo espera.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La inyección de SQL del cap.&nbsp;5 sigue viva a esta escala, y <code>DBI</code> trae la misma defensa: consultas parametrizadas. Nunca se pega el valor de un usuario en la cadena con <code>sprintf</code> o <code>paste0</code> —un <code>payment_type</code> que llegue como <code>"1; DROP TABLE…"</code> sería un desastre—; se deja un hueco <code>?</code> y se pasa el valor aparte, que <code>DBI</code> escapa: <code>dbGetQuery(con, "SELECT count(*) FROM t WHERE payment_type = ?", params = list(1))</code>. A gran escala el riesgo no cambia; lo que cambia es que el volumen invita a construir consultas dinámicamente, y ahí es donde la parametrización deja de ser opcional. Para diagnosticar rendimiento, <code>EXPLAIN ANALYZE</code> antepuesto a una consulta la ejecuta e informa del tiempo real gastado en cada operador —el perfil del cap.&nbsp;4, ahora del plan de la base de datos—.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="duckplyr-la-gramática-de-dplyr-con-el-motor-de-duckdb" class="level2">
+<h2 class="anchored" data-anchor-id="duckplyr-la-gramática-de-dplyr-con-el-motor-de-duckdb">duckplyr: la gramática de dplyr con el motor de DuckDB</h2>
+<p>Tenemos dos caminos: la gramática de <code>dplyr</code> sobre arrow, y SQL sobre DuckDB. <strong>duckplyr</strong> los funde: escribe <code>dplyr</code> —los verbos exactos del cap.&nbsp;8— y por debajo ejecuta el motor de DuckDB, con su optimizador y su flujo <span class="citation" data-cites="duckplyrdocs">(<a href="#ref-duckplyrdocs" role="doc-biblioref"><span class="nocase">duckplyr authors</span> 2025</a>)</span>. No hay que aprender SQL ni cambiar de sintaxis; se cambia el motor, no el idioma. La entrada perezosa a un Parquet es <code>read_parquet_duckdb()</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(duckplyr)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>tv <span class="ot">&lt;-</span> <span class="fu">read_parquet_duckdb</span>(glob)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tv)   <span class="co"># "prudent_duckplyr_df" "duckplyr_df" "tbl_df" "tbl" "data.frame"</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>consulta <span class="ot">&lt;-</span> tv <span class="sc">|&gt;</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(trip_distance <span class="sc">&gt;</span> <span class="dv">0</span>, fare_amount <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">viajes =</span> <span class="fu">n</span>(), <span class="at">dist =</span> <span class="fu">mean</span>(trip_distance),</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">tarifa =</span> <span class="fu">mean</span>(fare_amount), <span class="at">.by =</span> payment_type) <span class="sc">|&gt;</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(viajes <span class="sc">&gt;</span> <span class="dv">1000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(viajes))</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="fu">collect</span>(consulta)          <span class="co"># aqui, y solo aqui, se ejecuta</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   payment_type   viajes  dist tarifa</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1            1 30188290 3.567  19.73</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2            2  5282508 3.410  19.61</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ...</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Es <code>dplyr</code> palabra por palabra, pero <code>tv</code> no es un <em>data frame</em> cargado: es un <code>prudent_duckplyr_df</code>, una promesa perezosa con el motor de DuckDB detrás. La tubería no ejecuta nada; construye un plan que solo se dispara con <code>collect()</code>. La agregación completa sobre los 41&nbsp;millones de filas tarda una décima de segundo, como el SQL de la sección anterior —es el mismo motor—.</p>
+<section id="el-optimizador-a-la-vista" class="level3">
+<h3 class="anchored" data-anchor-id="el-optimizador-a-la-vista">El optimizador a la vista</h3>
+<p>Como el plan es un objeto y no una acción ya consumida, se puede inspeccionar antes de ejecutarlo. <code>explain()</code> imprime el árbol de operadores que DuckDB ejecutará, de la raíz —lo último— a las hojas —el escaneo del Parquet—:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">explain</span>(consulta)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ORDER_BY (viajes DESC)</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   PROJECTION (payment_type, viajes, dist, tarifa)</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     FILTER (viajes &gt; 1000)</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       HASH_GROUP_BY (Groups: payment_type; count, sum, avg, ...)</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         PROJECTION (payment_type, trip_distance, fare_amount)</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           READ_PARQUET</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             Projections: trip_distance, fare_amount, payment_type</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             Filters: trip_distance&gt;0.0  fare_amount&gt;0.0</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Leído de abajo arriba, el plan cuenta la historia completa (figura&nbsp;9.5). El <code>READ_PARQUET</code> de la hoja ya trae dos anotaciones reveladoras: <em>Projections</em>, que lista solo las tres columnas necesarias —el empujón de proyección—, y <em>Filters</em>, con los dos predicados <code>trip_distance&gt;0</code> y <code>fare_amount&gt;0</code> pegados al escaneo —el empujón de predicado—. El optimizador ha bajado el trabajo hasta el fichero por su cuenta, sin que se lo pidiéramos: nuestra tubería declaraba <em>qué</em> queríamos, y el motor decidió <em>cómo</em>. Ese es el pago de la ejecución perezosa: separar la intención de la ejecución deja un hueco para que una máquina más lista que nosotros reordene el trabajo.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap09/fig_05.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;9.5.</strong> <strong>El plan de consulta de duckplyr.</strong> El árbol que imprime <code>explain()</code>, de la hoja (escaneo) a la raíz (orden final). El optimizador ha empujado la proyección de tres columnas y los dos filtros hasta el <code>READ_PARQUET</code>, de modo que el dato entra ya adelgazado y el resto de operadores trabaja sobre poco. La tubería dijo qué; el motor decidió cómo.</figcaption>
+</figure>
+</div>
+</section>
+<section id="prudencia-cuándo-recae-en-dplyr" class="level3">
+<h3 class="anchored" data-anchor-id="prudencia-cuándo-recae-en-dplyr">Prudencia: cuándo recae en dplyr</h3>
+<p>DuckDB no sabe traducir cualquier función de R. ¿Qué pasa cuando la tubería usa una que el motor no reconoce —una función propia, digamos—? duckplyr <em>recae</em>: hace en el <code>dplyr</code> de siempre lo que DuckDB no puede. Pero recaer obliga a materializar el dato en R, y si el dato es mayor que la RAM eso es justo lo que veníamos evitando. De ahí el concepto de <strong>prudencia</strong> (<em>prudence</em>), que gobierna cuánto se permite duckplyr materializar. Un frame perezoso sobre disco —el de <code>read_parquet_duckdb()</code>— nace <em>tacaño</em> (<em>stingy</em>): antes que cargar en secreto gigabytes en memoria, prefiere avisar y detenerse.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>rara <span class="ot">&lt;-</span> <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="fu">sqrt</span>(<span class="fu">abs</span>(x)) <span class="sc">+</span> <span class="dv">1</span>     <span class="co"># DuckDB no la conoce</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tv <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">z =</span> <span class="fu">rara</span>(popularity)) <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error: This operation cannot be carried out by DuckDB, and the input</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   is a stingy duckplyr frame.</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Use `compute(prudence = "lavish")` to materialize and continue.</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El error no es un fallo: es una salvaguarda. duckplyr se niega a materializar a escondidas un dato que podría no caber, y deja la decisión en manos de quien sabe cuánto pesa. Si el dato cabe, se le da permiso explícito con <code>compute(prudence = "lavish")</code> —«pródigo», materializa sin reparos— y la tubería continúa recayendo en <code>dplyr</code>. En cambio, un frame que nace <em>en memoria</em> —convertido con <code>as_duckdb_tibble()</code> desde un <em>data frame</em> que ya está en la RAM— recae solo, sin drama, porque materializar no cuesta nada nuevo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>dk <span class="ot">&lt;-</span> <span class="fu">as_duckdb_tibble</span>(<span class="fu">as_tibble</span>(<span class="fu">read_parquet</span>(<span class="st">"data/processed/musica.parquet"</span>)))</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>dk <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">z =</span> <span class="fu">rara</span>(popularity)) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">m =</span> <span class="fu">mean</span>(z)) <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        m</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1598.2     # recae en dplyr sin error: el dato ya estaba en memoria</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La distinción es toda la filosofía de duckplyr en una palabra: es <em>prudente</em>. Acelera lo que DuckDB sabe hacer, recae con elegancia en lo que no, y nunca gasta memoria a tus espaldas cuando el dato es grande. Escribes <code>dplyr</code>; pagas velocidad de base de datos; conservas la red de seguridad del lenguaje completo.</p>
+</section>
+<section id="uniones-materialización-parcial-y-modo-transparente" class="level3">
+<h3 class="anchored" data-anchor-id="uniones-materialización-parcial-y-modo-transparente">Uniones, materialización parcial y modo transparente</h3>
+<p>La gramática entera funciona, no solo los agregados. Un <code>left_join</code> del frame gigante con una dimensión pequeña —el patrón hecho-dimensión, ahora en duckplyr— se escribe exactamente como en el cap.&nbsp;8, y se ejecuta en el motor:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>etiquetas <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">payment_type =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">nombre =</span> <span class="fu">c</span>(<span class="st">"sin codigo"</span>, <span class="st">"tarjeta"</span>, <span class="st">"efectivo"</span>,</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>             <span class="st">"gratis"</span>, <span class="st">"disputa"</span>, <span class="st">"desconocida"</span>))</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>tv <span class="sc">|&gt;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(fare_amount <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(etiquetas, <span class="at">by =</span> <span class="st">"payment_type"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">tarifa =</span> <span class="fu">round</span>(<span class="fu">mean</span>(fare_amount), <span class="dv">2</span>), <span class="at">.by =</span> nombre) <span class="sc">|&gt;</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        nombre        n tarifa</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     tarjeta 30450812  19.91</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    efectivo  5388440  19.62</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 desconocido  3960154  20.54</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ...       nula        1  62.00     -- un unico viaje con codigo 5</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dos matices útiles. <code>compute()</code> —frente a <code>collect()</code>— materializa el resultado <em>dentro</em> de DuckDB, sin traerlo a R: sirve para fijar un paso intermedio caro y reutilizarlo en varias consultas sin recalcularlo, todo sin salir del motor. Y para quien quiera la aceleración sin tocar su código, duckplyr ofrece un modo transparente: <code>methods_overwrite()</code> hace que los verbos de <code>dplyr</code> sobre <em>cualquier</em> <em>data frame</em> pasen por DuckDB cuando es posible, y <code>methods_restore()</code> lo deshace. El mismo análisis del cap.&nbsp;8, sin cambiar una línea, corre con motor de base de datos:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">methods_overwrite</span>()                       <span class="co"># dplyr -&gt; DuckDB de forma global</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">filter</span>(popularity <span class="sc">&gt;</span> <span class="dv">90</span>) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">e =</span> <span class="fu">round</span>(<span class="fu">mean</span>(energy), <span class="dv">3</span>))</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 x 2</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       n     e</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;dbl&gt;</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    68 0.673</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">methods_restore</span>()                         <span class="co"># volver al dplyr normal</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Es la promesa llevada al extremo: no ya «la misma gramática, otro motor», sino «el mismo código, otro motor». Para el catálogo, que cabe, no cambia nada perceptible; para un flujo que empieza a rozar la RAM, es un interruptor que acelera sin reescribir.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Por debajo de la gramática, duckplyr expone la <em>API relacional</em> de DuckDB: objetos que representan una relación —una tabla o el resultado de una consulta— sin materializarla. Cada verbo de <code>dplyr</code> construye una nueva relación a partir de la anterior, y <code>explain()</code> no es más que la impresión del árbol de relaciones que se ha ido levantando. Rara vez hace falta bajar a ese nivel, pero entenderlo desmitifica la magia: un frame de duckplyr no «contiene» datos, contiene la <em>receta</em> para producirlos, y <code>collect()</code> es la orden de cocinarla. Es la misma idea de la evaluación perezosa del cap.&nbsp;2 —una promesa que solo se fuerza cuando se necesita el valor— llevada de una expresión de R a una consulta de base de datos entera.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="una-gramática-cuatro-motores" class="level2">
+<h2 class="anchored" data-anchor-id="una-gramática-cuatro-motores">Una gramática, cuatro motores</h2>
+<p>Merece la pena detenerse en lo que ha pasado. Hemos escrito <em>el mismo</em> <code>dplyr</code> contra cuatro motores distintos (figura&nbsp;9.6): el <code>data.frame</code> en memoria del cap.&nbsp;8, el motor de arrow sobre ficheros, el de DuckDB vía duckplyr, y —del cap.&nbsp;8— <code>data.table</code> vía <code>dtplyr</code>. La gramática es la interfaz; el motor, la implementación. Elegir motor es una decisión de <em>rendimiento y escala</em>, no de <em>sintaxis</em>: el código que ya sabes escribir corre en los cuatro.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap09/fig_06.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;9.6.</strong> <strong>Una gramática, cuatro motores.</strong> Los mismos verbos de <code>dplyr</code> se ejecutan sobre un <em>data frame</em> en memoria, sobre ficheros con arrow, sobre DuckDB con duckplyr o sobre <code>data.table</code> con <code>dtplyr</code>. Cambiar de motor no cambia el código que se escribe: cambia dónde viven los datos y cómo se procesan. La gramática es un contrato; los motores lo cumplen de formas distintas.</figcaption>
+</figure>
+</div>
+<p>Cuando conviene <em>ver</em> el SQL que se genera —para auditar, para llevárselo a otra base de datos, para entender el plan—, <code>dbplyr</code> lo traduce. El puente <code>to_duckdb()</code> enchufa un <em>dataset</em> de arrow a DuckDB, y <code>show_query()</code> (o <code>dbplyr::sql_render()</code>) revela la traducción:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>ds <span class="sc">|&gt;</span> <span class="fu">to_duckdb</span>() <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(trip_distance <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(payment_type) <span class="sc">|&gt;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">viajes =</span> <span class="fu">n</span>(), <span class="at">tarifa =</span> <span class="fu">mean</span>(fare_amount, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_query</span>()</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; SELECT payment_type, COUNT(*) AS viajes, AVG(fare_amount) AS tarifa</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; FROM arrow_001</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; WHERE (trip_distance &gt; 0.0)</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; GROUP BY payment_type</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ese es exactamente el papel de <code>dbplyr</code> que anticipamos en el cap.&nbsp;5: <code>dplyr</code> como <em>frontend</em> de cualquier base de datos que hable SQL —PostgreSQL, SQLite, DuckDB, un almacén en la nube—. El patrón completo, contra una base SQLite, muestra el viaje de ida y vuelta: se apunta una tabla remota con <code>tbl()</code>, se le aplican los verbos —que <em>no</em> se ejecutan en R, sino que se acumulan como SQL—, y solo <code>collect()</code> dispara la consulta en el servidor y trae el resultado:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbplyr); con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"musica.sqlite"</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl</span>(con, <span class="st">"m"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(popularity <span class="sc">&gt;</span> <span class="dv">80</span>) <span class="sc">|&gt;</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(track_genre) <span class="sc">|&gt;</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">pop =</span> <span class="fu">mean</span>(popularity)) <span class="sc">|&gt;</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; track_genre     n   pop</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; pop           114  86.1     -- el genero con mas exitos</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; dance          89  84.2</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; rock           80  84.1</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ...</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Nada de esto recorre los datos en R: el <code>filter</code>, el <code>group_by</code> y el <code>summarise</code> se traducen a una sola sentencia SQL que SQLite ejecuta sobre su propio índice, y a R llegan las filas del resumen. La misma tubería contra PostgreSQL, DuckDB o un almacén en la nube generaría el dialecto de SQL de cada uno sin que cambie una línea de R. Y <code>dtplyr</code>, ya visto, cierra el cuarteto traduciendo la misma gramática a <code>data.table</code> para actualizaciones en el sitio y <em>joins</em> enormes en memoria. Cuatro motores, una sola cosa que aprender: esa es la economía cognitiva que hace de la gramática de <code>dplyr</code> algo más que una biblioteca cómoda —la convierte en una inversión que no caduca al cambiar de escala o de servidor—.</p>
+</section>
+<section id="particionar-y-podar" class="level2">
+<h2 class="anchored" data-anchor-id="particionar-y-podar">Particionar y podar</h2>
+<p>Hasta aquí hemos consultado ficheros tal como venían. Si vamos a preguntar muchas veces por rangos —«marzo», «los viajes de un trimestre»—, conviene organizar el dato para que el motor pueda saltarse de un vistazo lo que no toca. Eso es <strong>particionar</strong>: escribir el <em>dataset</em> en una jerarquía de carpetas cuyo nombre codifica el valor de una columna (figura&nbsp;9.7). Con <code>write_dataset()</code> y <code>group_by()</code> sobre las claves de partición:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">open_dataset</span>(ficheros) <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(tpep_pickup_datetime <span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">"2024-01-01"</span>),</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>         tpep_pickup_datetime <span class="sc">&lt;</span>  <span class="fu">as.Date</span>(<span class="st">"2025-01-01"</span>),</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>         trip_distance <span class="sc">&gt;</span> <span class="dv">0</span>, fare_amount <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">anio =</span> <span class="fu">year</span>(tpep_pickup_datetime),</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">mes  =</span> <span class="fu">month</span>(tpep_pickup_datetime)) <span class="sc">|&gt;</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(anio, mes, trip_distance, fare_amount, tip_amount, payment_type) <span class="sc">|&gt;</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(anio, mes) <span class="sc">|&gt;</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_dataset</span>(<span class="st">"data/taxi_part"</span>, <span class="at">format =</span> <span class="st">"parquet"</span>)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co"># crea data/taxi_part/anio=2024/mes=1/part-0.parquet, .../mes=2/..., etc.</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El resultado son doce carpetas <code>anio=2024/mes=N/</code>, cada una con su Parquet. Al reabrir el <em>dataset</em>, arrow <em>descubre</em> las columnas <code>anio</code> y <code>mes</code> a partir de los nombres de carpeta —no estaban en los datos, estaban en la ruta— y las trata como dos columnas más. Y aquí llega la recompensa, la <strong>poda</strong> (<em>partition pruning</em>): un filtro sobre la clave de partición hace que el motor abra <em>solo</em> las carpetas relevantes y ni mire las demás.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dsp <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"data/taxi_part"</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># recorrer las 12 particiones:</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>dsp <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">d =</span> <span class="fu">mean</span>(trip_distance)) <span class="sc">|&gt;</span> <span class="fu">collect</span>()   <span class="co"># ~0.12 s</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># podar a una sola:</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>dsp <span class="sc">|&gt;</span> <span class="fu">filter</span>(anio <span class="sc">==</span> <span class="dv">2024</span>, mes <span class="sc">==</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">d =</span> <span class="fu">mean</span>(trip_distance)) <span class="sc">|&gt;</span> <span class="fu">collect</span>()        <span class="co"># ~0.04 s</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       n     d</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 3440048 4.623</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Consultar marzo cuesta un tercio que recorrer el año, y la diferencia crece con el número de particiones: sobre diez años de datos, preguntar por un mes abre una carpeta de ciento veinte en lugar de leerlas todas. La poda no es un truco de velocidad marginal; es lo que hace que un <em>dataset</em> de terabytes responda preguntas acotadas en tiempo interactivo.</p>
+<p>Hay una segunda decisión, menos visible pero igual de importante: el tamaño de los ficheros dentro de cada partición. Un <em>dataset</em> que crece a base de añadir lotes pequeños —un fichero por cada carga diaria— acaba con miles de ficheros minúsculos, y aunque la poda descarte la partición correcta, abrir cien ficheros de un megabytes es más lento que abrir uno de cien. La cura es la <em>compactación</em> (<em>compaction</em>): reescribir periódicamente el <em>dataset</em> fundiendo los fragmentos en ficheros de tamaño saludable —decenas o cientos de megabytes—, algo que <code>write_dataset()</code> hace de una pasada al reescribir. Es tarea de mantenimiento, no de análisis, pero un lago de datos que nadie compacta se degrada solo con el tiempo, y la consulta que ayer volaba hoy arrastra. La partición decide <em>qué</em> carpetas se abren; la compactación, <em>cuántos</em> ficheros hay dentro de cada una: las dos gobiernan el rendimiento a escala, y ninguna se arregla sola.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap09/fig_07.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;9.7.</strong> <strong>Particionar y podar.</strong> El <em>dataset</em> se escribe en carpetas cuyo nombre codifica el valor de la columna (<code>anio=2024/mes=3/</code>). arrow reconstruye esas columnas desde las rutas, y un filtro sobre ellas hace que solo se abran las carpetas que cumplen —la poda—. Elegir la columna de partición es elegir por qué eje se harán la mayoría de las preguntas.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Particionar tiene un punto óptimo. Demasiadas particiones —por una columna de alta cardinalidad, como el identificador de zona— generan miles de ficheros diminutos, y el coste de abrir cada uno se come la ventaja: es el problema de los <em>small files</em>. Demasiado pocas y la poda apenas descarta nada. La regla sana: particionar por la columna sobre la que más se filtra (a menudo el tiempo), buscando ficheros de decenas o cientos de megabytes cada uno. Una segunda clave de partición solo si las consultas la usan de verdad.</p>
+</div>
+</div>
+</section>
+<section id="la-nube-como-disco" class="level2">
+<h2 class="anchored" data-anchor-id="la-nube-como-disco">La nube como disco</h2>
+<p>El particionado tiene un compañero natural: el almacenamiento de objetos en la nube. Un <em>dataset</em> particionado de terabytes rara vez vive en el portátil; vive en un <em>bucket</em> de S3 o equivalente, y la gracia de estas herramientas es que lo tratan igual que un directorio local. arrow abre un <em>bucket</em> con <code>s3_bucket()</code> y se lo pasa a <code>open_dataset()</code> sin más:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>cubo <span class="ot">&lt;-</span> <span class="fu">s3_bucket</span>(<span class="st">"voi-taxi-datos"</span>, <span class="at">region =</span> <span class="st">"us-east-1"</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>ds   <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(cubo<span class="sc">$</span><span class="fu">path</span>(<span class="st">"nyc_taxi/anio=2024"</span>))</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>ds <span class="sc">|&gt;</span> <span class="fu">filter</span>(mes <span class="sc">==</span> <span class="dv">3</span>) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La poda de particiones cobra aquí todo su sentido: filtrar por <code>mes</code> significa que solo se descargan de la red los objetos de esa carpeta, no el <em>dataset</em> entero. El empujón de proyección se suma —solo viajan las columnas pedidas—, de modo que una consulta acotada sobre un lago de datos remoto transfiere megabytes, no terabytes. DuckDB hace lo propio con su extensión <code>httpfs</code>, que le permite leer un Parquet directamente por HTTPS o desde S3 con <code>read_parquet(’s3://…’)</code>. El modelo mental es liberador: el disco local, el <em>bucket</em> en la nube y el fichero servido por HTTP son, para el motor, la misma cosa —una fuente de bytes columnares que se leen perezosos y podados—. La diferencia es solo la latencia, y contra la latencia juegan la proyección, el predicado y la poda, las tres palancas que ya conocemos.</p>
+</section>
+<section id="una-medición-a-escala-real-los-taxis-de-nueva-york" class="level2">
+<h2 class="anchored" data-anchor-id="una-medición-a-escala-real-los-taxis-de-nueva-york">Una medición a escala real: los taxis de Nueva York</h2>
+<p>Toca poner número al capítulo entero. La misma pregunta —viajes y tarifa media por tipo de pago sobre los 41&nbsp;millones de filas— resuelta por los cuatro caminos, con el reloj en la mano. Primero, el enfoque ingenuo: cargarlo todo en R y usar <code>dplyr</code> normal.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A) cargar en memoria y agregar con dplyr</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>todo <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(ficheros) <span class="sc">|&gt;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(payment_type, trip_distance, fare_amount) <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">object.size</span>(todo)      <span class="co"># 823 MB  -- y solo son 3 de las 19 columnas</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>todo <span class="sc">|&gt;</span> <span class="fu">filter</span>(trip_distance <span class="sc">&gt;</span> <span class="dv">0</span>, fare_amount <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">tarifa =</span> <span class="fu">mean</span>(fare_amount), <span class="at">.by =</span> payment_type)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ya asoma el problema de fondo. Tres columnas de las diecinueve ocupan 823&nbsp;MB en la RAM; las diecinueve rondarían los 6&nbsp;GB, y dos años de datos no cabrían en un portátil. El enfoque «cargar y calcular» no es que sea lento —no lo es tanto—: es que no <em>escala</em>, porque su consumo de memoria crece con el dato, no con la respuesta. Los otros tres caminos —arrow perezoso, SQL de DuckDB, duckplyr— nunca retienen más que el resultado. La tabla&nbsp;9.1 recoge los tiempos de la misma consulta, con el mismo empujón de proyección (solo se leen tres columnas):</p>
+<table class="caption-top table">
+<caption>La misma agregación sobre 41 169 720 filas, cuatro motores. El tiempo incluye leer del disco y agregar. La columna de memoria es lo que queda retenido en la RAM de R durante el cálculo.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Camino</th>
+<th style="text-align: left;">Cómo</th>
+<th style="text-align: left;">Tiempo</th>
+<th style="text-align: left;">RAM en R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A. cargar todo</td>
+<td style="text-align: left;"><code>collect()</code> + <code>dplyr</code></td>
+<td style="text-align: left;"><span class="math inline">\(\approx\)</span><!-- -->0,90 s</td>
+<td style="text-align: left;">823 MB</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B. arrow perezoso</td>
+<td style="text-align: left;"><code>open_dataset |&gt; ``…`` |&gt; collect()</code></td>
+<td style="text-align: left;"><span class="math inline">\(\approx\)</span><!-- -->0,33 s</td>
+<td style="text-align: left;">solo el resultado</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C. DuckDB SQL</td>
+<td style="text-align: left;"><code>read_parquet()</code> en <code>SELECT</code></td>
+<td style="text-align: left;"><span class="math inline">\(\approx\)</span><!-- -->0,10 s</td>
+<td style="text-align: left;">solo el resultado</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">D. duckplyr</td>
+<td style="text-align: left;"><code>read_parquet_duckdb() |&gt; ``…</code></td>
+<td style="text-align: left;"><span class="math inline">\(\approx\)</span><!-- -->0,11 s</td>
+<td style="text-align: left;">solo el resultado</td>
+</tr>
+</tbody>
+</table>
+<p>Tres lecturas. Primera: los motores especializados (C, D) no solo evitan la RAM, además son varias veces más rápidos, porque paralelizan y empujan el trabajo al fichero. Segunda: arrow (B) queda en medio —muy por encima de cargar todo, un pelín por detrás de DuckDB en esta agregación—. Tercera, y la que importa: el tiempo de A engaña. A esta escala, que aún cabe, «cargar todo» tarda menos de un segundo y parece competitivo; pero es el único camino cuyo coste de memoria explota con el tamaño. La medición honesta no es «cuál gana por 0,8 segundos», sino «cuál sigue funcionando cuando el dato se duplica». Y ahí A se cae solo.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La agregación es el caso amable: el estado que hay que mantener —una fila por grupo— es minúsculo. No todas las consultas son así. Un <code>arrange()</code> sobre toda la tabla, o un <em>join</em> de dos tablas gigantes, necesitan mantener mucho más estado a la vez, y ahí el motor vuelca a disco (<em>spilling</em>) cuando no cabe en el techo de memoria. DuckDB lo hace de forma transparente; arrow es más limitado en operaciones que no sean de escaneo y agregación. La jerarquía práctica de coste, de barato a caro: filtrar y proyectar, agregar, ordenar, unir. Cuanto más arriba en esa lista, más importa qué motor se elija.</p>
+</div>
+</div>
+<section id="una-pregunta-que-solo-la-escala-responde" class="level3">
+<h3 class="anchored" data-anchor-id="una-pregunta-que-solo-la-escala-responde">Una pregunta que solo la escala responde</h3>
+<p>La escala no es solo un reto de ingeniería; abre preguntas que un dato pequeño no puede contestar. ¿Cómo cambia la longitud del viaje a lo largo del día? Con 41&nbsp;millones de viajes, cada hora tiene millones de observaciones y la señal emerge limpia. Una consulta agrega la distancia media por hora de recogida —descartando los viajes absurdos de más de cien millas— y devuelve veinticuatro filas:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_parquet_duckdb</span>(glob) <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(trip_distance <span class="sc">&gt;</span> <span class="dv">0</span>, trip_distance <span class="sc">&lt;</span> <span class="dv">100</span>) <span class="sc">|&gt;</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hora =</span> <span class="fu">hour</span>(tpep_pickup_datetime)) <span class="sc">|&gt;</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">dist =</span> <span class="fu">mean</span>(trip_distance), <span class="at">n =</span> <span class="fu">n</span>(), <span class="at">.by =</span> hora) <span class="sc">|&gt;</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(hora) <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; hora 5 -&gt; 6.09 millas (la mas larga);  hora 18 -&gt; 3.01 (la mas corta)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El patrón (figura&nbsp;9.8) cuenta una historia urbana nítida. Los viajes más largos salen a las cinco de la mañana —carreras al aeropuerto, cuando la ciudad aún duerme y las avenidas están libres—; los más cortos, a las seis de la tarde, en plena hora punta, cuando el tráfico convierte cada trayecto en un salto de pocas manzanas. Ninguna de las dos cosas se ve en una muestra de mil viajes: el ruido las tapa. Es el argumento último de todo el capítulo —por qué molestarse con la gran escala— dicho con un dato: hay preguntas cuya respuesta solo aparece cuando se miran todos los datos, no una parte.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap09/fig_08.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;9.8.</strong> <strong>Distancia media del viaje por hora de recogida</strong>, sobre 41&nbsp;millones de viajes de taxi de 2024. El máximo de las 5&nbsp;h delata las carreras al aeropuerto de madrugada; el mínimo de las 18&nbsp;h, los trayectos cortos de la hora punta. La señal es limpia porque cada barra promedia más de un millón de viajes: la escala convierte el ruido en patrón.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="el-criterio-qué-herramienta-y-cuándo" class="level2">
+<h2 class="anchored" data-anchor-id="el-criterio-qué-herramienta-y-cuándo">El criterio: qué herramienta y cuándo</h2>
+<p>Con cuatro motores sobre la mesa, la pregunta no es «cuál es el mejor» —no lo hay— sino «cuál para <em>esto</em>». El árbol de la figura&nbsp;9.9 resume el criterio, y la tabla&nbsp;9.2 lo detalla. La primera pregunta, y la más importante, es de tamaño: <strong>¿cabe el dato holgado en la RAM?</strong> Si sí —y el catálogo musical, con sus 8&nbsp;MB, cabe mil veces—, el <code>dplyr</code> en memoria del cap.&nbsp;8 es la respuesta correcta: es simple, es rápido de sobra y no añade una capa de motor que no necesitas. Toda la maquinaria de este capítulo es para cuando la respuesta es <em>no</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/cap09/fig_09.svg" class="img-fluid figure-img"></p>
+<figcaption><strong>Figura&nbsp;9.9.</strong> <strong>Qué motor y cuándo.</strong> La primera pregunta es de tamaño: si el dato cabe holgado en memoria, <code>dplyr</code> de siempre. Si no, entra el capítulo: la gramática perezosa de duckplyr o arrow para lo habitual; SQL directo de DuckDB cuando la pregunta es naturalmente SQL o cruza muchas fuentes; <code>data.table</code> para <em>joins</em> y actualizaciones enormes en memoria. No hay motor superior: hay un motor adecuado a cada régimen.</figcaption>
+</figure>
+</div>
+<table class="caption-top table">
+<caption>Un criterio de herramienta por régimen de datos. La regla rectora: la complejidad de la herramienta debe seguir a la del problema, no adelantarse.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Situación</th>
+<th style="text-align: left;">Herramienta</th>
+<th style="text-align: left;">Por qué</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cabe en RAM (<span class="math inline">\(\lesssim\)</span> 1/3 de la RAM)</td>
+<td style="text-align: left;"><code>dplyr</code> / <code>data.frame</code></td>
+<td style="text-align: left;">Simple, rápido, sin capa extra.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mayor que la RAM, cabe en disco</td>
+<td style="text-align: left;"><code>duckplyr</code> o <code>arrow</code></td>
+<td style="text-align: left;">Perezoso, en flujo; misma gramática.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">La pregunta es SQL o cruza fuentes</td>
+<td style="text-align: left;"><code>DuckDB</code> + <code>DBI</code></td>
+<td style="text-align: left;">SQL nativo sobre Parquet, CSV, bases.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>Joins</em> / updates enormes en RAM</td>
+<td style="text-align: left;"><code>data.table</code> (<code>dtplyr</code>)</td>
+<td style="text-align: left;">In-place, sin copias, muy afinado.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Base de datos remota</td>
+<td style="text-align: left;"><code>dbplyr</code></td>
+<td style="text-align: left;"><code>dplyr</code> traducido al SQL del servidor.</td>
+</tr>
+</tbody>
+</table>
+<p>Un recorrido por casos concretos afila el criterio mejor que cualquier regla. Un CSV de diez mil filas de una encuesta: cabe mil veces en la RAM, así que <code>read_csv()</code> y <code>dplyr</code>, sin más; montar un motor sería disparar a un mosquito con un cañón. Un año de logs de un servidor, unos pocos gigabytes en Parquet particionado por día: ya no cabe cómodo, pero la pregunta típica —«¿cuántos errores hubo el martes?»— es una agregación acotada, terreno de duckplyr o arrow con poda de particiones. Un cruce de dos tablas de doscientos millones de filas que <em>sí</em> caben en una máquina con RAM generosa, con actualizaciones en el sitio: es el terreno propio de <code>data.table</code>, que no copia y está afinado para <em>joins</em> enormes en memoria. Una consulta recurrente contra el almacén corporativo en PostgreSQL: la escribe <code>dbplyr</code>, que la traduce al SQL del servidor y deja que la base —optimizada durante décadas para esto— haga el trabajo, trayendo solo el resultado. Cuatro problemas, cuatro motores, una gramática: el juicio está en leer el problema, no en dominar cuatro sintaxis.</p>
+<p>Hay una tentación que conviene nombrar para resistirla: montar DuckDB y particionar un <em>dataset</em> para analizar un CSV de diez mil filas. Es sobreingeniería, y cuesta —en complejidad, en dependencias, en una capa de indirección donde antes había un <em>data frame</em> que cabía en la cabeza—. La maquinaria de gran escala se paga sola cuando el dato la exige, y estorba cuando no. El criterio del buen ingeniero no es «usar la herramienta más potente», sino «usar la más simple que resuelva el problema de hoy y no impida el de mañana». Para el catálogo musical, ese sigue siendo el <code>dplyr</code> del capítulo anterior; los taxis son los que piden bajar aquí.</p>
+<section id="cuándo-bajar-a-sql-directo" class="level3">
+<h3 class="anchored" data-anchor-id="cuándo-bajar-a-sql-directo">Cuándo bajar a SQL directo</h3>
+<p>La gramática de <code>dplyr</code> sobre duckplyr cubre casi todo, pero no todo, y saber dónde está el borde evita pelearse con la abstracción. Hay consultas que SQL expresa con naturalidad y la gramática, con torpeza o directamente no: marcos de ventana complejos (<code>RANGE BETWEEN</code>, <code>PARTITION</code> con marcos móviles), las CTE recursivas para recorrer jerarquías, la cláusula <code>PIVOT</code>, o funciones específicas del motor. Cuando la pregunta <em>es</em> SQL —cuando se piensa en cláusulas, no en verbos—, forzarla en la tubería es remar contra corriente: mejor escribirla en SQL, pasarla por <code>dbGetQuery()</code> y recoger el resultado. Y al revés: cuando el análisis encadena transformaciones y se lee mejor de izquierda a derecha, la gramática gana. No son bandos; son dos registros del mismo idioma de datos, y el buen criterio es usar cada uno donde brilla. duckplyr y dbplyr existen precisamente para no tener que elegir de antemano: se empieza con la gramática y, si una consulta pide SQL, <code>show_query()</code> da el punto de partida para escribirla a mano.</p>
+<p>La tabla&nbsp;9.3 sirve de diccionario entre los dos registros y el motor de arrow, útil para leer código ajeno y para saber qué se empuja al escaneo.</p>
+<table class="caption-top table">
+<caption>Diccionario entre la gramática de <code>dplyr</code>, su traducción a SQL y su soporte en el motor de arrow. La última columna indica si arrow empuja la operación al escaneo del Parquet (sí) o la resuelve en R tras materializar (parcial).</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><code>dplyr</code></th>
+<th style="text-align: left;">SQL</th>
+<th style="text-align: left;">¿arrow lo empuja?</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>filter()</code></td>
+<td style="text-align: left;"><code>WHERE</code></td>
+<td style="text-align: left;">sí</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>select()</code></td>
+<td style="text-align: left;"><code>SELECT col…</code></td>
+<td style="text-align: left;">sí</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>mutate()</code></td>
+<td style="text-align: left;"><code>SELECT expr AS…</code></td>
+<td style="text-align: left;">sí (si la función se traduce)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>group_by()+summarise()</code></td>
+<td style="text-align: left;"><code>GROUP BY</code> + agregados</td>
+<td style="text-align: left;">sí</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>arrange()</code></td>
+<td style="text-align: left;"><code>ORDER BY</code></td>
+<td style="text-align: left;">sí</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>left_join()</code></td>
+<td style="text-align: left;"><code>LEFT JOIN</code></td>
+<td style="text-align: left;">sí</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>distinct()</code></td>
+<td style="text-align: left;"><code>SELECT DISTINCT</code></td>
+<td style="text-align: left;">sí</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>slice_max(n)</code> por grupo</td>
+<td style="text-align: left;"><code>row_number() OVER</code></td>
+<td style="text-align: left;">parcial</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">función de R propia</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">no (materializa)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="un-recetario-de-gran-escala" class="level2">
+<h2 class="anchored" data-anchor-id="un-recetario-de-gran-escala">Un recetario de gran escala</h2>
+<p>Un puñado de patrones cubre la mayoría del trabajo a escala. Todos comparten la misma disciplina: mantener el dato perezoso, empujar el filtro pronto y materializar tarde. Se escriben igual en arrow o en duckplyr —la gramática es la misma— y su traducción a SQL es directa.</p>
+<p><strong>Contar valores distintos sin cargarlos.</strong> <code>n_distinct()</code> sobre una columna de millones de filas se resuelve en el motor; en SQL es <code>count(DISTINCT …)</code>. Cuántas zonas de recogida distintas hay —sin traer una sola fila— sale de <code>ds |&gt; summarise(z = n_distinct(PULocationID)) |&gt; collect()</code>: 263, las zonas del mapa oficial de taxis de la ciudad.</p>
+<p><strong>Top-<span class="math inline">\(k\)</span> por grupo.</strong> La pregunta «los tres días de más viajes de cada mes» es un ranking dentro de grupo: <code>group_by(mes) |&gt; slice_max(viajes, n = 3)</code> en la gramática, o una función de ventana <code>row_number() OVER (PARTITION BY mes ORDER BY viajes DESC)</code> filtrada a <code>rk &lt;= 3</code> en SQL. El motor no ordena la tabla entera: mantiene solo los tres mejores por grupo mientras escanea.</p>
+<p><strong>Muestrear a escala.</strong> Para explorar visualmente hace falta una muestra que quepa, no el dato entero. <code>slice_sample(n = 5000)</code> sobre el frame perezoso, o <code>USING SAMPLE 5000 ROWS</code> en DuckDB, recortan en el motor antes de materializar. El error clásico —<code>collect()</code> y luego muestrear— trae los gigabytes a R para tirar casi todos: justo al revés. Una advertencia de honestidad estadística: una muestra de las primeras filas (<code>head()</code>) no es una muestra aleatoria, y si el fichero está ordenado por tiempo dará una foto sesgada de enero; para explorar de verdad hay que muestrear al azar, no recortar el principio.</p>
+<p><strong>Unir hechos con dimensiones.</strong> La tabla enorme se queda en disco; las pequeñas, en R; el <code>left_join</code> ocurre en el motor (§9.3.4). Es el patrón más rentable a escala, porque sustituye una búsqueda por fila —carísima— por una tabla <em>hash</em> que el motor construye una vez.</p>
+<p><strong>Exportar el resultado agregado.</strong> El final de casi todo flujo es una tabla pequeña que otro paso consumirá: <code>write_dataset()</code> desde arrow, <code>COPY …TO</code> desde DuckDB, o un simple <code>collect()</code> seguido de <code>write_parquet()</code>. La regla: lo que cruza la frontera del motor a R debe estar ya agregado; si son millones de filas, algo se materializó demasiado pronto.</p>
+</section>
+<section id="un-integrador-de-principio-a-fin" class="level2">
+<h2 class="anchored" data-anchor-id="un-integrador-de-principio-a-fin">Un integrador de principio a fin</h2>
+<p>Cerremos con un flujo completo que use las piezas juntas, sobre los taxis. La pregunta: <em>¿en qué meses y con qué forma de pago se concentran las mejores propinas, y qué relación hay entre la distancia del viaje y la propina?</em> El plan: abrir el <em>dataset</em> particionado, limpiar a escala con el motor, agregar por mes y tipo de pago, y traer a R solo el resumen —pequeño— para el último tramo de análisis fino.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(duckplyr); <span class="fu">library</span>(dplyr)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Entrada perezosa sobre el dataset particionado (nada en RAM aun)</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>taxi <span class="ot">&lt;-</span> <span class="fu">read_parquet_duckdb</span>(<span class="st">"data/taxi_part/**/*.parquet"</span>)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Limpiar y agregar EN EL MOTOR: solo viajes con tarjeta y validos</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>resumen <span class="ot">&lt;-</span> taxi <span class="sc">|&gt;</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(payment_type <span class="sc">==</span> <span class="dv">1</span>, trip_distance <span class="sc">&gt;</span> <span class="dv">0</span>, fare_amount <span class="sc">&gt;</span> <span class="dv">0</span>,</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>         tip_amount <span class="sc">&gt;=</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct_propina =</span> <span class="dv">100</span> <span class="sc">*</span> tip_amount <span class="sc">/</span> fare_amount) <span class="sc">|&gt;</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">viajes =</span> <span class="fu">n</span>(),</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">propina_media =</span> <span class="fu">mean</span>(tip_amount),</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">pct_medio =</span> <span class="fu">mean</span>(pct_propina),</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> mes) <span class="sc">|&gt;</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(mes)</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. explain() confirma que el filtro baja al escaneo antes de ejecutar</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a><span class="fu">explain</span>(resumen)</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. collect() dispara el motor: a R llegan 12 filas, no 30 millones</span></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">collect</span>(resumen)</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   mes  viajes propina_media pct_medio</span></span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   1 2298388          4.16      26.3    -- enero, el mes mas generoso</span></span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   2 2322250          4.14      25.4</span></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   3 2575818          4.28      25.2</span></span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ...</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Todo el peso —filtrar treinta millones de viajes con tarjeta, calcular el porcentaje de propina, agregarlo por mes— ocurre en el motor de DuckDB, en flujo, sin que R retenga la tabla. El <code>collect()</code> final trae doce filas —enero encabeza, con un 26,3 % de propina media sobre la tarifa—. Con ese resumen minúsculo ya en memoria, el último tramo es <code>dplyr</code> y <code>ggplot2</code> de toda la vida —el del cap.&nbsp;8 y el que viene—: ordenar los meses por <code>pct_medio</code>, mirar la estacionalidad, dibujar la nube de distancia contra propina sobre una muestra. La forma del flujo es la moraleja: <strong>el motor adelgaza el dato hasta que cabe en la cabeza, y solo entonces empieza el análisis humano</strong>. La gran escala no sustituye a <code>dplyr</code>; le despeja el camino.</p>
+<p>Vale la pena detenerse en la anatomía de este flujo, porque es el molde de casi todo trabajo a escala. Tiene tres zonas bien diferenciadas. La primera, la <em>entrada perezosa</em>: <code>read_parquet_duckdb()</code> o <code>open_dataset()</code> abren el dato sin cargarlo, y hasta aquí no se ha gastado ni un megabyte. La segunda, el <em>trabajo pesado en el motor</em>: todos los verbos que reducen —filtrar, calcular columnas, agrupar, resumir— se acumulan en un plan que el optimizador reordena y ejecuta en flujo; es donde se procesan los millones de filas, y donde nunca conviene llamar a <code>collect()</code>. La tercera, la <em>frontera</em>: un único <code>collect()</code> que trae a R el resultado ya pequeño, tras el cual empieza el análisis humano con <code>dplyr</code> y <code>ggplot2</code> de siempre. El error más común a escala es dibujar mal esa frontera —cruzarla demasiado pronto, trayendo a R un dato todavía enorme—. Dominar la gran escala es, en buena medida, aprender a colocar el <code>collect()</code> en el sitio exacto: ni antes, que revienta la memoria, ni después, que no existe.</p>
+<p>Y hay una consecuencia liberadora en esta forma de trabajar. Como el análisis fino —el que exige mirar, iterar, equivocarse— ocurre siempre sobre el resumen pequeño, se hace con las herramientas cómodas del capítulo anterior, en la RAM, con la interactividad de siempre. El motor no sustituye a <code>dplyr</code>: le quita de encima el peso bruto para que <code>dplyr</code> haga lo que mejor hace, que es dejar pensar. Un flujo a gran escala bien diseñado se parece a un embudo: entra un océano de datos crudos por arriba, el motor lo destila en el cuello, y por abajo sale un hilo de números que caben en la cabeza y sobre los que de verdad se razona.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Avanzado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Avanzado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El patrón «agregar en el motor, analizar en R» tiene un pariente peligroso: traer a R una tabla intermedia «para mirarla» en mitad de la tubería. Cada <code>collect()</code> prematuro materializa, rompe el flujo y puede reventar la memoria. La disciplina es posponer <code>collect()</code> hasta el último momento posible —cuando el dato ya está agregado— y, si de verdad hace falta inspeccionar un paso intermedio, hacerlo sobre una muestra (<code>head()</code>, <code>slice_sample()</code>) que el motor sabe recortar antes de materializar.</p>
+</div>
+</div>
+</section>
+<section id="del-prototipo-a-la-producción" class="level2">
+<h2 class="anchored" data-anchor-id="del-prototipo-a-la-producción">Del prototipo a la producción</h2>
+<p>Una consulta interactiva que responde en una décima de segundo es un prototipo, no un flujo. Cuando ese análisis va a repetirse —cada mes con datos nuevos, cada noche con un lote fresco—, conviene envolverlo con la disciplina de los primeros capítulos. La lectura perezosa encaja de forma natural en un flujo de <code>targets</code> (cap.&nbsp;1): cada consulta agregada es un objetivo, y el grafo solo recalcula lo que cambia cuando llega un fichero nuevo, sin rehacer el año entero. Las funciones que envuelven las consultas se organizan en <code>R/</code> y se prueban con <code>testthat</code> (cap.&nbsp;3) sobre una muestra pequeña, para que un cambio en el esquema de origen no rompa el pipeline en silencio.</p>
+<p>Hay tres cuidados propios de la escala. El primero, cerrar siempre las conexiones: un <code>dbConnect(duckdb())</code> abierto retiene recursos, y en un proceso que corre sin vigilancia eso se acumula; el patrón es abrir, usar y cerrar con <code>on.exit(dbDisconnect(con, shutdown = TRUE))</code> (cap.&nbsp;3), de modo que la conexión se libera aunque la consulta falle. El segundo, fijar el techo de memoria y los hilos de DuckDB de forma explícita, para que el proceso no compita por toda la máquina cuando comparte servidor con otros. El tercero, y el más fácil de olvidar: validar el esquema de entrada antes de confiar en él. Un flujo que lleva meses funcionando puede reventar el día que la fuente cambia el tipo de una columna (§9.2.2); una comprobación de esquema al abrir el <em>dataset</em> —los nombres y tipos que se esperan— convierte un fallo silencioso y tardío en un error temprano y claro. Con esos tres cuidados, la misma consulta que exploramos en el REPL se vuelve un engranaje fiable de un sistema que corre solo.</p>
+<section id="anatomía-de-un-flujo-que-revienta-la-memoria" class="level3">
+<h3 class="anchored" data-anchor-id="anatomía-de-un-flujo-que-revienta-la-memoria">Anatomía de un flujo que revienta la memoria</h3>
+<p>Nada enseña tanto como un mal ejemplo corregido. Este flujo, aparentemente razonable, es una bomba de memoria:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANTIPATRON: carga todo, transforma en R, filtra tarde</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="st">"data/nyc_taxi/yellow_tripdata_2024-01.parquet"</span>)  <span class="co"># a RAM</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>datos<span class="sc">$</span>hora <span class="ot">&lt;-</span> lubridate<span class="sc">::</span><span class="fu">hour</span>(datos<span class="sc">$</span>tpep_pickup_datetime)               <span class="co"># copia</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>caros <span class="ot">&lt;-</span> datos[datos<span class="sc">$</span>fare_amount <span class="sc">&gt;</span> <span class="dv">50</span>, ]                     <span class="co"># otra copia</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>resumen <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(fare_amount <span class="sc">~</span> hora, caros, mean)                   <span class="co"># y otra</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Cuatro problemas encadenados. Se materializa el mes entero en R antes de mirar nada; se añade una columna, que copia; se filtra <em>después</em> de cargar, de modo que los tres millones de filas pasaron por la RAM para quedarse con unas pocas; y cada paso de base R genera una copia intermedia. Con un mes aguanta; con el año, o con un dato de verdad grande, el proceso muere sin remedio. La versión perezosa dice lo mismo sin ninguno de los males:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PATRON: filtrar/proyectar pronto, agregar en el motor, materializar</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>resumen <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"data/nyc_taxi"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(fare_amount <span class="sc">&gt;</span> <span class="dv">50</span>) <span class="sc">|&gt;</span>                    <span class="co"># predicado empujado al escaneo</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hora =</span> <span class="fu">hour</span>(tpep_pickup_datetime)) <span class="sc">|&gt;</span>   <span class="co"># en el motor, sin copia en R</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">tarifa =</span> <span class="fu">mean</span>(fare_amount), <span class="at">.by =</span> hora) <span class="sc">|&gt;</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>()                                      <span class="co"># solo el resumen cruza a R</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El filtro va primero y viaja al fichero, así que solo se leen las filas caras; la columna nueva se calcula en el motor; y a R llega una tabla de veinticuatro filas. La diferencia entre los dos fragmentos no está en el resultado —es idéntico— sino en el <em>camino</em>: uno arrastra millones de filas por la memoria, el otro no toca ninguna de más. Reescribir el primero como el segundo es, casi siempre, todo lo que hace falta para que un flujo que ahogaba la máquina pase a correr holgado. El orden de los verbos, que en memoria era cosmético, a escala es la diferencia entre funcionar y no funcionar.</p>
+</section>
+</section>
+<section id="síntesis-la-gramática-no-cambia-el-motor-sí" class="level2">
+<h2 class="anchored" data-anchor-id="síntesis-la-gramática-no-cambia-el-motor-sí">Síntesis: la gramática no cambia, el motor sí</h2>
+<p>El capítulo tenía una idea y la ha repetido de cinco formas: <strong>separar la intención de la ejecución</strong>. Escribimos <em>qué</em> queremos con la gramática de <code>dplyr</code> —o con SQL—, y un motor perezoso decide <em>cómo</em> y <em>cuándo</em> hacerlo, empujando el trabajo al fichero, procesando en flujo y sin cargar nunca más de lo necesario. Esa separación es lo que permite que el mismo código que corre sobre ocho megabytes de música corra sobre gigabytes de taxis.</p>
+<p>Las piezas, en una frase cada una. <strong>Arrow</strong> es el sustrato columnar común que deja a las herramientas compartir bytes sin copiarlos. <strong>arrow</strong> —el paquete— consulta ficheros Parquet en disco con <code>dplyr</code>, empujando proyección y predicado. <strong>DuckDB</strong> pone SQL analítico y ejecución en flujo directamente sobre esos ficheros, sin importarlos. <strong>duckplyr</strong> funde ambas cosas: <code>dplyr</code> con el motor de DuckDB, perezoso, con <code>explain()</code> y con una prudencia que nunca gasta memoria a tus espaldas. Y <strong>dbplyr</strong> / <strong>dtplyr</strong> extienden la misma gramática a bases de datos remotas y a <code>data.table</code>. Cuatro motores, una sola interfaz.</p>
+<p>Pero la lección más útil no es técnica, es de criterio. Casi todo lo que analizarás cabe en memoria, y para eso el <code>dplyr</code> del capítulo anterior es la respuesta correcta. Este capítulo es el seguro para cuando no cabe: saber que la misma gramática escala sin reescribir nada, y saber <em>cuándo</em> dar el paso, es lo que separa apurar el portátil de darse cuenta, a tiempo, de que el problema pedía otro régimen. La herramienta más potente no es la mejor; la mejor es la más simple que resuelve el problema de hoy sin cerrar el de mañana.</p>
+<p>La tabla&nbsp;9.4 reúne el vocabulario nuevo del capítulo, la puerta de entrada a cada motor. Y conviene fijar, para cerrar, un puñado de reglas que resumen la disciplina de trabajar a escala, aplicables sea cual sea el motor:</p>
+<table class="caption-top table">
+<caption>El vocabulario del capítulo: la función que abre cada motor y su papel.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Función</th>
+<th style="text-align: left;">Paquete</th>
+<th style="text-align: left;">Qué hace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>open_dataset()</code></td>
+<td style="text-align: left;">arrow</td>
+<td style="text-align: left;">vista perezosa sobre uno o muchos Parquet</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>write_dataset()</code></td>
+<td style="text-align: left;">arrow</td>
+<td style="text-align: left;">escribe particionado, imponiendo esquema</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>read_parquet(as_data_frame=F)</code></td>
+<td style="text-align: left;">arrow</td>
+<td style="text-align: left;"><code>Table</code> de Arrow, sin pasar a R</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>s3_bucket()</code></td>
+<td style="text-align: left;">arrow</td>
+<td style="text-align: left;">un <em>bucket</em> de la nube como directorio</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>dbConnect(duckdb())</code></td>
+<td style="text-align: left;">duckdb</td>
+<td style="text-align: left;">abre el motor DuckDB (memoria o fichero)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>read_parquet(’...’)</code> (en SQL)</td>
+<td style="text-align: left;">duckdb</td>
+<td style="text-align: left;">consulta un Parquet sin importarlo</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>duckdb_register()</code></td>
+<td style="text-align: left;">duckdb</td>
+<td style="text-align: left;">registra un <em>data frame</em> de R como tabla</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>read_parquet_duckdb()</code></td>
+<td style="text-align: left;">duckplyr</td>
+<td style="text-align: left;">frame perezoso con motor DuckDB</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>explain()</code></td>
+<td style="text-align: left;">duckplyr</td>
+<td style="text-align: left;">imprime el plan de consulta</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>compute()</code> / <code>collect()</code></td>
+<td style="text-align: left;">dplyr</td>
+<td style="text-align: left;">materializa en el motor / trae a R</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>to_duckdb()</code> / <code>show_query()</code></td>
+<td style="text-align: left;">arrow/dbplyr</td>
+<td style="text-align: left;">puente a DuckDB / ve el SQL</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li><p><strong>Primero pregunta el tamaño.</strong> Si el dato cabe holgado en la RAM, usa <code>dplyr</code> normal; toda la maquinaria de este capítulo es para cuando no.</p></li>
+<li><p><strong>Filtra y proyecta pronto.</strong> <code>select()</code> y <code>filter()</code> al principio de la tubería activan los empujones y deciden cuánto se lee.</p></li>
+<li><p><strong>Materializa tarde.</strong> <code>collect()</code> solo cuando el dato ya está agregado; lo que cruza a R debe ser pequeño.</p></li>
+<li><p><strong>Limpia en el motor.</strong> El filtro de plausibilidad se aplica antes de agregar, no después; a esta escala es la única inspección posible.</p></li>
+<li><p><strong>La gramática es una, los motores muchos.</strong> El mismo código corre sobre <code>data.frame</code>, arrow, DuckDB y <code>data.table</code>: elegir motor es elegir escala, no sintaxis.</p></li>
+</ol>
+</section>
+<section id="diez-preguntas-antes-de-escalar" class="level2">
+<h2 class="anchored" data-anchor-id="diez-preguntas-antes-de-escalar">Diez preguntas antes de escalar</h2>
+<p>Antes de montar la maquinaria de este capítulo, conviene detenerse en diez preguntas que, respondidas con honestidad, evitan tanto quedarse corto como pasarse de frenada:</p>
+<ol type="1">
+<li><p><strong>¿Cuánto pesa el dato de verdad?</strong> No en disco comprimido, sino materializado en RAM: un Parquet de 200&nbsp;MB puede ser un <em>data frame</em> de varios gigabytes. Mídelo antes de decidir.</p></li>
+<li><p><strong>¿Cuánta RAM tengo disponible?</strong> La regla prudente es no pasar de un tercio: el sistema, R y las copias intermedias necesitan el resto.</p></li>
+<li><p><strong>¿La pregunta resume o transforma?</strong> Una agregación escala casi sin límite en flujo; ordenar o unir toda la tabla necesita mucho más estado.</p></li>
+<li><p><strong>¿Voy a preguntar una vez o mil?</strong> Un análisis único no justifica particionar; uno recurrente, sí.</p></li>
+<li><p><strong>¿Por qué eje filtraré casi siempre?</strong> Esa es la columna de partición natural, casi siempre el tiempo.</p></li>
+<li><p><strong>¿El dato está limpio?</strong> A esta escala, los valores imposibles no se ven; hay que filtrarlos por plausibilidad antes de agregar.</p></li>
+<li><p><strong>¿Necesito todas las columnas?</strong> Casi nunca; nombrar solo las que uso activa el empujón de proyección.</p></li>
+<li><p><strong>¿La pregunta es SQL o es tubería?</strong> Si se piensa en cláusulas, SQL directo; si se piensa en verbos encadenados, la gramática.</p></li>
+<li><p><strong>¿Dónde cruza el dato del motor a R?</strong> Debe ser al final y ya agregado; si son millones de filas, algo se materializó pronto.</p></li>
+<li><p><strong>¿Cabía en memoria desde el principio?</strong> Si la respuesta sincera es sí, cierra este capítulo y usa <code>dplyr</code>: has ganado tiempo.</p></li>
+</ol>
+</section>
+<section id="errores-frecuentes-con-datos-a-gran-escala" class="level2">
+<h2 class="anchored" data-anchor-id="errores-frecuentes-con-datos-a-gran-escala">Errores frecuentes con datos a gran escala</h2>
+<ol type="1">
+<li><p><strong>Cargar antes de filtrar.</strong> Llamar a <code>collect()</code> al principio de la tubería y filtrar en R materializa el dato entero, justo lo que se quería evitar. Poner <code>filter()</code> y <code>select()</code> <em>antes</em> del <code>collect()</code> activa los empujones y trae solo lo necesario.</p></li>
+<li><p><strong><code>collect()</code> prematuro.</strong> Materializar una tabla intermedia «para verla» rompe el flujo y puede reventar la memoria. Posponer <code>collect()</code> al último paso; para inspeccionar, usar <code>head()</code> sobre la consulta perezosa.</p></li>
+<li><p><strong>Confundir el <em>dataset</em> con una tabla.</strong> <code>open_dataset()</code> devuelve una promesa, no un <em>data frame</em>: no tiene filas cargadas y no se puede indexar con <code>[</code> como una tabla. Se consulta con verbos y se materializa con <code>collect()</code>.</p></li>
+<li><p><strong>Particionar por una columna de alta cardinalidad.</strong> Miles de ficheros diminutos (el problema de los <em>small files</em>) hacen las consultas más lentas, no más rápidas. Particionar por la columna sobre la que se filtra, buscando ficheros de decenas de megabytes.</p></li>
+<li><p><strong>Olvidar el filtro de calidad a escala.</strong> A 41&nbsp;millones de filas, unas pocas con marcas de tiempo imposibles o importes negativos contaminan cualquier media. Filtrar lo inverosímil antes de agregar, y no fiarse de que «con tantos datos, los errores se diluyen».</p></li>
+<li><p><strong>Leer el cero como dato.</strong> La propina en efectivo valía cero porque no se registra, no porque no exista. La escala esconde estos ceros estructurales: hay que conocer el dato, no solo procesarlo.</p></li>
+<li><p><strong>Materializar a escondidas.</strong> Encadenar una función que DuckDB no traduce sobre un frame tacaño falla <em>a propósito</em>: es la salvaguarda de la prudencia. Antes de subir a <code>prudence = "lavish"</code>, comprobar que el dato cabe; si no cabe, reescribir la operación en términos que el motor entienda.</p></li>
+<li><p><strong>Reabrir la conexión en cada consulta.</strong> Crear y cerrar un <code>dbConnect(duckdb())</code> por consulta desperdicia el arranque del motor. Abrir una vez, reutilizar, cerrar con <code>dbDisconnect(con, shutdown = TRUE)</code> al final.</p></li>
+<li><p><strong>Sobreingeniería.</strong> Montar DuckDB y particionar para diez mil filas añade complejidad sin ganancia. Si cabe en memoria, <code>dplyr</code> normal.</p></li>
+<li><p><strong>Suponer que arrow traduce todo.</strong> El motor de arrow cubre mucho pero no todo; una función no soportada obliga a materializar. Dejar las operaciones exóticas para después del <code>collect()</code>, con el dato ya pequeño.</p></li>
+<li><p><strong>Medir la escala en disco, no en memoria.</strong> Un Parquet de 200&nbsp;MB comprimido puede desplegarse en varios gigabytes al materializarlo. La decisión de motor se toma sobre el tamaño en RAM, no sobre el del fichero, y conviene estimarlo antes de un <code>collect()</code> incauto.</p></li>
+<li><p><strong>Ignorar el sesgo al resumir.</strong> A gran escala es tentador quedarse con la media de todo, pero una variable sesgada —distancias, importes— pide mediana y cuantiles. El motor calcula <code>quantile()</code> tan barato como <code>mean()</code>; no hay excusa para informar solo el promedio.</p></li>
+</ol>
+</section>
+<section id="lecturas-recomendadas" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="lecturas-recomendadas">Lecturas recomendadas</h2>
+<p>El argumento columnar y la distinción entre cargas transaccionales y analíticas están expuestos con claridad ejemplar en <span class="citation" data-cites="kleppmann2017ddia">Kleppmann (<a href="#ref-kleppmann2017ddia" role="doc-biblioref">2017</a>)</span>, lectura de cabecera para entender por qué existen herramientas como estas; el diseño columnar analítico que las funda se sistematiza en <span class="citation" data-cites="abadi2013column">Abadi et&nbsp;al. (<a href="#ref-abadi2013column" role="doc-biblioref">2013</a>)</span>, y su origen —evaluar por lotes que caben en la caché— en el trabajo sobre MonetDB/X100 de <span class="citation" data-cites="boncz2005monetdb">Boncz et&nbsp;al. (<a href="#ref-boncz2005monetdb" role="doc-biblioref">2005</a>)</span>. Para el formato que todo lo conecta, la documentación de Apache Arrow <span class="citation" data-cites="arrowdocs">(<a href="#ref-arrowdocs" role="doc-biblioref">Apache Software Foundation 2026a</a>)</span> y la de Parquet <span class="citation" data-cites="parquetdocs">(<a href="#ref-parquetdocs" role="doc-biblioref">Apache Software Foundation 2026b</a>)</span> explican la pareja memoria/disco con detalle; la del paquete arrow de R traduce esos conceptos a <code>open_dataset()</code> y <code>write_dataset()</code>. DuckDB se presenta en su artículo fundacional <span class="citation" data-cites="duckdb2019">(<a href="#ref-duckdb2019" role="doc-biblioref">Raasveldt y Mühleisen 2019</a>)</span> y, en profundidad práctica, en su documentación <span class="citation" data-cites="duckdbdocs">(<a href="#ref-duckdbdocs" role="doc-biblioref">DuckDB Foundation 2026</a>)</span>, que cubre la lectura directa de Parquet, el motor en flujo y los ajustes de memoria y paralelismo. duckplyr, la bisagra entre <code>dplyr</code> y DuckDB, documenta su modelo perezoso y su sistema de prudencia en <span class="citation" data-cites="duckplyrdocs">(<a href="#ref-duckplyrdocs" role="doc-biblioref"><span class="nocase">duckplyr authors</span> 2025</a>)</span> —la viñeta sobre <em>prudence</em> merece una lectura atenta antes de trabajar con datos que rocen la RAM—; y <code>dbplyr</code> <span class="citation" data-cites="dbplyrdocs">(<a href="#ref-dbplyrdocs" role="doc-biblioref">Wickham et&nbsp;al. 2025</a>)</span> completa el cuadro con la traducción de <code>dplyr</code> a cualquier base SQL, extendiendo a servidores remotos todo lo aprendido aquí. Quien quiera medir sobre datos reales encontrará en el conjunto de viajes de taxi de Nueva York <span class="citation" data-cites="nyctlc">(<a href="#ref-nyctlc" role="doc-biblioref">New York City Taxi and Limousine Commission 2024</a>)</span> —público, voluminoso y sucio a partes iguales— el mejor banco de pruebas: nada enseña la gran escala como tropezar con sus trampas en un dato que no cabe en la pantalla. Antes de cerrar, perfilemos ese dato para ver la maquinaria trabajando junta.</p>
+<section id="un-perfil-del-año-en-cuatro-preguntas" class="level3">
+<h3 class="anchored" data-anchor-id="un-perfil-del-año-en-cuatro-preguntas">Un perfil del año en cuatro preguntas</h3>
+<p>Cuatro consultas, cada una un barrido completo de los 41&nbsp;millones de viajes, cada una devolviendo un puñado de filas. Primero, el pulso semanal: ¿qué día se coge más el taxi?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>tv <span class="sc">|&gt;</span> <span class="fu">filter</span>(fare_amount <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dow =</span> <span class="fu">wday</span>(tpep_pickup_datetime)) <span class="sc">|&gt;</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">tarifa =</span> <span class="fu">round</span>(<span class="fu">mean</span>(fare_amount), <span class="dv">2</span>), <span class="at">.by =</span> dow) <span class="sc">|&gt;</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(dow) <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; jueves 6 319 959 viajes (el pico); domingo 5 165 221 (el valle), pero</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; con la tarifa media mas alta, 20.89 $ -- menos viajes, mas largos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El jueves mueve un veintidós por ciento más de viajes que el domingo, pero el domingo los cobra más caros: menos trayectos, pero más largos —salidas de fin de semana, carreras al aeropuerto—. Segundo, el dinero: ¿cuánto facturó el sector?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>tv <span class="sc">|&gt;</span> <span class="fu">filter</span>(total_amount <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">ingreso_M =</span> <span class="fu">round</span>(<span class="fu">sum</span>(total_amount) <span class="sc">/</span> <span class="fl">1e6</span>, <span class="dv">1</span>), <span class="at">.by =</span> mes) <span class="sc">|&gt;</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>()</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; enero 80.3, febrero 81.0, marzo 98.3, abril 97.8 (millones de dolares)...</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; suma anual: ~1163 millones de dolares</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Mil ciento sesenta y tres millones de dólares en un año, sumados viaje a viaje sobre 41&nbsp;millones de filas, en una décima de segundo y sin que R viera más que doce cifras. La primavera —marzo, abril— factura más de un veinte por ciento por encima de enero: la ciudad se mueve más cuando mejora el tiempo. Tercero, la forma de la distancia, que ningún promedio captura por sí solo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37" data-language="R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>tv <span class="sc">|&gt;</span> <span class="fu">filter</span>(trip_distance <span class="sc">&gt;</span> <span class="dv">0</span>, trip_distance <span class="sc">&lt;</span> <span class="dv">100</span>) <span class="sc">|&gt;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mediana =</span> <span class="fu">median</span>(trip_distance),</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">p90 =</span> <span class="fu">quantile</span>(trip_distance, <span class="fl">0.9</span>),</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">media =</span> <span class="fu">mean</span>(trip_distance)) <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; mediana 1.8 millas | p90 8.9 | media 3.43</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La media (3,43) casi dobla a la mediana (1,8): la distribución está sesgada a la derecha, como casi todo en la naturaleza y la ciudad —muchos trayectos cortos de barrio, unos pocos larguísimos al aeropuerto que estiran la media—. Es el aviso del cap.&nbsp;8 confirmado a 41&nbsp;millones de filas: informar solo la media de una variable sesgada engaña, y la mediana con un cuantil alto cuenta mucho mejor la historia. Y cuarto, ya lo vimos, el patrón horario de la figura&nbsp;9.8. Cuatro preguntas, cuatro barridos completos, ni una sola fila de más en la RAM: el perfil de un año entero de una ciudad, destilado en unas pocas decenas de números que sí caben en la cabeza. Esa es la promesa cumplida —el motor recorre lo enorme, R recibe lo pequeño, y el analista piensa sobre lo que importa—.</p>
+<p>Vale la pena situar estas herramientas en su momento. Durante años, «datos grandes» significó un clúster: repartir el trabajo entre muchas máquinas porque una sola no daba abasto, con toda la complejidad de coordinación que eso arrastra. La última década ha dado un giro silencioso pero profundo: los portátiles tienen ahora ocho o dieciséis núcleos y decenas de gigabytes de RAM, los discos de estado sólido leen a gigabytes por segundo, y motores como DuckDB están diseñados para exprimir esa máquina única hasta el último ciclo. El resultado es que una fracción enorme de lo que antes pedía un clúster hoy corre —más rápido, más barato y sin coordinación— en el ordenador que se tiene delante. Esa es la corriente de fondo del capítulo: no se trata de domar sistemas distribuidos, sino de descubrir cuánta escala cabe en una sola máquina bien usada. El clúster sigue existiendo para lo verdaderamente colosal, pero la frontera a la que hace falta cruzarlo se ha alejado tanto que la mayoría de los proyectos ya no la alcanzan. Aprender arrow, DuckDB y duckplyr es aprender a aprovechar esa frontera desplazada.</p>
+<p>Para quien quiera profundizar en cada pieza, el orden natural sigue al del capítulo. El formato columnar y su porqué —la caché, las instrucciones que operan sobre varios valores, la diferencia entre cargas transaccionales y analíticas— están tratados con rigor y sin jerga en el manual de referencia sobre sistemas de datos <span class="citation" data-cites="kleppmann2017ddia">(<a href="#ref-kleppmann2017ddia" role="doc-biblioref">Kleppmann 2017</a>)</span>; su capítulo sobre almacenamiento y recuperación es la mejor media hora que puede invertir quien vaya a trabajar a escala. La documentación del paquete arrow de R, además de la referencia de funciones, incluye guías sobre <em>datasets</em> y particionado que conviene leer antes de diseñar un lago de datos propio, porque las decisiones de partición son caras de deshacer. Y la de DuckDB destaca por su honestidad: explica no solo lo que el motor hace bien, sino sus límites de memoria y cuándo vuelca a disco, un tipo de documentación poco frecuente y muy valioso.</p>
+<p>Merece la pena, por último, una lectura lateral. Buena parte de las ideas de este capítulo —ejecución perezosa, plan de consulta, optimización antes de tocar los datos— nacieron en el mundo de las bases de datos décadas antes de llegar a la ciencia de datos, y el trabajo seminal sobre procesamiento columnar analítico <span class="citation" data-cites="abadi2013column boncz2005monetdb">(<a href="#ref-abadi2013column" role="doc-biblioref">Abadi et&nbsp;al. 2013</a>; <a href="#ref-boncz2005monetdb" role="doc-biblioref">Boncz et&nbsp;al. 2005</a>)</span> sigue siendo esclarecedor pese a su edad: entender de dónde vienen estas herramientas ayuda a usarlas con criterio y a no tratarlas como cajas mágicas. Estas ideas —ejecución perezosa, plan optimizado, formato columnar— son hoy patrimonio común de los motores analíticos modernos; la particularidad de R es que su gramática tabular —<code>dplyr</code>— se mantiene idéntica sobre todos ellos, de modo que el conocimiento no caduca al cambiar de herramienta. Esa estabilidad de la interfaz, más que la velocidad de ningún motor concreto, es la ventaja duradera que conviene apreciar.</p>
+<p>Merece un cierre honesto sobre el lugar de este capítulo en el oficio. Nada de lo de aquí es imprescindible para empezar a analizar datos: se puede llegar lejos con el <code>dplyr</code> del capítulo anterior y no tocar jamás un motor perezoso, porque la inmensa mayoría de los conjuntos con los que uno trabaja caben en memoria. Lo que cambia cuando se conocen arrow, DuckDB y duckplyr no es tanto lo que se puede hacer como lo que se deja de temer: el dato que crece deja de ser una amenaza que obliga a reescribirlo todo, y pasa a ser un cambio de motor bajo la misma gramática. Esa tranquilidad —saber que la herramienta escala contigo— es la que permite aceptar proyectos más ambiciosos sin miedo a chocar contra un muro de memoria. Y el criterio que la acompaña —empezar simple, subir de motor solo cuando el dato lo pida, no antes— es transferible a casi cualquier decisión de ingeniería: la complejidad se gana, no se presupone.</p>
+<p>Con arrow, DuckDB y duckplyr en las manos, el volumen deja de ser una frontera: la misma gramática que aprendimos para tablas pequeñas escala, sin reescribirse, a las que no caben. Y con el criterio para elegir motor —simple mientras se pueda, potente cuando haga falta—, el lector está listo para lo que sigue, donde el dato, ya domesticado a cualquier escala, se convierte en la materia del análisis estadístico y del modelo: el paso de describir lo que hay a inferir lo que significa.</p>
 
 
 
-</main> <!-- /main -->
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-abadi2013column" class="csl-entry" role="listitem">
+Abadi, Daniel, Peter Boncz, Stavros Harizopoulos, Stratos Idreos, y Samuel Madden. 2013. <span>«The Design and Implementation of Modern Column-Oriented Database Systems»</span>. <em>Foundations and Trends in Databases</em> 5 (3): 197-280. <a href="https://doi.org/10.1561/1900000024">https://doi.org/10.1561/1900000024</a>.
+</div>
+<div id="ref-arrowdocs" class="csl-entry" role="listitem">
+Apache Software Foundation. 2026a. <span>«Apache Arrow Documentation»</span>. Apache Software Foundation. <a href="https://arrow.apache.org/docs/">https://arrow.apache.org/docs/</a>.
+</div>
+<div id="ref-parquetdocs" class="csl-entry" role="listitem">
+Apache Software Foundation. 2026b. <span>«Apache Parquet Documentation»</span>. Apache Software Foundation. <a href="https://parquet.apache.org/docs/">https://parquet.apache.org/docs/</a>.
+</div>
+<div id="ref-boncz2005monetdb" class="csl-entry" role="listitem">
+Boncz, Peter, Marcin Zukowski, y Niels Nes. 2005. <span>«<span>MonetDB/X100</span>: Hyper-Pipelining Query Execution»</span>. <em>Second Biennial Conference on Innovative Data Systems Research (<span>CIDR</span> 2005), Asilomar, <span>CA</span></em>, 225-37. <a href="https://www.cidrdb.org/cidr2005/papers/P19.pdf">https://www.cidrdb.org/cidr2005/papers/P19.pdf</a>.
+</div>
+<div id="ref-duckdbdocs" class="csl-entry" role="listitem">
+DuckDB Foundation. 2026. <span>«DuckDB Documentation»</span>. <a href="https://duckdb.org/docs/">https://duckdb.org/docs/</a>.
+</div>
+<div id="ref-duckplyrdocs" class="csl-entry" role="listitem">
+<span class="nocase">duckplyr authors</span>. 2025. <em><span>duckplyr</span>: A <span>DuckDB</span>-Backed Version of <span>dplyr</span></em>. <a href="https://duckplyr.tidyverse.org/" class="uri">Https://duckplyr.tidyverse.org/</a>.
+</div>
+<div id="ref-kleppmann2017ddia" class="csl-entry" role="listitem">
+Kleppmann, Martin. 2017. <em>Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems</em>. O’Reilly Media. <a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/">https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/</a>.
+</div>
+<div id="ref-nyctlc" class="csl-entry" role="listitem">
+New York City Taxi and Limousine Commission. 2024. <span>«TLC Trip Record Data»</span>. <a href="https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page">https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page</a>.
+</div>
+<div id="ref-duckdb2019" class="csl-entry" role="listitem">
+Raasveldt, Mark, y Hannes Mühleisen. 2019. <span>«<span>DuckDB</span>: an Embeddable Analytical Database»</span>. <em>Proceedings of the 2019 International Conference on Management of Data (SIGMOD ’19)</em> (New York, NY, USA), 1981-84. <a href="https://doi.org/10.1145/3299869.3320212">https://doi.org/10.1145/3299869.3320212</a>.
+</div>
+<div id="ref-dbplyrdocs" class="csl-entry" role="listitem">
+Wickham, Hadley, Maximilian Girlich, y Edgar Ruiz. 2025. <span>«<span>dbplyr</span>: A <span>dplyr</span> Back End for Databases»</span>. <a href="https://dbplyr.tidyverse.org/">https://dbplyr.tidyverse.org/</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -695,6 +1737,19 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2026 Manuel Muñoz Plá · Edición web bajo licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es">CC BY-NC-ND 4.0</a> (uso académico con atribución; sin uso comercial ni obras derivadas) · El código va aparte bajo licencia MIT</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
