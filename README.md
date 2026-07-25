@@ -3,9 +3,9 @@
 **Manuel Muñoz Plá**
 
 Manual de introducción a la **programación para la ciencia de datos** con R,
-del nivel principiante al universitario avanzado, actualizado al estado del
-arte de 2026 (`renv`, `targets`, tidyverse, `duckdb`/`duckplyr`, arrow,
-tidymodels). El caso transversal es la **música** (Spotify Tracks Dataset).
+actualizado al estado del arte de 2026 (`renv`, `targets`, tidyverse,
+`duckdb`/`duckplyr`, arrow, tidymodels). El caso transversal es la
+**música** (Spotify Tracks Dataset).
 Dieciséis capítulos, volumen hermano de *Python para la Ciencia de Datos*.
 
 Este repositorio reúne una **vista previa web navegable** del libro y el
