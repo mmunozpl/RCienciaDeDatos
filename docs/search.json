@@ -1104,7 +1104,7 @@
     "href": "index.html",
     "title": "R para la Ciencia de Datos",
     "section": "",
-    "text": "Edición web generada desde el libro LaTeX. Navega por los capítulos en la barra lateral o desde el índice siguiente.",
+    "text": "Edición web generada desde el libro LaTeX. Navega por los capítulos en la barra lateral o desde el índice siguiente.\nManual de introducción a la programación para la ciencia de datos con R, actualizado al estado del arte de 2026 (renv, targets, tidyverse, duckdb/duckplyr, arrow, tidymodels). El caso transversal es la música (Spotify Tracks Dataset). Dieciséis capítulos en cinco partes: Fundamentos del lenguaje, Estructuras de datos y diseño de programas, El stack numérico y tabular, Datos, estadística y visualización y Modelado, ingeniería y responsabilidad. Volumen hermano de Python para la Ciencia de Datos.",
     "crumbs": [
       "Inicio"
     ]
