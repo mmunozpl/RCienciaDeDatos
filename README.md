@@ -1,83 +1,89 @@
-# R para la Ciencia de Datos
+# R for Data Science
+
+🇬🇧 English · 🇪🇸 [Español](LEEME.md)
 
 **Manuel Muñoz Plá**
 
-Manual de introducción a la **programación para la ciencia de datos** con R,
-actualizado al estado del arte de 2026 (`renv`, `targets`, tidyverse,
-`duckdb`/`duckplyr`, arrow, tidymodels). El caso transversal es la
-**música** (Spotify Tracks Dataset).
-Dieciséis capítulos, volumen hermano de *Python para la Ciencia de Datos*.
+An introduction to **programming for data science** with R, brought up to
+2026 state of the art (`renv`, `targets`, tidyverse, `duckdb`/`duckplyr`,
+arrow, tidymodels). The running case study is **music** (Spotify Tracks
+Dataset). Sixteen chapters, sister volume to *Python for Data Science*.
 
-Este repositorio reúne una **vista previa web navegable** del libro y el
-**código reproducible** que genera cada resultado. Los ejercicios de cada
-capítulo, sus soluciones y los apéndices están en la **obra completa** (papel,
-PDF y EPUB), que se distribuye por separado.
+This repository holds a **browsable web preview** of the book and the
+**reproducible code** behind every result. Each chapter's exercises, their
+solutions, and the appendices live in the **complete work** (print, PDF and
+EPUB), distributed separately.
 
-> 📘 **Ficha del libro** y más obras del autor: [manpla.net/libros/r-ciencia-datos](https://manpla.net/libros/r-ciencia-datos/)
-
-## Contenido
+## Contents
 
 ```
 .
-├── docs/                 # edición web (Quarto): un HTML por capítulo, figuras
-│                         #   SVG, buscador y matemáticas
-├── src/                  # un módulo R reproducible por capítulo
-├── data/                 # los datos que el código y las figuras consumen
-├── binder/               # entorno reproducible para mybinder.org (RStudio en
-│                         #   la nube)
+├── docs/                 # web edition (Quarto): one HTML page per chapter,
+│                         #   SVG figures, search and math
+├── src/                  # one reproducible R module per chapter
+├── data/                 # the data the code and figures consume
+├── binder/               # reproducible environment for mybinder.org (RStudio
+│                         #   in the cloud)
+├── renv.lock             # exact versions (bit-for-bit reproducibility)
+├── .Rprofile, renv/      # auto-bootstraps renv when the project is opened
 └── CITATION.cff
 ```
 
-## Leer el libro
+## Read the book
 
-La edición web (16 capítulos, con buscador y matemáticas) se publica con
-GitHub Pages desde `docs/`:
+The web edition (16 chapters, with search and math) is published with GitHub
+Pages from `docs/`:
 
 > https://mmunozpl.github.io/RCienciaDeDatos/
 
-Cada capítulo se compone con figuras vectoriales SVG renderizadas con el mismo
-pdfLaTeX del libro, de modo que las referencias y los números de figura, tabla
-y listado son los del texto impreso.
+Each chapter is composed with vector SVG figures rendered with the same
+pdfLaTeX as the book, so references and figure/table/listing numbers match the
+printed text.
 
-## Ejecutar el código
+## Run the code
 
-Cada capítulo trae un módulo reproducible en `src/capNN_*.R`, determinista
-con semilla fija:
+Each chapter ships a reproducible module in `src/capNN_*.R`, seeded for
+determinism. `renv.lock` pins the exact versions the book was verified
+against (chapter 1 covers `renv` in depth):
+
+```r
+install.packages("renv")
+renv::restore()                   # installs EXACTLY what renv.lock says
+```
 
 ```bash
-Rscript binder/install.R          # instala los paquetes (una vez)
 Rscript src/cap01_entorno.R
 ```
 
-Además, cada capítulo de la web trae un botón **«Ejecutar este capítulo en
-Binder»** que abre RStudio en la nube, con el entorno y los datos ya listos,
-sin instalar nada.
+Every chapter on the web edition also has a **"Run this chapter in Binder"**
+button that opens RStudio in the cloud, with the environment and data already
+set up — nothing to install.
 
-## Licencia
+## License
 
 © 2026 **Manuel Muñoz Plá**.
 
-| Parte | Qué es | Licencia |
+| Part | What it is | License |
 |---|---|---|
-| `src/`, `data/`, `binder/` | Código reproducible, datos e infraestructura | [MIT](src/LICENSE) — uso libre |
-| `docs/` | Texto del libro (edición web) | [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es) — leer y compartir con atribución; sin uso comercial ni obras derivadas |
+| `src/`, `data/`, `binder/` | Reproducible code, data and infrastructure | [MIT](src/LICENSE) — free to use |
+| `docs/` | Book text (web edition) | [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) — read and share with attribution; no commercial use or derivative works |
 
-La **obra completa** —con los ejercicios de cada capítulo, sus soluciones y
-los apéndices— se publica en papel, PDF y EPUB con todos los derechos
-reservados.
+The **complete work** —with each chapter's exercises, their solutions, and the
+appendices— is published in print, PDF and EPUB, all rights reserved.
 
-Que el texto lleve una licencia restrictiva **no limita el uso del código**:
-puedes llevarte los módulos de `src/` o el entorno de `binder/` a un
-proyecto propio, incluso comercial, en los términos de la licencia MIT.
+The text carrying a restrictive license does **not limit use of the code**:
+you're free to take the modules in `src/` or the environment in `binder/`
+into a project of your own, commercial included, under the terms of the MIT
+license.
 
-Los datos de música de `data/` proceden del *Spotify Tracks Dataset* de
-maharshipandya (Hugging Face), publicado bajo licencia BSD (con espejos CC0), y
-no están cubiertos por la licencia de esta obra.
+The music data in `data/` comes from the *Spotify Tracks Dataset* by
+maharshipandya (Hugging Face), published under the BSD license (with CC0
+mirrors), and is not covered by this work's license.
 
-## Cómo citar
+## How to cite
 
-Si mencionas o usas esta obra, cítala así (GitHub también ofrece el botón
-«Cite this repository», generado desde `CITATION.cff`):
+If you mention or use this work, please cite it like this (GitHub also offers
+a "Cite this repository" button, generated from `CITATION.cff`):
 
 ```bibtex
 @book{munozpla2026rcienciadedatos,
@@ -91,4 +97,4 @@ Si mencionas o usas esta obra, cítala así (GitHub también ofrece el botón
 
 ---
 
-*Autor: Manuel Muñoz Plá.*
+*Author: Manuel Muñoz Plá.*
