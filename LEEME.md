@@ -4,6 +4,8 @@
 
 **Manuel Muñoz Plá**
 
+[![Cite](https://img.shields.io/badge/Cite-BibTeX-009e73)](#cómo-citar)
+
 Manual de introducción a la **programación para la ciencia de datos** con R,
 actualizado al estado del arte de 2026 (`renv`, `targets`, tidyverse,
 `duckdb`/`duckplyr`, arrow, tidymodels). El caso transversal es la
@@ -15,12 +17,12 @@ Este repositorio reúne una **vista previa web navegable** del libro y el
 capítulo, sus soluciones y los apéndices están en la **obra completa** (papel,
 PDF y EPUB), que se distribuye por separado.
 
+> 📘 **Ficha del libro** y más obras del autor: [manpla.net/libros/r-ciencia-datos](https://manpla.net/libros/r-ciencia-datos/)
+
 ## Contenido
 
 ```
 .
-├── docs/                 # edición web (Quarto): un HTML por capítulo, figuras
-│                         #   SVG, buscador y matemáticas
 ├── src/                  # un módulo R reproducible por capítulo
 ├── data/                 # los datos que el código y las figuras consumen
 ├── binder/               # entorno reproducible para mybinder.org (RStudio en
@@ -30,16 +32,20 @@ PDF y EPUB), que se distribuye por separado.
 └── CITATION.cff
 ```
 
+La edición web no vive aquí: se lee en manpla.net, enlazada más abajo.
+
 ## Leer el libro
 
-La edición web (16 capítulos, con buscador y matemáticas) se publica con
-GitHub Pages desde `docs/`:
+La edición web —16 capítulos, con buscador y matemáticas— se publica en el
+sitio del autor:
 
-> https://mmunozpl.github.io/RCienciaDeDatos/
+> https://manpla.net/libros/r-ciencia-datos/
 
-Cada capítulo se compone con figuras vectoriales SVG renderizadas con el mismo
-pdfLaTeX del libro, de modo que las referencias y los números de figura, tabla
-y listado son los del texto impreso.
+Cada capítulo es una página de manpla.net, con su propia navegación, y se
+compone con figuras vectoriales SVG renderizadas con el mismo pdfLaTeX del
+libro, de modo que las referencias y los números de figura, tabla y listado
+son los del texto impreso. Este repositorio guarda el código y los datos que
+la respaldan.
 
 ## Ejecutar el código
 
@@ -67,7 +73,7 @@ sin instalar nada.
 | Parte | Qué es | Licencia |
 |---|---|---|
 | `src/`, `data/`, `binder/` | Código reproducible, datos e infraestructura | [MIT](src/LICENSE) — uso libre |
-| `docs/` | Texto del libro (edición web) | [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es) — leer y compartir con atribución; sin uso comercial ni obras derivadas |
+| Texto del libro (edición web en manpla.net) | La obra | [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es) — leer y compartir con atribución; sin uso comercial ni obras derivadas |
 
 La **obra completa** —con los ejercicios de cada capítulo, sus soluciones y
 los apéndices— se publica en papel, PDF y EPUB con todos los derechos
@@ -92,7 +98,7 @@ Si mencionas o usas esta obra, cítala así (GitHub también ofrece el botón
   title     = {R para la Ciencia de Datos},
   year      = {2026},
   publisher = {qWORD.dev},
-  url       = {https://mmunozpl.github.io/RCienciaDeDatos/}
+  url       = {https://manpla.net/libros/r-ciencia-datos/}
 }
 ```
 

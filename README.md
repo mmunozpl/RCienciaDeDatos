@@ -4,6 +4,8 @@
 
 **Manuel Muñoz Plá**
 
+[![Cite](https://img.shields.io/badge/Cite-BibTeX-009e73)](#how-to-cite)
+
 An introduction to **programming for data science** with R, brought up to
 2026 state of the art (`renv`, `targets`, tidyverse, `duckdb`/`duckplyr`,
 arrow, tidymodels). The running case study is **music** (Spotify Tracks
@@ -14,12 +16,12 @@ This repository holds a **browsable web preview** of the book and the
 solutions, and the appendices live in the **complete work** (print, PDF and
 EPUB), distributed separately.
 
+> 📘 **Book page** and more of the author's work: [manpla.net/libros/r-ciencia-datos](https://manpla.net/libros/r-ciencia-datos/)
+
 ## Contents
 
 ```
 .
-├── docs/                 # web edition (Quarto): one HTML page per chapter,
-│                         #   SVG figures, search and math
 ├── src/                  # one reproducible R module per chapter
 ├── data/                 # the data the code and figures consume
 ├── binder/               # reproducible environment for mybinder.org (RStudio
@@ -29,16 +31,19 @@ EPUB), distributed separately.
 └── CITATION.cff
 ```
 
+The web edition does not live here: it is read on manpla.net, linked below.
+
 ## Read the book
 
-The web edition (16 chapters, with search and math) is published with GitHub
-Pages from `docs/`:
+The web edition —16 chapters, with search and maths— is published on the
+author's site:
 
-> https://mmunozpl.github.io/RCienciaDeDatos/
+> https://manpla.net/libros/r-ciencia-datos/
 
-Each chapter is composed with vector SVG figures rendered with the same
-pdfLaTeX as the book, so references and figure/table/listing numbers match the
-printed text.
+Each chapter is a page of manpla.net, with its own navigation, and is composed
+with vector SVG figures rendered with the same pdfLaTeX as the book, so
+references and figure/table/listing numbers match the printed text. This
+repository holds the code and the data behind it.
 
 ## Run the code
 
@@ -66,7 +71,7 @@ set up — nothing to install.
 | Part | What it is | License |
 |---|---|---|
 | `src/`, `data/`, `binder/` | Reproducible code, data and infrastructure | [MIT](src/LICENSE) — free to use |
-| `docs/` | Book text (web edition) | [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) — read and share with attribution; no commercial use or derivative works |
+| Book text (web edition on manpla.net) | The work itself | [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) — read and share with attribution; no commercial use or derivative works |
 
 The **complete work** —with each chapter's exercises, their solutions, and the
 appendices— is published in print, PDF and EPUB, all rights reserved.
@@ -91,7 +96,7 @@ a "Cite this repository" button, generated from `CITATION.cff`):
   title     = {R para la Ciencia de Datos},
   year      = {2026},
   publisher = {qWORD.dev},
-  url       = {https://mmunozpl.github.io/RCienciaDeDatos/}
+  url       = {https://manpla.net/libros/r-ciencia-datos/}
 }
 ```
 
